@@ -1,0 +1,58 @@
+<div class="panel">
+
+  <table class="tabla_medallas">
+    <tr>
+      <th class="titulo" [ngStyle]="style_titulo">{{titulo}} </th>
+    </tr>
+  </table>
+
+  <div #panel class="panel_tabla">
+
+    <table class="tabla" [ngStyle]="style">
+
+      <tr *ngFor="let row of tableData">
+        <td class="columna marcar">
+          <span>{{row.HoraProgramada | PipeFechaComponent:"hora"}}</span>
+        </td>
+        <td class="columna marcar">
+          <label>{{row.Prueba}}</label>
+        </td>
+        <td class="columna marcar">
+          <span>{{row.Descripcion}}</span>
+        </td>
+        <td class="columna marcar">
+          <div class="circle" [style.background-color]="getColor(row.Estado)">&nbsp;</div>          
+        </td> 
+        <!-- <td class="columna marcar">
+          <span>{{parametro.PLATA}}</span>
+        </td>
+        <td class="columna marcar">
+          <span>{{parametro.BRONCE}}</span>
+        </td>
+        <td class="total">
+          <span>{{parametro.Total}}</span>
+        </td> -->
+      </tr>
+      <!-- <p-column header="Hora" field="HoraProgramada">
+        <ng-template let-col let-fila="rowData" pTemplate="body">
+          {{fila.HoraProgramada | PipeFechaComponent:"hora"}}
+        </ng-template>
+      </p-column>
+      <p-column header="Prueba" field="Prueba">
+        <ng-template let-col let-fila="rowData" pTemplate="body">
+          {{fila.Prueba}}
+          <div class="azul">{{fila.Descripcion}}</div>
+        </ng-template>
+      </p-column>
+      <p-column header="Rama" field="Rama"></p-column>
+      <p-column header="Fase" field="Fase"></p-column>
+      <p-column header="Escenario" field="Escenario"></p-column>
+      <p-column header="Estado" field="Estado">
+        <ng-template let-col let-car="rowData" pTemplate="body">
+          <span [style.color]="getColor(car[col.field])">{{car[col.field]}}</span>
+        </ng-template>
+      </p-column> -->
+    </table>
+  </div>
+
+</div>

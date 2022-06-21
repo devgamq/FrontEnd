@@ -1,0 +1,29 @@
+
+<div class="ui-g ">
+    <div class="ui-g-12" style=" text-align: center;">
+  <p-dropdown [options]="sucesos" [(ngModel)]="selectedValue" [autoWidth]="false" [filter]="true"
+  [panelStyle]="{'min-width':'200px'}"  (onChange)="onChangeSuceso($event)"></p-dropdown>
+    </div>
+<div class="row ui-g-12 acroll">
+<p-dataTable [value]="data" [globalFilter]="gb" sortField="Tiempo" #dt
+ [sortOrder]="1"  [rowStyleClass]="rowStyle"
+ >
+    <p-column [style]="{'width':'1%'}" >
+      <ng-template let-col let-rowData="rowData" let-i="rowIndex" pTemplate type="body" >
+        <p-checkbox name="groupSuceso" [(ngModel)]="selectedDelete" 
+        value="{{rowData.SucesoId}}" inputId="qa{{rowData.SucesoId}}" ></p-checkbox>
+    </ng-template>
+    </p-column>
+    <p-column field="Tiempo" header="Tiempo" [style]="{'width':'5%'}" ></p-column>
+    <p-column field="Parametro" header="Descripción" [style]="{'width':'85%'}"></p-column>
+</p-dataTable>
+</div>
+</div>
+<div class="ui-g" style="text-align:right !important;padding-top: 10px" >   
+        <div class="ui-g-12">
+            <button type="button" pButton icon="ui-icon-delete" (click)="eliminar(dt)" class="ui-button-primary" label="Eliminar"></button>
+          <button type="button" pButton icon="fa-close" (click)="exit()" class="ui-button-danger" label="Cancelar"></button>
+        </div>
+    </div>
+    <p-confirmDialog header="Confirmación" acceptLabel="Si" icon="fa fa-question-circle" width="425"></p-confirmDialog>
+<p-growl [value]="msgs"></p-growl>

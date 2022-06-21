@@ -1,0 +1,14 @@
+<div class="ui-fluid">
+  <div class="ui-g">
+    <div class="ui-g-12">
+      <div class="card card-w-title">
+        <h1>Formulario de Acreditación</h1>
+        <p-panel header="Detalles" [toggleable]="true">
+          <app-detalle [bandera]="banderaStep2" [clearData]="clearDataStep2" (RolOut)="HandleRol($event)" (GrupoOut)="HandleGrupo($event)"
+          [rol]="Rol" [grupo]="Grupo" (restore)="hanldeRestoreStep2($event)"></app-detalle>
+        </p-panel>
+        <p-growl [value]="msg"></p-growl>
+      </div>
+    </div>
+  </div>
+</div>

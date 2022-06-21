@@ -1,0 +1,14 @@
+.estilo
+{
+    padding-left: 60px;
+}
+.tempo input
+{
+    font-size:50px!important;
+    max-width:350px;
+    text-align:center;
+}
+.ui-dialog-titlebar
+{
+    padding: 0px 12px;
+}

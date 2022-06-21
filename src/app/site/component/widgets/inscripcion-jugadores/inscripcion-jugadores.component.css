@@ -1,0 +1,64 @@
+.titulo{
+    min-width: 100px;
+}
+.centrar
+{
+    text-align: center;
+}
+.left
+{
+    text-align: left;
+}
+.ui-dropdown-item.ui-state-highlight {
+        background-color: #76A2C4 !important;
+        color: #ffffff;
+        }
+.combo{
+    background-color:#76A2C4;
+    width: 40px !important;
+}
+.blanco{
+    color: #ffffff;
+}
+.suplentes
+{
+    color:red !important;
+     background-color:tan!important;
+}
+body .ui-state-highlight
+{
+    color: #000 !important;
+}
+.colum-olive {
+    background-color: #D3D382 !important;
+    color: #000 !important;
+}
+.colum-white {
+    background-color: #FFF !important;
+    color: #000 !important;
+}
+.centro
+{
+    text-align: center;
+    position: relative;
+    padding: 0;
+}
+input[type="radio"] {
+    display:none !important;
+}
+.radio{
+    display:inline-block !important;
+    width:19px !important;
+    height:19px !important;
+   
+}
+img {
+    margin: 3px;
+    border: 1px solid black;
+    width: 80px;
+ }
+ .texto{
+     font-size: 20px;
+     line-height: 20px;
+ }
+    

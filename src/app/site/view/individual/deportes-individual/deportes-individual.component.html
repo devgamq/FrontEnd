@@ -1,0 +1,79 @@
+
+<h1>Deporte Individual {{nombreDeporte}}</h1>
+    <div class="card card-w-title" >
+
+        <div class="ui-g"> 
+               
+                <div class="ui-g-6" style="text-align:right" >
+            Prueba:
+                </div>
+        <div class="ui-g-6" >
+            <p-dropdown [options]="pruebas" filter="filter" [(ngModel)]="selectedpruebas" [style]="{'width':'160px'}" (onChange)="seleccionarPrueba();" placeholder="Seleccionar Prueba"></p-dropdown>
+                </div>
+            </div>
+
+            <div class="ui-g" *ngIf="false"> 
+               
+                <div class="ui-g-6" style="text-align:right" >
+            Tipo:
+                </div>
+        <div class="ui-g-6" >
+            <p-dropdown [options]="tipos" [(ngModel)]="selectedtipos" [style]="{'width':'160px'}" placeholder="Seleccionar Tipo"></p-dropdown>
+                </div>
+            </div>
+
+            <div class="ui-g"> 
+               
+                <div class="ui-g-6" style="text-align:right" >
+            Categoría:
+                </div>
+        <div class="ui-g-6" >
+            <p-dropdown [options]="categorias" [(ngModel)]="selectedcategorias" [style]="{'width':'160px'}" (onChange)="seleccionarCategorias();" placeholder="Selec. Categoria"></p-dropdown>
+                </div>
+            </div>
+
+            <div class="ui-g"> 
+               
+                <div class="ui-g-6" style="text-align:right" >
+            Fase:
+                </div>
+        <div class="ui-g-6" >
+            <p-dropdown [options]="fases" [(ngModel)]="selectedfases" (onChange)="seleccionarFase();" [style]="{'width':'160px'}" placeholder="Seleccionar Fase"></p-dropdown>
+                </div>
+            </div>
+            <form class="form-signin" [(formGroup)] ="DatosGanadoresForm" (ngSubmit)="doSetUsuario()">                  
+            <div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none;text-align:center;background-color:#424242;" *ngIf="muestraRegistro">
+                    Persona:<p-autoComplete delay="3" [(ngModel)]="_Persona" size="30" [inputStyleClass]="estiloauto" [inputStyle]="{'color': 'white'}" formControlName="SearchPersona" [suggestions]="Personas" (completeMethod)="doSearchPersonas($event)"  field="Nombre" (onSelect)="doSelectSearchPersona($event)" >
+                            <ng-template let-_Persona pTemplate="item">
+                            {{_Persona.Nombre}}
+                            </ng-template>
+                            </p-autoComplete>
+                    Medalla:<p-dropdown [options]="medallas" formControlName="ParametroMedallaId" [style]="{'width':'220px'}" [(ngModel)] = "selectedmedalla"></p-dropdown>
+                    Puesto:<input  type="text" pInputText size="5" class="inputInsertar" formControlName="Posicion">
+                    Tiempo:<p-inputMask pInputText size="10" [style]="{'color': 'white'}" formControlName="Tiempo"  mask="99:99:99.999"></p-inputMask>
+                    Marca:<input  type="text" pInputText size="10"  class="inputInsertar" formControlName="Marca">
+                    Premio:<p-checkbox [(ngModel)] = "value" binary="true" formControlName="EsGanador"></p-checkbox>
+                    <button pButton type="submit" icon="fa-arrow-down" class="ui-button-success"></button>
+                    <button pButton type="button" icon="ui-icon-delete" class="ui-button-danger" (click)="confirmDelete()"*ngIf="hideBorrar" ></button>
+                    <button pButton type="button" icon="ui-icon-edit" (click)="modificarRegistro()" class="ui-button-info" *ngIf="hideBorrar" ></button>
+                    
+                </div>
+                </form>
+
+<p-dataTable [value]="ganadores" [responsive]="true" [globalFilter]="gb" [rows]="20" [paginator]="true"
+  selectionMode="single" (onRowSelect)="onRowSelect($event)" >
+    <p-column header="Nombre" field="Nombre"></p-column>
+    <p-column header="Delegacion" field="Delegacion"></p-column>
+    <p-column header="Puesto" field="Posicion"></p-column>
+    <p-column header="Medalla" field="Medalla"></p-column>
+    <p-column header="Tiempo" field="Tiempo"></p-column>
+    <p-column header="Marca" field="Marca"></p-column>
+    <p-column header="Es Ganador" field="EsGanador">
+    </p-column>
+
+  </p-dataTable>
+
+        </div>
+<p-confirmDialog width="425"></p-confirmDialog>
+<p-growl [value]="msgs" class="visible-xs"></p-growl>
+

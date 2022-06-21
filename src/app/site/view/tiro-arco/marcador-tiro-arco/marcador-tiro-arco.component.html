@@ -1,0 +1,65 @@
+<div class="card card-w-title panel">
+    <div class="titulo" *ngIf="!show">CONECTANDOSE.....</div>
+    <div class="ui-g" style="text-align: center;padding-top: 0px;">
+        <div class="ui-g-4">
+
+        </div>
+        <div class="ui-g-4 formato subirOpciones">
+            TIRO CON ARCO
+            <div class="subtitulo">{{Prueba}}</div> 
+        </div>
+        <div class="ui-g-4 subirOpciones">
+            <div class="row ui-toolbar-group-center">
+                <p-checkbox [(ngModel)]="enlinea" binary="true" hidden="true"></p-checkbox>
+                <button pButton type="button" (click)="regresar()" icon="ui-icon-arrow-back" class="ui-button-warning"></button>
+                <button pButton type="button" (click)="doOpenVisor()" icon="ui-icon-tv" class="ui-button-danger"></button>
+                <button pButton type="button" (click)="guardarFinEncuentro()" icon="ui-icon-done-all" class="ui-button-info"></button>
+            </div>
+        </div>
+
+    </div>
+    <div class="ui-g subirElementos" *ngIf="show">
+        <div class="ui-g-5">
+            <button class="boton_posesion">
+                <div class="ui-g-10 equipo_marcador"> {{delegacionA.Nombre}}</div>
+                <div class="ui-g-2 ">
+                    <img src="{{logoA}}" class="bandera_marcador" />
+                </div>
+            </button>
+            <app-competidor-ta [cronogramaId]="cronogramaId" [CompetidorId]="CompetidorAId" [grupo]="grupoA" (getPersonaId)="getPersonaIdA($event)"></app-competidor-ta>
+
+        </div>
+        <div class="ui-g-2">
+            <app-periodo-ta [planillaId]="planillaId" [cronogramaId]="cronogramaId" (getPeriodoId)="getPeriodoId($event)"
+            (getMensaje)="getMensaje($event)" (closedPeriodo)="closedPeriodo($event)" [Prueba]="Prueba"> </app-periodo-ta>
+        </div>
+        <div class="ui-g-5">
+            <button class="boton_posesion">
+                <div class="ui-g-10 equipo_marcador"> {{delegacionB.Nombre}}</div>
+                <div class="ui-g-2 ">
+                    <img src="{{logoB}}" class="bandera_marcador" />
+                </div>
+            </button>
+            <app-competidor-ta [cronogramaId]="cronogramaId" [CompetidorId]="CompetidorBId" [grupo]="grupoB" (getPersonaId)="getPersonaIdB($event)"></app-competidor-ta>
+        </div>
+    </div>
+    <div class="ui-g subirpuntaje" *ngIf="show">
+        <div class="ui-g-6">
+            <app-puntaje [PeriodoId]="periodoId" [PersonaId]="personaIdA" 
+            [PlanillaId]="planillaId" [CompetidorId]="CompetidorAId" 
+            (getMensaje)="getMensaje($event)" (getpunto)="getpuntoA($event)"></app-puntaje>
+        </div>
+        <div class="ui-g-6">
+            <app-puntaje [PeriodoId]="periodoId" [PersonaId]="personaIdB" [PlanillaId]="planillaId" 
+            [CompetidorId]="CompetidorBId" (getMensaje)="getMensaje($event)"
+            (getpunto)="getpuntoB($event)"></app-puntaje>
+        </div>
+    </div>
+    <div class="ui-g subirtotales" *ngIf="show">
+        <div class="ui-g-12 center">
+            <app-set-total-ta [PeriodoId]="periodoId" [PlanillaId]="planillaId" [PuntoId]="PuntoId"
+            [Prueba]="Prueba"></app-set-total-ta>
+        </div>
+    </div>
+</div>
+<p-growl [(value)]="mensaje" class="visible-xs"></p-growl>

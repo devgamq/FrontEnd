@@ -1,0 +1,56 @@
+
+      <h1>Registro de usuarios</h1>
+        <div class="card card-w-title">  
+          <div class="ui-g" >
+    <div class="ui-g-12">
+    <div class="row ui-toolbar-group-right">
+       <button pButton type="button" class="ui-button-info" (click)="regresar()" label="Regresar" icon="fa-arrow-circle-left"
+          style="min-width:130px"></button>
+   </div>
+        </div>
+</div>   
+          <div class="ui-g" >
+            <div class="ui-g-12">
+              <form class="form-signin" [(formGroup)] ="DatosPesonalesForm" (ngSubmit)="doSetUsuario($event)">    
+              <div class="ui-g-12" style="padding-top: 30px;" >
+
+              <span class="md-inputfield">  
+              
+              <p-autoComplete delay="3" [(ngModel)]="_Persona" size="40" [suggestions]="Personas" (completeMethod)="doSearchPersonas($event)" formControlName="SearchPersona" field="DocumentoIdentidad" (onSelect)="doSelectSearchPersona($event)" >
+               <ng-template let-_Persona pTemplate="item">
+              {{_Persona.Paterno}} {{_Persona.Nombres}} {{_Persona.Materno}}
+              <br/> {{_Persona.DocumentoIdentidad}}
+              <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5"></div>
+               </ng-template>
+              </p-autoComplete>
+              <label>CI:</label>
+              </span>
+                </div>
+
+              <div class="ui-g-12" style="padding-top: 30px;" >
+              
+                <span class="md-inputfield">
+          <input type="text" [(ngModel)]="cuenta" pInputText size="40" formControlName="Usuario">
+          <label>Cuenta:</label>
+        </span>
+
+              </div>
+              <div class="ui-g-12" style="padding-top: 30px;">
+              <span class="md-inputfield">  
+              <input [(ngModel)]="password" type="password"  size="40" pInputText formControlName="Password"/>
+              <label>Contraseña:</label>
+              </span>
+              </div>
+              <div class="ui-g-12">
+              <button pButton type="submit" label="Guardar Usuario"  class="ui-button-success" icon="ui-icon-save" ></button>
+              </div>
+              </form>
+              
+            </div>
+              </div>  
+        </div>        
+
+<p-growl [(value)]="msgs"></p-growl>
+            
+                
+      

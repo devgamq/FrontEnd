@@ -1,0 +1,44 @@
+<div class="header">
+    <img src="../../../../assets/erpHammer/images/cabecera.jpg" height="35px" width="100%">
+    </div>
+    
+    <div  class="tktstyle" align="center">
+        Bienvenido al Sistema ATC
+        </div>
+        <div class="ui-g" align="center">
+            <div class="ui-g-12">
+              
+             <div class="time"> <h3> N° {{tkt}}  --> Mesa {{mesa}} </h3></div>
+    
+            </div>
+            <div class="ui-g-12" align="center">
+            <app-reloj >
+             </app-reloj >
+            </div>
+            <div class="ui-g-12" align="center">
+                <div class="ticket"><h1>{{fecha}} </h1></div>
+            </div>                    
+        </div> 
+    
+        <div class="ui-g" align="center">
+            <div class="ui-g-4">
+            
+                          </div>           
+         <div class="ui-g-4" align="center">
+                    
+                    
+                   <p-dataTable class="centro" [value]="paq" [loading]="true" align="center">
+                   <p-header>Lista de Tickets </p-header>
+                   <p-column field="tkt" header="El Ticket"></p-column>
+                   <p-column field="mesa" header=" A Mesa" ></p-column>
+                  
+                   </p-dataTable>
+    
+         </div>
+                     
+        </div> 
+    <div class="footer">
+    <img src="../../../../assets/erpHammer/images/footer.png"  height="35px" width="100%">
+    </div>
+    
+    

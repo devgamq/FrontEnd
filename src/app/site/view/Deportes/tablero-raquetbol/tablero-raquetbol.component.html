@@ -1,0 +1,143 @@
+<div class="ui-g panel ">
+
+  <img src="../../../../../assets/010/tablero/49/pelota.png" class="pelota_left" *ngIf="show">
+  <img src="../../../../../assets/010/tablero/49/pelota.png" class="pelota_rigth" *ngIf="!show">
+
+  <div class="text_left">
+    T: {{minA}}<br/>
+    A: {{apeA}}
+  </div>
+  <div class="text_right">
+    T: {{minB}}<br/>
+    A: {{apeB}}
+  </div>
+
+
+  <div class="ui-g-12 header_sq">
+    <div class="ui-g-4 jugadosq">
+      <div class="ui-g-12">
+        <div class="ui-g-10 " *ngIf="prueba==1">
+            <img src="{{urlA}}" class="foto_sq foto_ajuste" onError="src='../../../../../assets/erpHammer/squash/defecto.png'" *ngIf="prueba==1">
+
+        </div>
+        <div class="ui-g-10 panel_img" *ngIf="prueba==2">
+          <div class="ui-g-6" *ngIf="prueba==2">
+            <img src="{{urlA1}}" class="foto_sq foto_sq_a1" onError="src='../../../../../assets/erpHammer/squash/defecto.png'" *ngIf="prueba==2">
+          </div>
+          <div class="ui-g-6" *ngIf="prueba==2">
+            <img src="{{urlA2}}" class="foto_sq_par" onError="src='../../../../../assets/erpHammer/squash/defecto.png'" *ngIf="prueba==2">
+          </div>
+        </div>
+        <div class="ui-g-2">
+          <img *ngIf="prueba==1" src="../../../../../assets/banderas/{{DelegacionIdA}}.png" onError="src='../../../../../assets/banderas/1033.png'"
+            class="bandera_sq ">
+          <img *ngIf="prueba==2" src="../../../../../assets/banderas/{{DelegacionIdA}}.png" onError="src='../../../../../assets/banderas/1033.png'"
+            class="bandera_sq bandera_doble_a">
+        </div>
+      </div>
+
+      <div class="ui-g-12 ">
+        <span class="nombre_sq nombre_sq_single" *ngIf="prueba==1">{{jugadorA}} </span>
+        <div class="nombre_sq" *ngIf="prueba==2">{{jugadorA1}} </div>
+        <div class="nombre_sq nombre_inferior" *ngIf="prueba==2">{{jugadorA2}} </div>
+      </div>
+
+    </div>
+    <div class="ui-g-4">
+      <div class="set_sq">{{set}}</div>
+      <div class="crono_sq">&nbsp;</div><!--{{cronometro}}</div> -->
+    </div>
+
+    <div class="ui-g-4  jugadosq">
+      <div class="ui-g-12">
+        <div class="ui-g-10">
+          <img src="{{urlB}}" class="foto_sq foto_left_sq" onError="src='../../../../../assets/erpHammer/squash/defecto.png'" *ngIf="prueba==1">
+          <div class="ui-g-6" *ngIf="prueba==2">
+            <img src="{{urlB1}}" class="foto_sq foto_sq_b" onError="src='../../../../../assets/erpHammer/squash/defecto.png'" *ngIf="prueba==2">
+          </div>
+          <div class="ui-g-6" *ngIf="prueba==2">
+            <img src="{{urlB2}}" class="foto_sq foto_left_sq_par" onError="src='../../../../../assets/erpHammer/squash/defecto.png'"
+              *ngIf="prueba==2">
+          </div>
+        </div>
+        <div class="ui-g-2">
+          <img *ngIf="prueba==1" src="../../../../../assets/banderas/{{DelegacionIdB}}.png" onError="src='../../../../../assets/banderas/1033.png'"
+            class="bandera_sq bandera_left">
+          <img *ngIf="prueba==2" src="../../../../../assets/banderas/{{DelegacionIdB}}.png" onError="src='../../../../../assets/banderas/1033.png'"
+            class="bandera_sq bandera_doble_left">
+        </div>
+      </div>
+
+      <div class="ui-g-12  derecha" *ngIf="prueba==1">
+        <span class="nombre_sq nombre_sq_single"> {{jugadorB}}</span>
+      </div>
+      <div class="ui-g-12  " >
+        <div class=" nombre_sq rigth" *ngIf="prueba==2">{{jugadorB1}} </div>
+        <div class=" nombre_sq nombre_inferior rigth" *ngIf="prueba==2">{{jugadorB2}} </div>
+      </div>
+
+
+    </div>
+
+  </div>
+  <div class="ui-g-12 header_sq fila_sq">
+    <div class="ui-g-2">
+      <!-- <div class="redondo_sq " [ngStyle]="styleA">&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</div> -->
+    </div>
+    <div class="ui-g-4 d_puntaje_sq">
+      {{utilidad.lpad_generico('0',2,puntoA)}}
+
+    </div>
+    <div class="ui-g-4  i_puntaje_sq ">
+      {{utilidad.lpad_generico('0',2,puntoB)}}
+    </div>
+    <div class="ui-g-2">
+      <!-- <div class="redondo_sq derecha_punto" [ngStyle]="styleB">&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</div> -->
+    </div>
+  </div>
+
+  <div class="mensaje_sq" *ngIf="cronometro_descuento!='00:00'">
+    <div class="ui-g-4"></div>
+    <div class="ui-g-4 fondo_mensaje_cronometro_sq">
+      <div class="title_m">Descanso</div>
+      <div class="cronometro_m"><!--{{cronometro_descuento}}-->&nbsp;</div>
+    </div>
+    <div class="ui-g-4"></div>
+
+  </div>
+
+  <div class="mensaje_sq" *ngIf="visible" [@flyInOut]>
+    <div class="ui-g-3"></div>
+    <div class="ui-g-6 fondo_mensaje_sq">{{mensaje}}</div>
+    <div class="ui-g-3"></div>
+
+  </div>
+  <div class="ui-g-12" *ngIf="prueba==1"></div>
+  <div class="ui-g-12" *ngIf="prueba==1"></div>
+  <div class="tabla_sq">
+    <div class="ui-g-2"></div>
+    <div class="ui-g-8 fondo_mensaje_sq">
+      <table>
+        <thead>
+          <th *ngFor="let col of getColumnas() let i = index">{{col!=''?'S'+col:''}}</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let periodo of periodos let i = index">
+            <td class="titulo_tabla">
+              <div>{{periodo[0]}}</div>
+            </td>
+            <td *ngFor="let item of getData(periodo) let j = index">
+              <div class="{{item.is_ganador?'ganador':''}}">
+                <span>{{item.valor}}</span>
+              </div>
+            </td>
+
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+    <div class="ui-g-2"></div>
+
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="ui-g">
+    <h1>Configuración de Sorteo</h1>
+    <div class="card card-w-title ui-fluid ui-g-12">
+        <div class="ui-g-12">
+            <p-fieldset legend="Deportes" class="ui-g-3">
+                <p-dropdown [options]="deportes" filter="filter" [(ngModel)]="deporte"
+                    placeholder="Selecccione un deporte" (onChange)="mostrarDeporte()" [autoWidth]="false"></p-dropdown>
+                <div class="separador"></div>
+                <p-dropdown [options]="generos" [(ngModel)]="genero" placeholder="Selecccione un género"
+                    (onChange)="mostrarDeporte()" [autoWidth]="false" [scrollHeight]="300"></p-dropdown><br>
+                <div class="ui-g-12" style="text-align: right;"><p-checkbox binary="true" label="Banderas" [(ngModel)]="bandera"></p-checkbox></div>
+                <div class="ui-g-12 ui-md-12 ui-lg-6">
+                    <button pButton type="button" label="Abrir Visor" (click)="open()"></button>
+                </div>
+
+            </p-fieldset>
+            <div class="ui-g-4 ui-md-4 ui-lg-7"></div>
+            <div class="ui-g-4 ui-md-4 ui-lg-2" style="float:right;">
+                <div class="ui-g-12 ui-md-12 ui-lg-12">
+
+                    <button pButton type="button" label="Cerrar Sorteo" (click)="cerrar()"
+                        class="ui-button-danger"></button>
+
+                </div>
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <p-fieldset legend="Grupos">
+                <div *ngFor="let fila of rowGroup" class="ui-g">
+                    <div class="ui-g-12" style="text-align: right;"><p-radioButton name="group1" value="fila.fila" label="Mostrar Fila" [(ngModel)]="mostrar" (onClick)="selectRow(fila)"></p-radioButton></div>
+                    <div *ngFor="let parametro of fila.grupo" class="{{style_columna}}">
+                        <app-sorteo-grupo [Nombre]="parametro.label" [IdGrupo]="parametro.value" [Equipos]="equipos"
+                            [data]="data" [eventoId]="eventoId" [deporteId]="deporte" [genero]="genero">
+                        </app-sorteo-grupo>
+                    </div>
+                </div>
+                <!-- <div *ngFor="let parametro of grupos" class="{{style_columna}}">
+                    <app-sorteo-grupo [Nombre]="parametro.label" [IdGrupo]="parametro.value" [Equipos]="equipos"
+                        [data]="data" [eventoId]="eventoId" [deporteId]="deporte" [genero]="genero"></app-sorteo-grupo>
+                </div> -->
+            </p-fieldset>
+        </div>
+
+    </div>
+</div>
+<p-growl [(value)]="mesaje"></p-growl>

@@ -1,0 +1,29 @@
+
+.contenedor{
+    padding:4px 10px;border-bottom: 0 none;text-align:center;background-color:#424242;color: white;
+}
+.titulo{
+    font-family: 'Oswald', sans-serif;
+    font-size: 2vw;
+}
+.input{
+    background-color: white;
+    height: 2.4vw;
+    font-size: 2vw;
+    width: 6vw;
+}
+.panel_punto_ta .cuadrado{
+    width: 5vw;
+    height: 1.5vw;
+    border: 1px solid #4c4646;
+}
+.total_font{
+    font-size: 11vw;
+      position: relative;
+      right: 5vw;
+      font-family: 'Oswald';
+  }
+ 
+ .card.card-w-title {
+    padding-bottom: 0 !important;
+}

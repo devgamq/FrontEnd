@@ -1,0 +1,8 @@
+﻿.logoCodesur {
+    display: inline-block;
+    vertical-align: middle;
+    width: 180px;
+    height: 40px;
+    background: url(../../../../../assets/erpHammer/images/hammerLogoH.png) top left no-repeat;
+    background-size: 180px 40px;
+}

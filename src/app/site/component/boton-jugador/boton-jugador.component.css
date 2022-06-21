@@ -1,0 +1,52 @@
+.btnTitular {
+    -moz-border-radius: 5% !important;
+    -webkit-border-radius: 5% !important;
+    border-radius: 5% !important;
+    height: 100%;
+    width: 100%;
+    text-align:center;
+    background:#198385;
+    border:1px solid #000000;
+    color: #FFFFFF;
+    	
+}
+
+.btnSuplente {
+    -moz-border-radius: 5% !important;
+    -webkit-border-radius: 5% !important;
+    border-radius: 5% !important;
+    height: 100%;
+    width: 100%;
+    text-align:center;
+    background:#997933;
+    border:1px solid #000000;
+    color: #FFFFFF;
+    	
+}
+
+.btnTecnico {
+    -moz-border-radius: 5% !important;
+    -webkit-border-radius: 5% !important;
+    border-radius: 5% !important;
+    height: 100%;
+    width: 100%;
+    text-align:center;
+    background:#1D3B9B;
+    border:1px solid #000000;
+    color: #FFFFFF;
+    	
+}
+
+.cabecera{
+    text-align:center;
+    font-size: 0.7vh;
+    line-height: 1.2;
+}
+
+.cuerpo{
+    padding-top:3px; 
+    text-align:center;
+    font-size: 20px;
+    
+    	
+}

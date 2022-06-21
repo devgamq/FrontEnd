@@ -1,0 +1,97 @@
+
+<div class="card card-w-title" >
+    <h1>
+        Lista de Competidores
+  </h1>
+  <div class="ui-g">
+      <div class="ui-g-6" style="text-align:right">
+        Deporte:
+      </div>
+      <div class="ui-g-6">
+          <p-dropdown [options]="deportes" [(ngModel)]="deporteId" (onChange)="listaDeportes()" [style]="{'width':'220px'}"></p-dropdown>
+        </div>
+  </div>
+  <div class="ui-g">
+      <div class="ui-g-6" style="text-align:right">
+        Delegacion:
+      </div>
+      <div class="ui-g-6">
+          <p-dropdown [options]="delegaciones" [(ngModel)]="delegacionId" (onChange)="listaDeportes()" [style]="{'width':'220px'}"></p-dropdown>
+        </div>
+  </div>
+    <div class="ui-g">
+        <div class="ui-g-12">
+
+            <div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none">
+                <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                <input #gb type="text" pInputText size="30" class="inputInsertar"  placeholder="Buscar Competidor">
+            </div>
+          <p-dataTable [value]="datos" [rows]="15" [responsive]="true" [paginator]="true" [(selection)]="datosCompetidor" selectionMode="single" (onRowSelect)="mostrarCompetidor($event)" [globalFilter]="gb" #dt>
+            <p-column field="Nombres" header="Nombre"></p-column>
+            <p-column field="Paterno" header="Apellido Paterno"></p-column>
+            <p-column field="Materno" header="Apellido Materno"></p-column>
+            <p-column field="Deporte" header="Deporte">
+            </p-column>
+            <p-column field="Delegacion" header="Delegacion">
+                
+            </p-column>
+            <p-column field="Representacion" header="Representacion"></p-column>
+          </p-dataTable>
+        </div>
+     </div>
+
+</div>
+<p-dialog header="Datos Personales Competidor" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" width="500" [modal]="true">
+    <div class="ui-g divCompetidor">
+
+        <div class="ui-g-7">
+            <div class="ui-g">
+                <div class="ui-g-4">Nombre:</div>
+                <div class="ui-g-8"><b>{{nombres}}</b></div>
+            </div>
+
+            <div class="ui-g">
+                <div class="ui-g-4">Apellidos:</div>
+                <div class="ui-g-8"><b>{{apellidos}}</b></div>
+            </div>
+
+            <div class="ui-g">
+                <div class="ui-g-4">Edad:</div>
+                <div class="ui-g-8"><b>{{edad}} Años</b></div>
+            </div>
+
+            <div class="ui-g">
+                <div class="ui-g-4">Estatura:</div>
+                <div class="ui-g-8"><b>{{estatura}} m.</b></div>
+            </div>
+
+            <div class="ui-g">
+                <div class="ui-g-4">Peso:</div>
+                <div class="ui-g-8"><b>{{peso}} Kg</b></div>
+            </div>
+            <div class="ui-g">
+                <div class="ui-g-4">Deporte:</div>
+                <div class="ui-g-8"><b>{{deporte}}</b></div>
+            </div>
+            <div class="ui-g">
+                <div class="ui-g-4">Delegacion:</div>
+                <div class="ui-g-8"><b>{{delegacion}}</b></div>
+            </div>
+
+            <div class="ui-g">
+                <div class="ui-g-4">Colegio:</div>
+                <div class="ui-g-8"><b>{{representacion}}</b></div>
+            </div>
+
+            </div>
+            <div class="ui-g-5" style="padding-top: 20px">
+                <img src="{{foto}}" width="100%" height="200"/>
+                </div>
+
+      </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button type="button" pButton icon="fa-check" (click)="cerrarVentana()" label="Aceptar"></button>
+        </div>
+    </p-footer>
+</p-dialog>

@@ -1,0 +1,88 @@
+<div class="ui-g">
+    <div class="ui-g-12 left">
+        <h1>Rol de Encuentros</h1>
+    </div>
+</div>
+<div class="card card-w-title">
+    <div class="ui-g">
+        <div class="ui-g-5" style="text-align:right">
+            <b>Deportes:</b>
+        </div>
+        <div class="ui-g-6" style="text-align:left">
+            <p-dropdown [options]="deportes" [(ngModel)]="deporte" [style]="{'width':'160px'}" filter="filter" (onChange)="selectedDeporte()"
+                placeholder="Seleccione un Deporte"></p-dropdown>
+        </div>
+    </div>
+    <div class="ui-g">
+        <div class="ui-g-5" style="text-align:right">
+            <b>Delegaciones:</b>
+        </div>
+        <div class="ui-g-6" style="text-align:left">
+            <p-dropdown [options]="delegaciones" [(ngModel)]="delegacion" [style]="{'width':'160px'}" (onChange)="selectedDeporte()"
+                filter="filter" placeholder="Seleccione Delegación"></p-dropdown>
+        </div>
+    </div>
+    <div class="ui-g">
+        <div class="ui-g-5" style="text-align:right">
+            <b>Fecha:</b>
+        </div>
+        <div class="ui-g-6" style="text-align:left">
+            <p-calendar [(ngModel)]="fechastr" dateFormat="dd/mm/yy" [locale]="en" (onSelect)="selectedDeporte()"></p-calendar>
+        </div>
+        <div class="ui-g-1">
+                <button pButton type="button" icon="ui-icon-insert-link" class="ui-button-primary" (click)="mostrarVisor()"></button>
+            </div>
+    </div>
+    <div class="ui-g">
+        <div *ngFor="let base of fechas" style="width: 100%;">
+
+            <div *ngFor="let escenario of base.escenarios" class="panelRPE ui-g-12">
+                <div class="ui-lg-2 ui-g-1"></div>
+               
+                    <div class="tituloFechaRPE">FECHA: {{base.fecha | PipeFechaComponent:"fecha"}}</div>
+                    <div class="tituloGrupoRPE"> {{escenario}}</div>
+                    <p-dataTable [value]="getGrupoDatos(base.fecha,escenario)" [responsive]="true" [rows]="20" [paginator]="false" selectionMode="single"
+                        [styleClass]="'clase'">
+
+                        <p-column header="Hora" field="HoraProgramada" styleClass="HoraRPE">
+                            <ng-template let-fila="rowData" pTemplate="item">
+                                {{fila.HoraProgramada | PipeFechaComponent:"hora"}}
+                            </ng-template>
+                        </p-column>
+                        <p-column header="Categoría" field="Rama" styleClass="categoriaRPE"></p-column>
+                        <p-column header="Fase" field="Fase" styleClass="categoriaRPE"></p-column>
+                        <p-column header="Equipo" field="EquipoA" styleClass="equipoRPE">
+                            <ng-template let-fila="rowData" pTemplate="item">
+                                <img src="/assets/banderas/{{fila.DelegacionIdA}}.png" class="imgRPE">
+                                <span>{{fila.EquipoA}}</span>
+                            </ng-template>
+                        </p-column>
+                        <p-column header="" field="MarcadorEquipoA" styleClass="puntajeRPE "></p-column>
+                        <p-column header="" field="MarcadorEquipoB" styleClass="puntajeRPE"></p-column>
+                        <p-column header="Equipo" field="EquipoB" styleClass="equipoRPE">
+                            <ng-template let-fila="rowData" pTemplate="item">
+                                <img src="/assets/banderas/{{fila.DelegacionIdB}}.png" class="imgRPE">
+                                <span>{{fila.EquipoB}}</span>
+                            </ng-template>
+                        </p-column>
+                        <p-column header="Estado" field="Estado" styleClass="estadoRPE">
+                            <ng-template let-col let-car="rowData" pTemplate="body">
+                                <span [style.color]="getColor(car[col.field])">{{car[col.field]}}</span>
+                            </ng-template>
+                        </p-column>
+
+
+                        <p-column header="" styleClass="HoraRPE">
+                            <ng-template let-fila="rowData" pTemplate="item">
+                                <button pButton type="button" icon="ui-icon-info" class="ui-button-success" (click)="verPantalla(fila)"></button>
+                            </ng-template>
+                        </p-column>
+                    </p-dataTable>
+          
+                <div class="ui-lg-2 ui-g-1"></div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

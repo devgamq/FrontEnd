@@ -1,0 +1,207 @@
+body{
+    overflow-y:hidden !important; 
+
+}
+
+
+.jornadaB{
+min-height: 99%;
+background-size: 100% auto;
+color:white;
+height: 85vh;
+overflow-y:hidden; 
+
+}
+
+.fondo_mensaje_sqB{
+    background-color: rgba(37, 10, 10, 0.49);
+    border-radius: 15px 15px 15px 15px;
+    -moz-border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+    border: 0px solid rgba(32, 32, 30, 0.45);
+    z-index: 12;
+    position: relative;
+    text-transform: uppercase;
+    width: 100%;
+    height: 23.6vw;
+    text-align: center;
+
+}
+
+.fondo_mensaje_sq_PB{
+    background-color: rgba(32, 32, 29, 0.58);
+    border-radius: 15px 15px 15px 15px;
+    -moz-border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+    border: 0px solid rgba(32, 32, 30, 0.45);
+    z-index: 12;
+    position: relative;
+    text-transform: uppercase;
+    width: 33vw;
+    height: 6vw;
+    text-align: center;
+    left:-4vw;
+    bottom: 4vh;
+
+}
+.jornadaB3{
+    height: 100vh !important;
+    /* background-size:initial !important; */
+    
+    }
+.fondoB{
+   min-height: 99%;
+   background-size: 90% auto;
+   color:white;
+   height: 80vh;
+   overflow-y:hidden; 
+   background-repeat: no-repeat;
+   /* background-attachment: fixed; */
+   background-position: center; 
+
+
+}
+.estadoB{
+    font-size: 0.7em;
+    font-weight: bold;
+
+
+}
+.podioB{
+   position: relative;
+   top: 3vh;
+   width: 90%;
+   left: 2.8vh;
+
+}
+
+.izquierdaB{
+text-align: right;
+}
+.derechaB{
+text-align: left;
+}
+
+.centerB{
+    text-align: center;
+}
+.cancerB{    
+   top: 2vh;
+   width: 90%;
+   text-align : center;
+   left: 2.8vh;
+   font-size: 5.5vw !important;
+}
+.jornadaB .logoB
+{
+    width: 30vw;
+}
+
+.panelB_tablaB
+{
+   position:relative;
+   height: 65vh;
+   overflow-y:hidden; 
+}
+.jornadaB .columnaB{
+   font-family: 'Oswald', sans-serif;
+   text-align: center;
+   font-size: 3.5vw;
+   line-height: 0.3em;
+   text-transform: uppercase;
+}
+.tituloB_deporteB
+{
+    font-size: 3.9vh;
+}
+.jornadaB .subtituloB
+{
+    font-size: 3.2vh;
+}
+.jornadaB .fechasB
+{
+    font-size: 1.8vh;
+}
+.jornadaB .equipoB{
+    font-family: 'Oswald', sans-serif;
+    line-height: 1;
+    font-size: 2vh;
+}
+.jornadaB .equipoRigthB{
+    font-family: 'Oswald', sans-serif;
+    line-height: 1;
+    font-size: 1.1vh;
+    text-align: right;
+}
+.jornadaB .resultadoB{
+    font-size: 3.5vh; 
+    margin-top:1vh;
+    margin-bottom: 2vh;
+}
+.jornadaB .resultadoB3{
+    font-size: 3.5vh; 
+    margin-top:1vh;
+}
+.jornadaB .grupoB
+{
+    font-size: 1.8vh;
+}
+.jornadaB .npmEquipoB{
+    font-size: 1.5vh;
+    
+}
+.imagenB
+{
+    border: 1px solid #fff;
+    width: 12.5vw;
+    border-radius: 20px 20px 20px 20px;
+    -moz-border-radius: 20px 20px 20px 20px;
+    -webkit-border-radius: 20px 20px 20px 20px;
+    border: 10px solid #392BDB;
+    height: 12.5vw;
+ 
+  
+}
+.jornadaB .imagenRB{
+    border: 1px solid #fff;
+    width: 12.5vw;
+    border-radius: 20px 20px 20px 20px;
+-moz-border-radius: 20px 20px 20px 20px;
+-webkit-border-radius: 20px 20px 20px 20px;
+    border: 10px solid #DA0801;
+    height: 12.5vw;
+  
+  
+}
+
+.PaisBB
+{
+    border: 1px solid #fff;
+    width: 12vw;
+    border-radius: 20px 20px 20px 20px;
+    -moz-border-radius: 20px 20px 20px 20px;
+    -webkit-border-radius: 20px 20px 20px 20px;
+    border: 0px solid #392BDB;
+    height: 7vw;
+ 
+  
+}
+.jornadaB .PaisAB{
+    border: 1px solid #fff;
+    width: 12vw;
+    border-radius: 20px 20px 20px 20px;
+-moz-border-radius: 20px 20px 20px 20px;
+-webkit-border-radius: 20px 20px 20px 20px;
+    border: 0px solid #DA0801;
+    height: 7vw;
+  
+}
+
+.jornadaB .filaB{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.nombrePaisB
+{
+    font-size:1em;
+}

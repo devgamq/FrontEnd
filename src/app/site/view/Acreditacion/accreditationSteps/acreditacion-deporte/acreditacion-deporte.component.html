@@ -1,0 +1,9 @@
+<div class="ui-grid-row">
+  <div *ngFor="let deporte of deportes">
+    <app-card-deporte [card]="deporte" (OnClick)="handleClick($event)" [cambio]="cambio"></app-card-deporte>
+  </div>
+</div>
+<p-growl [value]="msg"></p-growl>
+<!--<pre>
+{{deportes|json}}
+</pre>-->

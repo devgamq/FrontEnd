@@ -1,0 +1,82 @@
+.tituloGrupoRP{
+    font-weight: bold;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.tituloFechaRP{
+    font-weight: bold;
+    padding-top: 10px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.HoraRP{
+    width: 6%;
+    text-align: center;
+    text-transform: uppercase;
+}
+.estadoRP{
+    width: 6%;
+    text-align: center;
+    text-transform: uppercase;
+}
+.panelRP th{
+    background-color: #212121 !important;
+    color: white;
+}
+.categoriaRP{
+    width: 10%;
+    text-align: center;
+}
+.equipoRP{
+    width: 22%;
+}
+.equipoRP .nombre{
+ font-weight: bold;
+ text-transform: uppercase;
+ padding: 10px;
+ position: relative;
+ bottom: 4px;
+ font-size: 1.1vw;
+}
+@media only screen and (max-width: 800px) {
+    .equipoRP .nombre{
+        font-size: 10px;
+        text-align: center;
+        position: relative;
+        top: 0.1vw;
+        display: block;
+        margin: auto;
+        line-height: 1px;
+    }
+    .equipoRP img{
+        display:block;
+        margin:auto;
+    }
+    .puntajeRP{
+        display: none !important;
+    }
+    .minpuntaje{
+        display: grid !important;
+        text-align: center;
+        font-size: 10px;
+        font-weight: bold;
+        
+    }
+}
+.minpuntaje{
+    display: none;
+}
+.imgRP{
+    width: 30px
+}
+.puntajeRP{
+    width: 15%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px
+}
+.right{
+    text-align: right;
+}

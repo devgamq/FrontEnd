@@ -1,0 +1,80 @@
+<div class="ui-grid-row">
+  <div class="ui-g-1 ui-md-2 ui-lg-4"></div>
+  <form class="form-signin ui-g form-group ui-g-12 ui-md-8 ui-lg-4" [(formGroup)]="DatosPesonalesForm" (ngSubmit)="validarToNext()">
+    <div class="ui-g form-group-m">
+      <input [(ngModel)]="Persona.DocumentoIdentidad" type="hidden" pInputText formControlName="DocumentoIdentidad">
+      <div class="ui-g-12 ui-md-12">
+        <span class="md-inputfield">
+          <p-autoComplete delay="3" [(ngModel)]="_Persona" [suggestions]="Personas" (completeMethod)="doSearchPersonas($event)" field="DocumentoIdentidad" formControlName="SearchPersona" (onSelect)="doSelectSearchPersona($event)" >
+            <ng-template let-_Persona pTemplate="item">
+              {{_Persona.Paterno}} {{_Persona.Nombres}} {{_Persona.Materno}}
+              <br/> {{_Persona.DocumentoIdentidad}}
+              <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5"></div>
+            </ng-template>
+              </p-autoComplete>
+              <label>Documento de Identidad:</label>
+              </span>
+      </div>
+      <div class="ui-grid-col-12 ui-message ui-messages-error ui-corner-all" style="padding:0.4em !important; width: auto;" *ngIf="CIvali">
+        Valor invalido en el Documento de Identidad.
+      </div>
+      <div class="ui-g-12 ui-md-12">
+        <span class="md-inputfield">
+            <input [(ngModel)]="Persona.Paterno"  type="text" style="width:100% !important;text-transform:uppercase" (focusout)="validate('Paterno')" pInputText formControlName="Paterno">
+            <label>Paterno:</label>
+            </span>
+      </div>
+      <div class=" ui-grid-col-12 ui-message ui-messages-error ui-corner-all" style="padding:0.4em !important; width: auto;" *ngIf="paternoVali">
+        Valor invalido en Apellido Paterno.
+      </div>
+      <div class="ui-g-12 ui-md-12">
+        <span class="md-inputfield">
+      <input   [(ngModel)]="Persona.Materno"  type="text" style="width:100% !important; text-transform:uppercase" (focusout)="validate('Materno')" pInputText formControlName="Materno">
+      <label>Materno:</label>
+    </span>
+      </div>
+      <div class=" ui-grid-col-12 ui-message ui-messages-error ui-corner-all" style="padding:0.4em !important; width: auto;" *ngIf="maternoVali">
+        Valor invalido en Apellido Materno.
+      </div>
+      <div class="ui-g-12 ui-md-12">
+        <span class="md-inputfield">
+      <input  [(ngModel)]="Persona.Nombres" type="text" style="width:100% !important; text-transform:uppercase" (focusout)="validate('Nombres')" pInputText formControlName="Nombres">
+      <label>Nombres:</label>
+    </span>
+      </div>
+      <div class=" ui-grid-col-12 ui-message ui-messages-error ui-corner-all" style="padding:0.4em !important; width: auto;" *ngIf="nombreVali">
+        Valor invalido en el Nombre.
+      </div>
+      <div class="ui-g-8">
+        <p-calendar [(ngModel)]="Persona.FechaNacimiento" id="showIcon" [showIcon]="true" [locale]="es" [monthNavigator]="true" [yearNavigator]="true"
+          yearRange="1970:2012" placeholder="Nacido el:" formControlName="Nacido" dateFormat="dd/mm/yy" (focusout)="validate('Nacido')"></p-calendar>
+      </div>
+      <div class=" ui-grid-col-12 ui-message ui-messages-error ui-corner-all" style="padding:0.4em !important; width: auto;" *ngIf="nacioVali">
+        Valor invalido en la Fecha de nacimiento.
+      </div>
+      <div class="ui-g-12">
+        <div class="ui-g-12 ui-md-4">
+          <label>Sexo:</label>
+        </div>
+        <div class="ui-g-12 ui-md-4">
+          <p-radioButton [(ngModel)]="Persona.Sexo" name="rg" value="M" label="Masculino" formControlName="Sexo"></p-radioButton>
+        </div>
+        <div class="ui-g-12 ui-md-4">
+          <p-radioButton name="rg" value="F" label="Femenino" formControlName="Sexo" [(ngModel)]="Persona.Sexo"></p-radioButton>
+        </div>
+      </div>
+
+      <div class="ui-g-12">
+        <div class="ui-g-12 ui-md-4">
+          <label>Tipo Sangre:</label>
+        </div>
+        <div class="ui-g-12 ui-md-4">
+          <p-dropdown [options]="tipoSangre" placeholder="Seleccione Tipo Sangre" [(ngModel)]="Persona.ParametroTipoSangreId"  
+            [style]="{'width':'200px'}" formControlName="ParametroTipoSangre">
+          </p-dropdown>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="ui-g-1 ui-md-2 ui-lg-4"></div>
+</div>

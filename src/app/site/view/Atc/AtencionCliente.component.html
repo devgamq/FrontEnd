@@ -1,0 +1,108 @@
+<p-growl [(value)]="msgs"></p-growl>
+
+<div class="header">
+<img src="../../../../assets/erpHammer/images/cabecera.jpg" height="35px" width="100%">
+</div>
+
+
+
+
+<div class="ui-g">
+    <div class="ui-g-9" style="text-align: center;">
+         
+              <div class="ui-g-1"><h2 class="tktstyle">   ID  </h2></div>
+              <div class="ui-g-1"><h2 class="tktstyle">  Fecha </h2></div>
+              <div class="ui-g-1"><h2 class="tktstyle">  Hora </h2></div>          
+              <div class="ui-g-1"><h2 class="tktstyle">  NºTicket</h2></div> 
+              <div class="ui-g-1"><h2 class="tktstyle"> Estado</h2></div> 
+              <div class="ui-g-2"><h2 class="tktstyle">  Mesa  </h2></div> 
+              <div class="ui-g-2"><h2 class="tktstyle"> Tiempo </h2></div> 
+              <div class="ui-g-2"><h2 class="tktstyle"> Servicio </h2></div> 
+             
+                   
+    </div>  
+	<div  class="ui-g-3" >
+    
+  </div>
+	
+    <div class="ui-g-9" style="text-align: center;" >
+              <div class="ui-g-1"   style="border-width:1px">{{Id}}</div>
+              <div class="ui-g-1" style="border-width:1px">{{Fe}}</div>
+              <div class="ui-g-1" style="border-width:1px">{{Ho}}</div>          
+              <div class="ui-g-1" style="border-width:1px">{{TT}}</div> 
+              <div class="ui-g-1" style="border-width:1px">{{es}}</div> 
+              <div class="ui-g-2" style="border-width:1px">{{me}}</div> 
+              <div class="ui-g-2" style="border-width:1px">{{ti}}</div> 
+              <div class="ui-g-2" style="border-width:1px">{{selected}}</div> 
+                  
+    </div>  
+    <div  class="ui-g-3" >
+    
+    </div>  
+      
+    <div class="ui-g-9" style="text-align: center;" >
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <p-dataTable [value]="list" [responsive]="true" [globalFilter]="gb" [rows]="10" [paginator]="true" >
+        <p-headerColumnGroup>
+          <p-row>
+          <p-column header ="Id"></p-column>
+          <p-column header ="N° Ticket"></p-column>
+          <p-column header ="Hora"></p-column>
+          </p-row>
+        </p-headerColumnGroup>
+        <p-column field ="Id"  [hidden]="false"></p-column>
+        <p-column field ="tkt"  [hidden]="false"></p-column>
+        <p-column field ="hora"  [hidden]="false"></p-column>
+        
+      </p-dataTable>
+    </div>  
+    <div  class="ui-g-3" style="text-align: center;">
+      <h3 class="first"> Opciones Mesa {{mesa}}</h3>    
+      <button pButton type="button" icon="fa-check" (click)="obtener(dr)" label="Llamar a ticket" [disabled]="d1"> </button>
+     
+      
+      
+      <h3 class="first"> </h3>    
+      <p-progressBar [value]="value"></p-progressBar>
+      <h3 class="first"> </h3> 
+      <h3 class="first"> Cerrando ticket:  </h3>
+      <p-listbox [options]="serv" [(ngModel)]="selected"  ></p-listbox>
+ 
+      <p>Servicio: {{selected}}</p>               
+      
+      <button pButton type="button" icon="fa-check" (click)="Terminar()" label="Cerrar ticket" [disabled]="d2"> </button>   
+     </div>
+</div>
+
+<div class="first">
+<p-dialog header="Elija la Mesa" [(visible)]="display" [width]="275" [responsive]="true"  [(closable)]="xxxx">
+    <span>
+        El Sistema Ticket Necesita Saber el numero de Mesa de Atencion .....
+        <br>
+            <button type="button" pButton icon="fa-check" (click)="escoger(1)" label="Mesa 1"   class="ui-button-info"></button>
+            <button type="button" pButton icon="fa-check" (click)="escoger(2)" label="Mesa 2"   class="ui-button-info"></button>
+            <button type="button" pButton icon="fa-check" (click)="escoger(3)" label="Mesa 3"   class="ui-button-info" ></button>
+            <button type="button" pButton icon="fa-check" (click)="escoger(4)" label="Mesa 4"   class="ui-button-info"></button>
+            <button type="button" pButton icon="fa-check" (click)="escoger(5)" label="Mesa 5"   class="ui-button-info"></button>
+            <button type="button" pButton icon="fa-check" (click)="escoger(6)" label="Mesa 6"   class="ui-button-info"></button>
+            <button type="button" pButton icon="fa-check" (click)="escoger(7)" label="Mesa 7"   class="ui-button-info"></button>
+            <button type="button" pButton icon="fa-check" (click)="escoger(8)" label="Mesa 8"   class="ui-button-info"></button>
+            <button type="button" pButton icon="fa-check" (click)="escoger(9)" label="Mesa 9"   class="ui-button-info" ></button>
+            <button type="button" pButton icon="fa-check" (click)="escoger(10)" label="Mesa 10"   class="ui-button-info"></button>
+    </span>
+     <p-footer >
+       <div class="ui-g-12" align="center">
+        <img src="../../../assets/erpHammer/images/hammerLogoV.png" width="120">
+       </div>
+     </p-footer>
+</p-dialog>
+</div>    
+
+<div class="footer">
+<img src="../../../../assets/erpHammer/images/footer.png"  height="35px" width="100%">
+</div>

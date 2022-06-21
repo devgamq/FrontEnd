@@ -1,0 +1,14 @@
+<div class="ui-g-12 text-center">
+    <button class="perido_ta"><span>{{correlativo}}{{nombre}}</span></button>
+</div>
+<div class="ui-g-6 text-center">
+    <button pButton type="button" class="btn" icon="ui-icon-arrow-back" (click)="anteriorPeriodo()"></button>
+</div>
+<div class="ui-g-6 text-center">
+    <button class="btn" pButton type="button" icon="ui-icon-arrow-forward" (click)="siguientePeriodo()"></button>
+</div>
+<div class="ui-g-12 text-center">
+    <button pButton type="button" class="btn cerrar_ta" icon="none" (click)="cerrarPeriodo()">
+        CERRAR</button>
+</div>
+<p-confirmDialog header="Confirmación" acceptLabel="Si" icon="fa fa-question-circle" width="425"></p-confirmDialog>

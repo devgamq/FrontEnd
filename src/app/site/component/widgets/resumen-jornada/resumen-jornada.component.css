@@ -1,0 +1,137 @@
+body{
+    overflow-y:hidden !important; 
+}
+.jornada{
+min-height: 99%;
+background-size: 100% auto;
+color:white;
+height: 85vh;
+overflow-y:hidden;  
+text-shadow: black 0.1em 0.1em 0.2em
+}
+.jornada3{
+    height: 74vh !important;
+    background-size:initial !important;
+    
+    }
+.fondo{
+   min-height: 99%;
+   background-size: 90% auto;
+   color:white;
+   height: 59vh;
+   overflow-y:hidden; 
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-position: center; 
+}
+.podio{
+   position: relative;
+   top: 3vh;
+   width: 90%;
+   left: 2.8vh;
+
+}
+.center{
+    text-align: center;
+}
+.cancer{    
+   top: 2vh;
+   width: 90%;
+   text-align : center;
+   left: 2.8vh;
+   font-size: 5.5vw !important;
+}
+.jornada .logo
+{
+    width: 30vw;
+}
+
+.panel_tabla
+{
+   position:relative;
+   height: 65vh;
+   overflow-y:hidden; 
+}
+.jornada .columna{
+   font-family: 'Oswald', sans-serif;
+   text-align: center;
+   font-size: 3.5vw;
+   line-height: 0.3em;
+   text-transform: uppercase;
+}
+.titulo_deporte
+{
+    font-size: 3.4vh;
+}
+.jornada .subtitulo
+{
+    font-size: 3.2vh;
+}
+.jornada .fechas
+{
+    font-size: 1.8vh;
+}
+.jornada .equipo{
+    font-family: 'Oswald', sans-serif;
+    line-height: 1;
+    font-size: 1.1vh;
+    position: relative;
+    bottom: 1vh;
+
+}
+.jornada .equipoRigth{
+    font-family: 'Oswald', sans-serif;
+    line-height: 1;
+    font-size: 1.1vh;
+    text-align: right;
+}
+.jornada .resultado{
+    font-size: 2.5vh; 
+    margin-top:1vh;
+    margin-bottom: 2vh;
+}
+.jornada .resultado3{
+    font-size: 2.5vh; 
+    margin-top:1vh;
+}
+.jornada .grupo
+{
+    font-size: 1.8vh;
+}
+.jornada .npmEquipo{
+    font-size: 2vh;
+    
+}
+.bandera{
+    width: 2.5vh;
+    height: 2.5vh;
+    border-radius: 200px 200px 200px 200px;
+    -moz-border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
+    border: 1px solid #000000;
+}
+.imagen
+{
+   border: 1px solid #fff;
+   width: 8.5vw;
+}
+.jornada .imagenR{
+    position: relative;
+    right: 10px;
+}
+.jornada .contenedor{
+    background: rgba(0, 0, 0, 0.4);
+    padding: 0;
+    height: 20vw;
+}
+.jornada .fila{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.panelJugador{
+    position: relative;
+    bottom: 4vw;
+}
+.estado{
+    font-weight: bold;
+}

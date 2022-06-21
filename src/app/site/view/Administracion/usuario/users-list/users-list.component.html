@@ -1,0 +1,114 @@
+<div class="ui-g">
+<div class="ui-g-12">
+  <div class="card card-w-title">
+<h1>Listado de usuarios registrados</h1>
+    <div class="ui-widget-header" style="padding:4px 8px;border-bottom: 0 none;text-align:right;background-color:#424242">                
+            <div class="row ui-toolbar-group-left">
+                <button pButton type="button" icon="ui-icon-plus" class="green-btn" (click)="asociarUsuario()"></button> 
+                <button pButton type="button" icon="ui-icon-delete" class="teal-btn" (click)="confirmDelete()" *ngIf="hideElement"></button>
+                <button pButton type="button" icon="ui-icon-edit" class="teal-btn" (click)="EditarUsuario()" *ngIf="hideElement" ></button>    
+
+            </div>        
+                <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                    <input #gb type="text" pInputText size="25" style = "color:white" placeholder="Buscar">
+    </div>
+
+    <p-dataTable [value]="lista" [responsive]="true" selectionMode="single"  
+    [(selection)]="Usuario" (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)"
+    (onRowDblclick)="handleRowDblclickUsuario($event)" [rows]="10" [paginator]="true"  [globalFilter]="gb">
+     
+               
+                <p-column field="Usuario" header="Cuenta de ingreso" size="40"></p-column>
+                <p-column field="FechaRegistro" header="Fecha Registro" size="8">
+                    <ng-template let-col let-fecha="rowData" pTemplate="body">
+                        {{fecha[col.field] | date:'shortDate'}}
+                    </ng-template>
+                </p-column>
+                <p-column field="IsActivo" header="Estado" size="1">
+                    <ng-template let-col let-estado="rowData" pTemplate="body">
+                        <div class="circulo" [style.background]="estado[col.field]===false?'Red':'Green'"></div>
+                    </ng-template>
+                </p-column>
+     </p-dataTable>
+   </div>
+</div>
+</div>
+<!--Para el Formulario de Registro-->
+<p-dialog header="Registro de usuarios" [(visible)]="display" modal="modal" responsive="true" [style]="{'max-width':'400px'}">
+ <form class="form-signin" [(formGroup)] ="DatosPesonalesForm" (ngSubmit)="doSetUsuario($event)"> 
+     <div class="ui-g form-group-m" >
+    <div class="ui-g-12">
+          <span class="md-inputfield">
+          <input type="text" pInputText style="width:100% !important"  formControlName="Usuario">
+          <label>Cuenta:</label>
+        </span>
+    </div>
+    
+    <div class=" ui-message ui-messages-error ui-corner-all" style="padding:0.4em !important; width: auto;" *ngIf="_usuario_valid">
+      Su cuenta no puede estar vacia.
+    </div>
+    <div class="ui-g-12">
+          <span class="md-inputfield">
+          <input type="password" pInputText style="width:100% !important"  formControlName="Password">
+          <label>Contraseña:</label>
+        </span>
+    </div>
+    <div class="ui-message ui-messages-error ui-corner-all" style="padding:0.4em !important; width: auto;" *ngIf="_usuario_valid">
+      Su contraseña no puede estar vacía.
+    </div>
+    </div>
+    <p-footer>
+            <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+                <button type="button" pButton icon="fa-close" (click)="display=false" label="Cancelar"></button>
+                <button type="button" pButton icon="fa-check" type="submit" label="Guardar"></button>
+            </div>
+    </p-footer>  
+ </form>
+ </p-dialog>   
+<!--actualizar -->
+<p-dialog header="Actualizar" [(visible)]="display2" modal="modal" responsive="true" [style]="{'max-width':'400px'}">
+        <form class="form-signin" [(formGroup)] ="DatosPesonalesForm2" (ngSubmit)="doUpdate($event)"> 
+            <div class="ui-g form-group-m" >
+                    <div class="ui-g-12">
+                            <span class="md-inputfield">
+                               <input type="text" pInputText style="width:100% !important"  formControlName="UsuarioId">
+                            <label>Id:</label>
+                          </span>
+                      </div>
+           <div class="ui-g-12">
+                 <span class="md-inputfield">
+                    <input type="text" pInputText style="width:100% !important"  formControlName="Usuario">
+                 <label>Nuevo Nombre:</label>
+               </span>
+           </div>
+           -<div class=" ui-message ui-messages-error ui-corner-all" style="padding:0.4em !important; width: auto;" *ngIf="_usuario_valid">
+             Su cuenta no puede estar vacia.
+           </div>
+           <div class="ui-g-12">
+                <span class="md-inputfield">
+                   <input type="text" pInputText style="width:100% !important"  formControlName="IsActivo">
+                <label>True or False:</label>
+              </span>
+          </div>
+           <div class="ui-g-12">
+            <span class="md-inputfield">
+            <input type="password" pInputText style="width:100% !important"  formControlName="Password">
+            <label>Nueva Contraseña:</label>
+          </span>
+      </div>
+      <div class="ui-message ui-messages-error ui-corner-all" style="padding:0.4em !important; width: auto;" *ngIf="_usuario_valid">
+        Su contraseña no puede estar vacía.
+      </div>  
+      </div>
+           <p-footer>
+                   <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+                       <button type="button" pButton icon="fa-close" (click)="display2=false" label="Cancelar"></button>
+                       <button type="button" pButton icon="fa-check" type="submit" label="Guardar"></button>
+                   </div>
+           </p-footer>  
+        </form>
+</p-dialog> 
+ <p-confirmDialog width="425"></p-confirmDialog>
+ <p-growl [value]="msgs"></p-growl>
+ <!---->
+

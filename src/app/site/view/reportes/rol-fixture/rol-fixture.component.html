@@ -1,0 +1,220 @@
+<div class="ui-g">
+  <div class="ui-g-12 left"><h1>Partidos</h1></div>
+</div>
+<div class="card card-w-title">
+  <div class="ui-g">
+    <div class="ui-g-5" style="text-align:right"><b>Deportes:</b></div>
+    <div class="ui-g-6" style="text-align:left">
+      <p-dropdown
+        [options]="deportes"
+        [(ngModel)]="deporte"
+        [style]="{ width: '160px' }"
+        filter="filter"
+        (onChange)="selectedDeporte()"
+        placeholder="Seleccione un Deporte"
+      ></p-dropdown>
+    </div>
+  </div>
+  <div class="ui-g">
+    <div class="ui-g-5" style="text-align:right"><b>Categoria:</b></div>
+    <div class="ui-g-6" style="text-align:left">
+      <p-dropdown
+        [options]="categorias"
+        [(ngModel)]="categoria"
+        [style]="{ width: '160px' }"
+        filter="filter"
+        (onChange)="selectedDeporte()"
+        placeholder="Seleccione una categoria"
+      ></p-dropdown>
+    </div>
+  </div>
+  <div class="ui-g">
+    <div class="ui-g-5" style="text-align:right"><b>Delegaciones:</b></div>
+    <div class="ui-g-6" style="text-align:left">
+      <p-dropdown
+        [options]="delegaciones"
+        [(ngModel)]="delegacion"
+        [style]="{ width: '160px' }"
+        (onChange)="selectedDeporte()"
+        filter="filter"
+        placeholder="Seleccione Delegación"
+      ></p-dropdown>
+    </div>
+  </div>
+  <div class="ui-g">
+    <div class="ui-g-5" style="text-align:right"><b>Fecha:</b></div>
+    <div class="ui-g-6" style="text-align:left">
+      <p-calendar
+        [(ngModel)]="fechastr"
+        dateFormat="dd/mm/yy"
+        [locale]="en"
+        (onSelect)="selectedDeporte()"
+      ></p-calendar>
+    </div>
+  </div>
+  <div class="ui-g">
+    <div
+      *ngFor="let base of fechas"
+      style="width: 100%;"
+      class="panelRPE ui-g-12"
+    >
+      <!--
+        <div *ngFor="let escenario of base.escenarios" class="panelRPE ui-g-12">
+      -->
+      <div class="ui-lg-2 ui-g-1"></div>
+      <div class="tituloFechaRPE ui-g-12">
+        FECHA: {{ base.fecha | PipeFechaComponent: "fecha" }} <br />
+        CATEGORÍA {{ texto }}
+      </div>
+      <!-- <div class="tituloGrupoRPE"> {{escenario}}</div> -->
+      <p-dataTable
+        [value]="getGrupoDatos(base.fecha)"
+        [responsive]="true"
+        [rows]="20"
+        [paginator]="false"
+        selectionMode="single"
+        [styleClass]="'clase'"
+      >
+        <p-column header="Hora" field="HoraProgramada" styleClass="HoraRPE">
+          <ng-template let-fila="rowData" pTemplate="item">
+            {{ fila.HoraProgramada | PipeFechaComponent: "hora" }}
+          </ng-template>
+        </p-column>
+        <!--
+          <p-column
+            header="Categoría"
+            field="Rama"
+            styleClass="categoriaRPE"
+          ></p-column>
+        -->
+        <p-column
+          header="Escenario"
+          field="Instalacion"
+          styleClass="categoriaRPE"
+        ></p-column>
+        <p-column styleClass="HoraRPE">
+          <ng-template let-fila="rowData" pTemplate="item">
+            <img
+              src="/assets/banderas/{{fila.DelegacionIdA}}.png"
+              class="imgTP"
+            />
+          </ng-template>
+        </p-column>
+        <p-column header="Equipo" field="EquipoA" styleClass="equipoRPE">
+          <ng-template let-fila="rowData" pTemplate="item">
+            <span id="equipoRPEA">{{ fila.EquipoA }}</span>
+          </ng-template>
+        </p-column>
+        <!--<p-column
+          header=""
+          field="MarcadorEquipoA"
+          styleClass="puntajeRPE"
+        ></p-column>-->
+        <p-column header="" field="vs" styleClass="categoriaRPE">
+          <ng-template let-col let-car="rowData" pTemplate="body">
+             <div> <span id="SPAN_1"
+                >{{ car.MarcadorEquipoA }} - {{ car.MarcadorEquipoB }}</span
+              >
+            </div>
+            <div>
+                <span id="SPAN_3">{{car.Estado}}</span></div>
+          </ng-template>
+        </p-column>
+        <!--<p-column
+          header=""
+          field="MarcadorEquipoB"
+          styleClass="puntajeRPE"
+        ></p-column>-->
+        <p-column header="Equipo" field="EquipoB" styleClass="equipoRPE">
+          <ng-template let-fila="rowData" pTemplate="item">
+            <span id="equipoRPEA">{{ fila.EquipoB }}</span>
+          </ng-template>
+        </p-column>
+        <p-column styleClass="HoraRPE">
+          <ng-template let-fila="rowData" pTemplate="item">
+            <img
+              src="/assets/banderas/{{fila.DelegacionIdB}}.png"
+              class="imgTP"
+            />
+          </ng-template>
+        </p-column>
+      </p-dataTable>
+      <div class="ui-lg-2 ui-g-1"></div>
+    </div>
+  </div>
+  <div class="tituloFechaRPE ui-g-12">
+    Tabla de Posiciones <br />
+
+    Grupo único {{ texto }}
+  </div>
+  <br />
+  <div class="panelPT">
+    <p-dataTable
+      [value]="podios"
+      [responsive]="true"
+      [rows]="20"
+      [paginator]="false"
+      selectionMode="single"
+      [styleClass]="'clase'"
+    >
+      <p-column field="Equipo" header="Equipo" styleClass="equipoPos">
+        <ng-template let-fila="rowData" pTemplate="item">
+          <img
+            src="/assets/banderas/{{fila.DelegacionId}}.png"
+            class="imgTP"
+          /><label class="spanNombreTP"
+            ><span class = "equipoPosiciones">  {{ fila.Equipo }}</span></label
+          >
+        </ng-template>
+      </p-column>
+      <p-column
+        field="PJ"
+        header="PJ"
+        [hidden]="false"
+        styleClass="puntajeMarcadores"
+      ></p-column>
+      <p-column
+        field="PG"
+        header="PG"
+        [hidden]="false"
+        styleClass="puntajeMarcadores"
+      ></p-column>
+      <p-column
+        field="PE"
+        header="PE"
+        [hidden]="false"
+        styleClass="puntajeMarcadores"
+      ></p-column>
+      <p-column
+        field="PP"
+        header="PP"
+        [hidden]="false"
+        styleClass="puntajeMarcadores"
+      ></p-column>
+      <p-column
+        field="GF"
+        header="GF"
+        [hidden]="false"
+        styleClass="puntajeMarcadores"
+      ></p-column>
+      <p-column
+        field="GC"
+        header="GC"
+        [hidden]="false"
+        styleClass="puntajeMarcadores"
+      ></p-column>
+      <p-column
+        field="DG"
+        header="DG"
+        [hidden]="false"
+        styleClass="puntajeMarcadores"
+      ></p-column>
+      <p-column
+        field="PT"
+        header="PT"
+        [hidden]="false"
+        styleClass="puntajeTotal"
+      ></p-column>
+    </p-dataTable>
+  </div>
+</div>

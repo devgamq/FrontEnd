@@ -1,0 +1,36 @@
+<div class="ui-g">
+  <div class="ui-g-12 left"><h1>Medallero General</h1></div>
+</div>
+<div class="card card-w-title" >
+    <div class="ui-g"> 
+        <div class="ui-g-11" style="text-align:right" >
+        </div>
+       
+         <div  class="ui-g-1">
+            <button pButton type="submit" icon="ui-icon-print" class="ui-button-success"(click)="imprimir()"></button>
+         </div>
+    </div>
+    <div  class="panelG">
+  <p-dataTable [value]="data" [responsive]="true"  [rows]="20" [paginator]="false"
+  selectionMode="single">
+  <p-column header="NOMBRE" field="Nombre" styleClass="nombreG"  >
+      <ng-template let-fila="rowData" pTemplate="item">
+         <img src="/assets/banderas/{{fila.DelegacionId}}.png" class="imgG"><label class="spanNombreG">{{fila.Nombre}}</label> 
+      </ng-template>
+  </p-column>
+  <p-column header="ORO" field="ORO" styleClass="columnaG"  ></p-column>
+  <p-column header="PLATA" field="PLATA" styleClass="columnaG"  ></p-column>
+  <p-column header="BRONCE" field="BRONCE" styleClass="columnaG"  ></p-column>
+  <p-column header="TOTAL" field="Total" styleClass="columnaG"  ></p-column>
+  <p-footerColumnGroup>
+      <p-row>
+          <p-column footer=""></p-column>
+          <p-column footer="{{oro}}"></p-column>
+          <p-column footer="{{plata}}"></p-column>
+          <p-column footer="{{bronce}}"></p-column>
+          <p-column footer="{{total}}"></p-column>
+      </p-row>
+  </p-footerColumnGroup>
+</p-dataTable>
+</div>
+</div>

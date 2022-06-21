@@ -1,0 +1,38 @@
+.HoyoEnUno {
+  background-color: #b39b3a;
+
+   box-shadow: 0 0 10000px 10000px #B39B3A; 
+  z-index: 5;
+}
+
+.Albatroz {
+  background-color: #c077a0;
+   box-shadow: 0 0 10000px 10000px #c077a0; 
+  z-index: 5;
+}
+
+.Eagle {
+  background-color: #db941b;
+  box-shadow: 0 0 10000px 10000px #db941b;
+  z-index: 5;
+}
+.Birdie {
+  background-color: #249330;
+  box-shadow: 0 0 10000px 10000px #249330;
+  z-index: 5;
+}
+.Par {
+  background-color: #fff;
+   box-shadow: 0 0 10000px 10000px #fff; 
+  z-index: 5;
+}
+.Bogey {
+  background-color: #336aab;
+   box-shadow: 0 0 10000px 10000px #336AAB; 
+  z-index: 5;
+}
+.DBogey {
+  background-color: #c30e29;
+   box-shadow: 0 0 10000px 10000px #C30E29; 
+  z-index: 5;
+}

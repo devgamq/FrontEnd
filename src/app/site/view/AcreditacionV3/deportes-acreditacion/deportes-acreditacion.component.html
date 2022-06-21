@@ -1,0 +1,82 @@
+
+<div class="card card-w-title" >
+    <h1>Registro de Acreditacion</h1>
+    <div class="ui-g">
+
+        <div class="ui-g-6" style="text-align:right" >
+                 Grupo:
+                </div>
+        <div class="ui-g-6" >
+            <p-dropdown [options]="grupos" [(ngModel)]="GrupoId" [style]="{'width':'160px'}" (onChange)="seleccionarGrupo();" placeholder="Seleccionar Grupo"></p-dropdown>
+                </div>
+    </div>
+    <div class="ui-g">
+                <div class="ui-g-6" style="text-align:right" >
+                         Rol:
+                        </div>
+                <div class="ui-g-6" >
+                    <p-dropdown [options]="roles" [(ngModel)]="RolId" [style]="{'width':'160px'}" (onChange)="seleccionarRol();" placeholder="Seleccionar Rol"></p-dropdown>
+                        </div>
+            </div>
+            <div class="ui-g">
+                <div class="ui-g-6" style="text-align:right" >
+                         Deporte:
+                        </div>
+                <div class="ui-g-6" >
+                    <p-dropdown [options]="deportes" [(ngModel)]="DeporteId" [style]="{'width':'160px'}" (onChange)="seleccionarDeporte();" placeholder="Seleccionar Deporte"></p-dropdown>
+                        </div>
+            </div>
+            <div class="ui-g">
+                <div class="ui-g-6" style="text-align:right" >
+                         Prueba:
+                        </div>
+                <div class="ui-g-6" >
+                    <p-multiSelect [options]="pruebas" [(ngModel)]="pruebasId"></p-multiSelect>
+                        </div>
+            </div>
+            <div class="ui-g">
+                <div class="ui-g-6" style="text-align:right" >
+                         Rama:
+                        </div>
+                <div class="ui-g-6" >
+                    <button pButton type="button" label="Registrar Ramas" class="ui-button-success" (click)="registrarRamas()"></button>
+                        </div>
+            </div>
+            <div class="ui-g">
+                    <div class="ui-g-6" style="text-align:right" >
+                             Inscripcion:
+                            </div>
+                    <div class="ui-g-6" >
+                        <button pButton type="button" label="Registrar Competidor" class="ui-button-info" (click)="registrarCompetidor()"></button>
+                            </div>
+                </div>
+                <div class="ui-g">
+                        
+                    <div class="ui-g-12" style="text-align:right" >
+                            <div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none">
+                                    <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                                    <input #gb type="text" pInputText size="50" placeholder="Global Filter">
+                                </div>
+                        <p-dataTable [rows]="10" [paginator]="true" [value]="listaCompetidores" [globalFilter]="gb" #dt>
+                            <p-column field="PersonaId" header="ID"></p-column>
+                            <p-column field="Nombres" header="NOMBRE">
+                                <ng-template pTemplate="paginatorLeft" let-col>
+                                    {{col.Nombres}}
+                                </ng-template>
+                            </p-column>
+                            <p-column field="DocIdentidad" header="CI"></p-column>
+                            <p-column field="FechaNacimiento" header="FECHA MODIF."></p-column>
+                            <p-column field="color" header="ACCIONES."></p-column>
+                        </p-dataTable>
+                            </div>
+                </div>
+</div>
+
+<p-dialog modal="modalB"  responsive="true" [(visible)]="mostrarDialogoRama" positionTop="1" header="Registro de Ramas" height="500"  width="500">
+    <app-boton-deporte-acreditacion [eventoId]="eventoId" [deporteId]="DeporteId" (datosramas)="colocarRamas($event)" (cerrar)="cerrarDialogoRama()" [pruebaSeleccionadas]="pruebaSelecionada" *ngIf="mostrarDialogoRama" ></app-boton-deporte-acreditacion>
+</p-dialog>
+
+<p-dialog modal="persona"  responsive="true" [(visible)]="mostrarDialogoPersona" positionTop="1" header="Registro de Persona" height="600"  width="750">  
+<app-pmenu></app-pmenu> 
+</p-dialog>
+ 

@@ -1,0 +1,137 @@
+<div class="loading" *ngIf="!show" [ngStyle]="style_gif"></div>
+<div class="{{visible}}"></div>
+<div class=" panel" *ngIf="show" id="container">
+    <div class=" titulo">
+
+        <div class="ui-g " *ngIf="tablero!=7 && tablero !=40">
+            <div class="ui-g-3 reloj">
+                <app-reloj></app-reloj>
+            </div>
+
+            <div class="ui-g-6 logo" *ngIf="EventoId!=3">
+                <img class="institucion" src="assets/esponsors/logoooo.png" class="logoHammer">
+
+            </div>
+            <div class="ui-g-6 logo3" *ngIf="EventoId==3">
+                <img src="assets/0{{EventoId}}/logos/logo1.png" *ngIf="!show_logo">
+            </div>
+            <div class="ui-g-3 clima">
+                <app-clima [lugar]="ciudad"></app-clima>
+            </div>
+        </div>
+        <div class="ui-g " *ngIf="tablero==7">
+            <div class="ui-g-3 reloj_h">
+                <app-reloj></app-reloj>
+            </div>
+            <div class="ui-g-6 logo_h">
+                <img src="assets/pluris.png">
+            </div>
+            <div class="ui-g-3 clima_h">
+                <app-clima [lugar]="ciudad"></app-clima>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div [ngSwitch]="tablero" class="ui-grid-row">
+        <ng-template [ngSwitchCase]="1" class="sample-show-hide">
+            <app-medallero [EventoId]="EventoId" [tipo]="'1'" [Refresh]="f5_medallero"></app-medallero>
+        </ng-template>
+        <ng-template [ngSwitchCase]="2" class="sample-show-hide">
+            <app-medallero [EventoId]="EventoId" [tipo]="'2'" [DeporteId]="deporteId"></app-medallero>
+        </ng-template>
+        <ng-template [ngSwitchCase]="3" class="sample-show-hide">
+            <app-medallero [EventoId]="EventoId" [tipo]="'3'" [delegacionId]="delegacionId"></app-medallero>
+        </ng-template>
+        <ng-template [ngSwitchCase]="4" class="sample-show-hide">
+            <app-podio [eventoId]="EventoId" [deporteId]="deporteId" [parametroRamaId]="parametroRamaId" [grupoid]="grupoid" [tiempo]="tiempo"
+                [Refresh]="f5_medallero"></app-podio>
+        </ng-template>
+        <ng-template [ngSwitchCase]="5" class="sample-show-hide">
+            <app-podio-deporte [eventoId]="EventoId" [deporteId]="deporteId" [parametroRamaId]="parametroRamaId" [pruebaId]="pruebaId"
+                [Refresh]="f5_medallero"></app-podio-deporte>
+        </ng-template>
+
+        <ng-template [ngSwitchCase]="7" class="sample-show-hide">                 
+            <app-medallero-atletismo></app-medallero-atletismo>
+        </ng-template>
+        <ng-template [ngSwitchCase]="8" class="sample-show-hide">
+            <app-tabla-partido [EventoId]="EventoId" [DeporteId]="deporteId" [parametroRamaId]="parametroRamaId" [json]="json"></app-tabla-partido>
+        </ng-template>
+
+
+        <ng-template [ngSwitchCase]="20" class="sample-show-hide">
+            <app-perfil-alumno [tiempo]="tiempo" [DeporteId]="deporteId" [eventoId]="EventoId" [Refresh]="f5_medallero"></app-perfil-alumno>
+        </ng-template>
+        <ng-template [ngSwitchCase]="21" class="sample-show-hide">
+            <app-resumen-jornada [eventoId]="EventoId" [tiempo]="tiempo" [fechas]="fechas" [deporteId]="deporteId" [Refresh]="f5_medallero"></app-resumen-jornada>
+        </ng-template>
+        <ng-template [ngSwitchCase]="2" class="sample-show-hide">
+            <app-medallero [EventoId]="EventoId" [tipo]="'2'" [DeporteId]="'1'"></app-medallero>
+        </ng-template>
+        <ng-template [ngSwitchCase]="22" class="sample-show-hide">
+            <app-marcas-individuales [EventoId]="EventoId" [DeporteId]="deporteId" [tiempo]="tiempo" [Refresh]="f5_medallero"></app-marcas-individuales>
+        </ng-template>
+        <ng-template [ngSwitchCase]="24" class="sample-show-hide">
+            <app-versus [EventoId]="EventoId" [DeporteId]="deporteId" [tiempo]="tiempo" [Refresh]="f5_medallero" [CronogramaId]="pruebaId"></app-versus>
+        </ng-template>
+        <ng-template [ngSwitchCase]="25" class="sample-show-hide">
+            <app-resumen-versus [eventoId]="EventoId" [tiempo]="tiempo" [fechas]="fechas" [deporteId]="deporteId" [Refresh]="f5_medallero"></app-resumen-versus>
+        </ng-template>
+        <ng-template [ngSwitchCase]="39" class="sample-show-hide">
+            <app-visor-grupos [eventoId]="EventoId" [tiempo]="tiempo" [fechas]="fechas" [deporteId]="deporteId" [Refresh]="f5_medallero"></app-visor-grupos>
+        </ng-template>
+
+        <ng-template [ngSwitchCase]="40" class="sample-show-hide">
+            <app-visor-pronostico></app-visor-pronostico>
+        </ng-template>
+
+        <ng-template [ngSwitchCase]="42" class="sample-show-hide">
+            <app-marcas-jornada [deporteId]="deporteId" [eventoId]="EventoId" [fechas]="fechas" [tiempo]="tiempo" [Refresh]="f5_medallero"></app-marcas-jornada>
+        </ng-template>
+        <ng-template [ngSwitchCase]="43" class="sample-show-hide">
+            <app-sport-timing></app-sport-timing>
+        </ng-template>
+        <ng-template [ngSwitchCase]="99" class="sample-show-hide">
+            <app-jornada-ciclismo [EventoId]="EventoId" [DeporteId]="deporteId" [fecha]="fecha"></app-jornada-ciclismo>
+        </ng-template>
+    </div>
+    <div class="ui-g fondoOscuro" *ngIf="tablero!=7  && pie_show">
+        <div class="ui-g-4"></div>
+        <div class="ui-g-2">
+            <img class="sponsor" src="assets/esponsors/mb.png" style="top: 14px;">
+        </div>
+        <div class="ui-g-2">
+            <img class="sponsor" src="assets/esponsors/md.png" style="top: 52px;">
+        </div>
+        <div class="ui-g-4"></div>
+
+    </div>
+    <div class="marquee{{tablero}}" *ngIf="pie_show">
+        <marquee [ngStyle]="style" *ngIf="show_marquee">{{mensaje}}</marquee>
+        <div class="divOscuro" style="height:300px" [ngStyle]="style_fondo" *ngIf="EventoId!=3">
+
+
+        </div>
+        <div class="divOscuro" style="height:160px" [ngStyle]="style_fondo" *ngIf="EventoId==3">
+            <div class="ui-g fondoOscuro" [ngStyle]="style_fondo">
+                <span class="derechos">Resultados provistos por:</span>
+                <div class="row">
+                    <div class="ui-g-6 hammer">
+                        <img class="institucion" src="assets/esponsors/hammerUpdate.png">
+                    </div>
+
+                    <div class="ui-g-6 cocha">
+                        <img class="institucion" src="assets/esponsors/codesur.png">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    screenfull.toggle($('#container')[0]);
+</script>

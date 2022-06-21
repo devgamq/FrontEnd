@@ -1,0 +1,61 @@
+<h1>Golf</h1>
+<div class="ui-g">
+    <div class="ui-g-12">
+        <div class="card card-w-title">
+            <h1>Jornadas</h1>
+            <div class="ui-widget-header" style="padding:4px 10px 4px;border-bottom: 0 none">
+                <button pButton type="button" icon="ui-icon-plus" class="green-btn" (click)="showDialog(this.type.Insert)"></button>
+                <button pButton type="button" icon="ui-icon-edit" class="teal-btn" (click)="showDialog(this.type.Update)" *ngIf="hideElement"></button>
+                <button pButton type="button" icon="ui-icon-delete" class="teal-btn" (click)="confirmDelete()" *ngIf="hideElement"></button>
+                <div class="ui-toolbar-group-right">
+                    <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                    <input #gb type="text" pInputText size="50" placeholder="Buscar...">
+                </div>
+            </div>
+            <p-dataTable [value]="jornadas" [responsive]="true" [globalFilter]="gb" [rows]="20" [paginator]="true" selectionMode="single"
+                [(selection)]="jornada" (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)">
+                <p-column field="JornadaId" header="" [hidden]="true"></p-column>
+                <p-column field="EventoDeportivoId" header="" [hidden]="true"></p-column>
+                <p-column field="Descripcion" header="Descripción"></p-column>
+                <p-column field="NombreCorto" header="Abreviación"></p-column>
+                <p-column field="Fecha" header="Fecha">
+                    <ng-template let-col let-fecha="rowData" pTemplate="body">
+                        {{fecha[col.field] | date:'dd-MM-yyyy'}}
+                    </ng-template>
+                </p-column>
+                <p-column field="FechaRegistro" header="Fecha Registro" [hidden]="true"></p-column>
+                <p-column field="UsuarioId" header="" [hidden]="true"></p-column>
+            </p-dataTable>
+        </div>
+    </div>
+</div>
+
+<p-dialog header="Nueva Jornada" [(visible)]="display" modal="modal" responsive="true">
+    <form class="form-signin" [(formGroup)]="jornadaForm" (ngSubmit)="doSetJornada($event)">
+        <div class="ui-g form-group-m" style="margin-top:20px">
+            <div class="ui-g-12">
+                <span class="md-inputfield">
+                    <input type="text" pInputText style="width:100%;" formControlName="Descripcion">
+                    <label>Descripción</label>
+                </span>
+            </div>
+            <div class="ui-g-12">
+                <span class="md-inputfield">
+                    <input type="text" pInputText style="width:100%;" formControlName="NombreCorto">
+                    <label>Nombre Corto</label>
+                </span>
+            </div>
+            <div class="ui-g-12">
+                <p-calendar id="showIcon" [showIcon]="true" dateFormat="dd/mm/yy" placeholder="Fecha" [style]="{'position': 'fixed', 'overflow': 'visible', 'z-index': '999'}"
+                    formControlName="Fecha" [locale]="es"></p-calendar>
+            </div>
+        </div>
+        <br>
+        <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+            <button type="button" pButton icon="fa-close" (click)="display=false" label="Cancelar"></button>
+            <button type="button" pButton icon="fa-check" type="submit" label="Guardar"></button>
+        </div>
+    </form>
+</p-dialog>
+<p-confirmDialog width="425"></p-confirmDialog>
+<p-growl [value]="msgs"></p-growl>

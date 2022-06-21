@@ -1,0 +1,212 @@
+body{
+    overflow-y:hidden !important; 
+}
+
+.titulo_medallero{
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.1vw;
+    text-align: left;
+    margin-bottom: 35px;
+    margin-left: 10px;
+}  
+.punto
+{
+   width: 3vw;
+}
+.reloj_h
+{
+    font-family: 'Oswald', sans-serif !important;
+    position: relative;
+    top: 2vw;
+    right: 8vw;
+    float: left;
+}
+.reloj_h  .time
+{
+    font-size: 2vw !important;
+}
+.logo_h{
+    position:relative;
+    bottom: 60px;
+    width: 49vw;
+}
+.logo_h img{
+    width: 22vh;
+    top: 65px;
+    position: relative;
+    z-index: -1;
+}
+
+.clima_h img
+{
+    left: 12vw !important;
+} 
+.clima_h .titulo{
+    position: relative;
+    bottom: 30px;
+    font-size: 2vw !important;
+}
+.clima_h .grados
+{
+    font-size: 2vw !important;
+    left: 6vw !important;
+}
+.panel_a
+{
+    min-height: 99%;
+    background-color: white;
+    position: relative;
+    bottom: 14vh;
+}
+.panel_a .panel_tabla
+{
+   position:relative;
+   height: 66vh;
+   overflow-y:hidden; 
+}
+.panel_a .tabla{
+    font-size:1vw;
+    font-family: 'Oswald', sans-serif;
+    width: 100%;
+    line-height: 3.6vw !important;
+    color: white;
+    min-width: 100%;
+    border:none;
+    border-spacing: 0px !important;
+    background-size: auto 100%;
+ }
+ .panel_a th {
+    background-color: black;
+    line-height: 2.1vw;
+    font-size: 1vw;
+ }
+ .panel_a tr:nth-child(even) .marcar {
+    background-color: #000;
+    /*filter:alpha(opacity=60);-moz-opacity:.60;opacity:.60;*/
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+ }
+ .panel_a tr td:first-child {
+    border-left: solid #1A1A1A;
+    font-size: 1.5vw;
+ }
+
+
+ .panel_a td:nth-last-child(2) {
+    font-size: 1.5vw;
+ }
+ .panel_a .columna{
+   text-align: center;
+   width: 6%
+}
+.panel_a .columna_small{
+    text-align: center;
+    width: 3%
+ }
+ .panel_a label{
+    color: white;
+    font-weight: lighter;
+    padding-left: 45px;
+ }
+ .panel_a .medallas
+ {
+   width: 7vw;
+   
+ }
+ .panel_a .sponsor
+ {
+     width: 45% !important;
+     bottom: 10px !important;
+   
+ }
+ .panel_a  .fondoOscuro
+ {
+     height: 130px !important;
+     text-align: center;
+ }
+ .panel_a  marquee {
+     font-size: 1.5vw !important;
+     height: 1vw !important;
+     padding: 1vw !important;
+ }
+
+ .panel_a  .medallas
+ {
+     width: 1.5vw !important;
+    
+ }
+ .panel_a .puntos
+ {
+     font-size: 2vw;
+     font-weight: bold;
+ }
+ .panel_a .valores
+ {
+     color: #E0DADA !important;
+ }
+ .panel_a .derechos
+ {
+     text-align: left;
+ }
+ .panel_a .total{
+     
+     text-align: center;
+     font-size: 2.4vw !important;
+     font-weight: bold;
+  }
+  .panel_a .ui-g-4 img{
+    height: 3vw; 
+}
+.panel_a .tabla_medallas
+{
+    width: 100%;
+    border-spacing: 0px !important;
+     margin-bottom: -35px;
+}
+.panel_a  .equipo
+{
+   width: 8%;
+   text-align: left;
+   padding-left: 10px;
+}
+.eliminado
+{
+    width: 8%;
+    text-align: left;
+    padding-left: 10px;
+    font-size: 1.5vw;
+
+}
+.panel_a  .small{
+    font-size: 2.4vw !important;
+}
+.panel_a .titulo{
+    height: 130px !important;
+    font-size: 2vw !important;
+}
+.panel_a .puesto{
+    text-align: center;
+    width: 3%;
+}
+.puesto img{
+    position: relative;
+    top: 10px;
+}
+.marquee7 marquee
+{
+    font-size: 1.5vw !important;
+    height: 1vw !important;
+    padding: 1vw !important;
+   
+
+}
+.marquee7
+{
+    position: relative;
+    bottom: 14vh;
+}
+.marquee7  .institucion{
+    position: relative;
+    bottom: 5px;
+    width: 30% !important;
+}

@@ -1,0 +1,55 @@
+<h1>Creación de Grupos</h1>
+<p-messages [(value)]="msgs"></p-messages>
+<div class="card card-w-title">
+  <div class="ui-g">
+    <div class="ui-g-6" style="text-align:right">
+      <b>Deportes:</b>
+    </div>
+    <div class="ui-g-6" style="text-align:left">
+      <p-dropdown [options]="deportes" [(ngModel)]="deporte" [style]="{'min-width':'200px'}" (onChange)="selectedDeporte();" placeholder="Seleccione un Deporte"
+        filter="filter"></p-dropdown>
+        <input type="hidden" pInputText [(ngModel)]="tipo"/>
+    </div>
+  </div>
+ 
+  <div class="ui-g">
+    <div class="ui-g-6" style="text-align:right">
+      <b>Pruebas:</b>
+    </div>
+    <div class="ui-g-6" style="text-align:left">
+      <p-dropdown [options]="pruebas" [(ngModel)]="prueba" [style]="{'min-width':'200px'}" (onChange)="selectedPrueba();" placeholder="Seleccione una Prueba"
+        filter="filter"></p-dropdown>
+    </div>
+  </div>
+  <div class="ui-g">
+    <div class="ui-g-6" style="text-align:right">
+      <b>Categorías:</b>
+    </div>
+    <div class="ui-g-6" style="text-align:left">
+      <p-dropdown [options]="categorias" [(ngModel)]="categoria" [style]="{'min-width':'200px'}" (onChange)="selectedRama();" placeholder="Seleccione Categoría"></p-dropdown>
+    </div>
+  </div>
+  <div class="ui-widget-header" class="contenedor">
+      Grupo: <input type="text" pInputText [(ngModel)]="grupo" class="input"/>
+      Fases:<p-dropdown [options]="fases" [(ngModel)]="fase"  [style]="{'width':'160px'}"></p-dropdown>
+      <button pButton type="submit" icon="ui-icon-save" class="ui-button-success"(click)="save(false)"></button>
+      <button pButton type="button" icon="ui-icon-edit" (click)="edit()" class="ui-button-info" *ngIf="hideBorrar" ></button>
+      <button pButton type="button" icon="ui-icon-clear" (click)="eliminarRegistro()" class="ui-button-danger" *ngIf="hideBorrar" ></button>
+  </div>
+  <p-dataTable [value]="tabla" [responsive]="true"  [rows]="20" [paginator]="true"
+    selectionMode="single" (onRowSelect)="onRowSelect($event)">
+      <p-column header="Grupo" field="Grupo" styleClass="columna_small" [sortable]="true"></p-column>
+      <p-column header="GrupoId" field="GrupoId"  [hidden]="true"></p-column>
+      <p-column header="PruebaEventoId" field="PruebaEventoId"  [hidden]="true"></p-column>
+      <p-column header="ParametroFaseId" field="ParametroFaseId"  [hidden]="true"></p-column>
+      <p-column header="Fase" field="Fase" styleClass="columna_small" [sortable]="true"></p-column>
+      <p-column header="Deporte" field="Deporte" styleClass="columna_small"></p-column>
+      <p-column header="Prueba - Rama" field="CronogramaId" styleClass="columna_small">
+        <ng-template let-col let-row="rowData" pTemplate="item">
+          {{row.Prueba}} - {{row.Rama}}
+        </ng-template>
+      </p-column>
+    </p-dataTable>
+    <p-confirmDialog header="Confirmación" acceptLabel="Si" icon="fa fa-question-circle" width="425"></p-confirmDialog>
+
+</div>

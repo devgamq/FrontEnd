@@ -1,0 +1,6 @@
+<div class="ui-grid-row">
+  <div *ngFor="let tipo of tipos">
+    <app-card-deporte [card]="tipo" [cambio]="cambio" (OnClick)="handleClick($event)"></app-card-deporte>
+  </div>
+</div>
+<p-growl [value]="msg" ></p-growl>

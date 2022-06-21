@@ -1,0 +1,23 @@
+<div class=" panel">
+    <div class="tituloPrincipal" [ngStyle]="style_titulo">{{titulo}} </div><br>
+
+    <div #panel class="panel_posiciones {{clase_panel}}" [ngStyle]="style">
+        <div *ngFor="let grupo of grupos">
+            <div class="tituloGrupo">{{titulo_grupo}} {{grupo.grupo}} {{grupo.parametroNombre}}</div>
+            <table class="tabla">
+                <tr>
+                    <th class="columna">Equipo</th>
+                    <th class="columna" *ngFor="let col of keys">{{col}}</th>
+
+                </tr>
+                <tr *ngFor="let parametro of getGrupoDatos(grupo.grupo ,grupo.ParametroRamaId)">
+                    <td class="equipo marcar"><img class="medallas" src="assets/banderas/{{parametro.DelegacionId}}.png"> <span>{{parametro.Equipo}}</span></td>
+                    <td class=" columna marcar" *ngFor="let col of keys"><span>{{parametro[col]}}</span></td>
+
+                </tr>
+            </table><br>
+        </div>
+
+    </div>
+
+</div>

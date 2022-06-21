@@ -1,0 +1,56 @@
+<div class="ui-g ">
+  <div class="card card-w-title ui-fluid ui-g-12">
+    <form id="DatosPesonalesForm" [(formGroup)]="DatosPesonalesForm">
+ <p-panel #pnl header=" Cambio de contraseña para {{ _nombre}}" [style]="{'margin-top':'20px'}">
+ <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+
+ <div class="ui-g-4 "></div>
+ <div class="form-group ui-g-4">
+
+    <div class="ui-g-12 ui-md-12">
+          <span class="md-inputfield">
+          <input type="password" pInputText style="width:100% !important"  formControlName="oldpassword">
+          <label>Ingrese su contraseña:</label>
+        </span>
+        </div>
+    <div class=" ui-grid-col-12 ui-message ui-messages-error ui-corner-all" style="padding:0.4em !important; width: auto;" *ngIf="_oldpassword_valid">
+      Su contraseña actual no puede estar vacia.
+    </div>
+    <div class=" ui-grid-col-12 ui-message ui-messages-error ui-corner-all" style="padding:0.4em !important; width: auto;" *ngIf="_clave_valid">
+      Ingrese su contraseña actual
+    </div>
+    <div class="ui-g-12 ui-md-12">
+      <span class="md-inputfield">
+      <input type="password" pInputText style="width:100% !important"  formControlName="newpassword">
+      <label>Nueva contraseña:</label>
+    </span>
+    </div>
+     <div class=" ui-grid-col-12 ui-message ui-messages-error ui-corner-all" style="padding:0.4em !important; width: auto;" *ngIf="_newpassword_valid">
+      Debe ingresar su nueva contraseña
+    </div>
+    <div class=" ui-grid-col-12 ui-message ui-messages-error ui-corner-all" style="padding:0.4em !important; width: auto;" *ngIf="_igualpass">
+      Su nueva contraseña debe ser igual a su confirmación.
+    </div>
+    <div class="ui-g-12 ui-md-12">
+      <span class="md-inputfield">
+      <input type="password" pInputText style="width:100% !important"  formControlName="repassword">
+      <label>Confirmar contraseña:</label>
+    </span>
+    </div>
+     <div class=" ui-grid-col-12 ui-message ui-messages-error ui-corner-all" style="padding:0.4em !important; width: auto;" *ngIf="_repassword_valid">
+      La confirmación no puede estar vacia.
+    </div>
+<div class="ui-g-12 ui-md-12"></div>
+    <div class="ui-g-3 ui-md-3" style="text-align:left">
+    <button type="button" label="Registrar Datos" pButton  (click)="onSave()" style="min-width:150px"></button>
+  </div>
+
+</div>
+
+</div>
+
+<p-growl [value]="msgs"></p-growl>
+</p-panel> 
+</form>
+</div>
+</div>

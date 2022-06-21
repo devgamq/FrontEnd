@@ -1,0 +1,46 @@
+.ui-autocomplete-panel {
+  position: absolute;
+  overflow: auto;
+  display:inline;
+  overflow-x:hidden !important;
+  overflow-y:hidden !important;
+
+}
+
+.ui-autocomplete-panel .ui-autocomplete-item {
+  cursor: pointer;
+}
+
+.ui-autocomplete-panel .ui-autocomplete-list {
+  padding: 0.4em;
+  border: 0 none;
+}
+
+.ui-autocomplete-panel .ui-autocomplete-list-item {
+  border:0px none;
+  font-weight:normal;
+  margin:1px 0;
+  padding:3px 5px;
+  text-align:left;
+}
+
+.ui-autocomplete-panel .ui-autocomplete-table {
+  border-collapse:none;
+  width: 100%;
+  display: none !important;
+  visibility: hidden !important;
+ 
+
+}
+
+.ui-autocomplete-panel .ui-autocomplete-table th,
+.ui-autocomplete-panel .ui-autocomplete-table td {
+  border-width: 1px;
+  border-style: solid;
+  border-color: inherit;
+  padding:4px 10px 4px 10px;
+}
+
+.disable-scroll .ui-dialog-content {
+  overflow: hidden !important;
+}

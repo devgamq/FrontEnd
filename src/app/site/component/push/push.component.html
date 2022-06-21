@@ -1,0 +1,22 @@
+<div class="ui-g">
+  <form class="form-signin" [(formGroup)]="pushForm" (ngSubmit)="doSetPush($event)">
+    <div class="ui-g-12">
+      <br/>
+      <span class="md-inputfield">
+        <input type="text" pInputText class="form-control" formControlName="Title" />
+        <label>Título</label>
+      </span>
+    </div>
+    <div class="ui-g-12">
+      <br/>
+      <span class="md-inputfield">
+        <input type="text" pInputText class="form-control" formControlName="Body" />
+        <label>Mensaje</label>
+      </span>
+    </div>
+    <div class="ui-g-12 btnClass">
+      <button type="button" pButton icon="fa-check" type="submit" label="Enviar"></button>
+      <button type="button" pButton icon="fa-close" (click)="cancel()" label="Cancelar"></button>
+    </div>
+  </form>
+</div>

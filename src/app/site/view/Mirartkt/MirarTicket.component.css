@@ -1,0 +1,50 @@
+.black{
+    background-color: silver;
+    Color:  black;
+    align-content: center;
+    padding : 10px;
+}
+.tktstyle{
+    align-self:center; 
+    background-color: silver;
+    Color:  black;
+    align-content: center;
+    font: arial;
+    font-size:3vw;
+    font-style: bold;
+    padding : 14px;
+}
+.grande{
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+    font-size: 9vw;
+    color: dimgray;
+    padding: 20px;
+    
+}
+.grande2{
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+    font-size: 18vw;
+    color: dimgray;
+    padding: 28px;
+    
+}
+.time{
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+    font-size: 4vw;
+    color:MidnightBlue ;
+}
+.centro{
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+    font-size: 18px;
+    color: rgb(5, 24, 66);
+    padding: 28px;
+    
+}

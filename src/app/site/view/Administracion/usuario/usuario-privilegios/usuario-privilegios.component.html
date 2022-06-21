@@ -1,0 +1,11 @@
+﻿<div class="ui-g-12">
+    <p-checkbox name="all" value="1" label="Seleccionar Todo" [(ngModel)]="todo" inputId="all"
+    (click)="seleccionar_todo()"></p-checkbox></div>
+<p-tree [value]="master" [style]="style_titulo" >
+    <ng-template let-node pTemplate="default">
+        <input size="180" type="checkbox" [(ngModel)]="node.selected" [indeterminate]="node.partialSelection"
+         (ngModelChange)="nodeSelected(node)">
+        <span style="margin-left: 6px">{{node.label}}</span>
+    </ng-template>
+</p-tree>
+<p-growl [(value)]="mensaje"></p-growl>

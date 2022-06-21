@@ -1,0 +1,7 @@
+<div class="ui-lg-4 ui-g-10 tablaRP" style="text-align:right"*ngIf="deporte!=3" >
+    <p-dataTable [value]="estadisticas" [responsive]="true" [rows]="20" [paginator]="false" [styleClass]="'clase'" >
+    <p-column header="{{Encuentro.Equipo_A}}" field="1" styleClass="posRPS"></p-column>
+    <p-column header="Estadísticas" field="Parametro" styleClass="estadisticaRPS"></p-column>
+    <p-column header="{{Encuentro.Equipo_B}}" field="2" styleClass="posRPS"></p-column>
+</p-dataTable>
+</div>

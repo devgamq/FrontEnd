@@ -1,0 +1,38 @@
+<div class="ui-g">
+  <div class="ui-g-12 left">
+      <h1>Resumen de Jornada</h1>
+
+
+      <div class="ui-g"> 
+        <div class="ui-g-6" style="text-align:right" >
+        Deporte:
+        </div>
+        <div class="ui-g-6" >
+           <p-dropdown [options]="deportes" filter="filter" [(ngModel)]="deporteId" [style]="{'width':'150px'}" ></p-dropdown>
+        </div>
+    </div>
+
+    <div class="ui-g"> 
+      <div class="ui-g-6" style="text-align:right" >
+      Deporte:
+      </div>
+      <div class="ui-g-6" >
+          <p-calendar [(ngModel)]="fecha" dateFormat="dd/mm/yy" [showIcon]="true"></p-calendar>
+      </div>
+  </div>
+
+  <div  class="ui-g">
+      <div class="ui-g-12" style="text-align:center" >
+          <button pButton type="button" label="Imprimir" icon="ui-icon-print" class="ui-button-success"(click)="generarReporteJornada()"></button>
+      </div>
+     
+   </div>
+
+   
+
+
+    
+
+  </div>
+</div>
+<p-growl [value]="msgs" class="visible-xs"></p-growl>

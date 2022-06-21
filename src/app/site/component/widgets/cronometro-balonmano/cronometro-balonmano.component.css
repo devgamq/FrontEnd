@@ -1,0 +1,37 @@
+a{
+    margin: 0 10px;
+    color: gray;
+}
+.time{
+    font-size: 20vw; 
+    text-align:center;
+    font-family:'Conv_digital-7',Sans-Serif;
+    
+}
+
+.tiempo{
+    font-size: 5vw; 
+    text-align:right !important;
+    font-family:'Conv_digital-7',Sans-Serif;
+    padding: 0 !important;
+     
+}
+.marcador{
+    font-size: 8vw; 
+    text-align:center;
+    font-family:'Conv_digital-7',Sans-Serif;
+    
+}
+.lapso{
+    font-size: 20px;
+    margin: 20px;
+    font-family: monospace;
+}
+
+@font-face {
+	font-family: 'Conv_digital-7';
+	src: url('fonts/digital-7.eot');
+	src: local('☺'), url('fonts/digital-7.woff') format('woff'), url('fonts/digital-7.ttf') format('truetype'), url('fonts/digital-7.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

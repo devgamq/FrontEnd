@@ -1,0 +1,24 @@
+.Prompt {
+    text-align: left;
+}
+
+@media screen and (min-width: 40.063em)  {
+    .Prompt {
+        text-align: right;
+    }
+}
+
+.Value {
+    text-align: left;
+    font-weight: bold;
+}
+
+.fotografiaAcreditacion {
+    width: 150px;
+    height: 210px;
+    margin: 0 auto 5px auto;
+    background-size: 150px 210px;
+}
+.contenedorImagen {
+    min-width: 156px;
+}

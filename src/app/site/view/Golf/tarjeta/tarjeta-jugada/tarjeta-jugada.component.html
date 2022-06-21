@@ -1,0 +1,54 @@
+﻿<div class="ui-grid-row">
+    <div class="ui-g-12 ui-md-12" style="text-align:center">
+        <p-inputSwitch [(ngModel)]="checkedAnclar" (onChange)="onAnclar()"></p-inputSwitch><label [style.color]="checkedAnclar?'#2f6e32':''" class="lblPromp">{{checkedAnclar?'Anclado':'Desanclado'}}</label>
+    </div>
+</div>
+<div class="ui-grid-row">
+    <div class="ui-g-2 ui-md-2" style="text-align:left">
+        <button pButton type="button" icon="ui-icon-keyboard-arrow-left" class="green-btn btnCambioJugador btnGolf" (click)="onChangeJugador('prev')"></button>
+    </div>
+    <div class="ui-g-8 ui-md-8" style="text-align:center">
+        <label class="lblDatos">{{nombreJugador}}</label>
+    </div>
+    <div class="ui-g-2 ui-md-2" style="text-align:right">
+        <button pButton type="button" icon="ui-icon-keyboard-arrow-right" class="green-btn btnCambioJugador btnGolf" (click)="onChangeJugador('next')"></button>
+    </div>
+</div>
+<hr />
+<div class="ui-grid-row">
+    <div class="ui-g-2 ui-md-2">
+        <label class="lblPromp">Hoyo:{{tarjeta.Hoyo}}</label>
+    </div>
+    <div class="ui-g-8 ui-md-8" style="text-align:center">
+        <label></label>
+    </div>
+    <div class="ui-g-2 ui-md-2" style="text-align:right">
+        <label class="lblPromp">Par:{{tarjeta.Par}}</label>
+    </div>
+</div>
+<hr />
+<div class="ui-g-12 ui-md-12">
+    <label class="lblPromp">Golpes</label>
+</div>
+<div class="ui-grid-row">
+    <div class="ui-g-4 ui-md-4" style="text-align:center">
+        <button pButton type="button" icon="ui-icon-minus" class="orange-btn modmarcador btnGolf" (click)="onclickRestar()"></button>
+    </div>
+    <div class="ui-g-4 ui-md-4" style="text-align:center">
+        <label class="lblNroGolpes">{{tarjeta.Golpes}}</label>
+    </div>
+    <div class="ui-g-4 ui-md-4" style="text-align:center">
+        <button pButton type="button" icon="ui-icon-plus" class="green-btn modmarcador btnGolf" (click)="onclickAdicionar()"></button>
+    </div>
+</div>
+<div class="ui-g-12 ui-md-12" style="text-align:center">
+    <label class="lblPromp">{{tarjeta.DescripcionNroTiros}}</label>
+</div>
+<div class="ui-grid-row">
+    <div class="ui-g-12 ui-md-12 ui-fluid">
+        <button pButton type="button" class="green-btn btnGuardar" (click)="onclickSaveJugada()" label="Guardar"></button>
+    </div>
+</div>
+<!--<p-growl [(value)]="mensaje"  sticky="sticky"></p-growl>-->
+
+

@@ -1,0 +1,8 @@
+<p-autoComplete delay="3" [size]="35" placeholder="Buscar"  [(ngModel)]="_Persona" [suggestions]="Personas" focus="true"
+(completeMethod)="doSearchPersonas($event)" field="NombreCompleto" (onSelect)="doSelectSearchPersona($event)" >
+<ng-template let-_Persona pTemplate="item"  >
+ {{_Persona.Persona.Paterno}} {{_Persona.Persona.Materno}} {{_Persona.Persona.Nombres}}
+  <br/> Nro:{{_Persona.NumeroCamiseta
+}}
+</ng-template>
+  </p-autoComplete>

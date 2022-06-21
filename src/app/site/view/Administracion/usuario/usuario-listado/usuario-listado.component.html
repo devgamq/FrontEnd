@@ -1,0 +1,20 @@
+﻿<div class="card card-w-title ui-fluid">
+    <p-breadcrumb [model]="crumb"></p-breadcrumb>
+    <div class="ui-g form-group">
+        <div class="ui-g-12 ui-md-12">
+            <p-dataTable [value]="usuarios" [responsive]="true" selectionMode="single" (onRowDblclick)="handleRowDblclickUsuario($event)" [rows]="10" [paginator]="true">
+                <p-column field="Usuario" header="Usuario"></p-column>
+                <p-column field="FechaRegistro" header="Fecha Registro">
+                    <ng-template let-col let-file="rowData" pTemplate="body">
+                        {{file[col.field] | date:'shortDate'}}
+                    </ng-template>
+                </p-column>
+                <p-column field="IsActivo" header="Estado">
+                    <ng-template let-col let-grupo="rowData" pTemplate="body">
+                        <span [style.color]="grupo[col.field]===0?'Red':'Green'">{{grupo[col.field]===0?'Inactivo':'Activo'}}</span>
+                    </ng-template>
+                </p-column>
+            </p-dataTable>
+        </div>
+    </div>
+</div>

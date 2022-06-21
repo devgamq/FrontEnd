@@ -1,0 +1,51 @@
+<div class="ui-g">
+    <div class="ui-g-12 left"><h1>Tabla de Posiciones</h1></div>
+</div>
+<div class="card card-w-title" >
+    <div class="ui-g"> 
+        <div class="ui-g-5" style="text-align:right" >
+           <b>Deportes:</b> 
+        </div>
+        <div class="ui-g-6" style="text-align:left" >
+            <p-dropdown [options]="deportes" [(ngModel)]="deporte" filter="filter"
+            [style]="{'width':'160px'}" (onChange)="selectedDeporte();" placeholder="Seleccione un Deporte"></p-dropdown>
+         </div>
+    </div>
+    <div class="ui-g"> 
+        <div class="ui-g-5" style="text-align:right" >
+           <b>Categorías:</b> 
+        </div>
+        <div class="ui-g-6" style="text-align:left" >
+            <p-dropdown [options]="categorias" [(ngModel)]="categoria"  [style]="{'width':'160px'}" (onChange)="selectedCategoria();"  placeholder="Seleccione Categoría"></p-dropdown>
+         </div>
+        
+    </div>
+    <div class="ui-g"> 
+            <div class="ui-g-5" style="text-align:right" >
+               <b>Grupos:</b> 
+            </div>
+            <div class="ui-g-6" style="text-align:left" >
+                <p-dropdown [options]="groups" [(ngModel)]="group"  [style]="{'width':'160px'}" (onChange)="selectedGrupo();"  placeholder="Seleccione un Grupo"></p-dropdown>
+             </div>
+             <div  class="ui-g-1">
+                <button pButton type="submit" icon="ui-icon-print" class="ui-button-success"(click)="imprimir()"></button>
+             </div>
+        </div>
+    <div *ngFor="let grupo of grupos" class="panelPT">
+        <p-header class="tituloGrupoTP">GRUPO {{grupo.grupo}} {{grupo.parametroNombre}}</p-header>
+        <p-dataTable [value]="getGrupoDatos(grupo.grupo ,grupo.ParametroRamaId)" [responsive]="true"  [rows]="20" [paginator]="false"
+        selectionMode="single" [styleClass]="'clase'">
+        <p-column header="Equipo" field="Equipo" styleClass="equipoTP"  >
+                <ng-template let-fila="rowData" pTemplate="item">
+                        <img src="/assets/banderas/{{fila.DelegacionId}}.png" class="imgTP"><label class="spanNombreTP">{{fila.Equipo}}</label> 
+                     </ng-template>
+        </p-column>
+        <p-column header="Representación" field="Representacion" styleClass="colegioTP"  ></p-column>
+        <p-column *ngFor="let col of keys" [field]="col" [header]="col" styleClass="columnaTP"  ></p-column>
+        
+      </p-dataTable>
+        
+         
+        <br>
+    </div>
+</div>

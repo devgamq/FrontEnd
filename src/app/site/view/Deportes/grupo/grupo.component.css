@@ -1,0 +1,13 @@
+.input {
+    font-weight: normal;
+    color: white;
+}
+.contenedor{
+    padding:4px 10px;border-bottom: 0 none;text-align:center;background-color:#424242;color: white;
+}
+.columna_small{
+    width: 8%;
+}
+.columna_med{
+    width: 12%;
+}

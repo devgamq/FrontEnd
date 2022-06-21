@@ -1,0 +1,38 @@
+.btnFutbol {
+    -moz-border-radius: 5% !important;
+    -webkit-border-radius: 5% !important;
+    border-radius: 5% !important;
+    height: 100%;
+    width: 100%;
+    text-align:center;
+    background:#249126;
+    border:3px solid #000000;
+    color: #FFFFFF;
+    line-height: 0.5;
+
+    	
+}
+.cabecera{
+    text-align:center;
+    font-size: 1vw;
+    line-height: 0.5;
+    position: relative;
+    padding: 0;
+    height: 0vw !important;
+    
+    	
+}
+.cuerpo{
+    padding-top:0.8vh; 
+    text-align:center;
+    font-size: 3vw;
+    line-height: 0.5;
+    position: relative;
+}
+@media screen and (max-width:768px) {
+   .cabecera{
+    line-height: 0.8vh;
+    bottom: 0.6vw;
+   }
+  
+}

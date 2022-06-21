@@ -1,0 +1,23 @@
+.panelG th, .panelG tfoot tr{
+    background-color: #212121 !important;
+    color: white;
+}
+.nombreG
+{
+    text-align: left;
+    text-transform: uppercase;
+    width: 30%;
+}
+.columnaG{
+    text-align: center;
+    width: 5%;
+}
+.imgG{
+    width: 30px
+}
+.spanNombreG{
+    padding: 10px;
+    position: relative;
+    bottom: 4px;
+    font-weight: 600;
+}

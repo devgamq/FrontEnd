@@ -1,0 +1,66 @@
+
+<div class="ui-g" style="text-align:center;">
+    
+  <div class="ui-g-12" style="text-align:center">
+    <input type="text" pInputText  [(ngModel)]="datosMarcador.TiempoCapturado" size="7"  class="text" />
+ </div>  
+  
+</div>
+
+<div class="ui-g" *ngIf="datosMarcador.RegistraPersona">   
+    <div class="ui-g-12" style="text-align:center;">
+  <app-autocomplete (NombrePersona)="doSelectSearchPersona($event)"   [mostrarNombre]="false" [servicioMostrar]="'getSearchPersona'" [competidorId]="competidorId" [planillaId]="planillaId"></app-autocomplete>    
+   </div>     
+  </div>
+  <div class="ui-g" style="text-align:center;" *ngIf="datosMarcador.RegistraPersona" >   
+    <div class="ui-g-12" >
+      <label class="jugador">{{datosMarcador.NombreParametro}}: {{jugador}} {{datosMarcador.TiempoCapturado}}</label>
+   </div>     
+  </div>
+
+<div class="ui-g" *ngIf="datosMarcador.RegistraPersona" >  
+  <div class="ui-g-12">
+      <p-dataGrid [value]="titulares">
+            <p-header>Titulares</p-header>
+          <ng-template let-dato pTemplate="item">
+              <div class="ui-g-12 ui-md-2">
+                  <app-boton-jugador [datosJugador]="dato" [tecnico]="false" [colorTipo]="'btnTitular'"  (devolverDatosJugador)="onclickSeleccionador($event)" ></app-boton-jugador>
+              </div>
+          </ng-template>
+      </p-dataGrid>
+  </div> 
+</div>
+<div class="ui-g" *ngIf="datosMarcador.RegistraPersona">  
+    <div class="ui-g-12">
+        <p-dataGrid [value]="suplentes">
+                <p-header>Suplentes</p-header>
+            <ng-template let-dato pTemplate="item">
+                <div class="ui-g-12 ui-md-2">
+                        <app-boton-jugador [datosJugador]="dato" [tecnico]="false" [colorTipo]="'btnSuplente'" (devolverDatosJugador)="onclickSeleccionador($event)" ></app-boton-jugador>
+                </div>
+            </ng-template>
+        </p-dataGrid>
+    </div> 
+  </div>
+  <div class="ui-g" *ngIf="datosMarcador.RegistraPersona" >  
+      <div class="ui-g-12">
+          <p-dataGrid [value]="tecnicos">
+                <p-header>Cuerpo Tecnico</p-header>
+              <ng-template let-dato pTemplate="item">
+                  <div class="ui-g-12 ui-md-2">
+                        <app-boton-jugador [datosJugador]="dato" [tecnico]="true" [colorTipo]="'btnTecnico'" (devolverDatosJugador)="onclickSeleccionador($event)" ></app-boton-jugador>
+                        
+                  </div>
+              </ng-template>
+          </p-dataGrid>
+      </div> 
+    </div>
+<div class="ui-g" style="text-align:right;" >   
+  <div class="ui-g-12">
+ <button pButton type="button" icon="ui-icon-save" class="ui-button-info" (click)="onclickGuardarMarcador()" label="Aceptar"></button>
+ <button pButton type="button" icon="fa-close" class="ui-button-danger"  label="Cancelar" (click)="exit()" ></button> 
+</div> 
+</div>
+
+
+

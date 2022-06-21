@@ -1,0 +1,93 @@
+<div class="card card-w-title" style="font-size: 0.7em;">
+  <h1>Golf/Tabla Clasificatoria:</h1>
+  <div class="ui-g">
+    <div class="ui-g-6">
+      Categoría:
+      <categoria-dropdown [categoriaId]="categoriaId" (categoriaSelected)="handleCategoria($event)" [eventoId]="eventoId"></categoria-dropdown>
+    </div>
+    <div class="ui-g-6">
+      Jornada:
+      <jornada-dropdown [eventoId]="eventoId" (jornadaSelected)="handleJornada($event)"></jornada-dropdown>
+    </div>
+  </div>
+
+<app-leyenda-color-movil></app-leyenda-color-movil>
+
+  <p-dataTable [value]="clasificatorias" rowGroupMode="rowspan" [style]="{'font-size':'0.7em'}">
+      <p-headerColumnGroup [style]="{'background-color':'#000'}">  
+    <p-row>
+    <p-column field="Nombre" header="Jugador/Hoyo" rowspan="2" [style]="styleColum"></p-column>    
+    <p-column header="1" ></p-column>
+    <p-column header="2" ></p-column>
+    <p-column header="3" ></p-column>
+    <p-column header="4" ></p-column>
+    <p-column header="5" ></p-column>
+    <p-column header="6" ></p-column>
+    <p-column header="7" ></p-column>
+    <p-column header="8" ></p-column>
+    <p-column header="9" ></p-column>
+    <p-column field="Nombre" header="TOTAL" rowspan="2"></p-column> 
+    <p-column field="Nombre" header="T.NETO" rowspan="2"></p-column>     
+  </p-row>
+  <p-row>
+      <p-column header="10" ></p-column>
+      <p-column header="11" ></p-column>
+      <p-column header="12" ></p-column>
+      <p-column header="13" ></p-column>
+      <p-column header="14" ></p-column>
+      <p-column header="15" ></p-column>
+      <p-column header="16" ></p-column>
+      <p-column header="17" ></p-column>
+      <p-column header="18" ></p-column>    
+    </p-row>
+    
+    </p-headerColumnGroup>
+
+    
+    <p-column field="Nombre" header="Jugador/Hoyo" [style]="styleColum"></p-column>
+    <p-column field="2" header="2" [hidden]="hoyo2">
+      <ng-template let-col let-valCell="rowData" pTemplate="body">
+        <app-cell-bg-color [cellData]="valCell[col.field]" [hoyoData]="hoyoPar[1]"></app-cell-bg-color>
+      </ng-template>
+    </p-column>
+    <p-column field="3" header="3" [hidden]="hoyo3">
+      <ng-template let-col let-valCell="rowData" pTemplate="body">
+        <app-cell-bg-color [cellData]="valCell[col.field]" [hoyoData]="hoyoPar[2]"></app-cell-bg-color>
+      </ng-template>
+    </p-column>
+    <p-column field="4" header="4" [hidden]="hoyo4">
+      <ng-template let-col let-valCell="rowData" pTemplate="body">
+        <app-cell-bg-color [cellData]="valCell[col.field]" [hoyoData]="hoyoPar[3]"></app-cell-bg-color>
+      </ng-template>
+    </p-column>
+    <p-column field="5" header="5" [hidden]="hoyo5">
+      <ng-template let-col let-valCell="rowData" pTemplate="body">
+        <app-cell-bg-color [cellData]="valCell[col.field]" [hoyoData]="hoyoPar[4]"></app-cell-bg-color>
+      </ng-template>
+    </p-column>
+    <p-column field="6" header="6" [hidden]="hoyo6">
+      <ng-template let-col let-valCell="rowData" pTemplate="body">
+        <app-cell-bg-color [cellData]="valCell[col.field]" [hoyoData]="hoyoPar[5]"></app-cell-bg-color>
+      </ng-template>
+    </p-column>
+    <p-column field="7" header="7" [hidden]="hoyo7">
+      <ng-template let-col let-valCell="rowData" pTemplate="body">
+        <app-cell-bg-color [cellData]="valCell[col.field]" [hoyoData]="hoyoPar[6]"></app-cell-bg-color>
+      </ng-template>
+    </p-column>
+    <p-column field="8" header="8" [hidden]="hoyo8">
+      <ng-template let-col let-valCell="rowData" pTemplate="body">
+        <app-cell-bg-color [cellData]="valCell[col.field]" [hoyoData]="hoyoPar[7]"></app-cell-bg-color>
+      </ng-template>
+    </p-column>
+    <p-column field="9" header="9" [hidden]="hoyo9">
+      <ng-template let-col let-valCell="rowData" pTemplate="body">
+        <app-cell-bg-color [cellData]="valCell[col.field]" [hoyoData]="hoyoPar[8]"></app-cell-bg-color>
+      </ng-template>
+    </p-column>    
+    <p-column field="I" header="I/II"></p-column>
+    <p-column field="Total" header="Total"></p-column>
+    <p-column field="TotalNeto" header="T.Neto"></p-column>
+  
+  </p-dataTable>
+</div>

@@ -1,0 +1,15 @@
+.inputInsertar{
+    font-size: 11pt !important; 
+    font-weight: bold !important; 
+    color: white !important; 
+    text-align: center !important;
+    
+    }
+    
+    .inputError{
+        font-size: 11pt !important; 
+        font-weight: bold !important; 
+        color: red !important; 
+        text-align: center !important;
+        
+        }

@@ -1,0 +1,175 @@
+<!--[style]="{'background': '#616158','background-image':'url(\'/assets/erpHammer/images/ZenBG-1.png\'), url(\'/assets/erpHammer/images/ZenBG-2.png\')','background-repeat':'repeat-x, repeat'}"  styleClass="fondoCelda"-->
+<p-toolbar [style]="{'background-color':'#8a8a8a'}">
+  <div class="ui-toolbar-group-right">
+    <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+    <input #gb type="text" pInputText size="50" placeholder="Buscar" >
+  </div>
+</p-toolbar>
+<p-dataTable [value]="clasificatorias" [responsive]="true" [globalFilter]="gb" [style]="{'width':'100%','border-spacing': '0px','line-height':'20px'}">
+  <p-headerColumnGroup [style]="{'background-color':'#000'}">
+    <p-row>
+            <p-column header="#" rowspan="2"></p-column>
+            <p-column header="NOMBRE/HOYO"></p-column>
+             <p-column header="CLUB" rowspan="2"></p-column>
+             <p-column header="HCP" rowspan="2" *ngIf="mostrarhandicap" [hidden]="mostrar"></p-column>
+              <p-column header="1"></p-column>
+              <p-column header="2"></p-column>
+              <p-column header="3"></p-column>
+              <p-column header="4"></p-column>
+              <p-column header="5"></p-column>
+              <p-column header="6"></p-column>
+              <p-column header="7"></p-column>
+              <p-column header="8"></p-column>
+              <p-column header="9"></p-column>
+              <p-column header="I"></p-column>
+              <p-column header="10"></p-column>
+              <p-column header="11"></p-column>
+              <p-column header="12"></p-column>
+              <p-column header="13"></p-column>
+              <p-column header="14"></p-column>
+              <p-column header="15"></p-column>
+              <p-column header="16"></p-column>
+              <p-column header="17"></p-column>
+              <p-column header="18"></p-column>
+              <p-column header="II"></p-column>
+              <p-column header="TOTAL"></p-column>
+              <p-column header="T.NETO" rowspan="2" [hidden]="mostrar"></p-column>
+              <p-column header="SCORE" rowspan="2" ></p-column>
+    </p-row>
+
+        <p-row>
+            <p-column header="PAR"></p-column>
+            <p-column header="4"></p-column>
+              <p-column header="4"></p-column>
+              <p-column header="3"></p-column>
+              <p-column header="5"></p-column>
+              <p-column header="5"></p-column>
+              <p-column header="4"></p-column>
+              <p-column header="3"></p-column>
+              <p-column header="4"></p-column>
+              <p-column header="5"></p-column>
+              <p-column header="37"></p-column>
+              <p-column header="5"></p-column>
+              <p-column header="4"></p-column>
+              <p-column header="5"></p-column>
+              <p-column header="3"></p-column>
+              <p-column header="4"></p-column>
+              <p-column header="3"></p-column>
+              <p-column header="4"></p-column>
+              <p-column header="4"></p-column>
+              <p-column header="3"></p-column>
+              <p-column header="35"></p-column>
+              <p-column header="72"></p-column>
+              
+        </p-row>
+
+    </p-headerColumnGroup>
+  <p-column field="Posicion" header="#"></p-column>
+  <p-column field="Nombre" header="Jugador/Hoyo" >
+    <ng-template let-col let-nombre="rowData" pTemplate="body">
+      <img src="assets/banderas/{{nombre.DelegacionId}}.png" width="15" height="10">  {{nombre.Nombre}}
+    </ng-template>
+  
+  </p-column>
+    
+
+  <p-column field="club" header="Club"></p-column>
+  <p-column field="Handicap" header="HCP" *ngIf="mostrarhandicap" [hidden]="mostrar"></p-column>
+  <span > 
+  <p-column field="1" header="1" class="visible-xs">
+    <ng-template let-col let-valCell="rowData" pTemplate="body">
+      <app-cell-bg-color [cellData]="valCell[col.field]" [hoyoData]="hoyoPar[0]"></app-cell-bg-color>
+    </ng-template>
+  </p-column>
+  </span>
+  <p-column field="2" header="2">
+    <ng-template let-col let-valCell="rowData" pTemplate="body">
+      <app-cell-bg-color [cellData]="valCell[col.field]" [hoyoData]="hoyoPar[1]"></app-cell-bg-color>
+    </ng-template>
+  </p-column>
+  <p-column field="3" header="3">
+    <ng-template let-col let-valCell="rowData" pTemplate="body">
+      <app-cell-bg-color [cellData]="valCell[col.field]" [hoyoData]="hoyoPar[2]"></app-cell-bg-color>
+    </ng-template>
+  </p-column>
+  <p-column field="4" header="4">
+    <ng-template let-col let-valCell="rowData" pTemplate="body">
+      <app-cell-bg-color [cellData]="valCell[col.field]" [hoyoData]="hoyoPar[3]"></app-cell-bg-color>
+    </ng-template>
+  </p-column>
+  <p-column field="5" header="5">
+    <ng-template let-col let-valCell="rowData" pTemplate="body">
+      <app-cell-bg-color [cellData]="valCell[col.field]" [hoyoData]="hoyoPar[4]"></app-cell-bg-color>
+    </ng-template>
+  </p-column>
+  <p-column field="6" header="6">
+    <ng-template let-col let-valCell="rowData" pTemplate="body">
+      <app-cell-bg-color [cellData]="valCell[col.field]" [hoyoData]="hoyoPar[5]"></app-cell-bg-color>
+    </ng-template>
+  </p-column>
+  <p-column field="7" header="7">
+    <ng-template let-col let-valCell="rowData" pTemplate="body">
+      <app-cell-bg-color [cellData]="valCell[col.field]" [hoyoData]="hoyoPar[6]"></app-cell-bg-color>
+    </ng-template>
+  </p-column>
+  <p-column field="8" header="8">
+    <ng-template let-col let-valCell="rowData" pTemplate="body">
+      <app-cell-bg-color [cellData]="valCell[col.field]" [hoyoData]="hoyoPar[7]"></app-cell-bg-color>
+    </ng-template>
+  </p-column>
+  <p-column field="9" header="9">
+    <ng-template let-col let-valCell="rowData" pTemplate="body">
+      <app-cell-bg-color [cellData]="valCell[col.field]" [hoyoData]="hoyoPar[8]"></app-cell-bg-color>
+    </ng-template>
+  </p-column>
+  <p-column field="1 Vuelta" header="I" styleClass="totales"></p-column>
+  <p-column field="10" header="10">
+    <ng-template let-col let-valCell="rowData" pTemplate="body">
+      <app-cell-bg-color [cellData]="valCell[col.field]" [hoyoData]="hoyoPar[9]"></app-cell-bg-color>
+    </ng-template>
+  </p-column>
+  <p-column field="11" header="11">
+    <ng-template let-col let-valCell="rowData" pTemplate="body">
+      <app-cell-bg-color [cellData]="valCell[col.field]" [hoyoData]="hoyoPar[10]"></app-cell-bg-color>
+    </ng-template>
+  </p-column>
+  <p-column field="12" header="12">
+    <ng-template let-col let-valCell="rowData" pTemplate="body">
+      <app-cell-bg-color [cellData]="valCell[col.field]" [hoyoData]="hoyoPar[11]"></app-cell-bg-color>
+    </ng-template>
+  </p-column>
+  <p-column field="13" header="13">
+    <ng-template let-col let-valCell="rowData" pTemplate="body">
+      <app-cell-bg-color [cellData]="valCell[col.field]" [hoyoData]="hoyoPar[12]"></app-cell-bg-color>
+    </ng-template>
+  </p-column>
+  <p-column field="14" header="14">
+    <ng-template let-col let-valCell="rowData" pTemplate="body">
+      <app-cell-bg-color [cellData]="valCell[col.field]" [hoyoData]="hoyoPar[13]"></app-cell-bg-color>
+    </ng-template>
+  </p-column>
+  <p-column field="15" header="15">
+    <ng-template let-col let-valCell="rowData" pTemplate="body">
+      <app-cell-bg-color [cellData]="valCell[col.field]" [hoyoData]="hoyoPar[14]"></app-cell-bg-color>
+    </ng-template>
+  </p-column>
+  <p-column field="16" header="16">
+    <ng-template let-col let-valCell="rowData" pTemplate="body">
+      <app-cell-bg-color [cellData]="valCell[col.field]" [hoyoData]="hoyoPar[15]"></app-cell-bg-color>
+    </ng-template>
+  </p-column>
+  <p-column field="17" header="17">
+    <ng-template let-col let-valCell="rowData" pTemplate="body">
+      <app-cell-bg-color [cellData]="valCell[col.field]" [hoyoData]="hoyoPar[16]"></app-cell-bg-color>
+    </ng-template>
+  </p-column>
+  <p-column field="18" header="18">
+    <ng-template let-col let-valCell="rowData" pTemplate="body">
+      <app-cell-bg-color [cellData]="valCell[col.field]" [hoyoData]="hoyoPar[17]"></app-cell-bg-color>
+    </ng-template>
+  </p-column>
+  <p-column field="2 Vuelta" header="II" styleClass="totales"></p-column>
+  <p-column field="Total" header="Total"></p-column>
+  <p-column field="TotalNeto" header="Total Neto" [hidden]="mostrar"></p-column>
+  <p-column field="Score" header="Score"></p-column>
+</p-dataTable>

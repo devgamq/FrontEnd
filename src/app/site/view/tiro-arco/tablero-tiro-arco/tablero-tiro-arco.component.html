@@ -1,0 +1,64 @@
+<div class=" panel tiro_arco ">
+    <div class="ui-g">
+        <div class="ui-g-12 ">
+                <div class="ui-g-5">
+                    <div class="{{uig}} {{anchoB}}" *ngFor="let item of listaA let i = index">
+                        <img src="{{item.FotoUrl}}" class="foto_ta " /></div>
+                        <div  class="ui-g-12 pais_ta">
+                                <div class="ui-g-3"><img src="{{logoA}}" class=" mini_bandera" /></div> 
+                                <div class="ui-g-9 left">{{paisA}}</div>
+                            </div>
+                </div>
+                <div class="ui-g-2"></div>
+                <div class="ui-g-5 panelB">
+                    <div class="{{uigB}} {{anchoB}}" *ngFor="let item of listaB let i = index">
+                        <img src="{{item.FotoUrl}}" class="foto_ta  " /></div>
+                        <div  class="ui-g-12 pais_ta">
+                            <div class="ui-g-3"><img src="{{logoB}}" class=" mini_bandera" /></div> 
+                            <div class="ui-g-9 left">{{paisB}}</div>
+                        </div>
+                </div>
+        </div>
+        <div class="ui-g-12 center">
+            <div class="set">{{nombre}}</div>
+        </div>
+        <div class="ui-g-12 center">
+            <div class="ui-g-5"></div>
+            <div class="ui-g-2 center"><div class="caja_negra"><div class="set_num ">{{correlativo}}</div></div></div>
+            <div class="ui-g-5"></div>
+            <div></div>
+            <div></div>
+            
+                
+            
+        </div>
+        <div class="ui-g-12 center">
+            <div class='totales_tablero'>
+                <p-dataTable [value]="lista" [responsive]="true">
+                    <p-column field="Delegacion" header="Delegación" styleClass="delegacion">
+                            <ng-template let-fila="rowData" pTemplate="item">
+                                    <img src="/assets/banderas/{{fila.DelegacionId}}.png" class="bandera_marcador" />
+                                    <div>{{fila.Delegacion}}</div>
+                                </ng-template>
+                    </p-column>
+                    <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header"></p-column>
+                    <p-column field="Total" header="Total">
+                        <ng-template let-fila="rowData" pTemplate="item">
+                            <div class="pg">{{nombreTotal}}</div>
+                            <div>{{fila.Total}}</div>
+
+                        </ng-template>
+                    </p-column>
+                    <p-column field="PuntosGlobal" header="P.G.">
+                        <ng-template let-fila="rowData" pTemplate="item">
+                            <div class="pg">{{nombreTotalGeneral}}</div>
+                            <div>{{fila.PuntosGlobal}}</div>
+
+                        </ng-template>
+                    </p-column>
+                </p-dataTable>
+                </div>
+        </div>
+    </div>
+   
+</div>

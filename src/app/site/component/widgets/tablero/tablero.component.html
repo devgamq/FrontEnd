@@ -1,0 +1,95 @@
+<div class="ui-g panel alto " >
+  <div class="ui-g-12 cabecera limpio" [ngStyle]="color">{{nombreDeporte}}
+  </div>
+  <div class="ui-g-12 limpio" [ngStyle]="color">
+    <div class="ui-g-4 cabecera"><br /><br /><br /><br /><br /><br />{{marcador.EquipoA}}</div>
+    <div class="ui-g-4 panel limpio" [ngStyle]="color">
+      <app-cronometro [configuracion]="configuracion"  [reversa]="false" [tieneTope]="true" [accion]="accion" [setTiempo]="setTiempo"
+        (HoraCapturada)="doCaptura($event)"  [setHora]="setHora" [iniciar]="false"
+        [style]="style" [time]="time"></app-cronometro>
+    </div>
+    
+      <div class="ui-g-4 cabecera"><br /><br /><br /><br /><br /><br />{{marcador.EquipoB}}</div>
+    
+      <div class="panel_central">
+            <div class="ui-g-4 ui-g-nopad limpio" [ngStyle]="color">
+              <div class="ui-g">
+                <div class="ui-g-6 derecha-relative"><img src="{{banderaEquipoA}}"  /></div>
+                  <div class="ui-g-6 cuerpo derecha-relative-gol">{{marcador.GolesA}}</div>
+              </div>
+              
+
+            </div>
+
+            <div class="ui-g-4" style="text-align:center;"> 
+            <div class="ui-g-12 caja_mediana" >
+              <div class="ui-g-12 limpio" [ngStyle]="color">
+                <div class="ui-g-12 cabecera" >{{nombrePeriodo}}</div>
+                <div class=" ui-g-12 cuerpoTiempo" >{{marcador.tiempo}}</div>
+                </div>
+            </div>
+            </div>
+            <div class="ui-g-4 ui-g-nopad limpio" [ngStyle]="color">
+              <div class="ui-g">
+                <div class="ui-g-6 cuerpo ">{{marcador.GolesB}}</div>
+                <div class="ui-g-6 izq"><img src="{{banderaEquipoB}}"  /></div>    
+              </div>
+            </div>
+      </div>
+          </div>
+  <div class="ui-g-12 limpio" [ngStyle]="color" *ngIf="noDeporteEsVoleibol">
+      <div class="ui-g-5 ui-g-nopad limpio" [ngStyle]="color">
+            <div *ngFor="let parametro of parametrosA" >
+                <div class="ui-g-12 linea limpio" [ngStyle]="color">{{parametro.Valor}}</div>
+                </div>
+                <div class=" ui-g-12" >
+                  <span class="cuadrado ui-g-1 derecha {{t}}" *ngFor="let t of tarjetasA"></span>
+
+                </div>
+      </div>
+      <div class="ui-g-2 ui-g-nopad limpio" [ngStyle]="color" style="position:relative;top:13px">
+            <div *ngFor="let parametro of parametrosB" >
+                <div class="ui-g-12 sinborde" [ngStyle]="color">{{parametro.Parametro}}</div>
+                </div>
+                <div class=" ui-g-12 sinborde" [ngStyle]="color" *ngIf="noDeporteEsBasquet" >Tarjetas</div>
+      </div>
+<div class="ui-g-5 ui-g-nopad limpio" [ngStyle]="color">
+             <div *ngFor="let parametro of parametrosB" >
+                <div class="ui-g-12 linea limpio" style="text-align:left !important;" [ngStyle]="color">{{parametro.Valor}}</div>
+                </div>
+
+                <div class=" ui-g-12" >
+                  <span class="cuadrado ui-g-1 izquierda {{t}}" *ngFor="let t of tarjetasB"></span>
+
+                </div>
+      </div>
+  </div>
+  
+  <div class="ui-g-12 limpio" [ngStyle]="color" *ngIf="!noDeporteEsVoleibol">
+    <div class="ui-g-12">
+        <div class="ui-g-4">
+        </div>
+        <div class="ui-g-1">
+      {{marcador.EquipoA}}
+         </div>
+         <div class="ui-g-3">
+           <div *ngFor="let eqA of equipoA" class="ui-g-1" style="background-color: black;width: 30%;color: white">{{eqA.label}}</div>
+          </div>
+          <div class="ui-g-4">
+            </div>
+    </div>
+    <div class="ui-g-12">
+        <div class="ui-g-4">
+          </div>
+          <div class="ui-g-1">
+              {{marcador.EquipoB}}
+           </div>
+           <div class="ui-g-3">
+              <div *ngFor="let eqB of equipoB" class="ui-g-1" style="background-color: black;width: 30%;color: white">{{eqB.label}}</div>
+            </div>
+            <div class="ui-g-4">
+          </div>
+    </div>
+  </div>
+   
+</div>

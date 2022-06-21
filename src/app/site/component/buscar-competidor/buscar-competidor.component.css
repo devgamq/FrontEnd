@@ -1,0 +1,22 @@
+.inputInsertar{
+    font-size: 14pt !important; 
+    font-weight: bold !important; 
+    color: white !important; 
+    text-align: left !important;
+    
+    }
+    img {
+        margin: 3px;
+        border: 2px solid black; }
+        .divCompetidor {
+            border:solid 1px #ccc !important;
+            border-radius:1px !important;
+            box-shadow: 1px 1px 10px 0px #818181 !important;
+            
+          }
+          .subirOpciones{
+            position:relative;
+            top: -100px;
+            z-index: 100;
+        
+        }

@@ -1,0 +1,98 @@
+<div class="ui-g fondoVisor" style="background-image: url('/assets/erpHammer/images/fondoGolf.jpg') !important;">
+  <div class="ui-g-12" style="height: 11.3vw;text-align:center;padding: 0;">
+    <div class="ui-g-2 title" style="height:10vw;padding-top:0px; background-size:cover">
+      <img src="/assets/erpHammer/images/odesur1.png" class="picto" />
+      <img src="/assets/erpHammer/images/bs.png" class="golf" />
+    </div>
+    <div class="ui-g-8" style="height:10vw;padding-top:0px;">
+      <h1 class="title">
+        {{titulo}}
+      </h1>
+
+    </div>
+    <div class="ui-g-2 title" style="height:10vw;padding:0; background-size:cover">
+      <img height="190px" src="/assets/erpHammer/images/logo.png" class="logo" />
+    </div>
+    <div class="barra_s">
+
+      <h1 class="subtitle ui-g-6">
+        Resultado del Torneo
+      </h1>
+      <h1 class="jornada ui-g-6">
+        {{categoria}}
+      </h1>
+
+    </div>
+
+  </div>
+
+  <div class="ui-g-12" style="height:100%;padding:0;">
+      
+    <div #panel class="ui-g-12 contenedor_golf_jornada">
+
+      <p-dataTable [value]="TotalesTorneo" [responsive]="true" >
+        
+        <p-headerColumnGroup>
+          <p-row>
+            <p-column header="Nombre" rowspan="2" [style]="{'width':'9.4%'}" ></p-column>
+            <p-column header="Equipo" rowspan="2" [style]="{'width':'11.3%'}"></p-column>
+            <p-column header="Jornada 1" colspan="4" [style]="{'width':'18%'}"></p-column>
+            <p-column header="Jornada 2" colspan="4" [style]="{'width':'18%'}" ></p-column>
+            <p-column header="Jornada 3" colspan="4" [style]="{'width':'18%'}"></p-column>
+            <p-column header="Jornada 4" colspan="4" [style]="{'width':'18%'}"></p-column>
+            <p-column header="Total" rowspan="2" [style]="{'width':'4.6%'}"></p-column>
+          </p-row>
+          <p-row>
+            <p-column header="P1"></p-column>
+            <p-column header="P2"></p-column>
+            <p-column header="Total" ></p-column>
+            <p-column header="Par"></p-column>
+            <p-column header="P1"></p-column>
+            <p-column header="P2"></p-column>
+            <p-column header="Total" ></p-column>
+            <p-column header="Par"></p-column>
+            <p-column header="P1" ></p-column>
+            <p-column header="P2" ></p-column>
+            <p-column header="Total" ></p-column>
+            <p-column header="Par"></p-column>
+            <p-column header="P1" ></p-column>
+            <p-column header="P2" ></p-column>
+            <p-column header="Total" ></p-column>
+            <p-column header="Par" ></p-column>
+          </p-row>
+
+        </p-headerColumnGroup>
+      
+          <p-column field="Nombre" ></p-column>
+          <p-column field="Equipo"></p-column>
+          <p-column field="1" ></p-column>
+          <p-column field="2" ></p-column>
+          <p-column field="3" ></p-column>
+          <p-column field="4" ></p-column>
+          <p-column field="5"></p-column>
+          <p-column field="6"></p-column>
+          <p-column field="7"></p-column>
+          <p-column field="8"></p-column>
+          <p-column field="9"></p-column>
+          <p-column field="10"></p-column>
+          <p-column field="11"></p-column>
+          <p-column field="12"></p-column>
+          <p-column field="13"></p-column>
+          <p-column field="14"></p-column>
+          <p-column field="15"></p-column>
+          <p-column field="16"></p-column>
+          <p-column field="total"></p-column>
+        
+      </p-dataTable>
+
+    </div>
+    <div class="ui-g-12" style="height:15vh;    padding: 0;">
+      <div class="negro">
+
+      </div>
+      <app-visor-pie></app-visor-pie>
+    </div>
+  </div>
+
+
+</div>

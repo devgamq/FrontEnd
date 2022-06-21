@@ -1,0 +1,13 @@
+﻿<!--<div class="card card-w-title">-->
+    <h1>{{titulo}}</h1>
+    <div class="ui-grid-row">
+        <div class="ui-g-6 ui-md-6" style="text-align:left">
+            <button pButton type="button" icon="ui-icon-keyboard-arrow-left" class="green-btn btnCambioJugador btnGolf" (click)="onChangeStep('prev')" label="Anterior" *ngIf="activeIndex>0"></button>
+        </div>
+        <div class="ui-g-6 ui-md-6" style="text-align:right">
+            <button pButton type="button" icon="ui-icon-keyboard-arrow-right" class="green-btn btnCambioJugador btnGolf" iconPos="right" (click)="onChangeStep('next')" label="Siguiente" *ngIf="activeIndex<items.length-1"></button>
+            <button pButton type="button" icon="ui-icon-check" class="green-btn btnCambioJugador btnGolf"  (click)="onChangeStep('fin')" label="Finalizar" *ngIf="activeIndex===items.length-1"></button>
+        </div>
+    </div>
+    <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="false"></p-steps>
+<!--</div>-->

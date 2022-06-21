@@ -1,0 +1,87 @@
+<h1>Configuración de Cronograma</h1>
+<p-messages [(value)]="msgs"></p-messages>
+<div class="card card-w-title">
+    <div class="ui-g">
+        <div class="ui-g-6" style="text-align:right">
+            <b>Deportes:</b>
+        </div>
+        <div class="ui-g-6" style="text-align:left">
+            <p-dropdown [options]="deportes" [(ngModel)]="deporte" [style]="{'width':'200px'}" (onChange)="selectedDeporte();" placeholder="Seleccione un Deporte"
+                filter="filter"></p-dropdown>
+        </div>
+    </div>
+    <div class="ui-g">
+        <div class="ui-g-6" style="text-align:right">
+            <b> Tipo Deporte:</b>
+        </div>
+        <div class="ui-g-6">
+            <p-dropdown [options]="tiposDeportes" [(ngModel)]="tipoDeporte" (onChange)="selectTipo();" [disabled]="disabletipos" placeholder="Seleccione un tipo"
+                [style]="{'width':'200px'}"></p-dropdown>
+        </div>
+
+    </div>
+    <div class="ui-g">
+        <div class="ui-g-6" style="text-align:right">
+            <b>Pruebas:</b>
+        </div>
+        <div class="ui-g-6" style="text-align:left">
+            <p-dropdown [options]="pruebas" [(ngModel)]="prueba" [style]="{'width':'200px'}" (onChange)="selectedPrueba();" [disabled]="disablepruebas" placeholder="Seleccione una Prueba"
+                filter="filter"></p-dropdown>
+        </div>
+    </div>
+    <div class="ui-g">
+        <div class="ui-g-6" style="text-align:right">
+            <b>Categorías:</b>
+        </div>
+        <div class="ui-g-6" style="text-align:left">
+            <p-dropdown [options]="categorias" [(ngModel)]="categoria" [style]="{'width':'200px'}" [disabled]="disablecategorias" (onChange)="selectedRama();" placeholder="Seleccione Categoría"></p-dropdown>
+        </div>
+    </div>
+    <div class="ui-widget-header" class="contenedor Krono">
+        Inst.:
+        <p-dropdown [options]="instalaciones" [(ngModel)]="instalacion" [style]="{'width':'300px'}" placeholder="" filter="filter"
+            (onChange)="cargarAreas()"></p-dropdown>
+        <span *ngIf="show_area"> Áreas:
+            <p-dropdown [options]="areas" [(ngModel)]="area" [style]="{'width':'300px'}" placeholder="" filter="filter"></p-dropdown>
+        </span>
+    </div>
+    <div class="ui-widget-header" class="contenedor Krono">
+        Fases:
+        <p-dropdown [options]="fases" [(ngModel)]="fase" [style]="{'width':'130px'}"></p-dropdown>
+        Fecha:
+        <p-calendar [(ngModel)]="fecha" dateFormat="dd/mm/yy" [inputStyle]="{'color':'white'}" [locale]="en" [style]="{'width':'100px'}"></p-calendar>
+        Hr.:
+        <p-calendar [(ngModel)]="hora" [inputStyle]="{'color':'white'}" [style]="{'width':'80px'}" [locale]="en" [timeOnly]="true"></p-calendar>
+        Tipo:
+        <p-dropdown [options]="tipos" [(ngModel)]="tipo" [style]="{'width':'160px'}" placeholder=""></p-dropdown>
+
+        Obs.:
+        <input type="text" pInputText size="20" [(ngModel)]="observaciones" class="input">
+
+        <button pButton type="submit" icon="ui-icon-save" class="ui-button-success" (click)="save(false)"></button>
+        <button pButton type="button" icon="ui-icon-edit" (click)="edit()" class="ui-button-info" *ngIf="hideBorrar"></button>
+        <button pButton type="button" icon="ui-icon-clear" (click)="eliminarRegistro()" class="ui-button-danger" *ngIf="hideBorrar"></button>
+    </div>
+
+    <p-dataTable [value]="tabla" [responsive]="true" [rows]="20" [paginator]="true" selectionMode="single" (onRowSelect)="onRowSelect($event)">
+        <!-- <p-column header="Cronograma" field="CronogramaId" styleClass="columna_small"></p-column> -->
+        <p-column header="Fecha" field="Fecha" styleClass="columna_med">
+            <ng-template let-col let-row="rowData" pTemplate="item">
+                {{row.Fecha | date:'dd-MM-yyyy'}} Hrs.{{'2017-11-02T'+row.HoraProgramada | date:'HH:mm'}}
+            </ng-template>
+        </p-column>
+        <p-column header="Instalación" field="Instalacion">
+            <ng-template let-col let-row="rowData" pTemplate="body">
+                <span [style]="{'display': 'block'}" [innerHTML]="row.Instalacion"></span><br>
+                <span [style]="{'display': 'block'}" class="text-info" [innerHTML]="row.Descripcion"></span>
+            </ng-template>
+        </p-column>
+        <p-column header="Fase" field="Fase" styleClass="columna_small"></p-column>
+        <p-column header="Parametro" field="Parametro" styleClass="columna_small"></p-column>
+        <p-column header="Prueba" field="Prueba" styleClass="columna_med"></p-column>
+        <p-column header="Deporte" field="Deporte" styleClass="columna_med"></p-column>
+        <p-column header="Obs." field="Observaciones" styleClass="columna_med"></p-column>
+
+    </p-dataTable>
+
+</div>

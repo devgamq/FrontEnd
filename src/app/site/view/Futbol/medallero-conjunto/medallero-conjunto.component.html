@@ -1,0 +1,131 @@
+<div class="ui-g">
+    <div class="ui-g-6">
+        <h1>Registro Datos </h1>
+    </div>
+    <div class="ui-g-6">
+        <button pButton type="button" class="ui-button-success" (click)="imprimirIndividuales()" icon="ui-icon-print" label="Reportes Individuales"></button>
+        <button pButton type="button" class="ui-button-warning" (click)="imprimirMedallero()" icon="ui-icon-print" label="Medallero Deporte"></button>
+        <button pButton type="button" class="ui-button-info" (click)="getPdfParametroSuceso()" icon="ui-icon-print" label="Reporte Sucesos"
+            *ngIf="mostrarSuceso"></button>
+        <button pButton type="button" class="ui-button-info" (click)="getDatosNelson()" icon="ui-icon-print" label="Reporte Podio"></button>
+    </div>
+</div>
+
+<div class="card card-w-title">
+    <div class="ui-g">
+        <div class="ui-g-6" style="text-align:right">
+            Deporte:
+        </div>
+        <div class="ui-g-6">
+            <p-dropdown [options]="deportes" [(ngModel)]="deporteId" (onChange)="opcionDeporte()" [style]="{'width':'200px'}" filter="filter"
+                placeholder="Seleccione un Deporte"></p-dropdown>
+        </div>
+    </div>
+    <div class="ui-g">
+        <div class="ui-g-6" style="text-align:right">
+            Tipo Deporte:
+        </div>
+        <div class="ui-g-6">
+            <p-dropdown [options]="tiposDeportes" [(ngModel)]="EsIndivudual" (onChange)="opcionTipoPrueba()" [style]="{'width':'200px'}"
+                [disabled]="tipoDeporteopcion" placeholder="Seleccionar Tipo Dep."></p-dropdown>
+        </div>
+
+    </div>
+    <div class="ui-g">
+
+        <div class="ui-g-6" style="text-align:right">
+            Prueba:
+        </div>
+        <div class="ui-g-6">
+            <p-dropdown [options]="pruebas" [(ngModel)]="pruebaId" [style]="{'width':'200px'}" [disabled]="pruebaOpcion" (onChange)="opcionPrueba()"
+                placeholder="Seleccionar Prueba" filter="filter"></p-dropdown>
+        </div>
+    </div>
+    <div class="ui-g">
+        <div class="ui-g-6" style="text-align:right">
+            Categoria:
+        </div>
+        <div class="ui-g-6">
+            <p-dropdown [options]="categorias" [(ngModel)]="parametroRamaId" (onChange)="opcionTipo()" [disabled]="generoOpcion" [style]="{'width':'200px'}"
+                placeholder="Seleccionar Categoría"></p-dropdown>
+        </div>
+        <!-- <div class="ui-g-4">
+            <p-dropdown [options]="parametroSucesos" [(ngModel)]="ParametroSucesoId" (onChange)="opcionSucesoDeporte()" [style]="{'width':'200px'}"></p-dropdown>
+        </div>-->
+    </div>
+
+    <div class="ui-g">
+        <div class="ui-g-6" style="text-align:right">
+            Tipo:
+        </div>
+        <div class="ui-g-6">
+            <p-dropdown [options]="tipos" [(ngModel)]="parametroTipoId" (onChange)="opcionFases()" [disabled]="tipoOpcion" [style]="{'width':'200px'}"
+                placeholder="Seleccionar Tipo"></p-dropdown>
+        </div>
+    </div>
+
+    <div class="ui-g">
+        <div class="ui-g-6" style="text-align:right">
+            Fase:
+        </div>
+        <div class="ui-g-6">
+            <p-dropdown [options]="fases" [(ngModel)]="parametroFaseId" (onChange)="opcionCronograma()" [disabled]="faseOpcion" [style]="{'width':'200px'}"
+                filter="filter" placeholder="Seleccionar Fase"></p-dropdown>
+        </div>
+    </div>
+
+
+    <div class="ui-g">
+        <div class="ui-g-6" style="text-align:right">
+            Cronograma:
+        </div>
+        <div class="ui-g-6">
+            <p-dropdown [options]="cronogramas" [(ngModel)]="CronogramaId" (onChange)="getCronogramaId()" [disabled]="cronogramaOpcion"
+                filter="filter" placeholder="Seleccionar Cronograma" [style]="{'min-width':'400px'}"></p-dropdown>
+        </div>
+    </div>
+
+    <form class="form-signin" [(formGroup)]="DatosGanadoresForm" (ngSubmit)="guardarGanadoresConjunto()">
+        <div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none;text-align:center;background-color:#424242;">
+            Competidor:
+            <p-autoComplete delay="3" [(ngModel)]="_Persona" size="30" [inputStyleClass]="estiloauto" [inputStyle]="{'color': 'white'}"
+                formControlName="SearchPersona" [suggestions]="Equipos" (completeMethod)="doSearchEquipos($event)" field="Equipo"
+                (onSelect)="doSelectSearchEquipo($event)">
+                <ng-template let-_Persona pTemplate="item">
+                    {{_Persona.Equipo}}
+                </ng-template>
+            </p-autoComplete>
+            Medalla:
+            <p-dropdown [options]="medallas" [(ngModel)]="medalla" formControlName="ParametroMedallaId" [style]="{'width':'220px'}"></p-dropdown>
+            Puesto:
+            <input type="text" pInputText size="5" class="inputInsertar" [(ngModel)]="puesto" formControlName="Posicion"> Tiempo:
+            <p-inputMask pInputText size="10" [(ngModel)]="tiempo" [style]="{'color': 'white'}" formControlName="Tiempo" mask="99:99:99.999"></p-inputMask>
+            Marca:
+            <input type="text" pInputText size="10" class="inputInsertar" [(ngModel)]="marca" formControlName="Marca"> Premio:
+            <p-checkbox binary="true" [(ngModel)]="ganador" formControlName="EsGanador"></p-checkbox>
+            <button pButton type="submit" icon="fa-arrow-down" class="ui-button-success"></button>
+            <button pButton type="button" icon="ui-icon-delete" (click)="confirmDelete()" class="ui-button-danger" *ngIf="hideBorrar"></button>
+            <!-- <button pButton type="button" icon="ui-icon-edit" (click)="modificarRegistro()" class="ui-button-info" *ngIf="hideBorrar"></button> -->
+            <!-- <button pButton type="button" class="ui-button-warning" (click)="DialogoPush()" icon="ui-icon-notifications" *ngIf="lengthGrid > 0"></button> -->
+            <button pButton type="button" class="ui-button-warning" (click)="DialogoPush()" icon="ui-icon-notifications"></button>
+        </div>
+    </form>
+
+
+    <p-dataTable [value]="ganadores" [responsive]="true" [rows]="20" [paginator]="true" selectionMode="single" (onRowSelect)="onRowSelect($event,1)">
+        <p-column header="Nombre" field="Nombre"></p-column>
+        <p-column header="Delegacion" field="Delegacion"></p-column>
+        <p-column header="Puesto" field="Posicion"></p-column>
+        <p-column header="Medalla" field="Medalla"></p-column>
+        <p-column header="Tiempo" field="Tiempo"></p-column>
+        <p-column header="Marca" field="Marca"></p-column>
+        <p-column header="Es Ganador" field="EsGanador">
+        </p-column>
+
+    </p-dataTable>
+</div>
+<p-dialog header="{{TitlePush}}" [(visible)]="mostrarDialogoPush">
+    <app-push [data]=dataPush (response)="responseDialog($event)"></app-push>
+</p-dialog>
+<p-confirmDialog width="425"></p-confirmDialog>
+<p-growl [value]="msgs" class="visible-xs"></p-growl>

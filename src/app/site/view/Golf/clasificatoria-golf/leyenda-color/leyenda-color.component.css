@@ -1,0 +1,22 @@
+.leyendaVisor {
+  width: 10vw !important;
+  text-align: right;
+  background-color: transparent !important;
+  color: #fff !important;
+  font-size: 1.8vw;
+  text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+.leyendaGrid {
+  font-family: 'Oswald' !important;
+  width: 200px !important;
+  text-align: right !important;
+  background-color: transparent !important;
+  color: #000 !important;
+}
+.tabla_leyenda td {
+  border-radius: 31px 31px 31px 31px;
+  -moz-border-radius: 31px 31px 31px 31px;
+  -webkit-border-radius: 31px 31px 31px 31px;
+  border: 0px solid #000000;
+}

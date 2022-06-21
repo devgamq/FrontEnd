@@ -1,0 +1,43 @@
+<div class="ui-g acroll">
+   
+      <div class="ui-g-12">
+        
+         <div class="ui-g-6">
+           <div class="card card-w-title ui-fluid ui-g-12" >
+              <app-inscripcion-jugadores [competidor]="equipoA" [is_inscripcion]="false" [titulo]="'EN CANCHA'" [recargar]="recargar"
+              [PlanillaId]="PlanillaId" [sistemas]="sistemas" [deporteId]="deporteId" [ParametroId]="'1'" (jugador_seleccionado)="seleccion($event)"></app-inscripcion-jugadores>
+           </div>
+            
+       </div>
+          <div class="ui-g-6">
+           <div class="card card-w-title ui-fluid ui-g-12"  >
+              <app-inscripcion-jugadores [competidor]="equipoA" [is_inscripcion]="false" [titulo]="'SUPLENTES'" [recargar]="recargar"
+              [PlanillaId]="PlanillaId" [sistemas]="sistemas" [deporteId]="deporteId" [ParametroId]="'2'" (jugador_seleccionado)="seleccionSuplente($event)"></app-inscripcion-jugadores>
+           </div>
+            
+       </div>
+  </div>
+      
+</div>
+<p-footer>
+  <div class="ui-g-12">
+        <div class="card card-w-title ui-fluid  ui-g-12">
+          <div class="ui-g-12"> <b>SALE:</b> {{jugador_seleccionado.Nombre}} - <b>Nro:</b> {{jugador_seleccionado.Numero}}</div>
+          <div class=" ui-grid-col-12 ui-message ui-messages-error ui-corner-all" style="padding:0.4em !important; width: auto;" *ngIf="jugador_valid">
+            Debe seleccionar un jugador en cancha.
+          </div>
+          <div class="ui-g-12"> <b>INGRESA:</b> {{suplente_seleccionado.Nombre}} - <b>Nro:</b> {{suplente_seleccionado.Numero}}</div>
+          <div class=" ui-grid-col-12 ui-message ui-messages-error ui-corner-all" style="padding:0.4em !important; width: auto;" *ngIf="suplente_valid">
+            Debe seleccionar un suplente
+          </div>
+          <div class="ui-g-12">
+          
+          
+        </div>
+        </div>
+      </div>
+      <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix" style="border:none;">
+          <button type="button" pButton icon="fa-close" (click)="exit()" label="Cancelar"></button>
+          <button type="button" pButton icon="fa-check" (click)="save()" label="Guardar"></button>
+      </div>
+  </p-footer> 

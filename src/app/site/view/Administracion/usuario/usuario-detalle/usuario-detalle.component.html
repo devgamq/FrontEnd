@@ -1,0 +1,50 @@
+﻿<h1>Detalle de Usuarios</h1>
+<div class="card card-w-title">
+  <div class="ui-g" >
+    <div class="ui-g-12">
+    <div class="row ui-toolbar-group-right">
+       <button pButton type="button" class="ui-button-info" (click)="regresar()" label="Regresar" icon="fa-arrow-circle-left"
+          style="min-width:130px"></button>
+       <button pButton type="button" class="ui-button-success" (click)="editar()" label="Editar" icon="ui-icon-edit"
+       style="min-width:130px"></button>
+       
+   </div>
+        </div>
+</div>
+
+    <div class="ui-g" >
+        <div class="ui-g-6">
+            <h1 style="text-align:center;"> 
+                Datos Generales
+            </h1>
+            
+            <div class="ui-g">
+                <div class="contenedorImagen ui-g-12 ui-md-12 ui-lg-12">
+                    <div class="fotografiaAcreditacion shadow-box ui-shadow-4" [ngStyle]="{'background-image':'url(' + foto + ')'}"></div>
+                </div>
+                <div class="ui-g-12 ui-md-12 ui-lg-12">
+                    <div class="ui-g">
+                        <div class="ui-g-12 ui-md-6 Prompt">Usuario: </div>
+                        <div class="ui-g-12 ui-md-6 Value">{{usuario.Usuario}}</div>
+                        <div class="ui-g-12 ui-md-6 Prompt">Estado:</div>
+                        <div class="ui-g-12 ui-md-6 Value" [style.color]="usuario.IsActivo===false?'Red':'Green'">{{usuario.IsActivo===false?'Inactivo':'Activo'}}</div>
+                        <div class="ui-g-12 ui-md-6 Prompt">Fecha Registro: </div>
+                        <div class="ui-g-12 ui-md-6 Value">{{usuario.FechaRegistro | date:'shortDate'}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui-g-12 ui-md-12 ui-lg-6">
+            <div class="ui-g">
+                 <h1 style="text-align:center;">Privilegios de navegación</h1>
+                <div class="ui-g-12">
+           
+             <usuario-privilegios></usuario-privilegios>
+             
+             </div>
+        </div>
+        </div>
+    </div>
+    
+</div>
+

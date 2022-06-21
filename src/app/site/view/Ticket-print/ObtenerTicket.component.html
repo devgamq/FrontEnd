@@ -1,0 +1,78 @@
+
+
+
+<div>    
+      <div >
+      <img src="../../../../assets/erpHammer/images/cabecera.jpg" height="30px" width="100%">
+      </div>
+      <div class="ui-g">
+              <div class="ui-g-12" align="center" font size=26; pading=1px >
+              <h1 class="first" style="line-height:0px">JUEGOS SURAMERICANOS ODESUR COCHA2018</h1> 
+              
+              </div>
+      </div>
+
+      <div class="ui-g">
+                  <div class="ui-g-12" align="center">
+                      <img src="../../../../assets/03/logos/logo1.png"  width="180">
+                  </div>
+      </div>
+
+      <div class="ui-g">
+                  <div class="ui-g-4"></div>
+                  <div  class="ui-g-4" align="center"> <h3 class="first"  style="line-height:0px">Ticket N° </h3>   </div>
+                  <div class="ui-g-4"></div>
+      </div>
+      <div class="ui-g">
+                    <div class="ui-g-4" align="center"><img src="../../../../assets/04/logos/logo1.png"  width="30%"></div>
+                    <div  class="ui-g-4" align="center" > <h3 class="grande" style="line-height:0px">{{tkt}} </h3> </div>
+                    <div class="ui-g-4" align="center"><img src="../../../../assets/04/logos/logo333.png "  width="30%"></div>
+        </div>
+        <div class="ui-g">
+                          <div class="ui-g-4"></div>
+                          <div  class="ui-g-4" align="center">
+                              <h3 class="tktstyle" style="line-height:0px"> {{fecha}} </h3>
+                          </div>
+                          <div class="ui-g-4"></div>
+         </div>
+
+          <div class="ui-g">
+                      <div class="ui-g-4"></div>
+                      <div class="ui-g-4">  <app-reloj >       </app-reloj>   <div>
+                      <div class="ui-g-4"></div>
+          </div>
+
+          <div align=center class="ui-g-12">
+              
+                          <button pButton type="button" class="button" icon="fa-check" (click)="genTicket()"style="grande" label="Ticket" > </button>
+                            
+          </div>    
+              
+          <div align=center class="ui-g-12">            
+
+                          <img src="../../../../assets/erpHammer/images/footer.png"  height="40px" width="100%">
+                        
+          </div>
+         
+          <div class="first">
+            <p-dialog header="Elija eL EVENTO E INICIO DE TICKET" [(visible)]="display" [width]="275" [responsive]="true"  [(closable)]="xxxx">
+                <span>
+                    El Sistema Necesita Saber Que evento Atendemos?
+                    <br>
+                        <button type="button" pButton icon="fa-check" (click)="escoger(1)" label="PLURIS POTOSI"   class="ui-button-info"></button>
+                        <button type="button" pButton icon="fa-check" (click)="escoger(2)" label="PLURIS LA PAZ"   class="ui-button-info"></button>
+                        <button type="button" pButton icon="fa-check" (click)="escoger(3)" label="ESCOLARES COCHA"   class="ui-button-info" ></button>
+                        <button type="button" pButton icon="fa-check" (click)="escoger(4)" label="XI JUEGOS ODESUR COCHA2018"   class="ui-button-info" ></button>
+                  <input  type="text" [(ngModel)]="toini"> 
+                </span>
+                 <p-footer >
+                   <div class="ui-g-12" align="center">
+                    <img src="../../../assets/erpHammer/images/hammerLogoV.png" width="120">
+                   </div>
+                        
+                 </p-footer>
+            </p-dialog>
+          </div>    
+     
+
+</div>

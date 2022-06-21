@@ -1,0 +1,234 @@
+{
+    "data":[
+     
+      {
+        "fecha": "2018-5-26",
+        "fecha_larga": "Sábado, 26 de Mayo",
+        "temp_maxima": "26",
+        "temp_minima": "6",
+        "icono":"assets/clima/6.png",
+        "texto": "Parcialmente Soleado",
+        "humedad": "61",
+        "viento": "8",
+        "dir_viento": "Nordeste" ,
+        "ico_viento": "http://i5.tutiempo.net/eltiempo/DirViento/NE.png"
+    
+      },
+      {
+        "fecha": "2018-5-27",
+        "fecha_larga": "Domingo, 27 de Mayo",
+        "temp_maxima": "22",
+        "temp_minima": "6",
+        "icono":"assets/clima/4.png",
+        "texto": "Príncipalmente Soleado",
+        "humedad": "66",
+        "viento": "11",
+        "dir_viento": "Nordeste",
+        "ico_viento": "http://i5.tutiempo.net/eltiempo/DirViento/NO.png"
+
+   
+  
+      },
+      {
+        "fecha": "2018-5-28",
+        "fecha_larga": "Lunes, 28 de Mayo",
+        "temp_maxima": "21",
+        "temp_minima": "6",
+        "icono":"assets/clima/6.png",
+        "texto": "Unos pocos chubascos temprano",
+        "humedad": "67",
+        "viento": "12",
+        "dir_viento": "Nordeste",
+        "ico_viento": "http://i5.tutiempo.net/eltiempo/DirViento/SE.png"
+     
+
+      },
+      {
+        "fecha": "2018-5-29",
+        "fecha_larga": "Martes, 29 de Mayo",
+        "temp_maxima": "20",
+        "temp_minima": "4",
+        "icono":"assets/clima/6.png",
+        "texto": "Unos pocos chubascos",
+        "humedad": "62",
+        "viento": "10",
+        "dir_viento": "Nordeste",
+        "ico_viento": "http://i5.tutiempo.net/eltiempo/DirViento/E.png"
+   
+
+      },
+      {
+        "fecha": "2018-5-30",
+        "fecha_larga": "Miércoles, 30 de Mayo",
+        "temp_maxima": "18",
+        "temp_minima": "5",
+        "icono":"assets/clima/2.png",
+        "texto": "Principalmente nublado",
+        "humedad": "66",
+        "viento": "9",
+        "dir_viento": "Nordeste",
+        "ico_viento": "http://i5.tutiempo.net/eltiempo/DirViento/NE.png"
+
+   
+      },
+      {
+        "fecha": "2018-5-31",
+        "fecha_larga": "Jueves, 31 de Mayo",
+        "temp_maxima": "20",
+        "temp_minima": "5",
+        "icono":"assets/clima/5.png",
+        "texto": "Intervalos de nubes y sol",
+        "humedad": "72",
+        "viento": "8",
+        "dir_viento": "Nordeste",
+        "ico_viento": "http://i5.tutiempo.net/eltiempo/DirViento/NO.png"
+
+       
+      },
+      {
+        "fecha": "2018-6-1",
+        "fecha_larga": "Viérnes, 01 de Junio",
+        "temp_maxima": "21",
+        "temp_minima": "7",
+        "icono":"assets/clima/6.png",
+        "texto": "Sol parcial",
+        "humedad": "78",
+        "viento": "9",
+        "dir_viento": "Este",
+        "ico_viento": "http://i5.tutiempo.net/eltiempo/DirViento/E.png"
+    
+  
+      },
+      {
+        "fecha": "2018-6-2",
+        "fecha_larga": "Sábado, 02 de Junio",
+        "temp_maxima": "21",
+        "temp_minima": "6",
+        "icono":"assets/clima/4.png",
+        "texto": "Parcialmente Soleado",
+        "humedad": "61",
+        "viento": "8",
+        "dir_viento": "Nordeste",
+        "ico_viento": "http://i5.tutiempo.net/eltiempo/DirViento/SE.png"
+
+    
+      },
+      {
+        "fecha": "2018-6-3",
+        "fecha_larga": "Domingo, 03 de Junio",
+        "temp_maxima": "19",
+        "temp_minima": "6",
+        "icono":"assets/clima/2n.png",
+        "texto": "Pricipalmente nublado",
+        "humedad": "66",
+        "viento": "11",
+        "dir_viento": "Nordeste",
+        "ico_viento": "http://i5.tutiempo.net/eltiempo/DirViento/NE.png"
+  
+
+      },
+      {
+        "fecha": "2018-6-4",
+        "fecha_larga": "Lunes, 04 de Junio",
+        "temp_maxima": "21",
+        "temp_minima": "6",
+        "icono":"assets/clima/4.png",
+        "texto": "Sol y algunas nubes",
+        "humedad": "67",
+        "viento": "12",
+        "dir_viento": "Nordeste",
+        "ico_viento": "http://i5.tutiempo.net/eltiempo/DirViento/NO.png"
+ 
+
+      },
+      {
+        "fecha": "2018-6-5",
+        "fecha_larga": "Martes, 05 de Junio",
+        "temp_maxima": "20",
+        "temp_minima": "6",
+        "icono":"assets/clima/2.png",
+        "texto": "Sol y algo de nubosidad",
+        "humedad": "62",
+        "viento": "10",
+        "dir_viento": "Nordeste",
+        "ico_viento": "http://i5.tutiempo.net/eltiempo/DirViento/NE.png"
+
+ 
+      },
+      {
+        "fecha": "2018-6-6",
+        "fecha_larga": "Miércoles, 06 de Junio",
+        "temp_maxima": "19",
+        "temp_minima": "6",
+        "icono":"assets/clima/4.png",
+        "texto": "Nubes y sol",
+        "humedad": "66",
+        "viento": "9",
+        "dir_viento": "Nordeste",
+        "ico_viento": "http://i5.tutiempo.net/eltiempo/DirViento/E.png"
+
+   
+      },
+      {
+        "fecha": "2018-6-7",
+        "fecha_larga": "Jueves, 07 de Junio",
+        "temp_maxima": "21",
+        "temp_minima": "6",
+        "icono":"assets/clima/4n.png",
+        "texto": "Sol y nubes",
+        "humedad": "72",
+        "viento": "8",
+        "dir_viento": "Nordeste",
+        "ico_viento": "http://i5.tutiempo.net/eltiempo/DirViento/NE.png"
+  
+ 
+      },
+      {
+        "fecha": "2018-6-8",
+        "fecha_larga": "Viérnes, 08 de Junio",
+        "temp_maxima": "20",
+        "temp_minima": "6",
+        "icono":"assets/clima/4n.png",
+        "texto": "Príncipalmente nublado",
+        "humedad": "78",
+        "viento": "9",
+        "dir_viento": "Este",
+        "ico_viento": "http://i5.tutiempo.net/eltiempo/DirViento/NO.png"
+   
+      },
+      {
+        "fecha": "2018-6-9",
+        "fecha_larga": "Sábado, 09 de Junio",
+        "temp_maxima": "20",
+        "temp_minima": "5",
+        "icono":"assets/clima/4.png",
+        "texto": "Príncipalmente soleado",
+        "humedad": "78",
+        "viento": "9",
+        "dir_viento": "Este",
+        "ico_viento": "http://i5.tutiempo.net/eltiempo/DirViento/NE.png"
+   
+      },
+      {
+        "fecha": "2018-6-10",
+        "fecha_larga": "Domingo, 10 de Junio",
+        "temp_maxima": "19",
+        "temp_minima": "5",
+        "icono":"assets/clima/19.png",
+        "texto": "Algunos chubascos o tormentas",
+        "humedad": "78",
+        "viento": "9",
+        "dir_viento": "Este",
+        "ico_viento": "http://i5.tutiempo.net/eltiempo/DirViento/SE.png"
+   
+      }
+    ]
+          
+        
+}
+
+
+
+
+
+

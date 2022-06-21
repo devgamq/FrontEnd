@@ -1,0 +1,10 @@
+.subtotal{
+    background-color: #d7d7da;
+}
+@media all and (max-width: 700px) {
+    .visible-xs { display:none; }
+}
+
+@media all and (min-width: 700px) {
+    .visible { display:none; }
+}

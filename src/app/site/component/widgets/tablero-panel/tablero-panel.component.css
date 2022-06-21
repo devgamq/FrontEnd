@@ -1,0 +1,206 @@
+  body {
+  overflow-y: hidden !important;
+}
+
+.logo {
+  position: relative;
+  bottom: 60px;
+}
+.logo img {
+  width: 16vh;
+  position: relative;
+  top: 2vh;
+}
+.logo3 {
+  position: relative;
+  bottom: 50px;
+}
+.logo3 img {
+  height: 15vh;
+  position: relative;
+  top: 1.7vh;
+}
+.centrar {
+  text-align: center;
+  width: 100%;
+}
+.titulo {
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+}
+.titulo div {
+  padding: 0.1em;
+}
+.reloj {
+  font-family: 'Oswald', sans-serif !important;
+  position: relative;
+  top: 2vw;
+  right: 5vw;
+  float: left;
+}
+.time {
+  font-family: 'Oswald', sans-serif;
+}
+.panel {
+  min-height: 99%;
+  background-color: #FCFCFA;
+}
+
+.sponsor {
+  width: 100%;
+  /* position: relative; */
+  bottom: 5px;
+}
+.institucion {
+  position: relative;
+  bottom: 5px;
+  width: 60%;
+}
+.fondoOscuro {
+  background-color: #1a1a1a;
+}
+.divOscuro {
+  background-color: #1a1a1a;
+  position: relative;
+  bottom: 10px;
+}
+marquee {
+  font-family: 'Oswald', sans-serif;
+  font-size: 5vw;
+  height: 3.5vw;
+  padding: 1.4vw;
+  background-color: rgb(151, 32, 32);
+  color: white;
+}
+.loading {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  height: 100%;
+
+  overflow-y: hidden;
+}
+
+.sample-show-hide {
+  -webkit-transition: 1.5s linear all;
+  transition: 1.5s linear all;
+  transition-delay: 1.5s;
+}
+.sample-show-hide.ng-enter {
+  opacity: 0;
+}
+.sample-show-hide.ng-enter-active {
+  opacity: 1;
+}
+.sample-show-hide.ng-leave {
+  opacity: 1;
+}
+.sample-show-hide.ng-leave-active {
+  opacity: 0;
+}
+.derechos {
+  color: white;
+  font-weight: bold;
+  font-size: 26px;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+.right {
+  float: right;
+}
+.hammer {
+  text-align: right;
+}
+.hammer img {
+  width: 30%;
+  top: 1.5vh;
+}
+.cocha {
+  text-align: left;
+}
+.cocha img {
+  width: 20%;
+}
+
+.circleC{
+  position: absolute;
+  top:25px;
+  left: 165px;
+  z-index: 9999;  
+  background-color: lightblue;  
+  width: 30px;
+  height: 30px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;  
+}
+
+.circle{
+  position: absolute;
+  top:25px;
+  left: 165px;
+  z-index: 9999;  
+  background-color: green;  
+  width: 30px;
+  height: 30px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;  
+}
+
+.circleR{
+  position: absolute;
+  top:25px;
+  left: 165px;
+  z-index: 9999;  
+  background-color: red;  
+  width: 30px;
+  height: 30px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;  
+}
+.logoHammer{
+  width: 12vh !important;
+  position: relative;
+ 
+  top: 3vh !important;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Oswald Regular'), local('Oswald-Regular'),
+    url(font/DgBpgaYycijFA8v2hNt7MfesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+  unicode-range: U + 0400-045f, U + 0490-0491, U + 04b0-04b1, U + 2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Oswald Regular'), local('Oswald-Regular'),
+    url(font/peRd8sj511qE2lHtK-QfcPesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+  unicode-range: U + 0102-0103, U + 1ea0-1ef9, U + 20ab;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Oswald Regular'), local('Oswald-Regular'),
+    url(font/yg0glPPxXUISnKUejCX4qfesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+  unicode-range: U + 0100-024f, U + 1-1eff, U + 20a0-20ab, U + 20ad-20cf,
+    U + 2c60-2c7f, U + A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Oswald Regular'), local('Oswald-Regular'),
+    url(font/pEobIV_lL25TKBpqVI_a2w.woff2) format('woff2');
+  unicode-range: U + 0000-00ff, U + 0131, U + 0152-0153, U + 02c6, U + 02da,
+    U + 02dc, U + 2000-206f, U + 2074, U + 20ac, U + 2212, U + 2215;
+}

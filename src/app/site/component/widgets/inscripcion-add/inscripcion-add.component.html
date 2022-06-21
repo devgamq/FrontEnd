@@ -1,0 +1,75 @@
+<form class="form-signin" [(formGroup)]="InscripcionForm" (ngSubmit)="doSetInscripcion($event)">
+    <div class="ui-g form-group-m">
+
+        <div class="ui-g-12" style="position:relative;top:30px">
+            <div class="ui-g-12">
+                <div class="ui-g-2"><b>Equipo: </b></div>
+                <div class="md-inputfield ui-g-10">
+                    {{Competidor.Equipo}}
+                </div>
+            </div>
+            <div class="ui-g-12">
+                <div class="ui-g-2"><b>Jugador: </b></div>
+
+                <div class="md-inputfield ui-g-8" style="padding-left: 10px !important;">
+                    <app-buscar-persona [competidorId]="Competidor.CompetidorId" [planillaId]="PlanillaId" [limpiar]="limpiarBuscador"
+                                        [servicioMostrar]="busqueda" [mostrarNombre]="true" (NombrePersona)="doSelectSearchPersona($event)" ></app-buscar-persona>
+
+                </div>
+            </div>
+            <div class=" ui-grid-col-12 ui-message ui-messages-error ui-corner-all" style="padding:0.4em !important; width: auto;" *ngIf="jugador_valid">
+                Debe seleccionar a una persona.
+            </div>
+            <div class="ui-g-12">
+                <div class="ui-g-4"><b>Nro. de camiseta: </b></div>
+                <div class="md-inputfield ui-g-4">
+                    <input type="text" pInputText style="width:100%;" formControlName="NumeroCamiseta">
+                </div>
+            </div>
+            <div class=" ui-grid-col-12 ui-message ui-messages-error ui-corner-all" style="padding:0.4em !important; width: auto;" *ngIf="numero_valid">
+                Debe ingresar un número de camiseta valido.
+            </div>
+            <div class="ui-g-12">
+                <div class="ui-g-6 ui-md-5 ui-lg-6">
+                    <span class="md-inputfield">
+
+                        <p-toggleButton [(ngModel)]="es_capitan" formControlName="Capitan" onLabel="Capitan"
+                                        offLabel="No es capitan" onIcon="fa-check" offIcon="fa-close"></p-toggleButton>
+
+                    </span>
+                </div>
+                <div class="ui-g-5">
+                    <span class="md-inputfield">
+
+                        <p-toggleButton [(ngModel)]="es_titular" formControlName="ParametroRolId" onLabel="Titular"
+                                        offLabel="Suplente" onIcon="fa-check" offIcon="fa-close"></p-toggleButton>
+
+                    </span>
+                </div>
+            </div>
+            
+            <div class="ui-g-10 ui-md-10 ui-lg-12">
+                <span class="md-inputfield">
+                    <h3>Posición</h3>
+                    <p-selectButton [options]="posicionJuego" formControlName="Posicion"></p-selectButton>
+                </span>
+            </div>
+
+            <div class=" ui-grid-col-12 ui-message ui-messages-error ui-corner-all" style="padding:0.4em !important; width: auto;" *ngIf="posicion_valid">
+                Debe seleccionar una posición.
+            </div>
+        </div>
+    </div>
+    <br />
+
+    <div class="ui-g-10" style="align-content: center">
+ 
+        <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix" style="border:none;">
+            <button type="button" pButton icon="fa-close" (click)="salir()" label="Cancelar"></button>
+            <button type="button" pButton icon="fa-check" (click)="save()" label="Guardar"></button>
+        </div>
+ 
+    </div>
+
+</form>
+<p-growl [value]="msgs"></p-growl>

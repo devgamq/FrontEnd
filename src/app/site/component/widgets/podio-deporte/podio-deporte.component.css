@@ -1,0 +1,384 @@
+body{
+     overflow-y:hidden !important; 
+}
+.colorP1{
+
+    border:14px solid #FAE930 !important;
+    width: 10vw;
+}
+.colorP2{
+    border:14px solid #B3B2B7 !important;
+    width: 10vw;
+}
+.colorP3{
+    border:14px solid #AF6E50 !important;
+    width: 10vw;
+}
+.panelP{
+ min-height: 99%;
+ background-size: 100% auto;
+ color:white;
+ height: 75vh;
+ overflow-y:hidden; 
+
+}
+.panel{
+    min-height: 99%;
+    background-size: 100% auto;
+    color:white;
+    height: 75vh;
+    overflow-y:hidden; 
+   
+   }
+.fondo{
+    min-height: 99%;
+    background-size: 90% auto;
+    color:white;
+    height: 59vh;
+    overflow-y:hidden; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+}
+.fondoP{
+    min-height: 99%;
+    background-size: 90% auto;
+    color:white;
+    height: 62vh;
+    overflow-y:hidden; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+}
+.podioP{
+    position: relative;
+    top: 5vh;
+    width: 90%;
+    left: 2.8vh;
+
+}
+.podio{
+    position: relative;
+    top: 23vh;
+    width: 90%;
+    left: 2.8vh;
+
+}
+.centerP{
+     text-align: center;
+}
+.titulopodioP{
+    font-family: 'Oswald', sans-serif;
+    font-size: 3.5vw;
+    text-align: left;
+    margin-bottom: 35px;
+    padding-left: 10px;
+}
+.logoP
+{
+     width: 30vw;
+}
+.equipoP
+{
+    width: 34%
+}   
+
+.panel_tablaP
+{
+    position:relative;
+    height: 65vh;
+    overflow-y:hidden; 
+}
+.columnaP{
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    font-size: 3.5vw;
+    line-height: 0.3em;
+    text-transform: uppercase;
+}
+.columna{
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    font-size: 3.5vw;
+    line-height: 0.3em;
+    text-transform: uppercase;
+}
+.medallasP
+{
+   width: 9vw;
+   
+}
+.medallas
+{
+   width: 7vw;
+   
+}
+.grandeP{
+    font-size: 4vw;
+    font-weight: bold;
+    text-shadow: 2px 2px 1px #070707;
+    color: #F6FAFA;
+
+}
+.imagen
+{
+    border-radius: 200px 200px 200px 200px;
+    -moz-border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
+    border: 17px solid #fff;
+    width: 20vw;
+    height: 20vw;
+    position: relative;
+    left: 2vw;
+}
+.imagenP
+{
+    border-radius: 124px 124px 124px 124px;
+    -moz-border-radius: 124px 124px 124px 124px;
+    -webkit-border-radius: 124px 124px 124px 124px;
+    
+    border: 0px solid #fff;
+    width: 17vw;
+    height: 17vw;
+    position: relative;
+    left: 1vw;
+}
+.leftP
+{
+text-align: 10px;
+}
+.rghtP{
+    text-align: 10px;
+}
+.anchoP
+{
+    padding-left:1vw;
+    width:95%;
+}
+.bandera
+{
+    position: relative;
+    bottom: 9.5vh;
+}
+.presentacion{
+    line-height: 1.3em;
+    position: relative;
+    bottom: 5vh;
+    font-size: 1.6vh;
+}
+.record{
+    line-height: 1.3em;
+    position: relative;
+    bottom: 5vh;
+    font-size: 1.8vh;
+    color:#FDFDFD;
+    text-shadow: 3px 2px 1px #9B2A00;
+    font-weight: bold;
+
+}
+.banderaP
+{
+    position: relative;
+    bottom: 9.5vh;
+}
+.presentacionP{
+    line-height: 1.3em;
+    position: relative;
+    bottom: 0vh;
+    font-size: 2vh;
+    text-shadow: 2px 2px 1px #080808;
+}
+.tabla_medallasP
+{
+    width: 100%;
+    border-spacing: 0px !important;
+     margin-bottom: -1vw;
+}
+.pruebaP{
+    overflow: hidden;
+    height: 3.5vh;
+    line-height: 3.9vw;
+}
+.panel_recordP
+{
+   position:relative;
+   height: 75vh;
+   overflow-y:hidden; 
+}
+.panel_record
+{
+   position:relative;
+   height: 80vh;
+   overflow-y:hidden; 
+}
+.panel_record .text-rigth
+{
+    text-align: right;
+    padding-right: 40px;
+}
+.tablaP{
+    font-size:4vw;
+    font-family: 'Oswald', sans-serif;
+    width: 100%;
+    line-height: 2.5vw;
+    /*background-image: url("img/bg1.png");*/
+    background-size: 100% auto;
+    color: white;
+    min-width: 100%;
+    border:none;
+    border-spacing: 0px !important;
+    line-height: 1.5cm;
+ }
+ .tablaP tr:nth-child(even) .marcar {
+    background-color: #000;
+    /*filter:alpha(opacity=60);-moz-opacity:.60;opacity:.60;*/
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    line-height: 1.5cm;
+ 
+}
+.tablaP td:nth-last-child(1) {
+    background-color: #000;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    line-height: 1.5cm;
+}
+.imagen_marcaP
+{
+   border-radius: 200px 200px 200px 200px;
+   -moz-border-radius: 200px 200px 200px 200px;
+   -webkit-border-radius: 200px 200px 200px 200px;
+   border: 1px solid #fff;
+   width: 8vw;
+   height: 8vw;
+   /* width: 5vw;
+   height: 5vw; */
+  
+}
+.panel_posiciones4P
+{
+    height: 71vh;
+}
+
+
+
+
+.fondo_mensaje_sqP{
+    background-color: rgba(133, 178, 238, 0.08);
+    border-radius: 15px 15px 15px 15px;
+    -moz-border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+    border: 0px solid rgba(32, 32, 30, 0.45);
+    z-index: 12;
+    position: relative;
+    text-transform: uppercase;
+    width: 100%;
+    height: 21.6vw;
+    text-align: center;
+
+}
+
+
+.fondoP{
+   min-height: 99%;
+   background-size: 90% auto;
+   color:white;
+   height: 80vh;
+   overflow-y:hidden; 
+   background-repeat: no-repeat;
+   /* background-attachment: fixed; */
+   background-position: center; 
+
+
+}
+.estadoP{
+    font-size: 0.7em;
+    font-weight: bold;
+    line-height: 10vw;
+
+
+}
+.podioP{
+   position: relative;
+   top: 3vh;
+   width: 90%;
+   left: 2.8vh;
+
+}
+
+.izquierdaP{
+   width:10vw;
+}
+.derechaP{
+text-align: right;
+}
+
+.centerP{
+    text-align: center;
+}
+.cancerP{    
+   top: 2vh;
+   width: 90%;
+   text-align : center;
+   left: 2.8vh;
+   font-size: 5.5vw !important;
+}
+
+.filaP{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.tabla{
+    font-size:4vw;
+    font-family: 'Oswald', sans-serif;
+    width: 100%;
+    line-height: 2.5vw;
+    /*background-image: url("img/bg1.png");*/
+    background-size: 100% auto;
+    color: white;
+    min-width: 100%;
+    border:none;
+    border-spacing: 0px !important;
+    line-height: 1.5cm;
+ }
+ .tabla tr:nth-child(even) .marcar {
+    background-color: #000;
+    /*filter:alpha(opacity=60);-moz-opacity:.60;opacity:.60;*/
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+
+    line-height: 1.5cm;
+ 
+}
+.tabla td:nth-last-child(1) {
+    background-color: #000;
+    background: rgba(0, 0, 0, 0.6);
+    color:#FDFDFD;
+    /* text-shadow: 3px 2px 1px #9B2A00; */
+    font-size: 4vw;
+    width: 4%;
+    line-height: 1.5cm;
+  
+    
+  
+}
+.imagen_marca
+{
+   border-radius: 200px 200px 200px 200px;
+   -moz-border-radius: 200px 200px 200px 200px;
+   -webkit-border-radius: 200px 200px 200px 200px;
+   border: 1px solid #fff;
+   width: 8vw;
+   height: 8vw;
+  
+}
+.sur
+{
+    color:#FDFDFD;
+    text-shadow: 3px 2px 1px #9B2A00;
+    font-size: 3vw;
+}
+.anchoss{
+    width: 5%;
+}
+

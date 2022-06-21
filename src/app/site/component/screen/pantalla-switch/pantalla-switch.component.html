@@ -1,0 +1,93 @@
+<h1>
+  Control de Tableros {{ciudad}}</h1>
+<div class="{{visible}}">{{message}}</div>
+<div class="card card-w-title ui-fluid">
+  <div class="ui-g">
+    <div class="ui-g-12 ui-md-12 ui-lg-4">
+      <p-fieldset legend="Opciones">
+
+        <div class="ui-g-5 ui-md-5 ui-lg-4">
+          <button pButton type="button" label="Refrescar" (click)="sendRefresh()"></button>
+        </div>
+        <div class="ui-g-5 ui-md-5 ui-lg-4">
+
+          <button pButton type="button" label="Abrir Visor" (click)="open()"></button>
+
+        </div>
+      </p-fieldset>
+      <p-fieldset legend="Envio de mensajes">
+        <p-multiSelect [options]="pantallas" [(ngModel)]="pantallas_seleccionadas" defaultLabel="Seleccione pantallas"></p-multiSelect>
+        <div class="separador"></div>
+        <textarea [rows]="5" [cols]="30" pInputTextarea [(ngModel)]="mensaje" placeholder="Escriba el mensaje a transmitir aca..."></textarea>
+        <div class="ui-g-5 ui-md-5 ui-lg-4">
+          <button pButton type="button" label="Enviar Mensaje" (click)="sendMensaje()"></button>
+        </div>
+
+      </p-fieldset>
+      <p-fieldset legend="JSON">
+        <textarea [rows]="5" [cols]="30" pInputTextarea [(ngModel)]="json" id="code" placeholder="Introduzca datos a enviar"></textarea>
+      </p-fieldset>
+
+
+    </div>
+    <div class="ui-g-12 ui-md-12 ui-lg-8">
+
+      <div class="ui-g-12 ui-md-12 ui-lg-11 panelTablero">
+        <p-fieldset legend="Configuración">
+            
+          <p-dataTable [value]="pantallas_data" [editable]="true" (onEditComplete)="onChange_dropdown()"
+          [rows]="20" [paginator]="true">
+            <p-column header="Pantalla" field="patalla">
+              <ng-template let-fila="rowData" pTemplate="item">
+                {{fila.pantalla}}
+              </ng-template>
+            </p-column>
+            <p-column header="Visor" [editable]="true" field="visor">
+
+              <ng-template let-col let-fila="rowData" let-ri="rowIndex" pTemplate="editor">
+                <p-dropdown [options]="acciones" [(ngModel)]="fila[col.field]" [autoWidth]="false" appendTo="body" (onChange)="onChange_dropdown()"
+                  [filter]="true" class="scroll"></p-dropdown>
+              </ng-template>
+              <ng-template let-col let-fila="rowData" pTemplate="item">
+                {{fila.visor.name}}
+              </ng-template>
+            </p-column>
+
+            <p-column header="Deporte" [editable]="true" field="deporte">
+              <ng-template let-col let-fila="rowData" let-ri="rowIndex" pTemplate="editor">
+                <p-dropdown [options]="deportes" [(ngModel)]="fila[col.field]" [filter]="true" [autoWidth]="false" class="scroll" appendTo="body"
+                  (onChange)="onChange_dropdown()"></p-dropdown>
+              </ng-template>
+              <ng-template let-col let-fila="rowData" pTemplate="item">
+                {{fila.deporte.name}}
+              </ng-template>
+            </p-column>
+
+            <p-column header="Fecha de Jornada" [editable]="true" field="fecha">
+              <ng-template let-col let-fila="rowData" let-ri="rowIndex" pTemplate="editor">
+                <p-calendar [(ngModel)]="fila[col.field]" dateFormat="dd/mm/yy" readonlyInput="true" [locale]="es" appendTo="body" (onSelect)="onChange_dropdown()"></p-calendar>
+              </ng-template>
+              <ng-template let-col let-fila="rowData" pTemplate="item">
+                {{fila.fecha| date: 'dd-MM-yyyy'}}
+              </ng-template>
+            </p-column>
+            <p-column header="Transición en seg." [editable]="true" field="tiempo">
+            </p-column>
+            <p-column header="Transición de Recarga" [editable]="true" field="Recarga">
+            </p-column>
+            <p-column [style]="{'width':'5%'}">
+              <ng-template pTemplate="header"></ng-template>
+              <ng-template let-data="rowData" let-ri="rowIndex" pTemplate="body">
+                <button type="button" (click)="enviar(data)" class="ui-button-success" pButton icon="ui-icon-send"></button>
+              </ng-template>
+            </p-column>
+          </p-dataTable>
+        </p-fieldset>
+
+
+
+      </div>
+    </div>
+
+  </div>
+</div>

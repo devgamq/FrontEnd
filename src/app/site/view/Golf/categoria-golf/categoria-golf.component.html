@@ -1,0 +1,56 @@
+<h1>Golf</h1>
+<div class="ui-g">
+    <div class="ui-g-12">
+        <div class="card card-w-title">
+            <h1>Categorías</h1>
+            <div class="ui-widget-header" style="padding:4px 10px 4px;border-bottom: 0 none">
+                <button pButton type="button" icon="ui-icon-plus" class="green-btn" (click)="showDialog(this.type.Insert)"></button>
+                <button pButton type="button" icon="ui-icon-edit" class="teal-btn" (click)="showDialog(this.type.Update)" *ngIf="hideElement"></button>
+                <button pButton type="button" icon="ui-icon-delete" class="teal-btn" (click)="confirmDelete()" *ngIf="hideElement"></button>
+                <div class="ui-toolbar-group-right">
+                    <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                    <input #gb type="text" pInputText size="50" placeholder="Buscar...">
+                </div>
+            </div>
+            <p-dataTable [value]="categorias" [responsive]="true" [globalFilter]="gb" [rows]="20" [paginator]="true" selectionMode="single"
+                [(selection)]="categoria" (onRowSelect)="onRowSelect($event)">
+                <p-column field="CategoriaId" header="" [hidden]="true"></p-column>
+                <p-column field="Descripcion" header="Descripción" [hidden]="false"></p-column>
+                <p-column field="EventoDeportivoId" header="" [hidden]="true"></p-column>
+                <p-column field="Porcentaje" header="Porcentaje" [hidden]="false"></p-column>
+            </p-dataTable>
+        </div>
+    </div>
+</div>
+
+<p-dialog header="Nueva Categoria" [(visible)]="display" modal="modal" width="600px" responsive="true">
+    <form class="form-signin" [(formGroup)]="categoriaForm" (ngSubmit)="doSetCategoria($event)">
+        <div class="ui-g form-group-m" style="margin-top:20px">
+            <div class="ui-g-12">
+                <span class="md-inputfield">
+                    <input type="text" pInputText style="width:100%;" formControlName="Descripcion">
+                    <label>Descripción</label>
+                </span>
+            </div>
+            <div class="ui-g-12">
+                <span class="md-inputfield">
+                    <input type="text" pInputText style="width:100%;" formControlName="Porcentaje">
+                    <label>Porcentaje</label>
+                </span>
+            </div>
+            <!--<div class="ui-g-12">
+                <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!categoriaForm.controls['Porcentaje'].valid&&categoriaForm.controls['Porcentaje'].dirty">
+                    <i class="fa fa-close"></i> Es necesario colocar un porcentaje del 0 al 100
+                </div>
+            </div>-->
+        </div>
+        <br>
+        <br>
+        <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+            <button type="button" pButton icon="fa-close" (click)="display=false" label="Cancelar"></button>
+            <button type="button" pButton icon="fa-check" type="submit" label="Guardar"></button>
+        </div>
+    </form>
+</p-dialog>
+<p-confirmDialog width="425"></p-confirmDialog>
+<p-growl [value]="msgs"></p-growl>

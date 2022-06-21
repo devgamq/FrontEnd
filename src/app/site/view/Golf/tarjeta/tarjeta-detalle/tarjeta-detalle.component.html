@@ -1,0 +1,59 @@
+﻿<div class="card card-w-title">
+    <!--<a pButton (click)="setPar()" class="back-to-top orange-btn">Set Jugada</a>-->
+    <button pButton type="button" class="orange-btn back-to-top" label="Set Jugada" (click)="setPar()" *ngIf="vButton"></button>
+    <p-breadcrumb [model]="crumb"></p-breadcrumb>
+    <div class="ui-g form-group">
+        <div class="ui-g-6 ui-md-6 ui-lg-3" style="text-align:right">
+            <label>
+                Tarjeta del Grupo
+            </label>
+        </div>
+        <div class="ui-g-6 ui-md-6 ui-lg-3">
+            <label>
+                {{hora}}
+            </label>
+        </div>
+        <div class="ui-g-6 ui-md-6 ui-lg-3" style="text-align:right">
+            <label>
+                Estado
+            </label>
+        </div>
+        <div class="ui-g-6 ui-md-6 ui-lg-3">
+            <label [style.color]="estado?'Red':'Green'">
+                {{estado?'Cerrado':'En Juego'}}
+            </label>
+        </div>
+        <div class="ui-g-12 ui-md-12">
+            <div class="ui-widget-header" style="padding:4px 10px 4px;border-bottom: 0 none;text-align:right">                
+                <button pButton type="button" icon="ui-icon-delete-forever" class="orange-btn" label="Resetear Tarjeta" (click)="onMostrarResetear()" *ngIf="!estado"></button>
+                <button pButton type="button" icon="ui-icon-check" class="green-btn" label="Calcular y Terminar Juego" (click)="onTerminarJuego()" *ngIf="!estado"></button>
+            </div>
+            <p-dataTable [value]="tarjeta" (onRowDblclick)="onRowDblclickTarjeta($event)" [rowStyleClass]="rowStyle" selectionMode="single" [(selection)]="jugadas" (onRowSelect)="onRowSelect($event,estado)" (onRowUnselect)="onRowUnselect($event)">
+                <p-column field="Hoyo" header="Grupo" [style]="{'width':'70px','max-width':'70px'}" styleClass="colum-orange"></p-column>
+                <p-column field="Par" header="PAR" [style]="{'width':'70px','max-width':'70px'}" styleClass="colum-yellow"></p-column>
+                <p-column *ngFor="let jugador of jugadores;let i = index" field="GolpesJ{{i+1}}" header="{{jugador.Nick}}"></p-column>
+            </p-dataTable>
+            <p-dataTable [value]="totales" *ngIf="estado">
+                <p-column field="Tipo" header="" [style]="{'width':'140px', 'min-width': '114px','max-width':'140px'}"></p-column>
+                <p-column *ngFor="let columna of columnasTotales" [field]="columna.campo" [style]="{'min-width':'57px'}"></p-column>
+            </p-dataTable>
+        </div>
+    </div>
+</div>
+<p-dialog [(visible)]="mostrarTarjeta" modal="modal" responsive="true">
+    <tarjeta-jugada [nombreJugador]="nombreTarjeta" [tarjeta]="tarjetaSeleccionada" (changeJugador)="onChangeJugador($event)" (saveJugada)="onSaveJugada($event)" (anclarJugador)="onAnclarJugador($event)"></tarjeta-jugada>
+</p-dialog>
+<p-dialog [(visible)]="mostrarResetear" modal="modal" responsive="true">
+    <h3>Seleccionar Jugadores</h3>
+    <div class="ui-g" style="width:400px;margin-bottom:10px">
+        <div><p-checkbox *ngFor="let jugador of jugadores" class="ui-g-12" name="group1" value="{{jugador.CompetidorJornadaId}}" label="{{jugador.Nombre}}" [(ngModel)]="selectedJugadoresResetear"></p-checkbox></div>
+    </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+            <button type="button" pButton icon="fa-check" (click)="onResetearTarjeta()" label="Resetear" class="green-btn" [disabled]="selectedJugadoresResetear.length===0?true:false"></button>
+        </div>
+    </p-footer>
+</p-dialog>
+<p-growl [(value)]="mensaje"></p-growl>
+<p-confirmDialog header="Confirmación" icon="fa fa-question-circle" width="300"></p-confirmDialog>
+

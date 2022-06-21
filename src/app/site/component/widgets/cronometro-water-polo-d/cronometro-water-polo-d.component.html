@@ -1,0 +1,7 @@
+<div class="ui-g-12" style="min-height:100%">
+
+    <div class="ui-g-12 right {{timeB}}"  [ngStyle]="color">{{sminuto}}:{{ssegundo}}</div>
+</div>
+<p-dialog [(visible)]="display" modal="modal" responsive="true" header="Ingresar Tiempo" [width]="500">
+    <app-cronometro-edit (HoraCapturadaB)="loadTiempo($event)" (seleccionarReversa)="loadReversa($event)" (cerrar)="salir()" ></app-cronometro-edit>
+</p-dialog>

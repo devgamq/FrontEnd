@@ -1,0 +1,52 @@
+﻿<div class="ui-g">
+    <h1>Acreditaciones</h1>
+    <p-growl [value]="msg"></p-growl>
+    <div class="ui-g-12">
+        <div class="card card-w-title">
+            <div class="ui-g-12">
+                <h2>Formulario de Acreditación</h2>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-g-6 ui-md-6" style="text-align:left">
+                    <button pButton type="button" icon="ui-icon-keyboard-arrow-left" class="green-btn btnCambioJugador btnGolf" (click)="onChange('prev')"
+                        label="Anterior" *ngIf="activeIndex>0"></button>
+                </div>
+                <div class="ui-g-6 ui-md-6" style="text-align:right">
+                    <button pButton type="button" icon="ui-icon-keyboard-arrow-right" class="green-btn btnCambioJugador btnGolf" iconPos="right"
+                        (click)="onChange('next')" label="Siguiente" *ngIf="activeIndex<items.length-1"></button>
+                    <button pButton type="button" icon="ui-icon-check" class="green-btn btnCambioJugador btnGolf" (click)="onChange('fin')" label="Finalizar"
+                        *ngIf="activeIndex===items.length-1"></button>
+                </div>
+            </div>
+            <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="false"></p-steps>
+            <div [ngSwitch]="pasoActual" class="ui-grid-row">
+                <ng-template [ngSwitchCase]="0">
+                    <app-acreditacion-deporte [eventoId]="eventoId" [validate]="validateDeporte" (deporteId)="handleDeporte($event)"></app-acreditacion-deporte>
+                </ng-template>
+                <ng-template [ngSwitchCase]="1">
+                    <app-acreditacion-tipo [eventoId]="eventoId" [deporteId]="deporteId" [validateTipo]="validateTipoPrueba" (tipoPruebaId)="handleTipoPrueba($event)"></app-acreditacion-tipo>
+                </ng-template>
+                <ng-template [ngSwitchCase]="2">
+                    <app-acreditacion-prueba [eventoId]="eventoId" [deporteId]="deporteId" [esIndividual]="tipoPruebaId" [validatePrueba]="validatePrueba"
+                        (pruebaId)="handlePrueba($event)"></app-acreditacion-prueba>
+                </ng-template>
+                <ng-template [ngSwitchCase]="3">
+                    <app-acreditacion-sexo [eventoId]="eventoId" [deporteId]="deporteId" [esIndividual]="tipoPruebaId" [pruebaId]="pruebaId"
+                        [validateRama]="validateRama" (ramaId)="handleRama($event)"></app-acreditacion-sexo>
+                </ng-template>
+                <ng-template [ngSwitchCase]="4">
+                    <app-acreditacion-datos-personales [bandera]="bandera" [Persona]="DatosPesona" (DatosPesonalesOutput)="onSucsespersona($event)"
+                        (restore)="handleRestore($event)"></app-acreditacion-datos-personales>
+            </ng-template>
+            <ng-template [ngSwitchCase]="5">            
+                <app-privilegios-acreditacion [eventoId]="eventoId" [bandera]="banderaStep2" [clearData]="clearDataStep2" (RolOut)="HandleRol($event)" (GrupoOut)="HandleGrupo($event)" (DeleOut)="HandleDele($event)"
+                [rol]="Rol" [grupo]="Grupo" (restore)="hanldeRestoreStep2($event)"></app-privilegios-acreditacion>
+            </ng-template>
+            <ng-template [ngSwitchCase]="6">
+                <app-webcam [bandera]="banderaStep3" (base64)="handleBase64($event)" (restore)="hanldeRestoreStep3($event)"></app-webcam>
+            </ng-template>
+            </div>    
+        </div>
+
+    </div>
+</div>

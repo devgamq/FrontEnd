@@ -1,0 +1,46 @@
+<div class=" panel">
+
+  <table class="tabla_medallas">
+    <tr>
+      <th class="titulo">
+        <div class="ui-g-12 prueba">
+          <span>{{titulo}} - {{genero}} </span>
+          <span class="azul">{{detPrueba}}</span>
+        </div>
+      </th>
+    </tr>
+  </table>
+<br/>
+  <div #panel  class="panel_record" [ngStyle]="style">
+
+    <table class="tabla {{class_tabla}}">
+      <tr *ngFor="let item of vista" >
+        <td class="marcar">
+          <div class="ui-g-1">
+            {{item.Posicion}}.
+          </div>
+        </td>
+        <td class="marcar">
+          <div class="ui-g-2">
+            <img class="imagen" src="assets/banderas/{{item.DelegacionId}}.png" />
+          </div>
+        </td>
+        <td class="marcar">
+          <div class="ui-g-2">
+            <img class="imagen" src="{{item.FotoUrl}}" onerror="this.style='display:none'"/>
+          </div>
+        </td>
+        <td class="marcar">
+          <div class="ui-g-12">
+            {{item.Nombre}}
+          </div>
+        </td>
+        <td>
+          <div class="ui-g-12 text-rigth">
+            {{item.valor}}
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

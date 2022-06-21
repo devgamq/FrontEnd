@@ -1,0 +1,105 @@
+<div class="ui-g">
+    <div class="ui-g-12 left">
+        <h1>Rol de Partidos</h1>
+    </div>
+</div>
+<div class="card card-w-title">
+    <div class="ui-g">
+        <div class="ui-g-5" style="text-align:right">
+            <b>Deportes:</b>
+        </div>
+        <div class="ui-g-6" style="text-align:left">
+            <p-dropdown [options]="deportes" [(ngModel)]="deporte" filter="filter" [style]="{'width':'160px'}" (onChange)="selectedDeporte()"
+                placeholder="Seleccione un Deporte"></p-dropdown>
+        </div>
+    </div>
+    <div class="ui-g">
+        <div class="ui-g-5" style="text-align:right">
+            <b>Delegaciones:</b>
+        </div>
+        <div class="ui-g-6" style="text-align:left">
+            <p-dropdown [options]="delegaciones" [(ngModel)]="delegacion" [style]="{'width':'160px'}" (onChange)="selectedDeporte()"
+                filter="filter" placeholder="Seleccione Delegación"></p-dropdown>
+        </div>
+    </div>
+    <div class="ui-g">
+        <div class="ui-g-5" style="text-align:right">
+            <b>Fecha:</b>
+        </div>
+        <div class="ui-g-6" style="text-align:left">
+            <p-calendar [(ngModel)]="fechastr" dateFormat="dd/mm/yy" [locale]="en" (onSelect)="selectedDeporte()"></p-calendar>
+        </div>
+        <div class="ui-g-1">
+            <button pButton type="submit" icon="ui-icon-print" class="ui-button-success" (click)="imprimir()"></button>
+        </div>
+    </div>
+    <div class="ui-g">
+        <p-dialog header="{{titleDialog}}" [(visible)]="display">
+            <div class="ui-g" style="width: 800px; height: 600px;">
+                <div class="ui-g-12">
+                    <ngx-image-viewer  [src]="imgBase64"></ngx-image-viewer>
+                </div>
+            </div>
+        </p-dialog>
+
+        <div *ngFor="let base of fechas" style="width: 100%;">
+
+            <div *ngFor="let escenario of base.escenarios" class="panelRP ui-g-12">
+                <div class=" ui-g-12">
+                    <div class="tituloFechaRP">FECHA {{base.fecha | PipeFechaComponent:"fecha"}}</div>
+                    <div class="tituloGrupoRP"> {{escenario}}</div>
+                    <p-dataTable [value]="getGrupoDatos(base.fecha,escenario)" [responsive]="true" [rows]="20" [paginator]="false" selectionMode="single"
+                        [styleClass]="'clase'" (onRowDblclick)="handleRowDblclick($event)">
+
+                        <p-column header="Hora" field="HoraProgramada" styleClass="HoraRP">
+                            <ng-template let-fila="rowData" pTemplate="item">
+                                {{fila.HoraProgramada | PipeFechaComponent:"hora"}}
+                            </ng-template>
+                        </p-column>
+                        <p-column header="Categoría" field="Rama" styleClass="categoriaRP"></p-column>
+                        <p-column header="Fase" field="Fase" styleClass="categoriaRP"></p-column>
+                        <p-column header="Equipo" field="EquipoA" styleClass="equipoRP">
+                            <ng-template let-fila="rowData" pTemplate="item">
+                                <img src="/assets/banderas/{{fila.DelegacionIdA}}.png" class="imgRP">
+                                <span  class="nombre">{{fila.EquipoA}}</span>
+                                <div class="minpuntaje">{{fila.MarcadorEquipoA}}</div>
+                            </ng-template>
+                        </p-column>
+                        <p-column header="" field="MarcadorEquipoA" styleClass="puntajeRP "></p-column>
+                        <p-column header="" field="MarcadorEquipoB" styleClass="puntajeRP"></p-column>
+                        <p-column header="Equipo" field="EquipoB" styleClass="equipoRP">
+                            <ng-template let-fila="rowData" pTemplate="item">
+                                <img src="/assets/banderas/{{fila.DelegacionIdB}}.png" class="imgRP">
+                                <span class="nombre">{{fila.EquipoB}}</span>
+                                <div class="minpuntaje">{{fila.MarcadorEquipoB}}</div>
+                            </ng-template>
+                        </p-column>
+                        <p-column header="Estado" field="Estado" styleClass="estadoRP">
+                            <ng-template let-col let-car="rowData" pTemplate="body">
+                                <span [style.color]="getColor(car[col.field])">{{car[col.field]}}</span>
+                            </ng-template>
+                        </p-column>
+                        <p-column header="" styleClass="HoraRP" >
+                            <ng-template let-fila="rowData" pTemplate="item">
+                                <button pButton type="submit" icon="ui-icon-insert-link" class="ui-button-primary" (click)="verMarcador(fila)"></button>
+                            </ng-template>
+                        </p-column>
+                        <p-column header="" styleClass="HoraRP">
+                            <ng-template let-fila="rowData" pTemplate="item">
+                                <button pButton type="submit" icon="ui-icon-info" class="ui-button-success" (click)="verAlineacion(fila)"></button>
+                            </ng-template>
+                        </p-column>
+                        <p-column header="" styleClass="HoraRP">
+                            <ng-template let-fila="rowData" pTemplate="item">
+                                <button pButton icon="ui-icon-image" class="ui-button-primary" (click)="getImage(fila)" *ngIf="fila.ExisteImagen"></button>
+                            </ng-template>
+                        </p-column>
+
+                    </p-dataTable>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

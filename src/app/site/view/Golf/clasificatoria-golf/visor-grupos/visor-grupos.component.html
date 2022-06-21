@@ -1,0 +1,15 @@
+<div class=" panel_grupo {{clase_panel}}" [ngStyle]="style">
+
+    <div class=" fondo">
+<div class="titulog">{{titulo}}</div>
+<div class="grupog">{{hora}}</div>
+        <div #panel class="ui-g podio">
+            <div class="ui-g-6 {{parametro.Posicion}}" *ngFor="let parametro of row let i = index">
+                    <div class="ui-g-12 "><img class="imagen " src="{{parametro.FotoUrl}}"></div>
+                    <div class="ui-g-12 nombreComp" >{{parametro.NombreCompetidor}}</div>
+                    
+            </div>
+        </div>
+        <br>
+    </div>
+</div>

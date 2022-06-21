@@ -1,0 +1,404 @@
+body{
+    overflow-y:hidden !important; 
+    overflow-x:hidden !important; 
+}
+.panel_versus
+{
+
+    background-color: white;
+ 
+}
+.panel_versus .panel_tabla
+{
+  
+   height: 100vh;
+   width:100vw;
+   overflow-y:hidden; 
+   overflow-x:hidden; 
+}
+.panel_versus .titulo_medallero
+{
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    font-size: 7vh;
+    text-align: center;
+    position: relative;
+    top: 3vh;
+    left: 0vw;
+    
+}
+
+.grande{
+    width: 100% ;
+    position: absolute;
+    z-index: 5;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.contenedor {
+    position: absolute;
+    z-index: 5;
+    left: 8.5%;
+}
+.contenedor1 {
+    position: absolute;
+    z-index: 9;
+    left: 35%;
+    top:30%;
+}
+
+.panel_versus .subtitulo0
+{
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    text-align: center;
+    font-size: 6vh;
+    position: relative;
+    top: 4vh;
+    text-transform: uppercase;
+    text-shadow: 1px 3px 5px #070707,
+    1px 2px 4px #050505,
+    1px 3px 4px #070707; 
+    /* text-shadow: 1px 2px 2px rgba(7, 7, 7, 0.95); */
+    font-weight: bold;
+    line-height: 0.88;
+ 
+
+}
+.panel_versus .subtitulo
+{
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    font-size: 5vh;
+    position: relative;
+    top: 10vh;
+    text-transform: uppercase;
+    text-shadow: 1px 2px 2px rgba(7, 7, 7, 0.95);
+  
+}
+.panel_versus .subtitulo10
+{
+    font-weight: bold;
+    color: #869998;
+    text-align: center;
+    font-size: 5vh;
+    position: relative;
+    top: 14vh;
+    text-transform: uppercase;
+    text-shadow: 1px 2px 2px rgba(7, 7, 7, 0.95);
+  
+}
+
+.panel_versus .subtitulo1
+{
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    text-align: center;
+    font-size: 5vh;
+    position: relative;
+    top: 18vh;
+    text-transform: uppercase;
+    text-shadow: 1px 2px 2px rgba(7, 7, 7, 0.95);
+   
+}
+
+.panel_versus .subtitulo2
+{
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    text-align: center;
+    font-size: 5vh;
+    position: relative;
+    top: 22vh;
+    text-transform: uppercase;
+    text-shadow: 1px 2px 2px rgba(7, 7, 7, 0.95);
+  
+}
+
+.panel_versus .subtitulo3
+{
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    font-size: 7vh;
+    position: relative;
+    top: 32vh;
+    left: 0vw;
+    text-transform: uppercase;
+    text-shadow: 1px 2px 2px rgba(7, 7, 7, 0.95);
+}
+
+.panel_versus .subtitulo4
+{
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    font-size: 9vh;
+    position: relative;
+    top: 41vh;
+    left: 0vw;
+    text-transform: uppercase;
+    text-shadow: 1px 2px 2px rgba(7, 7, 7, 0.95);
+}
+
+.panel_versus .subtitulo5
+{
+    font-family: 'Oswald', sans-serif;
+    color: white;
+  
+    font-size: 8vh;
+    position: relative;
+    top: -54vh;
+    right: 50vw;
+    left: -35vw;
+    text-transform: uppercase;
+    font-weight: bold;
+    width:40vw;
+    text-shadow: 1px 2px 2px rgba(7, 7, 7, 0.95);
+ 
+}
+.panel_versus .subtitulo6
+{
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    font-size: 8vh;
+    position: relative;
+    top: -51.8vh;
+    left: -39vw;
+    text-transform: uppercase;
+    font-weight: bold;
+    width:40vw;
+    text-shadow: 1px 2px 2px rgba(7, 7, 7, 0.95);
+}
+.panel_versus .subtitulo7
+{
+    font-family: 'Oswald', sans-serif;
+    color: white;
+  
+    font-size: 8vh;
+    position: relative;
+    top: -54.6vh;
+    left: 1vw;
+    width: 40vw;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 2px 2px rgba(7, 7, 7, 0.95);
+ 
+ 
+}
+
+.panel_versus .subtitulo8
+{
+    font-family: 'Oswald', sans-serif;
+    color: white;
+  
+    font-size: 8vh;
+    position: relative;
+    top: -40.8vh;
+    left: 3.5vw;
+    width: 40vw;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 2px 2px rgba(7, 7, 7, 0.95);
+    
+ 
+}
+
+
+
+
+.panel_versus .ancho
+{
+width:100%;
+}
+
+
+.panel_versus .paisA
+{
+    font-family: 'Oswald', sans-serif;
+    color: rgb(233, 53, 53);
+
+    font-size: 5vh;
+    position: relative;
+    top: -25vh;
+    left: -39vw;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 2px 2px rgba(7, 7, 7, 0.95);
+  
+}
+
+
+.panel_versus .paisB
+{
+    font-family: 'Oswald', sans-serif;
+    color: #392BDB;
+
+    font-size: 5vh;
+    position: relative;
+    top: -25vh;
+    right: -8.5vw;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 2px 2px rgba(7, 7, 7, 0.95);
+}
+.panel_versus .rojo
+{
+    background-repeat: no-repeat;
+    background-size: unset;
+    height: 100vh;
+    position: relative;
+    left: 8vw;
+    top: 9vw;
+}
+.panel_versus .azul
+{
+    background-repeat: no-repeat;
+    background-size: unset;
+    height: 100vh;
+    position: relative;
+    left: 4vw;
+    top: 9vw;
+}
+.panel_versus .foto
+{
+    height: 31vh;
+    width: 15vw;
+    position: relative;
+    top: -13vw;
+    left: -40vw;
+    border-radius: 17px 17px 17px 17px;
+    -moz-border-radius: 17px 17px 17px 17px;
+    -webkit-border-radius: 17px 17px 17px 17px;
+    border: 6px solid #C70707;
+
+}
+
+
+.panel_versus .fotoA
+{
+    height: 31vh;
+    width: 15vw;
+    position: relative;
+    top: -13vw;
+    left: 7.5vw;
+    border-radius: 17px 17px 17px 17px;
+    -moz-border-radius: 17px 17px 17px 17px;
+    -webkit-border-radius: 17px 17px 17px 17px;
+    border: 6px solid #392BDB;
+
+}
+
+.panel_versus .bandera
+{
+    border-radius: 17px 17px 17px 17px;
+    -moz-border-radius: 17px 17px 17px 17px;
+    -webkit-border-radius: 17px 17px 17px 17px;
+    border: 0px solid #fff;
+    width: 11vw;
+    height: 13vh;
+    position: relative;
+    top: -21.5vw;
+    right: 24vw;
+    
+}
+.panel_versus .banderaA
+{
+    border-radius: 17px 17px 17px 17px;
+    -moz-border-radius: 17px 17px 17px 17px;
+    -webkit-border-radius: 17px 17px 17px 17px;
+    border: 0px solid #fff;
+    width: 11vw;
+    height: 13vh;
+    position: relative;
+    top: -38vh;
+    right: 5vw;
+}
+
+.panel_versus .brojo
+{
+
+    position: relative;
+    top: -38vh;
+    left: -51.5vw;
+    width: 50vw;
+}
+.panel_versus .bazul
+{
+  
+    width: 50vw;
+    position: relative;
+    top: -38.5vh;
+    right: 16.8vw;
+}
+
+.panel_versus .nombre{
+    line-height: 4vw;
+    color: white;
+    font-weight: bold;
+    position: relative;
+    top: -29.9vw;
+    font-size: 5vw;
+    overflow-wrap: break-word;
+    width: 50vw;
+    left: -45.5vw;
+    text-transform: uppercase;
+    text-shadow: 1px 2px 2px rgba(7, 7, 7, 0.95);
+    overflow: hidden;
+    height: 6.5vw;
+}
+.panel_versus .contenedoraA{
+    /* overflow: hidden;
+    height: 4vw; */
+    overflow: hidden;
+    height: 4vw;
+}
+.panel_versus .nombreA{
+    color: white;
+    font-weight: bold;
+    position: relative;
+    top: -20.5vw;
+    font-size: 5vw;
+    overflow-wrap: break-word;
+    width: 40vw;
+    text-align: right;
+    right: 21vw;
+    text-transform: uppercase;
+    text-shadow: 1px 2px 2px rgba(7, 7, 7, 0.95);
+    line-height: 4vw;
+}
+.panel .vs{
+    width: 12vw;
+    position: relative;
+    top: 25vw;
+    left: 1vw;
+}
+.panel .label{
+    color: white;
+    font-size: 1.2vw;
+}
+.panel .datos
+{
+    position: relative;
+    top:3vw;
+}
+.panel .ultimo{
+    position: relative;
+    bottom: 1vw;
+}
+.panel .texto{
+    color: white;
+    font-size: 1.4vw;
+    font-weight: bold;
+    padding: 12px !important;
+    line-height: 29px;
+}
+.panel .menu{
+    position: relative;
+    top: 13vw;
+}

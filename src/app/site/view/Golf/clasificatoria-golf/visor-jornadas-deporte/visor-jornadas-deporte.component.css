@@ -1,0 +1,277 @@
+.fondoVisor {
+    background: #212c36;
+    /*background-image: url("/assets/erpHammer/images/ZenBG-1.png"), url("/assets/erpHammer/images/ZenBG-2.png");*/
+    background-image: url('/assets/erpHammer/images/fondoGolf.jpg');
+    background-repeat: repeat-y;
+  }
+  .title {
+    margin: 0;
+    position: relative;
+    top: 3vw;
+    border-radius: 5px;
+    padding-top: 15px;
+    font-size: 2.3vw;
+    color: #fff !important;
+    line-height: 52px;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    font-family: 'Oswald', sans-serif;
+  }
+  .subtitle {
+    margin: 0;
+    position: relative;
+    bottom: 10.5vw;
+    font-size: 1.5vw;
+    color: #fff !important;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    text-align: left;
+    left: 2vw;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+  }
+  
+  .jornada {
+    margin: 0;
+    position: relative;
+    bottom: 10.5vw;
+    font-size: 1.5vw;
+    color: #fff !important;
+    text-transform: uppercase;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    text-align: right;
+    right: 6.5vw;
+    font-family: 'Oswald', sans-serif;
+  }
+  
+  .banner {
+    background-color: #26659e;
+    background-image: url('/assets/erpHammer/images/logo-country.png');
+    background-repeat: repeat-y;
+    background-size: 100%;
+  }
+  .picto {
+    height: 7vw;
+    position: relative;
+    bottom: 2.7vw;
+    right: 3vw;
+  }
+  .logo {
+    position: relative;
+    left: 2vw;
+    height: 7vw;
+    bottom: 2.5vw;
+  }
+
+  .contenedor_golf_jornada {
+    position: relative;
+    height: 70vh;
+    overflow-y: hidden;
+    text-align: left;
+  
+    padding: 0;
+    background-color: black;
+    overflow:hidden;
+    line-height: 0.5cm;
+  }
+ 
+  .contenedor_golf_jornada table {
+    font-size: 1.2vw;
+    font-family: 'Oswald', sans-serif;
+    line-height: 0.5cm;
+    text-align: left;
+  }
+ 
+  .contenedor_golf_jornada td:nth-child(2) {
+    background-color: black !important;
+    color: white;
+    font-size: 1vw ;
+    width: 12.5%;
+    line-height: 0.8cm;
+    text-align:center ;
+  }
+  .contenedor_golf_jornada td:nth-child(1){
+    background-color: black !important;
+    color: white;
+    line-height: 0.8cm;
+    width: 10.4% ;
+    text-align: center;
+    font-size: 1.5vw;
+
+    
+  }
+
+
+
+
+  .contenedor_golf_jornada td:nth-child(5) ,
+  .contenedor_golf_jornada td:nth-child(6),
+  .contenedor_golf_jornada td:nth-child(9),
+  .contenedor_golf_jornada td:nth-child(10),
+  .contenedor_golf_jornada td:nth-child(13),
+  .contenedor_golf_jornada td:nth-child(14),
+  .contenedor_golf_jornada td:nth-child(17),
+  .contenedor_golf_jornada td:nth-child(18){
+    background-color: black !important;
+    color: white;
+    line-height: 0.8cm;
+    width: 5% ;
+    text-align: center;
+
+    
+  }
+  
+  
+  .contenedor_golf_jornada td:nth-child(3),
+  .contenedor_golf_jornada td:nth-child(4) ,
+  .contenedor_golf_jornada td:nth-child(7),
+  .contenedor_golf_jornada td:nth-child(8),
+  .contenedor_golf_jornada td:nth-child(11),
+  .contenedor_golf_jornada td:nth-child(12),
+  .contenedor_golf_jornada td:nth-child(15),
+  .contenedor_golf_jornada td:nth-child(16),
+  .contenedor_golf_jornada td:nth-child(19){
+  
+    color: #020202;
+
+    width:5% ;
+    text-align:center; 
+
+    
+  }
+
+  .contenedor_golf_jornada td:nth-child(2) >.ui-cell-data{
+    font-size: 1.2vw;
+    line-height: 0.8cm;
+
+  }
+
+  thead {
+    
+     position:fixed !important;
+     border:10px;
+     
+ 
+ }
+ tbody {
+     display:block;
+     padding-top: 7vw;  
+     overflow-x: hidden;
+     overflow-y: hidden;
+     height: 100%;
+    
+}
+
+
+thead, tbody tr {
+    display:table;
+    width:100%;
+
+    table-layout:fixed; 
+   
+}  
+
+  .contenedor_golf_jornada tbody > tr td{
+    padding-left: 0 ;
+    padding-right: 0 ;
+
+    line-height: 1cm;
+    font-size: 1.5vw;
+    font-weight: bold;
+    line-height: 1cm;
+    text-align: left;
+  }
+  /* .contenedor_golf_jornada tbody .ui-cell-data{
+    font-size: 1.5vw;
+    text-align: ;
+    font-size: 2.2vw;
+    font-weight: bold;
+    line-height: 1cm;
+    table-layout: fixed !important;
+  } */
+  
+  .contenedor_golf_jornada thead > tr th {
+    font-size: 1vw;
+    font-family: 'Oswald', sans-serif;
+    background-color: black !important;
+    color: white;
+    text-transform: uppercase;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    line-height: 1cm;
+  }
+  .golf {
+      position: absolute;
+      bottom: 11.5vw;
+      left: 10vw;
+      width: 80vw;
+  }
+  .barra_s {
+    position: relative;
+    width: 100%;
+    top: 9vw;
+    background-color: rgb(34, 153, 84, 0.5);
+    height: 2.4vw;
+    padding: 0;
+  }
+  .bi {
+    width: 90vw !important;
+  }
+  .negro {
+    background-color: rgb(0, 0, 0, 0.3);
+    height: 3vw;
+  }
+  .tabla_leyenda {
+    position: relative;
+    left: 7vw;
+    top: 0.5vw;
+    font-family: 'Oswald', sans-serif;
+  }
+  .hammer {
+    height: 2.5vw;
+  }
+
+  .sponsor_gol {
+    text-align: center;
+  }
+  .grilla_sponsor{
+      position: relative;
+  bottom: 5.2vw;
+  }
+  
+  
+
+  /* cyrillic */
+  @font-face {
+      font-family: 'Oswald';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Oswald Regular'), local('Oswald-Regular'), url(../../../../component/widgets/tablero-panel/font/DgBpgaYycijFA8v2hNt7MfesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+      unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+    }
+    /* vietnamese */
+    @font-face {
+      font-family: 'Oswald';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Oswald Regular'), local('Oswald-Regular'), url(../../../../component/widgets/tablero-panel/font/peRd8sj511qE2lHtK-QfcPesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+      unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+    }
+    /* latin-ext */
+    @font-face {
+      font-family: 'Oswald';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Oswald Regular'), local('Oswald-Regular'), url(../../../../component/widgets/tablero-panel/font/yg0glPPxXUISnKUejCX4qfesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+      unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* latin */
+    @font-face {
+      font-family: 'Oswald';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Oswald Regular'), local('Oswald-Regular'), url(../../../../component/widgets/tablero-panel/font/pEobIV_lL25TKBpqVI_a2w.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+    }
+
+
+ 
+    

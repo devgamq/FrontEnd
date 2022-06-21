@@ -1,0 +1,193 @@
+<div class="card card-w-title">
+
+    <div class="ui-g" style="text-align: center;padding-top: 0px;">
+            <div class="ui-g-4 ">
+                
+        </div>
+        <div class="ui-g-4 formato subirOpciones">
+                POLO ACUÁTICO
+        </div>
+        <div class="ui-g-4 subirOpciones">
+                <div class="row ui-toolbar-group-center">
+                <p-checkbox [(ngModel)]="enlinea" binary="true" hidden="true"></p-checkbox>
+                <button pButton type="button" (click)="regresar()" icon="ui-icon-arrow-back" class="ui-button-warning"></button>
+                <button pButton type="button" (click)="setplanilla()" icon="ui-icon-people " class="ui-button-info"></button>
+                <button pButton type="button" (click)="doOpenVisor()" icon="ui-icon-tv" class="ui-button-danger"></button>
+                <button pButton type="button" (click)="pause(true)" icon="ui-icon-pause" class="ui-button-warning" *ngIf="mostrar_pausa"
+                    [disabled]="bloqueoPause"></button>
+                <button pButton type="button" (click)="play(true)" icon="fa-arrow-circle-right" class="ui-button-success" ng-disabled="timerIniciado"
+                    *ngIf="mostrar_play" [disabled]="bloqueoPlay"></button>
+                <button pButton type="button" (click)="guardarFinEncuentro()" icon="ui-icon-done-all" class="ui-button-info"></button>
+            </div>
+        </div>
+        
+    </div>
+  
+    <div class="ui-g subirElementos" style="text-align: center">
+        <div class="ui-g-{{cronometro_campo}} visible-xs">
+            <button pButton type="button" (click)="calcularPosesion(CompetidorIdA,1,true,1)" [class]="estiloBotonPosesionA" label="{{e1}}"
+                [disabled]="bloqueoPosesion">
+                
+                    <div class="ui-g-2">
+                        <img src="{{posesion_iconoA}}" class="posesion_marcador"  *ngIf="estiloPosesionA" />
+                    </div>
+                    <div class="ui-g-6 equipo_marcador"> {{equipoA}}</div>
+                    <div class="ui-g-2 ">
+                        <img src="{{logoA}}" class="bandera_marcador" />
+                    </div>
+                
+            </button>
+        </div>
+        <div class="ui-g-1 visible-xs">
+            <button pButton type="button" icon="ui-icon-list" class="boton_sucesoA visible-xs" (click)="mostrarDatosEncuentro(1)" *ngIf="true"></button>
+        </div>
+        <div class="ui-g-1" >
+            <label  class="visible-xs puntaje_marcador" >{{totalPuntosA}}</label>
+            <label *ngIf="mostrarPenales" class="visible-xs" style="color:blue;font-size:3.0vw;font-family:'Conv_digital-7',Sans-Serif;">(0)</label>
+            <br>
+            <label  class="visible-xs puntaje_nombre">{{tipoCalificacion}}</label>
+        </div>
+  
+        <div class="ui-g-1 visible-xs" style="color: black;background-color: white;position: relative;top: 1.5vw;">
+            <app-cronometro [configuracion]="configuracion" [capturar]="capturar" [reversa]="false" [tieneTope]="true" [accion]="accion"
+                [setTiempo]="setTiempo" (HoraCapturada)="doCaptura($event)"  (IngresoTempo)="IngresoTempo($event)" (HoraIniciado)="doIniciado($event)" [style]="color"
+                [time]="'tiempo'">
+            </app-cronometro>
+        </div>
+        <div class="ui-g-1 visible-xs tiempo_extra" *ngIf="mostrar">
+            <label>+{{tiempoAdicion}}</label>
+        </div>
+  
+        <div class="ui-g-1 " >
+            <label  class="visible-xs puntaje_marcador puntaje_left" >{{totalPuntosB}}</label>
+            <label *ngIf="mostrarPenales" class="visible-xs" style="color:blue;font-size:3.0vw;font-family:'Conv_digital-7',Sans-Serif;">(0)</label>
+            <br>
+            <label  class="visible-xs puntaje_nombre puntaje_left" >{{tipoCalificacion}}</label>
+        </div>
+  
+        <div class="ui-g-1 visible-xs">
+            <button pButton type="button" icon="ui-icon-list" class="boton_sucesoB visible-xs" (click)="mostrarDatosEncuentro(2)" *ngIf="true"></button>
+        </div>
+        <div class="ui-g-{{cronometro_campo}} visible-xs">
+            <button pButton type="button" (click)="calcularPosesion(CompetidorIdB,2,true)" [class]="estiloBotonPosesionB" label="{{e1}}"
+                [disabled]="bloqueoPosesion">
+                <div class="ui-g-2">
+                    <img src="{{posesion_iconoB}}" class="posesion_marcador"  *ngIf="estiloPosesionB" />
+                </div>
+                <div class="ui-g-6 equipo_marcador"> {{equipoB}}</div>
+                <div class="ui-g-2 ">
+                    <!-- <img src="{{logoB}}" class="bandera_marcador" /> -->
+                    <img src="{{logoB}}" class="bandera_marcador" />
+                </div>
+            </button>
+        </div>
+        <div class="ui-g-6 visible">
+            <button pButton type="button" (click)="calcularPosesion(CompetidorIdB,2,true)" [class]="estiloBotonPosesionB" label="{{e1}}"
+                [disabled]="bloqueoPosesion">
+                <img src="{{posesion_iconoB}}" class="posesion_marcador" *ngIf="estiloPosesionB" /> {{equipoB}}
+                <img src="{{logoB}}" class="bandera_marcador" />
+            </button>
+        </div>
+    </div>
+  
+    <div class="ui-g subirElementos">
+        <div class="ui-g-6 sucesosParametro">
+            <p-dataGrid [value]="datos">
+                <ng-template let-dato pTemplate="item">
+                    <div class="ui-g-12 ui-md-4">
+                        <app-boton-conjunto [DatosParametros]="dato" (click)="capturarTiempo(1,1)" (datoParametros)="mostrarMarcador($event,1,equipoA)"></app-boton-conjunto>
+                    </div>
+                </ng-template>
+            </p-dataGrid>
+        </div>
+  
+        <div class="ui-g-6 sucesosParametro">
+            <p-dataGrid [value]="datosB">
+                <ng-template let-datoB pTemplate="item">
+                    <div class="ui-g-12 ui-md-4">
+                        <app-boton-conjunto [DatosParametros]="datoB" (click)="capturarTiempo(1,2)" (datoParametros)="mostrarMarcador($event,2,equipoB)"></app-boton-conjunto>
+                    </div>
+                </ng-template>
+            </p-dataGrid>
+        </div>
+    </div>
+  
+    <div class="ui-g subirElementos" style="text-align: center;padding:0">
+        <div class="ui-g-3">
+  
+        </div>
+        <div class="ui-g-6" style="padding:0;line-height: 0;">
+            <h2>{{periodoDeporte}}</h2>
+            <p-selectButton [options]="periodo" [(ngModel)]="periodoSeleccionado" (onChange)="SeleccionarPeriodo($event)"></p-selectButton>
+        </div>
+        <div class="ui-g-3">
+  
+        </div>
+    </div>
+  
+    <div class="ui-g subirElementos" style="text-align: center">
+        <div class="ui-g-4">
+  
+        </div>
+        <div class="ui-g-4">
+            <button pButton type="button" label="+ Adicion" class="ui-button-warning" (click)="mostrarAdicion()" *ngIf="mostrar"
+                [disabled]="bloqueoAdicion"></button>
+        </div>
+        <div class="ui-g-4">
+  
+        </div>
+  
+    </div>
+  
+  </div>
+  
+  <p-dialog modal="modal" responsive="true" [(visible)]="mostrarDialogoAdicion" header="Tiempo Adicion">
+    <div class="ui-g" style="text-align: center">
+        <div class="ui-g-12">
+            <p-spinner size="30" [min]="0" [(ngModel)]="tiempoAdicion"></p-spinner>
+        </div>
+        <div class="ui-g-12">
+            <button pButton type="button" label="Aceptar" (click)="guardarTiempoAdicion()" class="ui-button-info" style="min-width:130px"></button>
+        </div>
+    </div>
+  </p-dialog>
+  
+  <p-dialog modal="modalJugA" responsive="true" [closable]="false" resizable="false" [(visible)]="mostrarDialogo" header="{{cabecera}}"
+    *ngIf="mostrarOpcionSuceso" width="500">
+    <app-dialogo-conjunto [datosMarcador]="marcadorDatos" (guardarMarcador)="onclickGuardarMarcador($event)" [competidorId]="CompetidorIdA"
+        [planillaId]="planillaId"   [display]="mostrarDialogo" (nombrec)="showNombre($event)" (cerrar)="cerrarDialogoJug()"></app-dialogo-conjunto>
+  </p-dialog>
+  
+  <p-dialog modal="modalJugB" responsive="true" [closable]="false" resizable="false" [(visible)]="mostrarDialogo" header="{{cabecera}}"
+    *ngIf="mostrarOpcionSucesoB" width="500">
+    <app-dialogo-conjunto [datosMarcador]="marcadorDatos" (guardarMarcador)="onclickGuardarMarcador($event)" [competidorId]="CompetidorIdB"
+        [planillaId]="planillaId" [display]="mostrarDialogo" (nombrec)="showNombre($event)" (cerrar)="cerrarDialogoJug()"></app-dialogo-conjunto>
+  </p-dialog>
+  
+  <p-dialog modal="modalA" draggable="false" resizable="false" responsive="true" [(visible)]="mostrarDialogoCambioA" header="Cambio de Jugador">
+    <app-cambio-jugador [PlanillaId]="planillaId" [competidorId]="CompetidorIdA" (cambio)="cambioEvento($event,1)" [deporteId]="deporteId"
+        (cerrar)="cerrarDialogo()"></app-cambio-jugador>
+  </p-dialog>
+  
+  <p-dialog modal="modalB" responsive="true" [(visible)]="mostrarDialogoCambioB" header="Cambio de Jugador">
+    <app-cambio-jugador [PlanillaId]="planillaId" [competidorId]="CompetidorIdB" (cambio)="cambioEvento($event,2)" [deporteId]="deporteId"
+        (cerrar)="cerrarDialogoB()"></app-cambio-jugador>
+  </p-dialog>
+  
+  <p-dialog modal="modalA" responsive="true" [(visible)]="mostrarDialogoDatosEventoA" positionTop="1" header="Historial de Sucesos {{equipoA}}"
+    width="500">
+    <app-evento-encuentro (actualizar)="actualizarBotones(CompetidorIdA,1,0)" [planillaId]="planillaId" [deportePeriodoId]="DeportePeriodoId"
+        [competidorId]="CompetidorIdA" [deporteId]="deporteId" (cerrar)="cerrarDialogoDatosEventoA()" *ngIf="mostrarDialogoDatosEventoA"></app-evento-encuentro>
+  </p-dialog>
+  
+  <p-dialog modal="modalB" responsive="true" [(visible)]="mostrarDialogoDatosEventoB" positionTop="1" header="Historial de Sucesos {{equipoB}}"
+    width="500">
+    <app-evento-encuentro (actualizar)="actualizarBotones(CompetidorIdB,2,0)" [planillaId]="planillaId" [deportePeriodoId]="DeportePeriodoId"
+        [competidorId]="CompetidorIdB" [deporteId]="deporteId" (cerrar)="cerrarDialogoDatosEventoB()" *ngIf="mostrarDialogoDatosEventoB"></app-evento-encuentro>
+  </p-dialog>
+  
+  <p-confirmDialog header="Confirmación" acceptLabel="Si" [closable]="false" icon="fa fa-question-circle" width="425">
+  
+  </p-confirmDialog>
+  
+  <p-growl [(value)]="mensaje" class="visible-xs"></p-growl>

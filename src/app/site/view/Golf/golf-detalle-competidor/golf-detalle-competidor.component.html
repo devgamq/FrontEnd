@@ -1,0 +1,97 @@
+<h1>Golf</h1>
+<div class="ui-g">
+  <div class="ui-g-12">
+    <div class="card card-w-title">
+      <h1>Resultado Conpetidos
+      </h1>
+      <div style="text-align:right">
+        <button pButton type="button" (click)="doVolver()" icon="ui-icon-arrow-back" label="Volver"></button>
+        <button pButton type="button" (click)="doReporte()" icon="ui-icon-print" label="Imprimir"></button>
+      </div>
+      <hr><br>
+      <div class="ui-g form-group">
+        <div class="ui-g-4 ui-md-6" style="text-align:right">
+          <label>Nombre:</label>
+        </div>
+        <div class="ui-g-8 ui-md-6">
+          <label>{{nombre}} </label>
+        </div>
+        <div class="ui-g-4 ui-md-6" style="text-align:right">
+          <label>Paterno:</label>
+        </div>
+        <div class="ui-g-8 ui-md-6">
+          <label>{{paterno}} </label>
+        </div>
+        <div class="ui-g-12 ui-md-6" style="text-align:right">
+          <label>Materno:</label>
+        </div>
+        <div class="ui-g-12 ui-md-6">
+          <label>{{materno}}</label>
+        </div>
+        <div class="ui-g-12 ui-md-6" style="text-align:right">
+          <label>Fecha de Nacimiento:</label>
+        </div>
+        <div class="ui-g-12 ui-md-6">
+          <label>{{fechaNaci | date: 'dd/MM/yyyy'}}</label>
+        </div>
+        <div class="ui-g-12 ui-md-6" style="text-align:right">
+          <label>C.I.:</label>
+        </div>
+        <div class="ui-g-12 ui-md-6">
+          <label>{{ci}}</label>
+        </div>
+        <div class="ui-g-12 ui-md-6" style="text-align:right">
+          <label>Sexo:</label>
+        </div>
+        <div class="ui-g-12 ui-md-6">
+          <label>{{sexo}}</label>
+        </div>
+        <div class="ui-g-12 ui-md-6" style="text-align:right">
+          <label>Handicap:</label>
+        </div>
+        <div class="ui-g-12 ui-md-6">
+          <label>{{handicp}}</label>
+        </div>
+        <div class="ui-g-12 ui-md-6" style="text-align:right">
+          <label>Categoría:</label>
+        </div>
+        <div class="ui-g-12 ui-md-6">
+          <label>{{categoria}}</label>
+        </div>
+        <div class="ui-g-12 ui-md-6" style="text-align:right">
+          <label>Club:</label>
+        </div>
+        <div class="ui-g-12 ui-md-6">
+          <label>{{club}}</label>
+        </div>
+      </div>
+      <br/>
+      <br/>
+      <div *ngFor="let item of allTablas; let i = index;">
+        <p-dataTable [value]="item" [responsive]="true" [globalFilter]="gb" [rows]="20" [paginator]="false">
+          <p-column field="Detalle" header="Jornada {{i+1}}°"></p-column>
+          <p-column field="1" header="Hoyo 1"></p-column>
+          <p-column field="2" header="Hoyo 2"></p-column>
+          <p-column field="3" header="Hoyo 3"></p-column>
+          <p-column field="4" header="Hoyo 4"></p-column>
+          <p-column field="5" header="Hoyo 5"></p-column>
+          <p-column field="6" header="Hoyo 6"></p-column>
+          <p-column field="7" header="Hoyo 7"></p-column>
+          <p-column field="8" header="Hoyo 8"></p-column>
+          <p-column field="9" header="Hoyo 9"></p-column>
+          <p-column field="10" header="Hoyo 10"></p-column>
+          <p-column field="11" header="Hoyo 11"></p-column>
+          <p-column field="12" header="Hoyo 12"></p-column>
+          <p-column field="13" header="Hoyo 13"></p-column>
+          <p-column field="14" header="Hoyo 14"></p-column>
+          <p-column field="15" header="Hoyo 15"></p-column>
+          <p-column field="16" header="Hoyo 16"></p-column>
+          <p-column field="17" header="Hoyo 17"></p-column>
+          <p-column field="18" header="Hoyo 18"></p-column>
+          <p-column field="GrupoId" header="" [hidden]="true"></p-column>
+        </p-dataTable>
+        <br/>
+      </div>
+    </div>
+  </div>
+</div>

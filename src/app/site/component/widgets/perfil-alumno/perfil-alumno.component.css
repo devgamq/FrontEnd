@@ -1,0 +1,114 @@
+body{
+    overflow-y:hidden !important; 
+}
+.panel_perfil{
+min-height: 99%;
+background-size: 100% auto;
+color:white;
+height: 75vh;
+overflow-y:hidden; 
+
+}
+.panel_posiciones5{
+    height: 70vh;
+}
+.titulo{
+    font-family: 'Oswald', sans-serif;
+    font-size: 4.5vw;
+    text-align: center;
+    margin-bottom: 35px;
+    padding-left: 10px;
+}
+
+.panel_perfil .fondo{
+   min-height: 99%;
+   background-size: 90% auto;
+   color:white;
+   height: 59vh;
+   overflow-y:hidden; 
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-position: center; 
+}
+.panel_perfil .podio{
+   position: relative;
+   top: 12vh;
+   width: 90%;
+   left: 2.8vh;
+
+}
+.panel_perfil .center{
+    text-align: center;
+}
+.panel_perfil .cancer{    
+   top: 2vh;
+   width: 90%;
+   text-align : center;
+   left: 2.8vh;
+   font-size: 5.5vw !important;
+}
+.panel_perfil .logo
+{
+    width: 30vw;
+}
+.panel_perfil .equipo
+{
+   width: 34%
+}   
+
+.panel_perfil .panel_tabla
+{
+   position:relative;
+   height: 65vh;
+   overflow-y:hidden; 
+}
+.panel_perfil .columna{
+   font-family: 'Oswald', sans-serif;
+   text-align: center;
+   font-size: 3.5vw;
+   line-height: 0.3em;
+   text-transform: uppercase;
+   text-shadow: black 0.1em 0.1em 0.2em;
+}
+.panel_perfil .medallas
+{
+  width: 7vw;
+  
+}
+.panel_perfil .imagen
+{
+   border-radius: 300px 300px 300px 300px;
+   -moz-border-radius:  300px 300px 300px 300px;
+   -webkit-border-radius: 300px 300px 300px 300px;
+   border: 35px solid rgba(6, 6, 6, 0.4);
+   width: 35vw;
+   height: 35vw;
+   position: relative;
+   left: 2vw;
+}
+.panel_perfil .nombre{
+    font-family: 'Oswald', sans-serif;
+    font-size: 4vh;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: black 0.1em 0.1em 0.2em;
+}
+.panel_perfil .delegacion{
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+}
+.panel_perfil .tabla-data{
+    line-height: 1.3em;
+    text-align: left;
+}
+.panel_perfil .delegacion-img{
+    width: 15vw;
+    height: 12vw;
+    position: relative;
+    top: 2vw;
+    border: 2px #3c3a3a solid;
+}
+.panel_perfil .bandera{
+    position: relative;
+    left: 10vh;
+}

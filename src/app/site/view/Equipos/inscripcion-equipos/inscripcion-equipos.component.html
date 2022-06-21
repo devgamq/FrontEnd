@@ -1,0 +1,54 @@
+<h1>Inscripción Deportistas </h1>
+<h2 class="titulo">Equipo: {{NombreEquipo}}</h2>
+<h2 class="titulo"> Deporte: {{NombreDeporte}}</h2>
+
+<p-messages [(value)]="msgs"></p-messages>
+<div class="row ui-toolbar-group-right">
+  <button pButton type="button" class="ui-button-info" (click)="regresar()" label="Regresar" icon="fa-arrow-circle-left" style="min-width:130px"></button>
+</div>
+<br>
+<br>
+<br>
+<div class="card card-w-title">
+  <div class="ui-widget-header" class="contenedor">
+
+    Deportista:
+    <i class="fa fa-search" style="margin:4px 4px 0 0 "></i>
+    <p-autoComplete id="acSimple" placeholder="Buscar Deportista" [minLength]="1" [size]="30" [(ngModel)]="_Persona" [suggestions]="deportista" (completeMethod)="doSearchPersonas($event)"
+      field="NombreCompleto" [inputStyle]="{'color':'white'}" (onSelect)="doSelectSearchPersona($event)">
+      <ng-template let-_Persona pTemplate="item">
+        {{_Persona.Paterno}} {{_Persona.Materno}} {{_Persona.Nombres}}
+
+      </ng-template>
+    <!-- </ng-template> -->
+    </p-autoComplete>
+
+    Posición:
+    <p-dropdown [options]="posicion" [(ngModel)]="name" [autoWidth]="false" [style]="{'width':'170px'}"></p-dropdown>
+
+    Nro.:
+    <input type="text" pInputText [(ngModel)]="nrocamiseta" pInputText size="4" class="input" />
+    <button pButton type="submit" icon="ui-icon-save" class="ui-button-success" (click)="save(false)"></button>
+    <button pButton type="button" icon="ui-icon-clear" (click)="eliminarRegistro()" class="ui-button-danger" *ngIf="hideBorrar"></button>
+  </div>
+  <p-dataTable [value]="tabla" [responsive]="true" [rows]="20" [paginator]="true" selectionMode="single" (onRowSelect)="onRowSelect($event)">
+
+    <p-column header="IdEquipo" [hidden]="true" field="EquipoId"></p-column>
+    <p-column header="Id" [hidden]="true" field="PersonaId"></p-column>
+    <p-column header="Nombre" field="Nombre"></p-column>
+    <p-column header="Posicion" field="Posicion" styleClass="columna_small"></p-column>
+    <p-column header="Nro. Camiseta" field="NroCamiseta" styleClass="columna_small"></p-column>
+    <p-column header="Delegacion" field="Delegacion" styleClass="columna_small"></p-column>
+    <p-column header="Representacion" field="Representacion"></p-column>
+
+
+  </p-dataTable>
+
+
+  <p-confirmDialog header="Confirmación" acceptLabel="Si" icon="fa fa-question-circle" width="425"></p-confirmDialog>
+
+
+
+
+
+</div>

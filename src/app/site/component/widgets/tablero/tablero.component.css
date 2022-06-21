@@ -1,0 +1,128 @@
+.btnFutbol {
+    -moz-border-radius: 10% !important;
+    -webkit-border-radius: 10% !important;
+    border-radius: 10% !important;
+    height: 70px;
+    width: 70px;
+    text-align:center;
+    background:#249126;
+    border:3px solid #000000;
+    color: #FFFFFF;
+    	
+}
+.panel{
+    background-color: #FFFFFF;
+    border:3px solid #000000;
+    text-align: center;
+}
+.negro{
+    background-color: #000 !important;
+    color: white;
+}
+.cabecera{
+    text-align:center;
+    font-size: 2.9vw;
+    font-family:'tahoma';
+}
+.tabla
+{
+    width: 100%;
+    font-size: 1.5vw;
+}
+.cuerpo{
+    text-align:center;
+    font-size: 15vw;
+     font-family:'Conv_digital-7',Sans-Serif;
+    border:none !important;	
+}
+.izq
+{
+     text-align:left !important;
+         position: relative;
+         left: 1vw;
+}
+.derecha
+{
+     float: right !important;
+}
+.derecha-relative
+{
+    position: relative;
+         left: 4vw;
+}
+.derecha-relative-gol
+{
+    position: relative;
+         right: 4vw;
+}
+.izquierda
+{
+     float: left !important;
+}
+.linea{
+    text-align:right;
+    font-size: 3vw;
+    font-family:'Conv_digital-7',Sans-Serif;
+    
+}
+.bordertop{
+     text-align:right;
+    font-size: 1.5vw;
+    font-family:'Conv_digital-7',Sans-Serif;
+}
+.sinborde{
+    text-align:center;
+    font-size: 1.5vw;
+    font-family:'tahoma';
+    border: none !important;
+    line-height: 20px;
+    min-height: 8vh;
+}
+.limpio{border: none !important;}
+.cuerpoTiempo{
+text-align:center;
+font-size: 7vw;
+font-family:'Conv_digital-7',Sans-Serif;
+
+}
+@font-face {
+	font-family: 'Conv_digital-7';
+	src: url('../cronometro/fonts/digital-7.eot');
+    src: local('☺'), url('../cronometro/fonts/digital-7.woff') format('woff'),url('../cronometro/fonts/digital-7.ttf') format('truetype'),url('../cronometro/fonts/digital-7.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+.caja_mediana
+{
+  margin-left: 25%;
+  max-width: 50%;
+  min-width: 60px;
+}
+img{
+    max-width: 9vw;
+    text-align: center;
+    position: relative;
+    top: 3vw;
+}
+.alto
+{
+    min-height: 100%;
+   
+}
+.cuadrado{
+     width: 1vw; 
+     height: 2vw; 
+     border: 1px solid #000;
+     margin: 5px; 
+}
+    .tarjeta-roja
+    {
+     background: red;
+
+    }
+    .tarjeta-amarilla
+    {
+     background: yellow;
+
+    }
+    

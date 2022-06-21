@@ -1,0 +1,170 @@
+.tituloGrupoRPE{
+    font-weight: bold;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.tituloFechaRPE{
+    font-weight: bold;
+    padding-top: 10px;
+    text-transform: uppercase;
+    text-align: center;
+   
+}
+.HoraRPE{
+    width: 6%;
+    text-align: center;
+    text-transform: uppercase;
+}
+.estadoRPE{
+    width: 6%;
+    text-align: center;
+    text-transform: uppercase;
+}
+.ancho{
+    width: 100%;
+}
+.panelRPE th{
+    background-color: #212121 !important;
+    color: white;
+
+}
+
+
+.panelRPE tr{
+ width:100%;
+
+}
+.panelRPE body{
+  width: 100%;
+
+}
+
+.panelRPE{
+ width:100%;
+
+}
+
+.categoriaRPE{
+    width: 10%;
+    text-align: center;
+}
+.equipoRPE{
+    width: 20%;
+    text-align: center;
+}
+
+.equipoPos{
+    width: 20%;
+}
+.equipoRPE span{
+ font-weight: bold;
+ text-transform: uppercase;
+ padding: 10px;
+ position: relative;
+ bottom: 4px;
+}
+@media only screen and (max-width: 500px) {
+    .equipoRPE span{
+        font-size: 10px
+    }
+}
+.imgRPE{
+    width: 20px
+}
+.puntajeRPE{
+    width: 5%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px
+}
+.right{
+    text-align: right;
+}
+.equipoTP{
+    width: 20%;
+    text-align: left;
+    text-transform: uppercase;
+}
+.columnaTP{
+    width: 5%;
+    text-align: center;
+}
+.panelPT th{
+    background-color: #212121 !important;
+    color: white;
+}
+.imgTP{
+    width: 40px
+}
+.puntajeTotal{
+    width: 5%;
+    text-align: center;
+    font-weight: bold !important;
+    -webkit-text-decoration: none solid rgb(71, 71, 71);
+    text-decoration: none solid rgb(71, 71, 71);
+    font: bold bold 400 bold 27px / 26px "Open Sans", sans-serif;
+    font-size: large
+}
+.puntajeMarcadores{
+    width: 5%;
+    text-align: center;
+    -webkit-text-decoration: none solid rgb(71, 71, 71);
+    text-decoration: none solid rgb(71, 71, 71);
+    font: normal normal 400 normal 27px / 26px "Open Sans", sans-serif;
+    font-size: large
+}
+.panelPT th{
+    background-color: #212121 !important;
+    color: white;
+}
+
+#SPAN_1 {
+    box-sizing: border-box;
+    color: rgb(0, 135, 230);
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none solid rgb(0, 135, 230);
+    text-size-adjust: 100%;
+    column-rule-color: rgb(0, 135, 230);
+    perspective-origin: 0px 0px;
+    transform-origin: 0px 0px;
+    caret-color: rgb(0, 135, 230);
+    border: 0px none rgb(0, 135, 230);
+    font: normal normal 400 normal 27px / 26px "Open Sans", sans-serif;
+    outline: rgb(0, 135, 230) none 0px;
+}/*#SPAN_1*/
+
+
+
+#equipoRPEA{
+    width: 20%;
+    text-align: center;
+    text-decoration: none solid rgb(71, 71, 71);
+    font: normal normal 400 normal 27px / 26px "Open Sans", sans-serif;
+    font-size: large;
+}
+
+
+#SPAN_3 {
+    box-sizing: border-box;
+    color: rgb(102, 102, 102);
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none solid rgb(102, 102, 102);
+    text-size-adjust: 100%;
+    text-transform: uppercase;
+    column-rule-color: rgb(102, 102, 102);
+    perspective-origin: 0px 0px;
+    transform-origin: 0px 0px;
+    caret-color: rgb(102, 102, 102);
+    border: 0px none rgb(102, 102, 102);
+    font: normal normal 400 normal 11px / 26px "Open Sans", sans-serif;
+    outline: rgb(102, 102, 102) none 0px;
+}/*#SPAN_1*/
+
+
+.equipoPosiciones{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+}

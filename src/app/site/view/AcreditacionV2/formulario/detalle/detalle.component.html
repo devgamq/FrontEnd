@@ -1,0 +1,36 @@
+<div class="ui-grid-row">
+  <div class="ui-g-1 ui-md-2 ui-lg-4"></div>
+  <div class="ui-g-12 ui-md-8 ui-lg-4">
+      <div class="ui-g-12 ui-md-12">
+          <p-autoComplete [(ngModel)]="grupo" [suggestions]="_grupos" [dropdown]="true" (onDropdownClick)="handleDropdown($event)"
+              field="GrupoDescripcion" readonly="true" placeholder="Selecione un Grupo" [style]="{'width':'100%'}" (onSelect)="onSelectGrupo($event)">
+              <ng-template let-grupo pTemplate="item">
+                  {{grupo.GrupoDescripcion}} {{grupo.Color}}
+                  <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5"></div>
+              </ng-template>
+          </p-autoComplete>
+      </div>
+      <div class="ui-g-12 ui-md-12">
+          <p-autoComplete [(ngModel)]="rol" [suggestions]="_roles" [dropdown]="true" (onDropdownClick)="handleDropdownRol($event)" (onSelect)="onSelectRol($event)"
+              [disabled]="dpDisableRol" field="RolDescripcion" readonly="true" placeholder="Selecione un Rol" [style]="{'width':'100%'}">
+              <ng-template let-rol pTemplate="item">
+                  {{rol.RolDescripcion}}
+                  <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5"></div>
+              </ng-template>
+          </p-autoComplete>
+      </div>
+      <div id="222" class="ui-g-6" style="text-align:right">
+          <label>Categoria :</label>
+      </div>
+      <div class="ui-g-6" style="text-align:left">{{rol===undefined ? '': rol.Codigo }}
+          <div [ngStyle]="{'background-color': rol===undefined ? '' : grupo.Color}">&nbsp;&nbsp;</div>
+      </div>
+      <div class="ui-g-12">
+          <div *ngFor="let privilegio of _Privilegio">
+              <div class="ui-g-6" style="text-align:right">{{privilegio.ParametroDescripcion}} {{privilegio.ParametroDescripcion===""? "" :":"}}</div>
+              <div class="ui-g-6" style="text-align:left; padding:1;" [ngStyle]="{'background-color': privilegio===undefined ? '' : privilegio.Codigo, 'color': privilegio===undefined ? '' : privilegio.Codigo }">{{privilegio.Codigo}}</div>
+          </div>
+      </div>
+  </div>
+  <div class="ui-g-1 ui-md-2 ui-lg-4"></div>
+</div>

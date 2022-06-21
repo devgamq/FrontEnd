@@ -1,0 +1,5 @@
+<div [ngClass]="colorTipo" (click)="onclickDevolverDatos()" >
+  <div class="cuerpo" *ngIf="noestecnico" >{{numero}}</div>
+  <div class="cuerpo" *ngIf="!noestecnico" >{{tecnicoTipo}}</div>
+  <div class="cabecera" >{{apellido}}</div>
+  </div>

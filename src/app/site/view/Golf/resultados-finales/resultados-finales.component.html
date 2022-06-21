@@ -1,0 +1,28 @@
+<h1>Golf</h1>
+<div class="ui-g">
+    <div class="ui-g-12">
+        <div class="card card-w-title">
+            <h1>Resultados del Torneo:</h1>
+            <div class="ui-g form-group">
+                <div class="ui-g-12 ui-md-12" style="text-align:right">
+                    <button pButton type="button" (click)="doOpenVisor()"  icon="ui-icon-tv" label="Visor"></button>
+                    <button pButton type="button" (click)="doReporte()" icon="ui-icon-print" label="Imprimir"></button>
+                </div>
+            </div>
+
+            <div class="ui-g form-group">
+                <div class="ui-g-12 ui-md-5" style="text-align:right">
+                    <label for="dropdown">Categoría:</label>
+                </div>
+                <div class="ui-g-12 ui-md-4">
+                    <categoria-dropdown [eventoId]="eventoId" [categoriaId]="categoriaId" (categoriaSelected)="onChangeCategoria($event)"></categoria-dropdown>
+                </div>
+                <br>
+            </div>
+            <br>
+            <p-dataTable [value]="TotalesTorneo" [responsive]="true">
+                <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header"></p-column>
+            </p-dataTable>
+        </div>
+    </div>
+</div>

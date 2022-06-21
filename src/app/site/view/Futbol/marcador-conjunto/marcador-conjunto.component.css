@@ -1,0 +1,65 @@
+.boton_posesion {
+    border: none !important;
+    background: #3a7999 !important;
+    color: #f2f2f2 !important;
+    font-size: 1.4em !important;
+    border-radius: 5px !important;
+    position:relative!important;
+    box-sizing: border-box !important;
+    height: 2.5em !important;
+    width: 100% !important;
+    transition: all 500ms ease !important;
+    padding: 0px 0px !important;
+    overflow:hidden !important;
+   
+   }
+   .boton_sucesoA {
+    border: none !important;
+    background: #27559B !important;
+    color: #f2f2f2 !important;
+    padding: 0px !important;
+    font-size: 1.5em !important;
+    border-radius: 5px !important;
+    position:relative!important;
+    box-sizing: border-box !important;
+    height: 2.5em !important;
+    width: 10% !important;
+    transition: all 500ms ease !important;
+    padding: 10px 35px !important;
+    overflow:hidden !important;
+    float: left;
+   }
+   .boton_sucesoB {
+    border: none !important;
+    background: #27559B !important;
+    color: #f2f2f2 !important;
+    padding: 0px !important;
+    font-size: 1.5em !important;
+    border-radius: 5px !important;
+    position:relative!important;
+    box-sizing: border-box !important;
+    height: 2.5em !important;
+    width: 10% !important;
+    transition: all 500ms ease !important;
+    padding: 10px 35px !important;
+    overflow:hidden !important;
+    float:right;
+   
+   }
+  /* table {
+    width: 100% !important;
+    border: 1px solid #000 !important;
+   }
+   th, td {
+    width: 25% !important;
+    text-align: left !important;
+    vertical-align: top !important;
+    border: 1px solid #000 !important;
+    border-collapse: collapse !important;
+    padding: 0.3em !important;
+    caption-side: bottom !important;
+ }
+ th {
+    background:#446077 !important;
+    color: white;
+ }*/

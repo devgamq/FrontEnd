@@ -1,0 +1,37 @@
+<div class=" titulo">
+    <div class="ui-g" style="position: absolute; bottom: -4%; left: 5%; text-shadow: 3px 0px 3px rgba(150, 150, 150, 1);">
+        <div class="titulo_deporte" *ngIf="banderas">{{deporte}} <span [ngStyle]="style_titulo">{{genero}}</span></div>
+    </div>
+</div>
+<div class="panel_a">
+    <div *ngFor="let parametro of grupos" class="{{style_columna}} tabla" id="{{parametro.GrupoId}}">
+        <div class="main">
+            <div class="child1">
+                <div class="headGroup">
+                    <div class="fondo_title">
+                        <div class="grupo_title">{{parametro.GrupoDescripcion}}</div>
+                    </div>
+                </div>
+                
+                <div id="contenedor" style="padding-top: 5vh">
+                    <div class="equipis" *ngFor="let equipo of parametro.GrupoEquipos; let i=index" id="E-{{equipo.Equipo.EquipoId}}">
+                        <div class="fondo_equipo">
+                            <div class="img_delegacion"> <img src="assets/banderas/{{equipo.Equipo.DelegacionId}}.png" class="delegacion" *ngIf="banderas"></div>
+                            <div class="txt_delegacion">
+                                <div class="textoDele" style="background-image: url(assets/08/sorteo/grupo-1.png);background-size: 100% 100%;">
+                                    <div class="nombre_equipo">{{equipo.Equipo.EquipoDescripcion}}</div>
+                                    <div class="nombre_colegio">{{equipo.Equipo.DelegacionNombre}}</div>
+                                    <!-- <marquee class="nombre_colegio" scrolldelay="200">{{equipo.Equipo.DelegacionNombre}}</marquee> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="derechos">
+        Hammer ® - Ministerio de Deportes
+    </div>
+</div>
+

@@ -1,0 +1,49 @@
+<div class="ui-g fondoVisor" style="background-image: url('/assets/erpHammer/images/fondoGolf.jpg') !important;">
+  <div class="ui-g-12" style="height: 11.3vw;text-align:center;padding: 0;">
+    <div class="ui-g-2 title" style="height:10vw;padding-top:0px; background-size:cover">
+      <img src="/assets/erpHammer/images/odesur1.png" class="picto" />
+      <img src="/assets/erpHammer/images/bs.png" class="golf" />
+    </div>
+    <div class="ui-g-8" style="height:10vw;padding-top:0px;">
+      <h1 class="title">
+        {{titulo}}
+      </h1>
+
+    </div>
+    <div class="ui-g-2 title" style="height:10vw;padding:0; background-size:cover">
+      <img height="190px" src="/assets/erpHammer/images/logo.png" class="logo" />
+    </div>
+    <div class="barra_s">
+
+      <h1 class="subtitle ui-g-6">
+        {{categoriaDesc}}
+      </h1>
+
+      <h1 class="jornada ui-g-6">
+        {{jornadaDesc}}
+      </h1>
+
+    </div>
+
+  </div>
+
+  <div class="ui-g-12" style="height:100%;padding:0;">
+
+
+    <div #panel class="ui-g-12 contenedor_golf">
+
+      <app-grid-resultados [clasificatorias]="clasificatorias" [hoyoPar]="hoyoPar" [hideSearch]="false" [mostrarhandicap]="handy"
+        [mostrar]="bandera"></app-grid-resultados>
+
+
+    </div>
+    <div class="ui-g-12" style="height:15vh;  padding:0px;">
+      <div class="negro">
+        <app-leyenda-color [estilo]="leyendaVisor"></app-leyenda-color>
+      </div>
+      <app-visor-pie></app-visor-pie>
+    </div>
+  </div>
+
+
+</div>

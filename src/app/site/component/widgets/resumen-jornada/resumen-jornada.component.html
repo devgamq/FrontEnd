@@ -1,0 +1,61 @@
+<div class="jornada {{class_jornada}}" [ngStyle]="style">
+  <div class="fondo">
+    <div class="ui-g-12 columna titulo_deporte">
+      {{deporte}}
+    </div>
+    <div *ngFor="let itemMaster of masterData">
+      <div class="ui-g-12 columna subtitulo">
+        {{itemMaster[0].Fase}}
+      </div>
+      <div class="ui-g-12 columna fecha">
+        {{itemMaster[0].Fecha | date: 'dd-MMM-yyyy'}}
+      </div>
+      <div *ngFor="let item of itemMaster" style="line-height: 1;">
+        <div class="ui-g-12 fila">
+          <div class="ui-g-12 contenedor">
+            <div class="ui-g-12 columna grupo" style="    padding: .35em;">
+              <br>
+              <br>Grupo {{item.Grupo}}-{{item.Rama}}
+            </div>
+            <div class="ui-g-4 panelJugador" style="    padding: .1em;">
+              <div class="ui-g-12 center">
+                <img class="imagen" src="{{item.DelegacionIdA}}" />
+              </div>
+              <div class="ui-g-12 equipo center">
+                <span style="font-size: 2vh">{{item.EquipoA}}</span>
+                <br> <span *ngIf="eventoId!=3">{{item.Representacion_A}}</span> 
+              </div>
+            </div>
+            <div class="ui-g-4 columna  {{class_resultado}}" style="    padding: .1em;" *ngIf="item.showPuntajes">
+             <span ><img class="bandera" src="{{item.BanderaA}}" />{{item.MarcadorEquipoA}}-{{item.MarcadorEquipoB}}<img class="bandera" src="{{item.BanderaB}}" /></span> 
+              <span class="ui-g-12 columna" style="    font-size: 1.2vh;
+              line-height: 26px;">
+                {{item.Instalacion}}
+                <br>{{item.HoraProgramada | PipeFechaComponent:"hora"}}
+                <span [style.color]="item.css" class="estado">{{item.Estado}}</span> 
+              </span>
+            </div>
+            <div class="ui-g-4 columna  {{class_resultado}}" style="    padding: .1em;" *ngIf="!item.showPuntajes">
+                 <span class="ui-g-12 columna" style="    font-size: 1.2vh; line-height: 26px;">
+                   {{item.Instalacion}}
+                   <br>{{item.HoraProgramada | PipeFechaComponent:"hora"}}
+                   <span [style.color]="item.css" class="estado">{{item.Estado}}</span> 
+                 </span>
+               </div>
+
+            <div class="ui-g-4 panelJugador"  style="    padding: .1em;">
+              <div class="ui-g-12 center">
+                <img class="imagen" src="{{item.DelegacionIdB}}" />
+              </div>
+              <div class="ui-g-12 equipo center">
+                <span class="npmEquipo">{{item.EquipoB}}</span>
+                <br><span *ngIf="eventoId!=3">{{item.Representacion_B}}</span> 
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

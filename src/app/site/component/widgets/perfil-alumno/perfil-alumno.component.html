@@ -1,0 +1,41 @@
+<div class="titulo" [ngStyle]="style_titulo">
+    BIENVENIDOS
+</div>
+<div class=" panel_perfil {{clase_panel}}" [ngStyle]="style">
+
+    <div class=" fondo">
+
+        <div #panel class="ui-g podio">
+            <div class="ui-g-12 columna">
+                <img class="imagen" [src]="fotoUrl" >
+            </div>
+
+            <div class="ui-g-12 columna nombre">{{nombre}}</div>
+            <div class="ui-g-12 columna nombre">{{paterno}} {{materno}}</div>
+            
+            <div class="ui-g-12 columna delegacion">{{delegacion}}</div>
+            <div class="bandera">
+                <div class="ui-g-6 columna">
+                    <img class="delegacion-img" src="assets/banderas/{{DelegacionId}}.png">
+                </div>
+                <div class="ui-g-6 columna">
+                    <table class="tabla-data">
+                        <tr>
+                            <td>Estatura:</td>
+                            <td>{{estatura}} m.</td>
+                        </tr>
+                        <tr>
+                            <td>Peso:</td>
+                            <td>{{peso}} Kg.</td>
+                        </tr>
+                        <tr>
+                            <td>Deporte:</td>
+                            <td>{{deporteS}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+</div>

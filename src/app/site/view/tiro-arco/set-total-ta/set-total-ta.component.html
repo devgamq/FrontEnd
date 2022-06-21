@@ -1,0 +1,8 @@
+<div class='totales'>
+<p-dataTable [value]="lista" [responsive]="true">
+    <p-column field="Delegacion" header="Delegación"></p-column>
+    <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header"></p-column>
+    <p-column field="Total" header="{{nombreTotal}}"></p-column>
+    <p-column field="PuntosGlobal" header="{{nombreTotalGeneral}}"></p-column>
+</p-dataTable>
+</div>

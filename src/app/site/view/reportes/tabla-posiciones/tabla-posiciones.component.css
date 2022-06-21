@@ -1,0 +1,30 @@
+.tituloGrupoTP{
+    font-weight: bold;
+}
+.equipoTP{
+    width: 20%;
+    text-align: left;
+    text-transform: uppercase;
+}
+.columnaTP{
+    width: 5%;
+    text-align: center;
+}
+.panelPT th{
+    background-color: #212121 !important;
+    color: white;
+}
+.colegioTP{
+    width: 20%;
+    text-align: center;
+    text-transform: uppercase;
+}
+.imgTP{
+    width: 30px
+}
+.spanNombreTP{
+    padding: 10px;
+    position: relative;
+    bottom: 4px;
+    font-weight: 600;
+}

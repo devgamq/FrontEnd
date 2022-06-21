@@ -1,0 +1,50 @@
+<div class=" panel {{class_panel}}">
+
+    <table class="tabla_medallas">
+        <tr>
+            <th class="titulo" [ngStyle]="style_titulo">{{titulo}} </th>
+
+            <th class="columna">
+                <img class="medallas" src="assets/0{{EventoId}}/logos/medOro.png">
+            </th>
+            <th class="columna">
+                <img class="medallas" src="assets/0{{EventoId}}/logos/medPlata.png">
+            </th>
+            <th class="columna">
+                <img class="medallas" src="assets/0{{EventoId}}/logos/medBronce.png">
+            </th>
+            <th class="total">
+                <img class="medallas" src="assets/0{{EventoId}}/logos/Total.png">
+            </th>
+        </tr>
+    </table>
+
+    <div #panel class="panel_tabla {{class_panel}}">
+
+        <table class="tabla {{class_tabla}}" [ngStyle]="style">
+
+            <tr *ngFor="let parametro of data">
+                <td class="columna marcar">
+                    <span>{{parametro.Nro}}</span>
+                </td>
+                <td class="marcar">
+                    <img class="medallas" src="assets/banderas/{{parametro.DelegacionId}}.png">
+                    <label>{{parametro.Nombre}}</label>
+                </td>
+                <td class="columna marcar">
+                    <span>{{parametro.ORO}}</span>
+                </td>
+                <td class="columna marcar">
+                    <span>{{parametro.PLATA}}</span>
+                </td>
+                <td class="columna marcar">
+                    <span>{{parametro.BRONCE}}</span>
+                </td>
+                <td class="total">
+                    <span>{{parametro.Total}}</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>

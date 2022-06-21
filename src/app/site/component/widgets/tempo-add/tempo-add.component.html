@@ -1,0 +1,28 @@
+<div class="tempo">
+    <form id="DatosPesonalesForm" [(formGroup)]="DataForm">
+        <div (keypress)="onEditCompletePres($event)">
+
+            <input pInputText [(ngModel)]="valor" formControlName="aux" />
+            <span class="estilo" *ngIf="is_time"><em>HH : MM : SS . CC</em></span>
+        </div>
+        <div class="ui-g-12 ui-grid-col-12 ui-message ui-messages-error ui-corner-all" style="padding:0.4em !important; width: 100%;"
+            *ngIf="!_valid">
+            El campo no puede estar vacio
+        </div>
+        <div class="ui-g-12 ui-grid-col-12 ui-message ui-messages-error ui-corner-all" style="padding:0.4em !important; width: 100%;"
+            *ngIf="!_es_numero">
+            Ingrese un entero válido
+        </div>
+        <div class="ui-g-12 ui-grid-col-12 ui-message ui-messages-error ui-corner-all" style="padding:0.4em !important; width: 100%;"
+            *ngIf="!_v_tiempo">
+            Ingrese un tiempo válido
+        </div>
+        <br *ngIf="!_valid"><br *ngIf="!_valid">
+        <p-footer>
+            <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix" style="border:none;">
+                <button type="button" pButton icon="fa-close" (click)="onExit()" label="Cancelar"></button>
+                <button type="button" pButton icon="fa-check" (click)="onEditComplete()" label="Guardar"></button>
+            </div>
+        </p-footer>
+    </form>
+</div>

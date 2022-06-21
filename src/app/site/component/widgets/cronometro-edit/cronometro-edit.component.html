@@ -1,0 +1,25 @@
+<div class="ui-g form-group-m">
+    <div class="ui-g-12" style="position:relative;top:10px">
+        <div class="ui-g-12">
+            <div class="ui-g-2"><b>Minutos: </b></div>
+            <div class="md-inputfield ui-g-10">
+                <p-spinner size="30" [(ngModel)]="minutos" [min]="0" [max]="500"></p-spinner>
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-2"><b>Segundos: </b></div>
+            <div class="md-inputfield ui-g-10">
+                <p-spinner size="30" [(ngModel)]="segundos" [min]="0" [max]="59"></p-spinner>
+            </div>
+        </div>
+        <div class="ui-g-12">
+            REVERSA <p-checkbox [(ngModel)]="reversa" (click)="reversaSave()" binary="true"></p-checkbox>
+        </div>
+    </div>
+</div>
+<p-footer>
+    <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix" style="border:none;">
+        <button type="button" pButton icon="fa-close" (click)="salir()" label="Cancelar"></button>
+        <button type="button" pButton icon="fa-check" (click)="save()" label="Guardar"></button>
+    </div>
+</p-footer>

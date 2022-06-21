@@ -1,0 +1,107 @@
+<div class=" panel_versus">
+    <!-- <img src="/assets/0{{EventoId}}/fondos/bh{{DeporteId}}.jpg" class="grande" > -->
+    <img src="/assets/04/fondos/f1.jpg" class="grande" >
+    <div class="contenedor">
+        <div class="subtitulo0"> {{titulo}}</div>
+        <div class="subtitulo"> {{deporte}}</div>
+        <div class="subtitulo10"> {{lugar}}</div>
+        <div class="subtitulo1"> 
+         
+          <span style="color:#869998; font-weight:bold;  text-shadow: 1px 2px 2px rgba(8, 8, 8, 0.95)"> CAT.: <span style="color:#ffffff">  {{categoria}}</span></span>
+
+        </div>
+        <div class="subtitulo2">
+           
+           <span style="color:#869998;font-weight:bold;  text-shadow: 1px 2px 2px rgba(7, 7, 7, 0.95)"> PRUEBA:  <span style="color:#ffffff">{{prueba}}</span></span>
+
+        </div>
+        <div class="subtitulo3"> {{fechaCronograma | date: 'dd-MMM-yyyy'}}</div>
+        <div class="subtitulo4"> {{hora}}</div>
+      
+       
+      
+   
+      </div>
+    
+ <div class="contenedor1">
+    <div class="ui-g-12">
+        
+       
+       
+             <div class="rojo ui-g-4" [ngStyle]="style_rojo">
+         
+                 <div class="paisA ui-g-7">{{nombreDelegacionA}}</div>
+             
+               <div class="ui-g-12">
+                 <img class="foto" src="{{foto}}" default="/assets/fotos/masculino.png" onerror="this.src='/assets/fotos/masculino.png'">
+                 <div class="ui-g-5">
+                     <img src="/assets/banderas/{{DelegacionR}}.png" class="bandera">
+                   </div>
+               </div>
+               <div class="ui-g-12">
+                   <div class="ui-g-5">
+                       <img src="{{brojo}}" class="brojo">
+                     </div>
+                 <div class="nombre ui-g-7">{{NombreR}}</div>
+       
+                 <!-- <div class="ui-g-12 subtitulo6">{{PesoR}} Kg.</div> -->
+                
+               </div>
+               <div class="datos ui-g-6">
+                   <div class="ui-g-12 ancho">
+                
+                    
+                   </div>
+                   <div class="ui-g-12 ultimo">
+        
+                   
+                     </div>
+                   </div>
+             </div>
+             <div class=" ui-g-2">
+               <!-- <img  src="/assets/05/fondos/VS.png" class="vs"> -->
+             </div>
+       
+       
+             <div class="azul ui-g-4" [ngStyle]="style_azul">
+                 <div class="paisB ui-g-7">{{nombreDelegacionB}}</div>
+               <div class="ui-g-12">
+                 <img class="fotoA" src="{{fotoA}}" default="/assets/fotos/masculino.png" onerror="this.src='/assets/fotos/masculino.png'">
+                 <div class="ui-g-5">
+                     <img src="/assets/banderas/{{DelegacionA}}.png" class="banderaA">
+                   </div>
+               </div>
+               <div class="ui-g-12">
+                
+                 <div class="ui-g-7">
+                     <div class="ui-g-5">
+                         <img src="{{bazul}}" class="bazul">
+                       </div>
+                   <!-- <div class="nombreA ui-g-8">{{NombreA}}</div> -->
+                   <div class=" ui-g-7 ">
+                     <div class="contenedoraA nombreA">{{NombreA}}</div>
+                    </div>
+                   <!-- <div class="ui-g-12 subtitulo8">{{PesoA}} Kg.</div> -->
+                   
+                 </div>
+       
+               </div>
+               <div class="datos ui-g-6">
+               <div class="ui-g-12">
+                 <div class="ui-g-4 label"></div>
+                 <div class="ui-g-8 texto"></div>
+               </div>
+               <div class="ui-g-12 ultimo">
+                   <div class="ui-g-4 label"></div>
+                   <div class="ui-g-8 texto"></div>
+                 </div>
+               </div>
+             </div>
+           </div>
+ </div>
+    
+
+
+
+    
+</div>

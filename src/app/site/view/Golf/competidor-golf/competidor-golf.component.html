@@ -1,0 +1,98 @@
+<div class="ui-g">
+        <h1>Golf</h1>
+        <div class="ui-g-12">
+            <div class="card card-w-title">
+                <h2 class="title">Inscritos</h2>
+                <div class="tol" style="padding:4px 10px 4px;border-bottom: 0 none">
+                    <button pButton type="button" icon="ui-icon-plus" class="green-btn" (click)="showDialog(this.type.Insert)"></button>
+                    <button pButton type="button" icon="ui-icon-edit" class="teal-btn" (click)="showDialog(this.type.Update)" *ngIf="hideElement"></button>
+                    <button pButton type="button" icon="ui-icon-delete" class="teal-btn red" (click)="doGetCompetidorDelete()" *ngIf="hideElement"></button>
+                    <div class="ui-toolbar-group-right">                   
+                        <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                        <input #gb type="text" pInputText size="50" placeholder="Buscar competidor">
+                    </div>
+                </div>
+                <p-dataTable [value]="deportistas" [responsive]="true" [globalFilter]="gb" [rows]="10" [paginator]="true" selectionMode="single"
+                    [(selection)]="deportista" (onRowDblclick)="onRowDblclickGrupo($event)" (onRowSelect)="onRowSelect($event)">
+                    <p-column field="PersonaId" header="" [hidden]="true"></p-column>
+                    <p-column field="CompetidorId" header="" [hidden]="true"></p-column>
+                    <p-column field="Nombres" header="Nombre" [hidden]="false"></p-column>
+                    <p-column field="Paterno" header="Paterno" [hidden]="false"></p-column>
+                    <p-column field="Materno" header="Materno" [hidden]="false"></p-column>
+                    <p-column field="DocumentoIdentidad" header="C.I." [hidden]="false"></p-column>
+                    <p-column field="Handicap" header="Handicap" [hidden]="false"></p-column>
+                    <p-column field="Descripcion" header="Categoria" [hidden]="false"></p-column>
+                    <p-column field="Club" header="Club" [hidden]="false"></p-column>
+                </p-dataTable>
+            </div>
+        </div>
+    </div>
+    <p-dialog header="Nuevo Competidor" [(visible)]="display" modal="modal" width="250px" responsive="true">
+        <form class="form-signin" [(formGroup)]="competidorForm" (ngSubmit)="doSetCompetidor($event)">
+            <div class="ui-g-12 ui-md-12 form-group-m" style="margin-top:20px">
+                <table>
+                    <tr>
+                        <td>
+                            <input type="hidden" formControlName="Accion" value="0" />
+                            <input type="hidden" formControlName="CompetidorId" value="0" />
+                            <input type="hidden" formControlName="PersonaId" value="0" />
+    
+    
+                            <p-autoComplete [ngModel]="_NombrePersona" [suggestions]="persona" (completeMethod)="doSearchPersonas($event)" field="NombreCompleto" [size]="40"
+                                placeholder="Nombres" [minLength]="1" [disabled]="!isAutoComplete()" formControlName="DatoPersona"(onSelect)="selectCompetidor($event)">
+                                <ng-template let-_NombrePersona pTemplate="item">
+                                        {{_NombrePersona.Paterno}} {{_NombrePersona.Materno}} {{_NombrePersona.Nombre}}
+                         
+                                      </ng-template>
+                            
+                            </p-autoComplete>
+                        
+     
+    
+                                <!-- Deportista: <i class="fa fa-search" style="margin:4px 4px 0 0 "></i>
+                                <p-autoComplete   id="acSimple" [minLength]="3" [size]="40" v [(ngModel)]="_Persona" [suggestions]="deportista" 
+                                (completeMethod)="doSearchPersonas($event)" field="NombreCompleto" placeholder="Seleccione deportista" [inputStyle]="{'color':'white'}"  (onSelect)="doSelectSearchPersona($event)" >
+                                <ng-template let-_Persona pTemplate="item">
+                                  {{_Persona.Paterno}} {{_Persona.Materno}} {{_Persona.Nombres}}
+                   
+                                </ng-template>
+                                  </p-autoComplete>
+                         -->
+                        
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <categoria-dropdown [eventoId]="eventoId" [categoriaId]="categoria" (categoriaSelected)="showSalidas($event)"></categoria-dropdown>
+                        </td>
+                        <br><br><br><br><br>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="md-inputfield">
+                            <input type="text" pInputText style="width:100%;" formControlName="Handicap" required>
+                            <label>Handicap</label>
+                            </span><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="md-inputfield">                            
+                                <input type="text" pInputText style="width:100%;" formControlName="Club" required>
+                                <label>Club</label>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <p-footer>
+                <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+                    <button type="button" pButton icon="fa-close" (click)="display=false" label="Cancelar"></button>
+                    <button type="button" pButton icon="fa-check" type="submit" label="Guardar"></button>
+                </div>
+            </p-footer>
+        </form>
+    </p-dialog>
+    <p-confirmDialog width="425"></p-confirmDialog>
+    <p-growl [value]="msgs"></p-growl>
+    

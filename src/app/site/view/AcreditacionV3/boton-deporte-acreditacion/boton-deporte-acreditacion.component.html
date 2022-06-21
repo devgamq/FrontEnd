@@ -1,0 +1,27 @@
+<div class="ui-g">
+<div class="ui-g-12" style=" text-align: center;">
+           Prueba:
+           <p-dropdown [options]="pruebaSeleccionadas" [style]="{'width':'280px'}" (onChange)="seleccionarPrueba();" placeholder="Seleccionar Prueba" [(ngModel)]="pruebaId"></p-dropdown>
+</div>
+<div class="ui-g-12" style=" text-align: center;">
+             Rama:     
+           <p-dropdown [options]="ramas" [style]="{'width':'160px'}" placeholder="Seleccionar Rama" [(ngModel)]="ramaId"></p-dropdown>
+</div>
+<div class="ui-g-12" style=" text-align: center;">
+           <button pButton type="button" label="Agregar" class="ui-button-info" (click)="agregarRamaCompetidor()"></button>
+   </div>
+<div class="ui-g-12" style=" text-align: center;">
+                <p-dataTable [value]="ramalista" (onRowSelect)="eliminarRamas($event)" selectionMode="single" >
+                        <p-column field="pruebaId" header=""></p-column>
+                        <p-column field="descripcionPrueba" header="Prueba"></p-column>
+                        <p-column field="ramaId" header=""></p-column>
+                        <p-column field="descripcionRama" header="Rama"></p-column>
+                </p-dataTable>
+   </div>
+   <div class="ui-g-12" style=" text-align: center;">
+        <button pButton type="button"  label="Aceptar" (click)="enviarDatos()" class="ui-button-success"></button>
+        <button pButton type="button"  label="Cancelar" (click)="cancelarRamas()" class="ui-button-danger"></button>
+   </div>
+</div>
+<p-confirmDialog header="Confirmación" acceptLabel="Si" [closable]="false" icon="fa fa-question-circle" width="425">
+</p-confirmDialog>

@@ -1,0 +1,22 @@
+.input {
+    font-weight: normal;
+    color: white;
+}
+.color {
+    font-weight: normal;
+    color: rgba(7, 1, 1, 0.9);
+}
+
+.titulo {
+    font-weight: normal;
+    color: rgba(75, 74, 82, 0.99);
+}
+.contenedor{
+    padding:4px 10px;border-bottom: 0 none;text-align:center;background-color:#424242;color: white;
+}
+.columna_small{
+    width: 8%;
+}
+.columna_med{
+    width: 12%;
+}

@@ -1,0 +1,14 @@
+@font-face {
+	font-family: 'Conv_digital-7';
+	src: url('fonts/digital-7.eot');
+	src: local('☺'), url('fonts/digital-7.woff') format('woff'), url('fonts/digital-7.ttf') format('truetype'), url('fonts/digital-7.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+.time{
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+    font-size: 4vw;
+    color: dimgray;
+}

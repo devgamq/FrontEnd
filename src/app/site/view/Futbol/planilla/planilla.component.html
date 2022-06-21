@@ -1,0 +1,67 @@
+<div class="ui-g">
+ <h1>Nómina de Jugadores</h1>
+ <div class="card card-w-title ui-fluid ui-g-12">
+   <div class="row ui-toolbar-group-right">
+     <div class="ui-g-6">
+       <button pButton type="button" (click)="regresar()" label="Regresar" icon="fa-arrow-circle-left"
+          style="min-width:130px"></button>
+    </div>
+     <div class="ui-g-2">
+       <button pButton type="button" (click)="showDialog()" label="Continuar" icon="fa-arrow-circle-right"
+         style="min-width:130px"></button>
+    </div>    
+   </div>
+  <div class="ui-g-12">
+       <hr/>
+         <div class="ui-g-6">
+           <div class="card card-w-title ui-fluid ui-g-12">
+              <app-inscripcion-jugadores [grupo]="'grupo1'" [eventoId]="equipoA.PruebaEventoId" [competidor]="equipoA" [sistemas]="sistemas"
+              [is_inscripcion]="true" [PlanillaId]="PlanillaId" [deporteId]="deporteId"  [tipo]="tipo" ></app-inscripcion-jugadores>
+           </div>
+            
+       </div>
+       <div class="ui-g-6">
+           <div class="card card-w-title ui-fluid ui-g-12">
+              <app-inscripcion-jugadores [grupo]="'grupo2'" [eventoId]="equipoB.PruebaEventoId" [competidor]="equipoB" [sistemas]="sistemas"
+              [is_inscripcion]="true" [PlanillaId]="PlanillaId" [deporteId]="deporteId" [tipo]="tipo" ></app-inscripcion-jugadores>
+           </div>
+       </div>
+  </div>
+      <div class="ui-g-12">
+      <div class="ui-g-2">Primer árbitro:</div>
+      <div class="md-inputfield ui-g-6" style="max-width:500px">
+      <app-buscar-persona [eventoId]="equipoA.PruebaEventoId" [planillaId]="PlanillaId" [_Persona]="_Arbitro1" 
+            [servicioMostrar]="'SearchPersonaApoyo'" [mostrarNombre]="true" (NombrePersona)="doSelectArbitro($event,6)" ></app-buscar-persona>
+    </div>
+      <div class="ui-g-6"></div>
+ </div>
+
+ <div class="ui-g-12">
+      <div class="ui-g-2">Asistente de primer árbitro:</div>
+      <div class="md-inputfield ui-g-6" style="max-width:500px">
+      <app-buscar-persona [eventoId]="equipoA.PruebaEventoId" [planillaId]="PlanillaId" [_Persona]="_Arbitro2" 
+            [servicioMostrar]="'SearchPersonaApoyo'" [mostrarNombre]="true" (NombrePersona)="doSelectArbitro($event,7)" ></app-buscar-persona>
+    </div>
+      <div class="ui-g-6"></div>
+ </div>
+    <div class="ui-g-12">
+      <div class="ui-g-2">Asistente de segundo árbitro:</div>
+      <div class="md-inputfield ui-g-6" style="max-width:500px">
+      <app-buscar-persona [eventoId]="equipoA.PruebaEventoId" [planillaId]="PlanillaId" [_Persona]="_Arbitro3" 
+            [servicioMostrar]="'SearchPersonaApoyo'" [mostrarNombre]="true" (NombrePersona)="doSelectArbitro($event,8)" ></app-buscar-persona>
+    </div>
+      <div class="ui-g-6"></div>
+ </div>
+ <div class="ui-g-12">
+      <div class="ui-g-2">Cuarto árbitro:</div>
+      <div class="md-inputfield ui-g-6" style="max-width:500px">
+      <app-buscar-persona [eventoId]="equipoA.PruebaEventoId" [planillaId]="PlanillaId" [_Persona]="_Arbitro4" 
+            [servicioMostrar]="'SearchPersonaApoyo'" [mostrarNombre]="true" (NombrePersona)="doSelectArbitro($event,9)" ></app-buscar-persona>
+    </div>
+      <div class="ui-g-6"></div>
+ </div>
+  
+</div>
+<p-confirmDialog header="Confirmación" acceptLabel="Si" icon="fa fa-question-circle" width="425"></p-confirmDialog>
+
+<p-growl [value]="msgs"></p-growl>

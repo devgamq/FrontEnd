@@ -1,0 +1,21 @@
+<div class="ui-g">
+  <div class=" ui-g-12 ui-md-12 ui-message ui-messages-error ui-corner-all" style="padding:0.4em !important;" *ngIf="photoValid">
+    Fotografía requerida tome o seleccione una.
+  </div>
+  <div class="ui-g-6 ui-md-6" style="text-align:center">
+    <!-- <video #video width="320" height="240" autoplay *ngIf="existCam">
+      Your browser does not support the video tag.
+    </video> -->
+    <div class="ui-g">
+      <!-- <div class="ui-g-12 " style="text-align:center">
+        <button class="indigo-btn" type="button" (click)="capture()" *ngIf="existCam">Capturar</button>
+      </div> -->
+      <div class="ui-g-12" style="text-align:center">
+        <input class="inputfile" type="file" (change)="fileEvent($event)" accept="image/*" />
+      </div>
+    </div>
+  </div>
+  <div class="ui-g-12 ui-md-12" style="text-align:center">
+    <canvas #canvas width="290" height="320"></canvas>
+  </div>
+</div>

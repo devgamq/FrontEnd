@@ -1,0 +1,80 @@
+
+
+     <h1>
+        Control de Visores</h1>
+      <div class="card card-w-title ui-fluid">
+        <div class="ui-g">
+          <div class="ui-g-12 ui-md-12 ui-lg-4">
+       
+            <p-fieldset legend="Resumen de Jornadas">
+                
+                    <b>Categorías:</b> 
+                     <categoria-dropdown [categoriaId]="categoriaId" (categoriaSelected)="handleCategoria_jornada($event)" [eventoId]="eventoId"></categoria-dropdown>
+                 
+              <div class="separador"></div>
+              
+              <div class="ui-g-5">  
+                  <button pButton type="button" (click)="doOpenVisorJornada()"  icon="ui-icon-tv" label="Visor"></button>
+              </div>
+      
+            </p-fieldset>
+     
+            <p-fieldset legend="Visor de Grupos (Partidas)">
+              
+                    <b>Fechas:</b> 
+                    <p-calendar [(ngModel)]="fecha" dateFormat="dd/mm/yy" readonlyInput="true" [locale]="es" appendTo="body"
+                    (onSelect)="onChange_dropdown()"></p-calendar>
+                 
+                <div class="separador">
+               
+                </div>
+               
+                <div class="ui-g-5">  
+                    <button pButton type="button" (click)="doOpenVisor()"  icon="ui-icon-tv" label="Visor"></button>
+                </div>
+        
+              </p-fieldset>
+      
+          </div>
+          <div class="ui-g-12 ui-md-12 ui-lg-5">
+            
+            <div class="ui-g-12 ui-md-12 ui-lg-11 panelTablero" >
+                <p-fieldset legend="Total Clasificatoria">
+                    <div class="ui-g-12">
+                       <b>Categoría:</b> 
+                        <categoria-dropdown [categoriaId]="categoriaId" (categoriaSelected)="handleCategoria($event)" [eventoId]="eventoId"></categoria-dropdown>
+                      </div>
+                      <div class="ui-g-12">
+                        <b>Jornada:</b>
+                        <jornada-dropdown [eventoId]="eventoId" (jornadaSelected)="handleJornada($event)"></jornada-dropdown>
+                      </div>
+                    <div class="separador"></div>
+     
+                    <div class="ui-g-4">
+                        <button pButton type="button" class="ui-button-success" label="{{boton_scroll}}" (click)="scroll()" > </button>
+                   </div>
+
+                      <div class="ui-g-4">
+                       <button pButton type="button"  (click)="doOpenVisorGolf()" icon="ui-icon-tv" label="Visor"></button>
+                    </div>
+                    <!-- <div class="ui-g-3">
+                      Tiempo:
+                      <p-dropdown [options]="tiempo" [(ngModel)]="seleccion"></p-dropdown>
+                      </div> -->
+                      <!-- <div class="ui-g-3">
+                      Handy:
+                      <p-dropdown [options]="handy" [(ngModel)]="seleccionHandy" (onChange)="ocultarHandy()"></p-dropdown>
+                      </div> -->
+                      <!-- <div class="ui-g-3">
+                      <button type="button" class="ui-button-success" (click)="automatico2()">{{boton_act}}</button>
+                      <br><br><br><br>
+                      </div> -->
+                  </p-fieldset>
+      
+      
+      
+            </div>
+          </div>
+      
+        </div>
+      </div>

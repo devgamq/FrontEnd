@@ -1,0 +1,148 @@
+<h1>Golf</h1>
+<div class="ui-g">
+  <div class="ui-g-12">
+    <div class="card card-w-title">
+      <h1>Creación de Grupo</h1>
+      <div style="text-align:right">
+        <button pButton type="button" (click)="doReporte()" icon="ui-icon-print" label="Imprimir"></button>
+      </div>
+      <hr><br>
+      <div class="ui-g form-group">
+        <div class="ui-g-12 ui-md-6" style="text-align:right">
+          <label for="dropdown">Jornada:</label>
+        </div>
+        <div class="ui-g-12 ui-md-6">
+          <jornada-dropdown [eventoId]="eventoId" (jornadaSelected)="onChangeJornada($event)" (onInit)="onChangeJornada($event)"></jornada-dropdown>
+          <!--<p-dropdown id="drpJornadas" [options]="jornadas" [(ngModel)]="selectedJornada" (selectedJornada)="loadGridGrupos($event)"
+            [autoWidth]="false" (onChange)="loadGridGrupos()"></p-dropdown>-->
+        </div>
+        <div class="ui-g-12 ui-md-6" style="text-align:right">
+          <label for="dropdown">Categoría:</label>
+        </div>
+        <div class="ui-g-12 ui-md-6">
+          <categoria-dropdown [eventoId]="eventoId" [categoriaId]="categoriaId" (categoriaSelected)="onChangeCategoria($event)" [agregarTodos]="true"></categoria-dropdown>
+          <!--<p-dropdown id="drpCategorias" [options]="categorias" [(ngModel)]="selectedCategoria" [autoWidth]="false" (onChange)="loadGridGrupos()"></p-dropdown>-->
+        </div>
+        <br>
+      </div>
+
+      <br>
+      <div class="ui-widget-header" style="padding:4px 10px 4px;border-bottom: 0 none">
+        <button pButton type="button" icon="ui-icon-plus" class="green-btn" (click)="showDialog1(this.type.Insert)"></button>
+        <button pButton type="button" icon="ui-icon-edit" class="teal-btn" (click)="showDialog1(this.type.Update)" *ngIf="hideElement"></button>
+        <button pButton type="button" icon="ui-icon-delete" class="teal-btn" (click)="confirmDelete()" *ngIf="hideElement"></button>
+        <button pButton type="button" icon="ui-icon-work" class="teal-btn" (click)="showDialog2(this.type.Update)" *ngIf="hideElement"></button>
+        <div class="ui-toolbar-group-right">
+          <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+          <input #gb type="text" pInputText size="50" placeholder="Global Filter">
+        </div>
+      </div>
+      <p-dataTable [value]="grupos" selectionMode="single" (onRowSelect)="onRowSelect($event)" [responsive]="true" [globalFilter]="gb"
+        [rows]="20" [paginator]="true">
+        <p-column field="Grupo" header="Salida"></p-column>
+        <p-column field="1" header="Jugador 1"></p-column>
+        <p-column field="2" header="Jugador 2"></p-column>
+        <p-column field="3" header="Jugador 3"></p-column>
+        <p-column field="4" header="Jugador 4"></p-column>
+        <p-column field="Estado" header="Estado">
+            <ng-template let-col let-grupo="rowData" pTemplate="body">
+                <span [style.color]="grupo[col.field]===0?'Red':'Green'">{{grupo[col.field]===0?'Cerrado':'Abierto'}}</span>
+            </ng-template>
+        </p-column>
+        <p-column field="GrupoId" header="" [hidden]="true"></p-column>
+      </p-dataTable>
+    </div>
+  </div>
+</div>
+
+<p-dialog header="Nuevo Grupo" [(visible)]="display1" modal="modal" responsive="true">
+    
+      <div class="ui-g-12 ui-md-2" style="text-align:right">
+        <label for="dropdown">Categoría:</label>
+      </div>
+      <div class="ui-g-12 ui-md-10">
+        <categoria-dropdown [eventoId]="eventoId" (categoriaSelected)="onChangeGrupoCategoria($event)" [agregarTodos]="true"></categoria-dropdown>
+      </div>
+      <div class="ui-g-12 ui-md-2" style="text-align:right">
+        <label for="dropdown">Salida:</label>
+      </div>
+      <div class="ui-g-12 ui-md-10">
+        <p-calendar [(ngModel)]="HoraSalida" [timeOnly]="true" hourFormat="24" mask="99:99"></p-calendar>
+      </div>
+     
+          <i class="fa fa-search" style="margin:4px 4px 0 0 "></i>
+          <!-- <p-autoComplete id="acSimple" [minLength]="0" [size]="25"   [suggestions]="Sinjornada"  (completeMethod)="doSearchPersonas($event)" class=" ui-autocomplete-panel" placeholder="Buscar jugadores...">
+           
+          </p-autoComplete>  -->
+    
+          <p-autoComplete id="acSimple" [minLength]="1" [size]="30" [(ngModel)]="_Persona" [suggestions]="Sinjornada" (completeMethod)="doSearchPersonas($event)" class=" ui-autocomplete-panel" placeholder="Buscar jugadores..."
+          field="NombreCompleto" >
+          <ng-template let-_Persona pTemplate="item">
+            {{_Persona.Paterno}} {{_Persona.Materno}} {{_Persona.Nombres}}
+    
+          </ng-template>
+        </p-autoComplete>
+
+
+    
+      <br>
+    <form class="form-signin" [(formGroup)]="grupoform" >
+    
+                 
+                    <p-pickList 
+                      sourceHeader="Jugadores Libres"
+                      targetHeader="Grupos"
+                      [source]="Sinjornada"
+                      [showSourceControls]="true"
+                      [responsive]="true"
+                      [target]="ConJornada"
+                      (onMoveToTarget)="move($event)"
+                      [showTargetControls]="true" >
+                       <template let-jugadoreGrupo pTemplate="item">
+                        <div class="ui-helper-clearfix">
+                            <div style="font-size:14px;">{{jugadoreGrupo.Paterno}} ({{jugadoreGrupo.Handicap}})</div>
+                        </div>
+                      </template> 
+                    </p-pickList>  
+    
+    
+           <p-footer>
+            <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+              <button type="button" pButton icon="fa-close" (click)="display1=false" label="Cancelar"></button>
+              <button type="button" pButton icon="fa-check" (click)="doSaveGolfGrupo()" label="Guardar" [disabled]="ConJornada.length===0?true:false"></button>
+            </div>
+          </p-footer>
+    
+    </form>
+    
+      </p-dialog>
+
+      <p-dialog header="Cierre de Grupos" [(visible)]="display2" modal="modal" responsive="true" [width]="260"  class="disable-scroll" >
+          
+            <div class="ui-g-12 ui-md-2" style="text-align:right">
+              <label for="dropdown">Estado: </label>
+            </div>
+            <div class="ui-g-12 ui-md-10">
+                <p-dropdown [options]="estados" [(ngModel)]="estado" (onChange)="opcionTipo($event);" [autoWidth]="false" [style]="{'width':'65%','text-align':'center'}" ></p-dropdown>
+           
+            </div>
+            <div class="ui-g-12 ui-md-2" style="text-align:right">
+              <label for="dropdown">Grupo: </label>
+            </div>
+            <div class="ui-g-12 ui-md-10" style="text-align:right">
+              <p-calendar [(ngModel)]="HoraSalida" [timeOnly]="true" hourFormat="24" mask="99:99" disabled="true" ></p-calendar>
+            </div>
+            <div class="ui-g-12 ui-md-10">
+            <p></p>
+            </div>
+        
+            <p-footer>
+              <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+                <button type="button" pButton icon="fa-close" (click)="display2=false" label="Cancelar"></button>
+                <button type="button" pButton icon="fa-check" (click)="doSaveGolfEstado()" label="Guardar" ></button>
+              </div>
+            </p-footer>
+        </p-dialog>
+
+<p-growl [value]="msgs"></p-growl>
+<p-confirmDialog></p-confirmDialog>

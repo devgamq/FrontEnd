@@ -1,0 +1,35 @@
+<div class="card card-w-title txta-alto">
+  <div class="ui-widget-header" class="contenedor Krono">
+    <div class="ui-g">
+      <div class="ui-g-2 titulo">Ingrese:</div>
+      <div class="ui-g-2">
+        <input type="text" pInputText size="5" [(ngModel)]="punto" class="input">
+      </div>
+      <div class="ui-g-4">
+        <p-toggleButton onLabel="Sin_confirmar" offLabel="Confirmado" offIcon="fa-check" onIcon="fa-close" [(ngModel)]="confirmado"></p-toggleButton>
+      </div>
+      <div class="ui-g-4">
+        <button pButton type="button" icon="fa-arrow-down" class="ui-button-success" (click)="savePunto()"></button>
+        <button pButton type="button" icon="ui-icon-edit" (click)="modificarRegistro()" class="ui-button-info" *ngIf="hide"></button>
+        <button pButton type="button" icon="ui-icon-clear" (click)="eliminarRegistro()" class="ui-button-danger" *ngIf="hide"></button>
+
+      </div>
+      
+    </div>
+  </div>
+  <div class="ui-g panel_punto_ta">
+    <div class="ui-g-8">
+      <p-dataTable [value]="puntaje" [responsive]="true" [rows]="5" [paginator]="true" selectionMode="single" (onRowSelect)="onRowSelect($event)">
+        <p-column header="N°" field="Nro"></p-column>
+        <p-column header="Puntos" field="PuntajeMostrar"></p-column>
+        <p-column header="Colores" field="Color">
+          <ng-template let-fila="rowData" pTemplate="body">
+            <div class="cuadrado" [ngStyle]="{ background: fila.Color }" (click)="onRowSelect(fila)"></div>
+          </ng-template>
+        </p-column>
+      </p-dataTable>
+    </div>
+    <div class="ui-g-4 total_font">{{total}}</div>
+  </div>
+</div>
+<p-confirmDialog header="Confirmación" acceptLabel="Si" icon="fa fa-question-circle" width="425"></p-confirmDialog>

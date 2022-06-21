@@ -1,0 +1,14 @@
+<div class="ui-g">
+  <h1>Control de Pantallas</h1>
+  <div class="card card-w-title ui-fluid ui-g-12">
+    <p-fieldset legend="Grupos">
+      <p-dropdown [options]="grupos" [(ngModel)]="grupo" placeholder="Selecccione un Grupo" [autoWidth]="false"></p-dropdown>
+      <button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left" (click)="clickButton()" *ngIf="false">
+        Socket
+      </button>
+    </p-fieldset>
+    <p-fieldset legend="Participantes">
+      <p-dropdown [options]="clientes" [(ngModel)]="cliente" placeholder="Selecccione un Participante" [autoWidth]="false"></p-dropdown>
+    </p-fieldset>
+  </div>
+</div>

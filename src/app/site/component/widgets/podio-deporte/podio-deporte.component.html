@@ -1,0 +1,114 @@
+<div class="ui-g centerP">
+    <div class="titulopodioP ui-g-5" [ngStyle]="style_titulo">{{deporte}} - {{RamaDeporte}}</div>
+    <div class="titulopodioP ui-g-7">{{Prueba}}</div>
+</div>
+
+<div class=" panel {{clase_panel}}" [ngStyle]="style" *ngIf="show && cont_medallas<4">
+    <div class=" fondo" [ngStyle]="style_fondo">
+        <div class="ui-g podio"> 
+            <div class="ui-g-4" *ngFor="let parametro of re1s let i = index">
+                <div class="ui-g-12 "><img class="imagen colorP{{parametro.ParametroMedallaId}}" src="{{parametro.FotoUrl}}"></div>
+                <div class="ui-g-12 columna"><img class="medallas" src="assets/logos/med{{parametro.Medalla}}.png"></div>
+                <div class="ui-g-12 columna bandera"><img class="medallas" src="assets/banderas/{{parametro.DelegacionId}}.png"></div>
+                <div class="ui-g-12 columna presentacion">{{parametro.Equipo}}</div>
+                <div class="ui-g-12 columna presentacion"> {{parametro.Representacion}}</div>
+                <div class="ui-g-12 columna presentacion" *ngIf="conjunto"> {{parametro.puntos}}</div>   
+                <div class="ui-g-12 columna record">{{parametro.Record}}</div>              
+            </div>
+
+        </div><br>
+
+
+    </div>
+</div>
+
+<div class=" panelP {{clase_panel}}" [ngStyle]="style" *ngIf="show && cont_medallas>3">
+    <div class=" fondoP" >
+ 
+                  <div class="ui-g-12 fondo_mensaje_sqP filaP" *ngFor="let parametro of re1s let i = index" >
+      
+                    <table class="anchoP">
+                      <tr  >
+                        <td >
+                          <div class="ui-g-1 presentacionP">
+                             <!-- {{parametro.posicion}}.  -->
+                          </div>
+                        </td>
+                        <td >
+                          <div class="ui-g-2">
+                            <img class="medallasP" src="assets/banderas/{{parametro.DelegacionId}}.png" />
+                          </div>
+                        </td>
+                        <td>
+                          <div class="ui-g-2" >
+                            <img class="imagenP colorP{{parametro.ParametroMedallaId}}" src="{{parametro.FotoUrl}}" onerror="this.style='display:none'"/>
+                          </div>
+                        </td>
+                      
+                        <td >
+                          <div class="ui-g-12 presentacionP" style="width:45vw">
+                            {{parametro.Equipo}} 
+                            <br>
+
+                           <span class="grandeP"> {{parametro.puntos}}</span>
+                          </div>
+                        </td>
+                        <td >
+                            <div class="ui-g-2 centerP" style="width:12vw">
+                                <img class="medallasP" src="assets/logos/med{{parametro.Medalla}}.png">
+                            </div>
+                          </td>
+                        <td>
+                          <div class="ui-g-12 text-rigth record" style="width:5vw">
+                            {{parametro.Record}}
+                          </div>
+                        </td> 
+                      </tr>
+                    </table>
+               
+                  </div>
+             
+    </div>
+</div>
+<div class=" panel {{clase_panel}}" *ngIf="!show">
+                
+    <div #panel  class="panel_record {{clase_panel}}" [ngStyle]="style">
+  
+      <table class="tabla">
+        <tr *ngFor="let item of re2s" >
+          <td class="marcar">
+            <div class="ui-g-1">
+              {{item.Posicion}}.
+            </div>
+          </td>
+          <td class="marcar">
+            <div class="ui-g-2">
+              <img class="imagen_marca" src="assets/banderas/{{item.DelegacionId}}.png" />
+            </div>
+          </td>
+          <td class="marcar">
+            <div class="ui-g-2">
+              <img class="imagen_marca" src="{{item.FotoUrl}}" onerror="this.style='display:none'"/>
+            </div>
+          </td>
+          <td class="marcar">
+            <div class="ui-g-12">
+              {{item.Equipo}} 
+              <p class="sur">{{item.EsRecord === false?'':'RECORD SURAMERICANO'}}</p>
+            </div>
+          </td>
+          
+          <td class="marcar ">
+            <div class="ui-g-12 anchoss" >
+              {{item.Marca > 0? item.Marca:item.Tiempo}}
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </div>
+          </td>
+          
+        </tr>
+      </table>
+    </div>
+  </div>
+
+                
+

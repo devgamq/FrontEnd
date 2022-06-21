@@ -1,0 +1,48 @@
+﻿<h1>Golf</h1>
+<div class="card card-w-title">
+<h1>Tarjeta</h1>
+<button pButton type="button" class="orange-btn back-to-top" label="Ver Tarjeta" (click)="setPar()" *ngIf="vButton"></button>
+
+    
+     <div style="text-align:right">
+        <button pButton type="button" (click)="doReporte()" icon="ui-icon-print" label="Imprimir" style="max-width:110px"></button>
+      </div>
+      <hr><br> 
+    <div class="ui-g form-group">
+        <div class="ui-g-3 ui-md-3" style="text-align:right">
+            <label>Jornada</label>
+        </div>
+        <div class="ui-g-9 ui-md-9">
+            <jornada-dropdown [eventoId]="eventoId" (jornadaSelected)="onChangeJornada($event)" (onInit)="onChangeJornada($event)"></jornada-dropdown>
+        </div>
+        <div class="ui-g-3 ui-md-3" style="text-align:right">
+            <label>Categoría</label>
+        </div>
+        <div class="ui-g-9 ui-md-9">
+            <categoria-dropdown [eventoId]="eventoId" [agregarTodos]="true" (categoriaSelected)="onChangeCategoria($event)"></categoria-dropdown>
+        </div>
+        <div class="ui-g-12 ui-md-12">
+            <div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none;text-align:right">
+                <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                <input #gb type="text" pInputText size="50" placeholder="Global Filter" class="buscador">
+            </div>
+            <p-dataTable [value]="grupos" [responsive]="true" selectionMode="single" (onRowDblclick)="onRowDblclickGrupo($event)" [globalFilter]="gb" [(selection)]="jugadas" (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)">
+                <p-column field="Grupo" header="Grupo"></p-column>
+                <p-column field="1" header="Jugador 1"></p-column>
+                <p-column field="2" header="Jugador 2"></p-column>
+                <p-column field="3" header="Jugador 3"></p-column>
+                <p-column field="4" header="Jugador 4"></p-column>
+                <p-column field="Estado" header="Estado">
+                    <ng-template let-col let-grupo="rowData" pTemplate="body">
+                        <span [style.color]="grupo[col.field]===0?'Red':'Green'">{{grupo[col.field]===0?'Cerrado':'En Juego'}}</span>
+                    </ng-template>
+                </p-column>
+            </p-dataTable>
+        </div>
+    </div>
+
+
+</div>
+
+
+

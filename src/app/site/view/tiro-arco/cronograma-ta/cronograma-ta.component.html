@@ -1,0 +1,48 @@
+<div class="ui-g">
+  <div class="ui-g-8"><h1>Cronograma {{nombreDeporte}} </h1></div>
+  
+</div>
+<div class="card card-w-title">
+<div class="ui-g">
+  
+  <div class="ui-g-3 ui-md-5 ui-lg-5" style="text-align:right">Deporte: </div>
+  <div class="ui-g-6 ui-md-6 ui-lg-6">
+    <app-deportes [eventoId]="eventoId" (deporte)="handleDeporte($event)" [disable]="disableComboDeportes"
+    [selectedValue]="deporteId" ></app-deportes>
+  </div>
+</div>  
+<div class="ui-g">
+  <div class="ui-g-3 ui-md-5 ui-lg-5" style="text-align:right">Fecha: </div>
+  <div class="ui-g-6 ui-md-6 ui-lg-6">
+    <p-calendar [(ngModel)]="fecha" [locale]="language" dateFormat="dd/mm/yy" [minDate]="minDate" [maxDate]="maxDate" 
+    [readonlyInput]="true" [locale]="es" (onSelect)="hanldeCalendario()" [showIcon]="true"></p-calendar>
+  </div>
+  
+</div>  
+<div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none;text-align:right">
+  <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+  <input #gb type="text" pInputText size="50" >
+</div>
+<p-dataTable [value]="vista" [responsive]="true" [globalFilter]="gb" [rows]="20" [paginator]="true"
+selectionMode="single" (onRowSelect)="mostrarBotonResumen($event)" (onRowDblclick)="handleRowDblclick($event)">
+  <p-column header="Hora" field="Hora" ></p-column>
+  <p-column header="Género" field="Genero">
+      <ng-template let-col let-car="rowData" pTemplate="body">
+      <div>{{car.Genero}}</div>
+      <div class="azul">{{car.Prueba}}</div>
+  </ng-template>
+  </p-column>
+  <p-column header="Equipo A" field="EquipoA"></p-column>
+  <p-column header="Equipo B" field="EquipoB"></p-column>
+  <p-column header="Resultado" field="Puntuacion"></p-column>
+  <p-column header="Escenario" field="Escenario"></p-column>
+  <p-column header="Estado" field="Estado">
+      <ng-template let-col let-car="rowData" pTemplate="body">
+          <span [style.color]="getColor(car[col.field])">{{car[col.field]}}</span>
+      </ng-template>
+  </p-column>
+
+  
+</p-dataTable>
+<p-confirmDialog header="Confirmación" acceptLabel="Si" icon="fa fa-question-circle" width="425"></p-confirmDialog>
+</div>

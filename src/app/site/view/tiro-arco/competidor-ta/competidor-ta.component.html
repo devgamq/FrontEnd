@@ -1,0 +1,12 @@
+<div class="card card-w-title txta-alto">
+  <div class="ui-g panel_competidor_ta">
+    <p-dataTable [value]="lista" [responsive]="true" [rows]="20" [paginator]="false" selectionMode="single" (onRowSelect)="onRowSelect($event)">
+        <p-column header="Competidores" field="Nombre" styleClass="columna_ta"></p-column>
+        <p-column header="Colores" field="Color">
+          <ng-template let-fila="rowData" pTemplate="item">
+            <div class="cuadrado" [ngStyle]="{ background: fila.Color }" ></div>
+         </ng-template>
+        </p-column>
+    </p-dataTable>
+  </div>
+</div>

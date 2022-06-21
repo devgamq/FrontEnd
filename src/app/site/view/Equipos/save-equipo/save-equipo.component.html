@@ -1,0 +1,77 @@
+<h1>Registro de Equipos</h1>
+<p-messages [(value)]="msgs"></p-messages>
+<div class="card card-w-title">
+
+    <div class="ui-g">
+       
+    </div>
+    <div class="ui-g">
+        <div class="ui-g-6" style="text-align:right">
+            <b>Deporte:</b>
+        </div>
+        <div class="ui-g-6">
+            <p-dropdown [options]="deportes" [(ngModel)]="deporte" (onChange)="opcionDeporte();" [style]="{'width':'200px'}"  placeholder ="Seleccione Deporte" filter="filter"></p-dropdown>
+        </div>
+    </div>
+    <div class="ui-g">
+        <div class="ui-g-6" style="text-align:right">
+            <b> Tipo Deporte:</b>
+        </div>
+        <div class="ui-g-6">
+            <p-dropdown [options]="tiposDeportes" [(ngModel)]="EsIndivudual" (onChange)="opcionTipoPrueba($event)"
+            placeholder="Seleccione un tipo"  [disabled]="tipoDeporteopcion" [style]="{'width':'200px'}"></p-dropdown>
+        </div>
+
+    </div>
+    <div class="ui-g">
+
+        <div class="ui-g-6" style="text-align:right">
+            <b>Prueba:</b>
+        </div>
+        <div class="ui-g-6">
+            <p-dropdown [options]="pruebas" [(ngModel)]="prueba" [style]="{'width':'200px'}" [disabled]="pruebaOpcion" (onChange)="opcionPrueba();" filter="filter"
+            placeholder="Seleccione una Prueba"></p-dropdown>
+        </div>
+    </div>
+    <div class="ui-g">
+        <div class="ui-g-6" style="text-align:right">
+            <b>Categoría:</b>
+        </div>
+        <div class="ui-g-2">
+            <p-dropdown [options]="categorias" [(ngModel)]="categoria" (onChange)="opcionTipo();" [disabled]="generoOpcion"
+             [style]="{'width':'200px'}" placeholder="Seleccione Categoría"></p-dropdown>
+        </div>
+
+    </div>
+
+    <div class="ui-widget-header" class="contenedor">
+        
+                    <!-- <b>Delegación:</b>
+                    <p-dropdown [options]="delegaciones" [(ngModel)]="delegacion"  [style]="{'width':'250px'}" [disabled]="disabledelegacion" placeholder="Seleccione una delegación" filter="filter"  ></p-dropdown> -->
+               
+        Equipo:
+        <input type="text" pInputText size="20" [(ngModel)]="equipodescripcion" class="input" [disabled]="disableequipo">
+
+        Nombre Corto:
+        <input type="text" pInputText size="20" [(ngModel)]="nombrecorto" class="input" [disabled]="disableequipo">
+
+        <button pButton type="submit" icon="ui-icon-save" class="ui-button-success" (click)="save(false)" [disabled]="disablesave"></button>
+        <button pButton type="button" icon="ui-icon-edit" (click)="edit()" class="ui-button-info" *ngIf="hideBorrar" ></button>
+        <button pButton type="button" icon="ui-icon-clear" (click)="eliminarRegistro()" class="ui-button-danger" *ngIf="hideBorrar"></button>
+    </div>
+    <p-dataTable [value]="tabla" [responsive]="true" [rows]="20" [paginator]="true" selectionMode="single" (onRowSelect)="onRowSelect($event)"
+        (onRowDblclick)="handleRowDblclickEquipo($event)">
+
+        <p-column header="Id" field="EquipoId" [hidden]="true"></p-column>
+        <p-column header="Equipo" field="Equipo" [sortable]="true"></p-column>
+        <p-column header="Delegacion" field="Nombre" styleClass="columna_med" [sortable]="true"></p-column>
+        <p-column header="Deporte" field="Deporte" styleClass="columna_med"></p-column>
+        <p-column header="DeporteId" field="DeporteId" [hidden]="true"></p-column>
+        <p-column header="Prueba - Rama" field="PruebaRama"></p-column>
+        <p-column header="Nro. Deportistas" field="NroDeportistas" styleClass="columna_med" [sortable]="true"></p-column>
+
+
+    </p-dataTable>
+    <p-confirmDialog header="Confirmación" acceptLabel="Si" icon="fa fa-question-circle" width="425"></p-confirmDialog>
+
+</div>

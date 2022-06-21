@@ -1,0 +1,39 @@
+.black{
+    background-color: silver;
+    Color:  black;
+    align-content: center;
+    padding : 10px;
+}
+.tktstyle{
+    background-color: silver;
+    Color:  black;
+    font: arial;
+    font-size:15px;
+    font-style: bold;
+    
+}
+div {
+    border-color: rgb(8, 8, 8);
+    border-width: 0px;
+    border-style: solid ;
+    padding : 0px;
+    
+  }
+.grande{
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+    font-size: 9vw;
+    color: dimgray;
+    padding: 20px;
+    
+}
+.grande2{
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+    font-size: 18vw;
+    color: dimgray;
+    padding: 28px;
+    
+}

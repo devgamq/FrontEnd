@@ -1,0 +1,128 @@
+<div class="ui-g">
+    <div class="ui-g-6">
+        <h1>Registro Datos deporte: {{NombreDeporte}}</h1>
+        <h2>Prueba: {{NombrePrueba}} </h2>
+        <h2>Rama: {{NombreRama}}</h2>
+    </div>
+    <div class="ui-g-6" style="text-align:right">
+        <button pButton type="button" class="ui-button-success" (click)="atras()" icon="ui-icon-arrow-back" label="Atras"></button>
+        <button pButton type="button" class="ui-button-warning" (click)="HabilitarEstado()" icon="ui-icon-edit" label="Editar"></button>
+        <button pButton type="button" class="ui-button-info" (click)="UpdateEstado()" icon="ui-icon-save" label="Guardar"></button>
+    </div>
+</div>
+
+<div class="card card-w-title">
+    <div class="ui-g">
+        <div class="ui-g-6" style="text-align:right">
+            Estado:
+        </div>
+        <div class="ui-g-6">
+            <p-dropdown [options]="estados" [(ngModel)]="estadoId" [disabled]="isDisabled" [autoWidth]="false" [style]="{'width':'200px'}"
+                filter="filter"></p-dropdown>
+
+
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <form class="form-signin" [(formGroup)]="DatosGanadoresForm" (ngSubmit)="guardarGanadoresConjunto()">
+        <div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none;text-align:center;background-color:#424242;">
+
+            Competidor:
+            <p-autoComplete placeholder="Buscar Competidor..." delay="3" [(ngModel)]="_Persona" size="35" [inputStyle]="{'color': 'white'}"
+                formControlName="SearchPersona" [suggestions]="Personas" (completeMethod)="doSearchPersonas($event)" field="Nombre"
+                (onSelect)="doSelectSearchPersona($event)">
+                <ng-template let-_Persona pTemplate="item">
+                    {{_Persona.Nombre}}
+                </ng-template>
+            </p-autoComplete>
+
+
+            Sembrado:
+
+            <input type="text" pInputText size="5" class="inputInsertar" formControlName="Sembrado" [style]="{'color': 'white'}"> Tiempo:
+            <p-inputMask [autoClear]="false" pInputText size="10" class="inputInsertar" [style]="{'color': 'white'}" formControlName="Tiempo"
+                mask="99:99:99.999"></p-inputMask>
+            Marca:
+            <input type="text" pInputText size="10" class="inputInsertar" formControlName="Marca" [style]="{'color': 'white'}">
+            <br> Premio:
+            <p-checkbox class="inputInsertar" formControlName="EsGanador" [(ngModel)]="value" binary="true"></p-checkbox>
+            Puesto:
+            <input type="text" pInputText size="5" class="inputInsertar" formControlName="Posicion" [style]="{'color': 'white'}"> Medalla:
+            <p-dropdown [options]="medallas" formControlName="ParametroMedallaId" [(ngModel)]="medallaValor" [style]="{'width':'220px'}"></p-dropdown>
+
+
+            <button pButton type="submit" icon="fa-arrow-down" class="ui-button-success"></button>
+            <button pButton type="button" icon="ui-icon-delete" (click)="confirmDelete()" class="ui-button-danger" *ngIf="hideBorrar"></button>
+
+        </div>
+    </form>
+
+
+    <p-dataTable [value]="ganadores" [editable]="true" [sortOrder]="1" (onRowSelect)="cambioValor($event)" (onRowUnselect)="cambioValor($event)"
+        (onEditComplete)="cambioValor($event)">
+
+        <p-column header="Nombre" field="Nombre"></p-column>
+
+        <p-column header="Delegacion" field="Delegacion"></p-column>
+
+
+
+        <p-column field="Sembrado" header="Sembrado" [editable]="is_inscripcion" [style]="{'width':'5%'}">
+            <ng-template let-col let-dat="rowData" pTemplate="editor">
+                <input type="text" pInputText [(ngModel)]="dat[col.field]" (change)="guardarIndivisual(dat,0)" />
+            </ng-template>
+        </p-column>
+
+        <p-column field="Tiempo" header="Tiempo" [editable]="is_inscripcion" [style]="{'width':'10%'}">
+            <ng-template let-col let-dat="rowData" pTemplate="editor">
+                <p-inputMask type="text" pInputText [(ngModel)]="dat[col.field]" mask="99:99:99.999" (change)="guardarIndivisual(dat,0)"></p-inputMask>
+            </ng-template>
+        </p-column>
+
+        <p-column field="Marca" header="Marca" [editable]="is_inscripcion" [style]="{'width':'5%'}">
+            <ng-template let-col let-dat="rowData" pTemplate="editor">
+                <input type="text" pInputText [(ngModel)]="dat[col.field]" (change)="guardarIndivisual(dat,0)" />
+            </ng-template>
+        </p-column>
+        <p-column field="Posicion" header="Puesto" [editable]="is_inscripcion" [style]="{'width':'5%'}">
+            <ng-template let-col let-dat="rowData" pTemplate="editor">
+                <input type="text" pInputText [(ngModel)]="dat[col.field]" (change)="guardarIndivisual(dat,0)" />
+            </ng-template>
+        </p-column>
+
+        <p-column field="Medalla" header="Medalla" [editable]="true" *ngIf="is_inscripcion" [style]="{'width':'10%'}">
+            <ng-template let-col let-dat="rowData" pTemplate="editor">
+                <p-dropdown [(ngModel)]="dat[col.field]" [options]="medallas" (onChange)="guardarIndivisual(dat,0)" [autoWidth]="false" [style]="{'width':'100%'}"
+                    required="true" appendTo="body"></p-dropdown>
+            </ng-template>
+        </p-column>
+        <p-column field="EsGanador" header="EsGanador" [style]="{'width':'5%'}">
+            <ng-template let-col let-dat="rowData" pTemplate="body" *ngIf="is_inscripcion">
+                <p-checkbox name="group8" value="{{dat[col.field]}}" label="" [(ngModel)]="ganador" (onChange)="cambioValor(dat,1)" inputId="{{dat[col.field]}}"></p-checkbox>
+            </ng-template>
+        </p-column>
+
+        <p-column field="EsRecord" header="EsRecord" [style]="{'width':'5%'}">
+            <ng-template let-col let-dat="rowData" pTemplate="body" *ngIf="is_inscripcion">
+                <p-checkbox name="group9" value="{{dat[col.field]}}" label="" [(ngModel)]="record" (onChange)="cambioValor(dat,2)" inputId="{{dat[col.field]}}"></p-checkbox>
+            </ng-template>
+        </p-column>
+
+        <p-column header="" field="CompetidorId">
+
+            <ng-template let-col let-dat="rowData" pTemplate="body" *ngIf="is_inscripcion">
+                <button pButton type="button" icon="ui-icon-delete" (click)="confirmDelete(dat)" value="{{dat[col.field]}}" class="ui-button-danger"></button>
+            </ng-template>
+
+        </p-column>
+
+
+    </p-dataTable>
+
+
+</div>
+<p-confirmDialog width="425"></p-confirmDialog>
+<p-growl [value]="msgs" class="visible-xs"></p-growl>

@@ -1,0 +1,14 @@
+<div class="ui-g-12 ui-md-6 "> 
+<div (click)="clickSport(card.id)">
+  <div class="ui-g card colorbox " [ngClass]="{'colorbox-4': cambio!==card.id, 'colorbox-1' : cambio===card.id}">
+    
+    <div class="ui-g-4">
+      <i class="material-icons">check_circle</i>
+    </div>
+    <div class="ui-g-8">
+      <div class="colorbox-count">{{card.descripcion}}</div>
+    </div>
+  </div>
+</div>
+</div>
+

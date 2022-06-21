@@ -1,0 +1,51 @@
+<div class ="ui-g">
+  <h1>Acreditaciones</h1>
+  <div class="ui-g-12">
+    <div class = "card card-w-title">
+      <div class="title ui-g-12">
+        <div class="ui-g-12">
+          <h2>Inscritos</h2>
+        </div>
+        <div class="ui-g-12 ui-md-5" style="text-align:right">
+          <label for="dropdown"> Delegaciones:</label>
+        </div>
+        <div class="ui-g-12 ui-md-5">
+          <delegacion-dropdown [eventoId]="eventoId" [todos]="true" (delegacionSelected)="onChangeDelegacion($event)"></delegacion-dropdown>
+        </div>
+        <div class="ui-g-12 ui-md-2" style="text-align:right">
+          <button pButton type="button" (click)="doGetReporte()" label="Imprimir" icon="ui-icon-print" ></button>
+        </div>
+      </div>
+      
+      <div class="tol">
+        <i class ="fa fa-file-o" style="margin:4px 4px 0 0" ></i>
+        <div class="ui-toolbar-group-right" >
+          <i class ="fa fa-search" style="margin:4px 4px 0 0" ></i>
+          <input #gb type="text" pInputText size="50" placeholder="Buscar" >
+        </div>
+      </div>
+      <p-dataTable [value]="inscripcion" [responsive]="true" [globalFilter]="gb" [rows]="15" [paginator]="true" (onRowDblclick)="rowDoubleClick($event)" selectionMode="single" [(selection)]="personaId">
+        <p-headerColumnGroup>
+          <p-row>
+          <p-column header ="AP. PATERNO"></p-column>
+          <p-column header ="AP. MATERNO"></p-column>
+          <p-column header ="NOMBRES"></p-column>
+          <p-column header ="DOC. IDENTIDAD"></p-column>
+         <p-column header ="FECHA DE NAC."></p-column>
+          <p-column header ="DELEGACION"></p-column>
+          <p-column header ="ROL"></p-column>
+          </p-row>
+        </p-headerColumnGroup>
+        <p-column field ="Paterno"  [hidden]="false"></p-column>
+        <p-column field ="Materno"  [hidden]="false"></p-column>
+        <p-column field ="Nombres"  [hidden]="false"></p-column>
+        <p-column field ="DocIdentidad"  [hidden]="false"></p-column>
+        <p-column field ="FechaNacimiento"  [hidden]="false"  ></p-column>
+        <p-column field ="Nombre" [hidden]="false"></p-column>
+        <p-column field ="Rol"  [hidden]="false"></p-column>
+      </p-dataTable>
+    </div>
+  </div>
+</div>
+
+

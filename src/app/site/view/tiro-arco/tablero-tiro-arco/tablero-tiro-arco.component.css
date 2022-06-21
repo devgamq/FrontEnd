@@ -1,0 +1,191 @@
+.panel{
+    min-height: 100%;
+    background-color: black;
+    background: url("../../../../../assets/05/tablero/52/fondo.jpg");
+    background-size: 100%,auto;
+    background-repeat: no-repeat;
+}
+.tiro_arco .set
+{
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 5vw;
+    position: relative;
+    bottom: 13vw;
+    text-shadow: 5px 2px #000;
+}
+.tiro_arco .set_num
+{
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 8vw;
+    position: relative;
+    top: 3vw;
+}
+.tiro_arco .caja_negra{
+    background-color:rgb(0, 0, 0,0.6);
+    position: relative;
+    left:4vw;
+    width: 8vw;
+    height: 8vw;
+    text-align: center;
+    bottom: 12vw;
+}
+.center{
+    text-align: center;
+
+}
+.totales_tablero thead{
+    display: none;
+}
+.totales_tablero  
+{
+    position: relative;
+    font-size: 8vw;
+    text-transform: uppercase;
+    padding: 0;
+    bottom: 13vw;
+}
+.totales_tablero tbody td:nth-last-child(1) 
+{
+background-color: rgb(0,0,0,0.6) !important;
+
+}
+.totales_tablero tbody td:nth-last-child(2) 
+{
+background-color: rgb(0,0,0,0.6) !important;
+
+}
+.left{
+    text-align: left;
+}
+.totales_tablero tbody tr:nth-child(1) .pg
+{
+
+display: inline !important;
+}
+.bandera_marcador{
+    width: 8vw;
+    border: 2px solid #555252;
+    position: relative;
+    bottom: 1vw;
+    display:block;
+    margin:auto;
+  }
+  .mini_bandera{
+    width: 8vw;
+    position: relative;
+    bottom: 2.2vw;
+  }
+.pg{
+    display: none;
+    position: relative;
+    bottom: 5vw;
+    font-size: 4vw;
+    text-align: center;
+}
+.totales_tablero table{
+    border:none !important;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+}
+.totales_tablero td{
+    padding: 0;
+    width: 12vw;
+    border:none !important;
+    border-left: 2px solid #bdbdbd !important;
+}
+.totales_tablero th{
+    border:none;
+}
+.totales_tablero tr{
+    padding: 0;
+    border:none !important;
+}
+.totales_tablero .ui-widget-content
+{
+    background-color: rgb(0,0,0,0.3) !important;
+    color: white;
+    font-weight: bold;
+    text-shadow: black 0.1em 0.1em 0.2em;
+}
+.totales_tablero .ui-datatable .ui-datatable-data tr td {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+.delegacion{
+    width: 20%;
+    font-size: 2vw;
+}
+.totales_tablero .ui-widget-content {
+    border:none !important;
+}
+.panelB{
+    padding: 0;
+    left: 8vw;
+    position: relative;
+}
+.panelB .div{
+    padding: 0;
+}
+.ancho3{
+    width: 26.3333% !important;
+}
+.ancho2{
+    width: 30% !important;
+}
+.ancho1{
+    text-align: center;
+}
+.ancho1 img{
+    width: 12vw;
+    height: 15vw;
+}
+.pais_ta{
+    font-size: 4vw;
+    color: white;
+    font-family: 'oswald';
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 5px 2px #000;
+
+}
+.foto_ta{
+    width: 10vw;
+    height: 13vw;
+    position: relative;
+   
+    border-radius: 15px 15px 15px 15px;
+    -moz-border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+    border: 0px solid #000000;
+}
+/* vietnamese */
+@font-face {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Oswald Regular'), local('Oswald-Regular'), url(../../../component/widgets/tablero-panel/font/peRd8sj511qE2lHtK-QfcPesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+    unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+  }
+  /* latin-ext */
+  @font-face {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Oswald Regular'), local('Oswald-Regular'), url(../../../component/widgets/tablero-panel/font/yg0glPPxXUISnKUejCX4qfesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+  }
+  /* latin */
+  @font-face {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Oswald Regular'), local('Oswald-Regular'), url(../../../component/widgets/tablero-panel/font/pEobIV_lL25TKBpqVI_a2w.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+  }

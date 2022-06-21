@@ -1,0 +1,137 @@
+.body1 {
+  background-image: url("/assets/07/fondos/bgh.jpg") !important;
+}
+.logo {
+  width: auto;
+  height: 17vh;
+}
+.headerCiclismo {
+  height: 18vh;
+  /* background: url("../../../../../assets/07/fondos/fondoHeader.png") top; */
+  /* background: url(/uploads/item/e4/images/fondo.png) top; */
+  background-size: cover;
+  min-height: 18vh;
+}
+.backLogo {
+  background: url("/assets/07/fondos/fondo-logo.png");
+  background-size: cover;
+  min-height: 18vh;
+  text-align: center;
+}
+.maps {
+  width: 100%;
+  height: 80vh;
+}
+.padre {
+  display: table;
+  height: 16vh;
+}
+.hijo {
+  display: table-cell;
+  vertical-align: middle;
+}
+.bandera {
+  width: 80%;
+  height: 7vh;
+}
+.imagen {
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border: 1px solid grey;
+  width: 9vh;
+  height: 9vh;
+}
+.nombres {
+  font-size: 4vh;
+  font-family: "Oswald", sans-serif;
+  background-size: 100% auto;
+  color: white;
+  border: none;
+  border-spacing: 0px !important;
+  text-shadow: black 0.1em 0.1em 0.2em;
+}
+.delegaciones {
+  font-size: 3vh;
+  font-family: "Oswald", sans-serif;
+  line-height: 3.2vh;
+  background-size: 100% auto;
+  color: white;
+  border: none;
+  border-spacing: 0px !important;
+  text-shadow: black 0.1em 0.1em 0.2em;
+}
+.titulos {
+  font-size: 4.8vh;
+  font-family: "Oswald", sans-serif;
+  background-size: 100% auto;
+  color: white;
+  border: none;
+  border-spacing: 0px !important;
+  text-shadow: black 0.1em 0.1em 0.2em;
+  text-align: center;
+}
+
+.backcolor1 {
+  background-color: #000;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+/* SECCION VERTICAL*/
+@media (max-width: 1080px) {
+  .body1 {
+    background-image: url("/assets/07/fondos/bg1.png") !important;
+    height: 99vh;
+  }
+  .logo {
+    height: 8vh;
+    width: auto;    
+  }
+  .headerCiclismo {
+    height: 10vh;
+    /* background: url("../../../../../assets/07/fondos/fondoHeader.png") top; */
+    /* background: url(/uploads/item/e4/images/fondo.png) top; */
+    background-size: cover;
+    min-height: 10vh;
+  }
+  .backLogo {
+    background: url("/assets/07/fondos/fondo-logo.png");
+    background-size: contain;
+    min-height: 10vh;
+    text-align: center;
+  }
+  .nombres {
+    font-size: 2vh;
+    font-family: "Oswald", sans-serif;
+    background-size: 100% auto;
+    color: white;
+    border: none;
+    border-spacing: 0px !important;
+    text-shadow: black 0.1em 0.1em 0.2em;
+  }
+  .delegaciones {
+    font-size: 1.5vh;
+    font-family: "Oswald", sans-serif;
+    /* line-height: 3.2vh; */
+    background-size: 100% auto;
+    color: white;
+    border: none;
+    border-spacing: 0px !important;
+    text-shadow: black 0.1em 0.1em 0.2em;
+  }
+  .titulos {
+    font-size: 2.8vh;
+    font-family: "Oswald", sans-serif;
+    background-size: 100% auto;
+    color: white;
+    border: none;
+    border-spacing: 0px !important;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    text-align: center;
+  }
+  .maps {
+    width: 100%;
+    height: 40vh;
+  }
+}

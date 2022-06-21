@@ -1,0 +1,102 @@
+<div class="jornadaB {{class_jornada}}" [ngStyle]="style">
+  <div class="fondoB">
+    <div class="ui-g-12 columnaB tituloB_deporteB">
+      {{deporte}}
+    </div>
+    <div *ngFor="let itemMaster of masterData">
+      <div class="ui-g-12 columnaB subtituloB">
+        {{itemMaster[0].Fase}}
+      </div>
+      <div class="ui-g-12 columnaB fechaB">
+        {{itemMaster[0].Fecha | date: 'dd-MMM-yyyy'}}
+      </div>
+
+      <div *ngFor="let item of itemMaster" style="line-height: 1;">
+        <div class="ui-g-12 filaB">
+          <div class="ui-g-12 fondo_mensaje_sqB">
+            <div class="ui-g-4">
+
+              <table>
+                <tr>
+                  <th rowspan="2">
+                    <img class="imagenRB" src="{{item.DelegacionIdA}}" />
+                  </th>
+                  <td>
+                    <span style="font-size: 1vh; font-weight:bold; color:rgb(241, 206, 9);">{{item.GanaA}}</span>
+
+                    <br>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span style="font-size: 1vh; font-weight:bold;">{{item.DelegacionA}}</span>
+                    <img class="PaisAB " src="{{item.BanderaA}}" />
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <span style="font-size: 1.5vh" class="izquierdaB">{{item.EquipoA}}</span>
+                  </td>
+
+                </tr>
+              </table>
+
+
+            </div>
+
+
+            <div class="ui-g-4 columnaB  {{class_resultado}}" style="    padding: .1em;">
+              <span class="ui-g-12 columnaB" style="    font-size: 3vh; margin-top: 1.2vh;
+                line-height: 18px;">
+                <!-- {{item.Instalacion}} -->
+
+                <div class="fondo_mensaje_sq_PB">
+                  <span class="estadoB" [style.color]="item.css">{{item.Estado}}</span>
+                  <p style="font-size: 1vh; ">{{item.Rama}}</p>
+                  <p style="font-size: 1.5vh; bottom:3vh;">{{item.Prueba}}</p>
+                  <p style="font-size: 2vh; ">{{item.HoraProgramada | PipeFechaComponent:"hora"}}</p>
+                </div>
+              </span>
+            </div>
+
+
+
+            <div class="ui-g-4">
+
+
+              <table>
+
+                <tr>
+                  <td>
+                    <span style="font-size: 1vh; font-weight:bold; color:rgb(241, 206, 9);">{{item.GanaB}}</span>
+
+                    <br>
+                  </td>
+
+                  <th rowspan="2">
+                    <img class="imagenB" src="{{item.DelegacionIdB}}" />
+                  </th>
+
+                </tr>
+                <tr>
+                  <td>
+                    <span style="font-size: 1vh; font-weight:bold;">{{item.DelegacionB}}</span>
+                    <img class="PaisBB " src="{{item.BanderaB}}" />
+                  </td>
+
+
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <span class="npmEquipoB derechaB">{{item.EquipoB}}</span>
+                  </td>
+
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

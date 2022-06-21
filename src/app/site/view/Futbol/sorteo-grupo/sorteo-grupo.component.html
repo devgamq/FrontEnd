@@ -1,0 +1,53 @@
+<div class="ui-g">
+    <div class="ui-g-8">
+        <label>
+        {{Nombre | replace:'Grupo ':''}}
+      </label>
+    </div>
+    <div class="ui-g-4">
+        <button pButton type="button" (click)="add()" icon="ui-icon-plus" class="ui-button-success boton"></button>
+    </div>
+</div>
+<p-dataTable [value]="data" [editable]="true" tableStyleClass="tabla">
+    <p-column field="pos" header="Pos." [style]="{'width':'5%'}" >
+        <ng-template let-col let-car="rowData" let-ri="rowIndex" pTemplate="item">
+            {{ri+1}}
+        </ng-template>
+    </p-column>
+    <p-column field="EquipoId" header="equipo" [hidden]="true"></p-column>
+    <p-column field="GrupoId" header="id" [hidden]="true"></p-column>
+    <p-column field="DelegacionId" header="DelegacionId" [hidden]="true"></p-column>
+    <p-column field="Orden" header="orden" [hidden]="true" [style]="{'text-align':'center'}"></p-column>
+    <p-column field="Equipo" header="Equipos" [editable]="true"  >
+        <ng-template let-col let-car="rowData" let-ri="rowIndex" pTemplate="editor">
+            <p-dropdown [(ngModel)]="car[col.field]" [options]="Equipos" [autoWidth]="false"
+             [style]="{'width':'100%'}" required="true"  placeholder="Seleccione un equipo" 
+            filter="true" appendTo="body" (onChange)="onChange_dropdown($event,ri,car)">
+                <ng-template let-data pTemplate="item">
+                    {{data.label}}
+                </ng-template>
+
+            </p-dropdown>
+        </ng-template>
+        <ng-template let-col let-car="rowData" pTemplate="item">
+            {{car[col.field].name==null?car[col.field]:car[col.field].name}}
+        </ng-template>
+    </p-column>
+    <p-column  [style]="{'width':'5%'}">
+        <ng-template pTemplate="header">
+        </ng-template>
+        <ng-template let-data="rowData" let-ri="rowIndex" pTemplate="body">
+            <button type="button" (click)="guardarEquipoSorteo(data,ri)" class="ui-button-info css{{data.Orden}}"
+             id="button{{ri}}g{{IdGrupo}}" pButton icon="ui-icon-done-all"></button>
+        </ng-template>
+    </p-column>
+    <p-column  [style]="{'width':'5%'}">
+        <ng-template pTemplate="header">
+        </ng-template>
+        <ng-template let-data="rowData" let-ri="rowIndex" pTemplate="body">
+            <button type="button" (click)="eliminar(data,ri)"  class="ui-button-danger" pButton icon="ui-icon-delete"></button>
+        </ng-template>
+    </p-column>
+</p-dataTable>
+
+<p-growl [(value)]="mensaje"></p-growl>

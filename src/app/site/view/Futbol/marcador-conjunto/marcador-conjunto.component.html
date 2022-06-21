@@ -1,0 +1,141 @@
+
+<div class="card card-w-title" >
+
+<div class="ui-g" style="text-align: center">
+                
+                <div class="ui-g-12" style="text-align: center">
+                        <div class="row ui-toolbar-group-left">
+                                {{nombreDeporte}}
+                        </div>
+                        
+                <div class="row ui-toolbar-group-center">
+                        EN VIVO <p-checkbox [(ngModel)]="enlinea" binary="true"></p-checkbox>
+                        <button pButton type="button" (click)="regresar()" icon="ui-icon-arrow-back" class="ui-button-warning"></button>
+                        <button pButton type="button" (click)="doOpenVisor()" icon="ui-icon-tv" class="ui-button-primary" ></button>
+                        <button pButton type="button" (click)="pause(true)"  icon="ui-icon-pause"  class="ui-button-warning" *ngIf="mostrar_pausa" [disabled]="bloqueoPause"></button>
+                <button pButton type="button" (click)="play(true)"  icon="fa-arrow-circle-right" class="ui-button-success" ng-disabled="timerIniciado" *ngIf="mostrar_play" [disabled]="bloqueoPlay"></button>
+                <button pButton type="button"  (click)="guardarFinEncuentro()" icon="ui-icon-done-all" class="ui-button-info"></button>
+                </div>
+                </div>   
+                </div>
+
+
+<div class="ui-g">
+        <div class="ui-g-3">
+        <button pButton type="button" [class]="estiloBotonPosesionA" label="{{e1}}">
+                <img src="{{posesion_iconoA}}" width="20" height="20" *ngIf="estiloPosesionA"/>
+                         {{equipoA}}
+                <img src="{{logoA}}" width="20" height="20"/>
+              </button>
+        </div>
+        <div class="ui-g-1">
+                <button pButton type="button" icon="ui-icon-list" class="boton_sucesoA" ></button>     
+              </div>
+              <div class="ui-g-4">
+
+                    <app-cronometro [configuracion]="configuracion" [capturar]="capturar" [reversa]="false" [tieneTope]="true" [accion]="accion" [setTiempo]="setTiempo"
+                    (HoraCapturada)="doCaptura($event)" (IngresoTempo)="IngresoTempo($event)" 
+                    [style]="color" [time]="'tiempo'">
+                  </app-cronometro>
+
+              </div>
+              <div class="ui-g-1">
+                    <button pButton type="button" icon="ui-icon-list" class="boton_sucesoB" ></button>     
+            </div>
+        <div class="ui-g-3">
+                <button pButton type="button"  [class]="estiloBotonPosesionB" label="{{e1}}" >    
+                        <img src="{{posesion_iconoB}}" width="20" height="20" *ngIf="estiloPosesionB"/>
+                         {{equipoB}}
+                         <img src="{{logoB}}" width="20" height="20"/>
+                        </button>
+        </div>
+</div>
+  <div class="ui-g">
+        <div class="ui-g-1">
+                <p-dataTable [value]="suplentes" selectionMode="single" class="suplentes" [(selection)]="seleccionSuplenteA" (onRowSelect)="onRowSelect($event)"  dataKey="Numero">
+                        <p-column field="Numero" header="Suplentes"></p-column>
+                    </p-dataTable>
+            </div>
+        <div class="ui-g-2">
+                <p-dataTable [value]="titulares" ng-disabled="true" selectionMode="single" [(selection)]="seleccionTitularA" (onRowSelect)="onRowSelect($event,1)"  dataKey="Numero">
+                        <p-column field="Numero" header="Titulares"></p-column>
+                    </p-dataTable>
+            </div>
+            <div class="ui-g-2">
+                    <p-dataGrid [value]="succesosPersonaA">
+                            <ng-template let-dato pTemplate="item">
+                                <div class="ui-g-12 ui-md-6">
+                                   <app-boton-conjunto [DatosParametros]="dato" (click)="capturarTiempo(1,1)" (datoParametros)="mostrarMarcador($event,1,equipoA)"></app-boton-conjunto>
+                                </div>
+                            </ng-template>
+                            </p-dataGrid>
+                </div>
+    <div class="ui-g-1">
+    <p-dataGrid [value]="succesosConPersona">
+    <ng-template let-dato pTemplate="item">
+        <div class="ui-g-12">
+           <app-boton-conjunto [DatosParametros]="dato" (click)="capturarTiempo(1,1)" (datoParametros)="mostrarMarcador($event,1,equipoA)"></app-boton-conjunto>
+        </div>
+    </ng-template>
+    </p-dataGrid>
+    </div>
+    <div class="ui-g-1">
+        <p-dataGrid [value]="succesosConPersonaB">
+        <ng-template let-dato pTemplate="item">
+                <div class="ui-g-12">
+                <app-boton-conjunto [DatosParametros]="dato" (click)="capturarTiempo(1,2)" (datoParametros)="mostrarMarcador($event,2,equipoB)"></app-boton-conjunto>
+                </div>
+        </ng-template>
+        </p-dataGrid>
+    </div>
+    <div class="ui-g-2">
+<p-dataGrid [value]="succesosPersonaB">
+        <ng-template let-datoB pTemplate="item">
+        <div class="ui-g-12 ui-md-6">
+                <app-boton-conjunto [DatosParametros]="datoB" (click)="capturarTiempo(1,2)" (datoParametros)="mostrarMarcador($event,2,equipoB)"></app-boton-conjunto>
+        </div>
+        </ng-template>
+        </p-dataGrid>
+        </div>
+        <div class="ui-g-2">
+                <p-dataTable [value]="titularesB" selectionMode="single" [(selection)]="seleccionTitularB" (onRowSelect)="onRowSelect($event,2)"  dataKey="Numero">
+                        <p-column field="Numero" header="Ti"></p-column>
+                    </p-dataTable>
+            </div>
+            <div class="ui-g-1">
+                    <p-dataTable [value]="suplentesB" selectionMode="single" [(selection)]="seleccionSuplenteB" (onRowSelect)="onRowSelect($event)"  dataKey="Numero">
+                            <p-column field="Numero" header="Sup"></p-column>
+                        </p-dataTable>
+                </div>
+    </div>
+    <div class="ui-g" style="text-align: center">
+        <div class="ui-g-4">
+            
+        </div>
+        <div class="ui-g-4">
+            <h2>{{periodoDeporte}}</h2>
+          <p-selectButton [options]="periodo" [(ngModel)]="periodoSeleccionado" (onChange)="SeleccionarPeriodo($event)" ></p-selectButton>
+        </div>
+    <div class="ui-g-4">
+        
+        </div>
+    </div>
+</div>
+
+<p-dialog modal="modal"  responsive="true" [(visible)]="mostrarDialogo" header="{{cabecera}}"   >
+        <app-dialogo-conjunto [datosMarcador]="marcadorDatos" (guardarMarcador)="onclickGuardarMarcador($event)" [competidorId]="competidorId" 
+        [planillaId]="planillaId" [display]="mostrarDialogo"></app-dialogo-conjunto>
+          </p-dialog>
+<p-confirmDialog header="Confirmación" acceptLabel="Si" [closable]="false" icon="fa fa-question-circle" width="425">
+
+</p-confirmDialog>
+
+<p-dialog modal="modalA"  responsive="true" [(visible)]="mostrarDialogoDatosEventoA" positionTop="1" header="Historial de Sucesos {{equipoA}}" width="500">
+<app-evento-encuentro (actualizar)="actualizarBotones(CompetidorIdA,1,0)" [planillaId]="planillaId" [deportePeriodoId]="DeportePeriodoId" [competidorId]="CompetidorIdA" [deporteId]="deporteId" (cerrar)="cerrarDialogoDatosEventoA()" *ngIf="mostrarDialogoDatosEventoA"></app-evento-encuentro>
+</p-dialog>
+            
+<p-dialog modal="modalB"  responsive="true" [(visible)]="mostrarDialogoDatosEventoB" positionTop="1" header="Historial de Sucesos {{equipoB}}"  width="500">
+<app-evento-encuentro (actualizar)="actualizarBotones(CompetidorIdB,2,0)" [planillaId]="planillaId" [deportePeriodoId]="DeportePeriodoId" [competidorId]="CompetidorIdB" [deporteId]="deporteId"  (cerrar)="cerrarDialogoDatosEventoB()" *ngIf="mostrarDialogoDatosEventoB"></app-evento-encuentro>
+</p-dialog>
+
+<p-growl [(value)]="mensaje" class="visible-xs"></p-growl>

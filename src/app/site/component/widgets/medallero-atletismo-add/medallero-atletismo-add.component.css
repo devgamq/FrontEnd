@@ -1,0 +1,138 @@
+.rigth{
+    float: right;
+}
+th{
+    font-size: 12px;
+    font-weight: bold;
+}
+td{
+    font-size: 12px;
+}
+.total
+{
+    font-weight:bold;
+    text-align:center;
+    font-size:20px;
+    width: 5%;
+}
+.totalGral
+{
+    font-weight:bold;
+    text-align:center;
+    font-size:20px;
+    height: 3vw;
+    width: 5%;
+}
+.alto
+{
+    height: 3vw;
+}
+th span{
+    height: 46px;
+    overflow: hidden;
+    line-height: 17px;
+    font-weight: bold;
+}
+.moveleft
+{
+    right: 1vw;
+    position: relative;
+}
+.titulo
+{
+    font-size:16px;
+}
+.titulo2
+{
+    font-size:16px;
+}
+.eliminado{
+    color:red !important;
+    font-size:16px;
+}
+@media only screen and (max-width: 768px) {
+    th{
+        font-size: 10px;
+    }
+    td{
+        font-size: 10px;
+        width: 3%;
+    }
+    .total ,.totalGral {
+        font-size:11px;
+    }
+    .titulo {
+        font-size:11px;
+    }
+    .titulo2 {
+        font-size:11px;
+    }
+    .total
+    {
+        display: table-cell !important;
+    }
+    .display
+    {
+        display: table-cell !important;
+    }
+    
+}
+@media only screen and (max-width: 1462px) {
+     .ui-lg-6
+    {
+        width: 100% !important;
+    }
+    .moveleft
+    {
+        right: 0vw;
+        position: relative;
+    }
+    .total
+    {
+        display: table-cell !important;
+    }
+    .display
+    {
+        display: table-cell !important;
+    }
+    .total
+    {
+        display: table-cell !important;
+    }
+    .display
+    {
+        display: table-cell !important;
+    }
+    .titulo,.titulo2 {
+        font-size:11px;
+    }
+    
+}
+
+@media only screen and (max-width: 1700px) {
+    th{
+        font-size: 10px;
+    }
+    td{
+        font-size: 10px;
+        width: 3%;
+    }
+    .total ,.totalGral {
+        font-size:11px;
+        width: 6%;
+    }
+    .titulo,.titulo2 {
+        font-size:12px;
+    }
+  
+}
+@media only screen and (min-width: 1462px) {
+    .total
+    {
+        display: none !important;
+    }
+    .display
+    {
+        display: none !important;
+    }
+}

@@ -1,0 +1,84 @@
+<h1>Registro de Competición</h1>
+<p-messages [(value)]="msgs"></p-messages>
+<div class="card card-w-title">
+    <div class="ui-g">
+
+        <div class="ui-g-5" style="text-align:right">
+            <label>Prueba:</label>
+        </div>
+        <div class="ui-g-6">
+            <p-dropdown [options]="pruebas" [(ngModel)]="pruebaId" [style]="{'width':'200px'}" (onChange)="changePrueba()" placeholder="Seleccionar Prueba"
+                filter="filter"></p-dropdown>
+        </div>
+    </div>
+    <div class="ui-g">
+        <div class="ui-g-5" style="text-align:right">
+            <label>Rama:</label>
+        </div>
+        <div class="ui-g-6">
+            <p-dropdown [options]="categorias" [(ngModel)]="parametroRamaId" (onChange)="changeRama()" [disabled]="generoOpcion" [style]="{'width':'200px'}"
+                placeholder="Seleccionar Categoría"></p-dropdown>
+        </div>
+    </div>
+
+    <div class="ui-g">
+        <div class="ui-g-5" style="text-align:right">
+            <label>Fase:</label>
+        </div>
+        <div class="ui-g-6">
+            <p-dropdown [options]="fases" [(ngModel)]="parametroFaseId" (onChange)="changeFase()" [style]="{'width':'200px'}" filter="filter"
+                placeholder="Seleccionar Fase"></p-dropdown>
+        </div>
+    </div>
+    <div class="ui-g">
+        <div class="ui-g-5" style="text-align:right">
+            <label>Cronograma:</label>
+        </div>
+        <div class="ui-g-6">
+            <p-dropdown [options]="cronogramas" [(ngModel)]="CronogramaId" (onChange)="seleccionarCrono()" filter="filter" placeholder="Seleccionar Cronograma"
+                [style]="{'min-width':'400px'}"></p-dropdown>
+        </div>
+    </div>
+
+    <div class="ui-g">
+            <div class="ui-g-5" style="text-align:right">
+                <label>Lecciones:</label>
+            </div>
+            <div class="ui-g-6">
+                <p-dropdown [options]="lecciones" [(ngModel)]="LeccionId" (onChange)="seleccionarLeccion()" filter="filter" placeholder="Seleccionar Lección"
+                    [style]="{'min-width':'400px'}"></p-dropdown>
+            </div>
+        </div>
+
+    <div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none;text-align:center;background-color:#424242;">
+        Competidor:
+        <p-autoComplete delay="3" [(ngModel)]="_Persona" size="30" [inputStyleClass]="estiloauto" [inputStyle]="{'color': 'white'}"
+            [suggestions]="Equipos" (completeMethod)="doSearchEquipos($event)" field="Equipo" (onSelect)="doSelectSearchEquipo($event)">
+            <ng-template let-_Persona pTemplate="item">
+                {{_Persona.Equipo}}
+            </ng-template>
+        </p-autoComplete>
+        Hr.:
+        <p-calendar [(ngModel)]="hora" [inputStyle]="{'color':'white'}" [locale]="en" [timeOnly]="true"></p-calendar>
+
+        <button pButton type="button" icon="fa-arrow-down" class="ui-button-success" (click)="guardarRegistro()"></button>
+        <button pButton type="button" icon="ui-icon-delete" (click)="confirmDelete()" class="ui-button-danger" *ngIf="hideBorrar"></button>
+        <button pButton type="button" icon="ui-icon-edit" (click)="modificarRegistro()" class="ui-button-info" *ngIf="hideBorrar"></button>
+    </div>
+
+    <p-dataTable [value]="tabla" [responsive]="true" [rows]="20" [paginator]="true"
+     selectionMode="single" (onRowSelect)="onRowSelect($event)"  (onRowDblclick)="handleRowDblclick($event)">
+        <p-column header="Hora" field="Hora"></p-column>
+        <p-column header="Nombre" field="Nombre"></p-column>
+        <p-column header="Caballo" field="Caballo"></p-column>
+        <p-column header="Delegacion" field="Delegacion"></p-column>
+        <p-column header="" field="CompetidorId"   > 
+                <ng-template let-col let-car="rowData" pTemplate="body">
+                           <button pButton type="button" class="ui-button-info"   (click)="MostrarPlanilla(car)" 
+                             icon="ui-icon-list" label="Publicar"></button>
+                 </ng-template>
+             </p-column> 
+
+    </p-dataTable>
+</div>
+<p-confirmDialog width="425"></p-confirmDialog>

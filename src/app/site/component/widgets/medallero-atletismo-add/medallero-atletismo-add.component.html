@@ -1,0 +1,162 @@
+<div class="ui-g">
+        <div class="ui-g-8">
+                <h1>Mini - Atletismo</h1>
+        </div>
+        <div class="ui-g-9">
+                <button pButton type="button" class="ui-button-success" (click)="tablaMini()" icon="ui-icon-print" label="Imprimir"></button>
+        </div>
+</div>
+<div class="card card-w-title">
+        <div class="ui-g">
+                <div class="ui-g-12 ui-md-12 ui-lg-6">
+                        <p-dataTable [value]="datasource">
+                                <p-headerColumnGroup>
+                                        <p-row>
+                                                <p-column header="CompetidorId" [hidden]="true"></p-column>
+                                                <p-column header="Departamento"></p-column>
+                                                <p-column header="Unidad Educativa" [hidden]="true"></p-column>
+                                                <p-column header="Velocidad vallas" colspan="2"></p-column>
+                                                <p-column header="Relevos de Velocidad" colspan="2"></p-column>
+                                                <p-column header="Salto Largo " colspan="2"></p-column>
+                                                <p-column header="Salto Triple" colspan="2"></p-column>
+                                                <p-column header="Sentadilla hacia adelante" colspan="2"></p-column>
+                                                <p-column header="Lanzamiento de Balón Medicinal" colspan="2"></p-column>
+
+                                                <p-column header="Total" [styleClass]="'total'"></p-column>
+                                                <p-column header="Posición" [hidden]="posicion_hidden"></p-column>
+                                        </p-row>
+                                </p-headerColumnGroup>
+                                <p-column field="CompetidorId" [hidden]="true"></p-column>
+                                <p-column field="Equipo" [styleClass]="'alto'">
+                                        <ng-template let-col let-row="rowData" pTemplate="item">
+
+                                                <div (click)="onRowDblclick(row)" class="titulo {{row.css}}">
+                                                        {{row.Equipo}}</div>
+
+                                        </ng-template>
+                                </p-column>
+                                <p-column field="Representacion" [hidden]="true"></p-column>
+                                <p-column field="Valor12" [style]="styleEdit">
+                                        <ng-template let-col let-row="rowData" pTemplate="item">
+                                                <div (click)="onclick(row,12,true,row.Valor12.replace('00000',''),row.Equipo+' - Velocidad vallas')">{{row[col.field].replace('00000','')}}</div>
+                                        </ng-template>
+                                </p-column>
+                                <p-column field="Punto12" [style]="styleColum"></p-column>
+                                <p-column field="Valor13" [style]="styleEdit">
+                                        <ng-template let-col let-row="rowData" pTemplate="item">
+                                                <div (click)="onclick(row,13,true,row.Valor13.replace('00000',''),row.Equipo+' - Relevos de Velocidad')">{{row[col.field].replace('00000','')}}</div>
+                                        </ng-template>
+                                </p-column>
+                                <p-column field="Punto13" [style]="styleColum"></p-column>
+                                <p-column field="Valor14" [editable]="true" [style]="styleEdit">
+                                        <ng-template let-col let-row="rowData" pTemplate="item">
+                                                <div (click)="onclick(row,14,false,row.Valor14c,row.Equipo+' - Salto Largo')"
+                                                        class=" rigth">{{row[col.field]}}</div>
+                                        </ng-template>
+                                </p-column>
+                                <p-column field="Punto14" [style]="styleColum"></p-column>
+                                <p-column field="Valor15" [editable]="true" [style]="styleEdit">
+                                        <ng-template let-col let-row="rowData" pTemplate="item">
+                                                <div (click)="onclick(row,15,false,row.Valor15,row.Equipo+' - Salto Triple')"
+                                                        class=" rigth">{{row[col.field]}}</div>
+                                        </ng-template>
+                                </p-column>
+                                <p-column field="Punto15" [style]="styleColum"></p-column>
+                                <p-column field="Valor16" [editable]="true" [style]="styleEdit">
+                                        <ng-template let-col let-row="rowData" pTemplate="item">
+                                                <div (click)="onclick(row,16,false,row.Valor16,row.Equipo+' - Sentadilla hacia adelante')"
+                                                        class=" rigth">{{row[col.field]}}</div>
+                                        </ng-template>
+                                </p-column>
+                                <p-column field="Punto16" [style]="styleColum"></p-column>
+                                <p-column field="Valor17" [editable]="true" [style]="styleEdit">
+                                        <ng-template let-col let-row="rowData" pTemplate="item">
+                                                <div (click)="onclick(row,17,false,row.Valor17,row.Equipo+' - Lanzamiento de balón medicinal')"
+                                                        class=" rigth">{{row[col.field]}}</div>
+                                        </ng-template>
+                                </p-column>
+                                <p-column field="Punto17" [style]="styleColum"></p-column>
+
+                                <p-column field="Total" [styleClass]="'total'">
+                                        <ng-template let-col let-row="rowData" pTemplate="item">
+                                                <div class="{{row.css}}"> {{row.Total}}</div>
+                                        </ng-template>
+                                </p-column>
+                                <p-column field="posicion" [hidden]="posicion_hidden"></p-column>
+                        </p-dataTable>
+                </div>
+                <div class="ui-g-12 ui-md-12 ui-lg-6 moveleft">
+                        <p-dataTable [value]="datasource">
+                                <p-headerColumnGroup>
+                                        <p-row>
+                                                <p-column header="CompetidorId" [hidden]="true"></p-column>
+                                                <p-column header="Departamento" [styleClass]="'display'"></p-column>
+                                                <p-column header="Unidad Educativa" [hidden]="true"></p-column>
+
+                                                <p-column header="Lanzamiento de Jabalina o Vortex" colspan="2"></p-column>
+                                                <p-column header="Lanzamiento Rotacional" colspan="2"></p-column>
+                                                <p-column header="Resistencia 5 Minutos" colspan="2"></p-column>
+                                                <p-column header="Relevo 5x80 Niños" colspan="2"></p-column>
+                                                <p-column header="Relevo 5x80 Niñas" colspan="2"></p-column>
+                                                <p-column header="Total"></p-column>
+                                                <p-column header="Posición" [hidden]="posicion_hidden"></p-column>
+                                        </p-row>
+                                </p-headerColumnGroup>
+                                <p-column field="CompetidorId" [hidden]="true"></p-column>
+                                <p-column field="Equipo" [styleClass]="'display'">
+                                        <ng-template let-col let-row="rowData" pTemplate="item">
+                                                <div (click)="onRowDblclick(row)" class=" titulo2 {{row.css}}">
+                                                        {{row.Equipo}}</div>
+                                        </ng-template>
+                                </p-column>
+                                <p-column field="Representacion" [hidden]="true"></p-column>
+
+                                <p-column field="Valor18" [editable]="true" [style]="styleEdit">
+                                        <ng-template let-col let-row="rowData" pTemplate="item">
+                                                <div (click)="onclick(row,18,false,row.Valor18,row.Equipo+' - Lanzamiento de jabalina o vortex')"
+                                                        class=" rigth">{{row[col.field]}}</div>
+                                        </ng-template>
+                                </p-column>
+                                <p-column field="Punto18" [style]="styleColum"></p-column>
+                                <p-column field="Valor19" [editable]="true" [style]="styleEdit">
+                                        <ng-template let-col let-row="rowData" pTemplate="item">
+                                                <div (click)="onclick(row,19,false,row.Valor19,row.Equipo+' - Lanzamiento rotacional')"
+                                                        class=" rigth">{{row[col.field]}}</div>
+                                        </ng-template>
+                                </p-column>
+                                <p-column field="Punto19" [style]="styleColum"></p-column>
+                                <p-column field="Valor20" [editable]="true" [style]="styleEdit">
+                                        <ng-template let-col let-row="rowData" pTemplate="item">
+                                                <div (click)="onclick(row,20,false,row.Valor20,row.Equipo+' - Resistencia 5 minutos')"
+                                                        class=" rigth">{{row[col.field]}}</div>
+                                        </ng-template>
+                                </p-column>
+                                <p-column field="Punto20" [style]="styleColum"></p-column>
+                                <p-column field="Valor21" [editable]="true" [style]="styleEdit">
+                                        <ng-template let-col let-row="rowData" pTemplate="item">
+                                                <div (click)="onclick(row,21,true,row.Valor21.replace('00000',''),row.Equipo+' - Relevo 5x80 niños')">{{row[col.field].replace('00000','')}}</div>
+                                        </ng-template>
+                                </p-column>
+                                <p-column field="Punto21" [style]="styleColum"></p-column>
+                                <p-column field="Valor22" [editable]="true" [style]="styleEdit">
+                                        <ng-template let-col let-row="rowData" pTemplate="item">
+                                                <div (click)="onclick(row,22,true,row.Valor22.replace('00000',''),row.Equipo+' - Relevo 5x80 niñas')">{{row[col.field].replace('00000','')}}</div>
+                                        </ng-template>
+                                </p-column>
+                                <p-column field="Punto22" [style]="styleColum"></p-column>
+                                <p-column field="Total" [styleClass]="'totalGral'">
+                                        <ng-template let-col let-row="rowData" pTemplate="item">
+                                                <div class="{{row.css}}"> {{row.Total}}</div>
+                                        </ng-template>
+                                </p-column>
+                                <p-column field="posicion" [hidden]="posicion_hidden"></p-column>
+                        </p-dataTable>
+                </div>
+        </div>
+</div>
+<p-growl [value]="msgs"></p-growl>
+<p-confirmDialog header="Confirmación" icon="fa fa-question-circle" width="400"></p-confirmDialog>
+<p-dialog [(visible)]="display" [positionTop]="1" header="{{titulo}}" [width]="400" [closeOnEscape]="false" [closable]="false">
+        <app-tempo-add [row]="row" [index]="index" [is_time]="is_time" [valor]="valor" [mask]="mask" (actualizar)="recargar($event)"
+                (salir)="cerrarDialogo()"></app-tempo-add>
+</p-dialog>

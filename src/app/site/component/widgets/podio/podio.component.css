@@ -1,0 +1,142 @@
+body{
+     overflow-y:hidden !important; 
+}
+.panel{
+ min-height: 99%;
+ background-color: white;
+}
+
+.tituloPrincipal{
+    font-family: 'Oswald', sans-serif;
+    font-size: 4vw;
+    text-transform: uppercase;
+    text-align: left;
+    margin-bottom: 35px;
+    color: rgb(151, 32, 32);
+}
+.tituloGrupo{
+    font-family: 'Oswald', sans-serif;
+    font-size: 5vw;
+    text-align: center;
+    color: #000;
+    /* padding: 10px; */
+    text-transform: uppercase;
+    background-color: rgba(255, 255, 255, 0.3);
+    height: 5vw;
+    padding-top: 22px;
+    -webkit-font-smoothing: 2em;
+    -webkit-font-smoothing: antialiased;    
+}
+.panel_posiciones .punto
+{
+    width: 3vw;
+}
+
+.panel_posiciones .equipo
+{
+    width: 34%;
+    padding-left: 10px;
+    font-size: 4vw;
+}   
+.panel_posiciones .tabla{
+    font-size:5vw;
+    font-family: 'Oswald', sans-serif;
+    width: 100%;
+    line-height: 12vw;
+    color: white;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    min-width: 100%;
+    border:none;
+    border-spacing: 0px !important;
+    background-size: 100% auto;
+}
+.panel_posiciones .tabla_medallas
+{
+     width: 100%;
+     border-spacing: 0px !important;
+      margin-bottom: -35px;
+}
+ .panel_posiciones
+{
+    position:relative;
+    height: 80vh;
+    overflow-y:hidden; 
+}
+.panel_posiciones3
+{
+    height: 71vh;
+}
+.panel_posiciones th {
+    background-color: black;
+    line-height: 6vw;
+}
+.panel_posiciones tr:nth-child(even) .marcar {
+    background-color: #000;
+    /*filter:alpha(opacity=60);-moz-opacity:.60;opacity:.60;*/
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+}
+.panel_posiciones td:nth-last-child(1) {
+    background-color: #000;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size:5vw;
+}
+.panel_posiciones .columna{
+    text-align: center;
+    width: 8%;
+    font-size:4vw;
+}
+.panel_posiciones .total{
+    text-align: center;
+    width: 10%
+}
+.panel_posiciones label{
+    color: white;
+    font-weight: lighter;
+    padding-left: 45px;
+}
+.panel_posiciones .medallas
+{
+   width: 7vw;
+   
+}
+.panel_posiciones .sponsor
+{
+   width: 15vw;
+   
+}
+
+
+/* cyrillic */
+@font-face {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Oswald Regular'), local('Oswald-Regular'), url(font/DgBpgaYycijFA8v2hNt7MfesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+  }
+  /* vietnamese */
+  @font-face {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Oswald Regular'), local('Oswald-Regular'), url(font/peRd8sj511qE2lHtK-QfcPesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+    unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+  }
+  /* latin-ext */
+  @font-face {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Oswald Regular'), local('Oswald-Regular'), url(font/yg0glPPxXUISnKUejCX4qfesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+  }
+  /* latin */
+  @font-face {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Oswald Regular'), local('Oswald-Regular'), url(font/pEobIV_lL25TKBpqVI_a2w.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+  }

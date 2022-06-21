@@ -1,0 +1,277 @@
+<div class="ui-g">
+  <div class="ui-g-12 left">
+      <h1>{{nombreDeporte}} - Resumen de Partido</h1>
+  </div>
+</div>
+<div class="card card-w-title">
+        <div class="ui-g">
+                <div class="ui-g-5" style="text-align:right">
+                </div>
+                <div class="ui-g-6" style="text-align:left">
+                </div>
+                <div  class="ui-g-1">
+                        <button pButton type="submit" icon="ui-icon-print" class="ui-button-success"(click)="imprimir()"></button>
+                     </div>
+            </div>
+    <div class="ui-g">
+        <div class="ui-g-5 delegacionRP" style="text-align:right" >
+               <span class="marcaRP">{{Encuentro.Marca_A}} </span>  <img src="/assets/banderas/{{Encuentro.DelegacionId_A}}.png" class="imgenRP">
+            
+        </div>
+        <div class="ui-g-2 vsRP"></div>
+        <div class="ui-g-5 delegacionRP" style="text-align:left">
+              <img src="/assets/banderas/{{Encuentro.DelegacionId_B}}.png" class="imgenRP"> <span class="marcaRP">{{Encuentro.Marca_B}} </span>
+        </div>
+    </div>
+  <div class="ui-g">
+    <div class="ui-g-5 delegacionRP" style="text-align:right" >
+        {{Encuentro.Equipo_A}}
+    </div>
+    <div class="ui-g-2 fechavs ">
+            {{Encuentro.Fecha}}<br>
+       <span class="vsRP"> vs</span>
+    </div>
+    <div class="ui-g-5 delegacionRP" style="text-align:left">
+       {{Encuentro.Equipo_B}}
+    </div>
+</div>
+<div class="ui-g">
+    <div class="ui-g-5 colegioRP" style="text-align:right" >
+        {{Encuentro.Representacion_A}}
+    </div>
+    <div class="ui-g-2 vsRP"></div>
+    <div class="ui-g-5 colegioRP" style="text-align:left">
+       {{Encuentro.Representacion_B}}
+    </div>
+</div>
+
+
+<div class="ui-g">
+        <div class="ui-g-12 alineacionRP" *ngIf="deporte==3">RESULTADOS</div>
+        <div class="ui-lg-4 ui-g-1" *ngIf="deporte==3"></div>
+        <div class="ui-lg-4 ui-g-10 tablaRP" style="text-align:right" *ngIf="deporte==3">
+                <p-dataTable [value]="ResultadosBaloncesto" [responsive]="true" [rows]="20" [paginator]="false" [styleClass]="'clase'" >
+        
+                <p-column header="Equipo" field="Equipo" styleClass="jugadorBaloncestoRPS"></p-column>
+                <p-column header="1C" field="1C" styleClass="posRPS"></p-column>
+                <p-column header="2C" field="2C" styleClass="posRPS"></p-column>
+                <p-column header="3C" field="3C" styleClass="posRPS"></p-column>
+                <p-column header="4C" field="4C" styleClass="posRPS"></p-column>
+                
+            </p-dataTable>
+            </div>
+            <div class="ui-g-12 alineacionRP" *ngIf="deporte==3">{{Encuentro.Equipo_A}}</div>
+            <div class="ui-lg-2 ui-g-1" *ngIf="deporte==3"></div>
+            <div class="ui-lg-8 ui-g-10 tablaRP" style="text-align:right" *ngIf="deporte==3">
+                    <p-dataTable [value]="planillaBaloncestoA" [responsive]="true" [rows]="20" [paginator]="false" [styleClass]="'clase'" >
+            
+                    <p-column header="Nro." field="NumeroCamiseta" styleClass="COLRPS"></p-column>
+                    <p-column header="NOMBRE" field="Jugador" styleClass="jugadorBaloncestoRPS"></p-column>
+                    <p-column header="POS" field="Posicion" styleClass="COLRPS"></p-column>
+                    <p-column header="AS" field="ASIS" styleClass="COLRPS"></p-column>
+                    <p-column header="RB" field="ROB" styleClass="COLRPS"></p-column>
+                    <p-column header="RO" field="REBO" styleClass="COLRPS"></p-column>
+                    <p-column header="RD" field="REBD" styleClass="COLRPS"></p-column>
+                    <p-column header="FL" field="FAL" styleClass="COLRPS"></p-column>
+                    <p-column header="FT" field="FALT" styleClass="COLRPS"></p-column>
+                    <p-column header="PTS" field="PTS" styleClass="COLRPS"></p-column>
+                    
+                </p-dataTable>
+                </div>
+                <div class="ui-g-12 alineacionRP" *ngIf="deporte==3">{{Encuentro.Equipo_B}}</div>
+                <div class="ui-lg-2 ui-g-1" *ngIf="deporte==3"></div>
+                <div class="ui-lg-8 ui-g-10 tablaRP" style="text-align:right" *ngIf="deporte==3">
+                        <p-dataTable [value]="planillaBaloncestoB" [responsive]="true" [rows]="20" [paginator]="false" [styleClass]="'clase'" >
+                
+                        <p-column header="Nro." field="NumeroCamiseta" styleClass="COLRPS"></p-column>
+                        <p-column header="NOMBRE" field="Jugador" styleClass="jugadorBaloncestoRPS"></p-column>
+                        <p-column header="POS" field="Posicion" styleClass="COLRPS"></p-column>
+                        <p-column header="AS" field="ASIS" styleClass="COLRPS"></p-column>
+                        <p-column header="RB" field="ROB" styleClass="COLRPS"></p-column>
+                        <p-column header="RO" field="REBO" styleClass="COLRPS"></p-column>
+                        <p-column header="RD" field="REBD" styleClass="COLRPS"></p-column>
+                        <p-column header="FL" field="FAL" styleClass="COLRPS"></p-column>
+                        <p-column header="FT" field="FALT" styleClass="COLRPS"></p-column>
+                        <p-column header="PTS" field="PTS" styleClass="COLRPS"></p-column>
+                        
+                    </p-dataTable>
+                    </div>
+
+        <div class="ui-g-12 alineacionRP" *ngIf="deporte==6">RESULTADOS</div>
+        <div class="ui-lg-4 ui-g-1" *ngIf="deporte==6"></div>
+        <div class="ui-lg-4 ui-g-10 tablaRP" style="text-align:right" *ngIf="deporte==6">
+                <p-dataTable [value]="ResultadosVoley" [responsive]="true" [rows]="20" [paginator]="false" [styleClass]="'clase'" >
+        
+                <p-column header="Equipo" field="Equipo" styleClass="jugadorRPS"></p-column>
+                <p-column header="Sets" field="Sets" styleClass="posRPS"></p-column>
+                <p-column header="1S" field="1S" styleClass="posRPS"></p-column>
+                <p-column header="2S" field="2S" styleClass="posRPS"></p-column>
+                <p-column header="3S" field="3S" styleClass="posRPS"></p-column>
+                <p-column header="4S" field="4S" styleClass="posRPS"></p-column>
+                <p-column header="5S" field="5S" styleClass="posRPS"></p-column>
+                <p-column header="Total" field="Total" styleClass="posRPS"></p-column>
+                
+            </p-dataTable>
+            </div>
+    <div class="ui-g-12 alineacionRP" *ngIf="deporte!=3">ALINEACIONES</div>
+    <div class="ui-g-5 tablaRP" style="text-align:right" *ngIf="deporte!=3">
+        <p-dataTable [value]="planillaA" [responsive]="true" [rows]="20" [paginator]="false" [styleClass]="'clase'" >
+
+        <p-column header="Nro." field="NumeroCamiseta" styleClass="posRPS"></p-column>
+        <p-column header="Jugador" field="NombreJugador" styleClass="jugadorRPS"></p-column>
+        <p-column header="">
+                <ng-template let-fila="rowData" pTemplate="item">
+                        <img src="{{fila.FotoUrl}}"class="FotoUrl">
+                    </ng-template>
+        </p-column>
+        <p-column header="" field="Tiempo" styleClass="posRPS" *ngIf="deporte==4">
+            <ng-template let-fila="rowData" pTemplate="item">
+                {{fila.Tiempo===0?'':fila.Tiempo+"'"}}
+            </ng-template>
+        </p-column>
+        <p-column header="Pts." field="Pts" styleClass="posRPS" *ngIf="deporte==6">
+                <ng-template let-fila="rowData" pTemplate="item">
+                    {{fila.Pts===0?'':fila.Pts+"'"}}
+                </ng-template>
+            </p-column>
+        
+    </p-dataTable>
+    </div>
+    <div class="ui-g-2 vsRP" *ngIf="deporte!=3"></div>
+    <div class="ui-g-5 tablaRP" style="text-align:left" *ngIf="deporte!=3">
+        <p-dataTable [value]="planillaB" [responsive]="true" [rows]="20" [paginator]="false" [styleClass]="'clase'" >
+            
+                    <p-column header="Nro." field="NumeroCamiseta" styleClass="posRPS"></p-column>
+                    <p-column header="Jugador" field="NombreJugador" styleClass="jugadorRPS"></p-column>
+                    <p-column header="">
+                            <ng-template let-fila="rowData" pTemplate="item">
+                                    <img src="{{fila.FotoUrl}}"class="FotoUrl">
+                                </ng-template>
+                    </p-column>
+                    <p-column header="" field="Tiempo" styleClass="posRPS" *ngIf="deporte==4">
+                        <ng-template let-fila="rowData" pTemplate="item">
+                            {{fila.Tiempo===0?'':fila.Tiempo+"'"}}
+                        </ng-template>
+                    </p-column>
+                    <p-column header="Pts." field="Pts" styleClass="posRPS" *ngIf="deporte==6">
+                            <ng-template let-fila="rowData" pTemplate="item">
+                                {{fila.Pts===0?'':fila.Pts+"'"}}
+                            </ng-template>
+                        </p-column>
+        </p-dataTable>
+    </div>
+    <div class="ui-g-12 alineacionRP" *ngIf="deporte!=3 && deporte!=6">SUPLENTES</div>
+    <div class="ui-g-5 tablaRP" style="text-align:right" *ngIf="deporte!=3 && deporte!=6">
+        <p-dataTable [value]="suplentesA" [responsive]="true" [rows]="20" [paginator]="false" [styleClass]="'clase'" >
+
+        <p-column header="Nro." field="NumeroCamiseta" styleClass="posRPS"></p-column>
+        <p-column header="Jugador" field="NombreJugador" styleClass="jugadorRPS"></p-column>
+        <p-column header="">
+                <ng-template let-fila="rowData" pTemplate="item">
+                        <img src="{{fila.FotoUrl}}"class="FotoUrl">
+                    </ng-template>
+        </p-column>
+        
+        
+    </p-dataTable>
+    </div>
+    <div class="ui-g-2 vsRP" *ngIf="deporte!=3 && deporte!=6"></div>
+    <div class="ui-g-5 tablaRP" style="text-align:left" *ngIf="deporte!=3 && deporte!=6">
+        <p-dataTable [value]="suplentesB" [responsive]="true" [rows]="20" [paginator]="false" [styleClass]="'clase'" >
+            
+                    <p-column header="Nro." field="NumeroCamiseta" styleClass="posRPS"></p-column>
+                    <p-column header="Jugador" field="NombreJugador" styleClass="jugadorRPS"></p-column>
+                    <p-column header="">
+                            <ng-template let-fila="rowData" pTemplate="item">
+                                    <img src="{{fila.FotoUrl}}"class="FotoUrl">
+                                </ng-template>
+                    </p-column>
+        </p-dataTable>
+    </div>
+    <div class="ui-g-12 alineacionRP" *ngIf="deporte!=3">CUERPO TÉCNICO</div>
+    <div class="ui-g-5 tablaRP" style="text-align:right" *ngIf="deporte!=3">
+        <p-dataTable [value]="personalTecnicoA" [responsive]="true" [rows]="20" [paginator]="false" [styleClass]="'clase'" >
+
+        <p-column header="Cargo" field="detalle" styleClass="posRPS"></p-column>
+        <p-column header="Nombre" field="Nombre" styleClass="jugadorRPS"></p-column>
+        <p-column header="Lugar" field="Lugar" styleClass="posRPS"></p-column>
+        
+    </p-dataTable>
+    </div>
+    <div class="ui-g-2 vsRP" *ngIf="deporte!=3"></div>
+    <div class="ui-g-5 tablaRP" style="text-align:left" *ngIf="deporte!=3">
+        <p-dataTable [value]="personalTecnicoB" [responsive]="true" [rows]="20" [paginator]="false" [styleClass]="'clase'" >
+            <p-column header="Cargo" field="detalle" styleClass="posRPS"></p-column>
+            <p-column header="Nombre" field="Nombre" styleClass="jugadorRPS"></p-column>
+            <p-column header="Lugar" field="Lugar" styleClass="posRPS"></p-column>
+        </p-dataTable>
+    </div>
+
+
+    <div class="ui-g-12 alineacionRP" *ngIf="deporte==4 || deporte==5">ANOTACIONES</div>
+    <div class="ui-g-5 tablaRP" style="text-align:right" *ngIf="deporte==4 || deporte==5">
+            <p-dataTable [value]="anotacionesA" [responsive]="true" [rows]="20" [paginator]="false" [styleClass]="'clase'" >
+    
+            <p-column header="Nombre" field="NombreJugador" styleClass="jugadorRPS"></p-column>
+            <p-column header="Tiempo" field="Tiempo" styleClass="posRPS">
+                    <ng-template let-fila="rowData" pTemplate="item">
+                            {{fila.Tiempo===0?'':fila.Tiempo+"'"}}
+                        </ng-template>
+            </p-column>
+            
+        </p-dataTable>
+        </div>
+        <div class="ui-g-2 vsRP" *ngIf="deporte==4 || deporte==5"></div>
+        <div class="ui-g-5 tablaRP" style="text-align:right" *ngIf="deporte==4 || deporte==5">
+                <p-dataTable [value]="anotacionesB" [responsive]="true" [rows]="20" [paginator]="false" [styleClass]="'clase'" >
+        
+                <p-column header="Nombre" field="NombreJugador" styleClass="jugadorRPSL"></p-column>
+                <p-column header="Tiempo" field="Tiempo" styleClass="posRPS">
+                        <ng-template let-fila="rowData" pTemplate="item">
+                                {{fila.Tiempo===0?'':fila.Tiempo+"'"}}
+                            </ng-template>
+                </p-column>
+                
+            </p-dataTable>
+            </div>
+    <div class="ui-g-12 alineacionRP" *ngIf="deporte==4 || deporte==5">AMONESTACIONES</div>
+    <div class="ui-g-5 tablaRP" style="text-align:right" *ngIf="deporte==4 || deporte==5">
+            <p-dataTable [value]="FaltasA" [responsive]="true" [rows]="20" [paginator]="false" [styleClass]="'clase'" >
+    
+            <p-column header="Nombre" field="NombreJugador" styleClass="jugadorRPS"></p-column>
+            <p-column header="Falta" field="Parametro" styleClass="posRPS"></p-column>
+            <p-column header="Tiempo" field="Tiempo" styleClass="posRPS">
+                    <ng-template let-fila="rowData" pTemplate="item">
+                            {{fila.Tiempo===0?'':fila.Tiempo+"'"}}
+                        </ng-template>
+            </p-column>
+            
+        </p-dataTable>
+        </div>
+        <div class="ui-g-2 vsRP" *ngIf="deporte==4 || deporte==5"></div>
+        <div class="ui-g-5 tablaRP" style="text-align:right" *ngIf="deporte==4 || deporte==5">
+                <p-dataTable [value]="FaltasB" [responsive]="true" [rows]="20" [paginator]="false" [styleClass]="'clase'" >
+        
+                <p-column header="Nombre" field="NombreJugador" styleClass="jugadorRPSL"></p-column>
+                <p-column header="Falta" field="Parametro" styleClass="posRPS"></p-column>
+                <p-column header="Tiempo" field="Tiempo" styleClass="posRPS">
+                        <ng-template let-fila="rowData" pTemplate="item">
+                                {{fila.Tiempo===0?'':fila.Tiempo+"'"}}
+                            </ng-template>
+                </p-column>
+                
+            </p-dataTable>
+            </div>
+    <div class="ui-g-12 alineacionRP" *ngIf="deporte!=3">ESTADÍSTICAS</div>
+    <div class="ui-lg-4 ui-g-1" *ngIf="deporte!=3"></div>
+    <div class="ui-lg-4 ui-g-10 tablaRP" style="text-align:right"*ngIf="deporte!=3" >
+            <p-dataTable [value]="estadisticas" [responsive]="true" [rows]="20" [paginator]="false" [styleClass]="'clase'" >
+    
+            <p-column header="{{Encuentro.Equipo_A}}" field="1" styleClass="posRPS"></p-column>
+            <p-column header="Estadísticas" field="Parametro" styleClass="estadisticaRPS"></p-column>
+            <p-column header="{{Encuentro.Equipo_B}}" field="2" styleClass="posRPS"></p-column>
+            
+        </p-dataTable>
+        </div>
+</div>
+</div>

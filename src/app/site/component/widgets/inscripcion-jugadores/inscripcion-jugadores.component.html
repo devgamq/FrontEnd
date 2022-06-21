@@ -1,0 +1,96 @@
+<div class=" ui-g-12 centro">
+        <div class=" ui-g-4">
+
+        </div>
+        <div class=" ui-g-4">
+                <span *ngIf="is_inscripcion">
+                        <img src="{{logoA}}" />
+                </span>
+        </div>
+        <div class=" ui-g-4"></div>
+</div>
+<div class=" ui-g-12 centro">
+
+        <div class=" ui-g-4" class="texto">
+                <span *ngIf="!is_inscripcion">
+                        <b>{{titulo}}</b>
+                </span>
+                <span *ngIf="is_inscripcion">
+                        <b>{{competidor.Equipo}}</b>
+                </span>
+        </div>
+
+</div>
+
+<div class="ui-g-12 centro" *ngIf="deporteId==4">
+        <span *ngIf="is_inscripcion">
+                <p-dropdown [options]="sistemas" [(ngModel)]="selectedValue" [filter]="true" (onChange)="onChangePlantilla($event)"></p-dropdown>
+        </span>
+</div>
+
+<div class="row ui-g-12 {{competidor.CompetidorId}}" id='{{competidor.CompetidorId}}' *ngIf="conjunto">
+        <div class="ui-widget-header" style="padding:35px 10px 4px;border-bottom: 0 none" *ngIf="is_inscripcion">
+                <button pButton type="button" *ngIf="is_inscripcion" icon="ui-icon-plus" class="green-btn" (click)="showDialog()"></button>
+                <button pButton type="button" *ngIf="is_inscripcion" icon="ui-icon-delete" class="red-btn" (click)="eliminar($event)"></button>
+
+        </div>
+
+        <p-dataTable [value]="data" [editable]="true" sortField="Titular" [sortOrder]="1" (onRowSelect)="cambioValor($event)" (onRowUnselect)="cambioValor($event)"
+                (onEditComplete)="cambioValor($event)" [style]="{'font-size':'1vw'}">
+                <p-column field="Titular" header="Titular" [hidden]="true"></p-column>
+                <p-column field="Orden" header="'Orden'" *ngIf="!is_inscripcion" [style]="{'width':'5%'}" selectionMode="{{tipo_seleccion}}">
+
+                </p-column>
+                <p-column field="PersonaId" header="Titular" [style]="{'width':'5%'}">
+                        <ng-template let-col let-dat="rowData" pTemplate="body" *ngIf="is_inscripcion">
+                                <p-checkbox name="group3" value="{{dat[col.field]}}" label="" [(ngModel)]="titulares" (onChange)="cambioValor(dat)" inputId="{{dat[col.field]}}"></p-checkbox>
+                        </ng-template>
+                </p-column>
+                <p-column field="Nombre" header="Nombre"></p-column>
+                <p-column header="Capitan" field="PersonaId" *ngIf="is_inscripcion">
+                        <ng-template let-col let-dat="rowData" pTemplate="body">
+                                <p-radioButton name="{{grupo}}" value="radio{{dat[col.field]}}" (onClick)="guardarIndivisual(dat,1)" label="" [(ngModel)]="JugadorCapitan"></p-radioButton>
+                        </ng-template>
+                </p-column>
+                <p-column header="Capitan" field="Capitan" *ngIf="!is_inscripcion">
+                </p-column>
+                <p-column field="Posicion" header="Pos" [editable]="true" *ngIf="is_inscripcion" [style]="{'width':'5%'}">
+                        <ng-template let-col let-dat="rowData" pTemplate="editor">
+                                <p-dropdown [(ngModel)]="dat[col.field]" [options]="posicionJuego" (onChange)="guardarIndivisual(dat,0)" [autoWidth]="false"
+                                        [style]="{'width':'100%'}" required="true" appendTo="body"></p-dropdown>
+                        </ng-template>
+                </p-column>
+                <p-column field="Numero" header="Número" [editable]="is_inscripcion" [style]="{'width':'5%'}">
+                        <ng-template let-col let-dat="rowData" pTemplate="editor">
+                                <input type="text" pInputText [(ngModel)]="dat[col.field]" (change)="guardarIndivisual(dat,0)" />
+                        </ng-template>
+                </p-column>
+        </p-dataTable>
+</div>
+<div class="row" *ngIf="is_inscripcion">
+        <div class="ui-g-2">D.T.:</div>
+        <div class="md-inputfield ui-g-10">
+                <app-buscar-persona [eventoId]="competidor.PruebaEventoId" [planillaId]="PlanillaId" [_Persona]="_DT" [servicioMostrar]="'SearchPersonaApoyo'"
+                        [mostrarNombre]="true" (NombrePersona)="doSelectDT($event)"></app-buscar-persona>
+        </div>
+</div>
+<div class="row" *ngIf="is_inscripcion">
+        <div class="ui-g-2">Asistente:</div>
+        <div class="md-inputfield ui-g-10">
+                <app-buscar-persona [eventoId]="competidor.PruebaEventoId" [planillaId]="PlanillaId" [_Persona]="_Asistente" [servicioMostrar]="'SearchPersonaApoyo'"
+                        [mostrarNombre]="true" (NombrePersona)="doSelectAsistente($event)"></app-buscar-persona>
+        </div>
+</div>
+<div class="row" *ngIf="is_inscripcion">
+        <div class="ui-g-2">Delegado:</div>
+        <div class="md-inputfield ui-g-10">
+                <app-buscar-persona [eventoId]="competidor.PruebaEventoId" [planillaId]="PlanillaId" [_Persona]="_Delegado" [servicioMostrar]="'SearchPersonaApoyo'"
+                        [mostrarNombre]="true" (NombrePersona)="doSelectDelegado($event)"></app-buscar-persona>
+        </div>
+</div>
+<p-dialog [(visible)]="display" modal="modal" responsive="true" header="Agregar Jugador" [width]="500">
+        <app-inscripcion-add [Competidor]=competidor [PlanillaId]="PlanillaId" (cerrar)="reload($event)" (actualizar)="actualizar()"
+                [deporteId]="deporteId"></app-inscripcion-add>
+</p-dialog>
+<p-confirmDialog header="Confirmación" acceptLabel="Si" icon="fa fa-question-circle" width="425"></p-confirmDialog>
+<p-growl [value]="msgs"></p-growl>

@@ -1,0 +1,17 @@
+<div class="row">
+<button pButton type="button" (click)="play()" label="Iniciar" icon="fa-arrow-circle-right" class="ui-button-success"
+    ng-disabled="timerIniciado" ></button>
+    <button pButton type="button" (click)="pause()" label="Pausa" icon="ui-icon-pause"  class="ui-button-info"></button>
+    <button pButton type="button" (click)="stop()" label="Reiniciar" icon="ui-icon-stop"  class="ui-button-danger"></button>
+    <button pButton type="button" (click)="capturar()" label="Capturar" icon="ui-icon-stop"  class="ui-button-success"></button>
+    <button pButton type="button" (click)="settiempo()" label="ingresar tiempo" icon="fa-arrow-circle-right"  class="ui-button"></button>
+ <div class="ui-g-12">  
+<app-cronometro [configuracion]="configuracion" [iniciar]="iniciar"  [capturar]="captura" 
+[pausa]="pausa" [parar]="parar" [reversa]="false" [tieneTope]="true" [accion]="accion" [setTiempo]="setTiempo"
+(HoraCapturada)="doCaptura($event)" (IngresoTempo)="IngresoTempo($event)" 
+[style]="color" [time]="'time'"></app-cronometro>
+</div>
+</div>
+<p-dialog [(visible)]="display" modal="modal" responsive="true" header="Ingresar Tiempo" [width]="500">
+    <app-cronometro-edit (HoraCapturada)="loadTiempo($event)" (cerrar)="salir()"></app-cronometro-edit>
+</p-dialog>

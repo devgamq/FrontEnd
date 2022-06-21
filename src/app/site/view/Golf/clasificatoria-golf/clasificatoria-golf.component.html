@@ -1,0 +1,31 @@
+<div class="card card-w-title">
+    <h1 class="visible-xs">Golf/Tabla Clasificatoria:</h1>
+    <div style="text-align:right " class="visible-xs" *ngIf="buttons">
+        <button pButton type="button" (click)="doOpenVisor()" icon="ui-icon-tv" label="Visor"></button>
+        <button pButton type="button" (click)="doReporte()" icon="ui-icon-print" label="Imprimir"></button>
+    </div>
+    <br/>
+    <div class="ui-g">
+        <div class="ui-g-6 visible-xs">
+            Categoria:
+            <categoria-dropdown [categoriaId]="categoriaId" (categoriaSelected)="handleCategoria($event)" [eventoId]="eventoId"></categoria-dropdown>
+        </div>
+        <div class="ui-g-6 visible-xs">
+            Jornada:
+            <jornada-dropdown [eventoId]="eventoId" (jornadaSelected)="handleJornada($event)"></jornada-dropdown>
+        </div>
+    </div>
+    <div class="ui-g visible-xs" style="text-align:center;" *ngIf="buttons">
+        <app-leyenda-color [estilo]="leyendaGrid"></app-leyenda-color>
+    </div>
+
+ <div class="visible-xs">
+
+        <app-grid-clasificatorio [clasificatorias]="clasificatorias" [hoyoPar]="hoyoPar"  [hideSearch]="false" [mostrarhandicap]="true" [mostrar]="bandera"></app-grid-clasificatorio>
+    
+</div> 
+
+<div class="visible">
+    <app-visor-hoyos></app-visor-hoyos>
+</div>
+</div>

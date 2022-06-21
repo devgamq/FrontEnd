@@ -1,0 +1,123 @@
+<div class="ui-g">
+  <div class="ui-g-12">
+    <div class="card card-w-title">
+      <h1>Añadir nuevo deportista</h1>
+
+      <div class="ui-grid-row">
+        <div class="ui-g-1 ui-md-2 ui-lg-4">
+          <app-webcam [bandera]="false" (base64)="handleBase64($event)" (restore)="hanldeRestoreStep3($event)">
+          </app-webcam>
+          <div class=" ui-grid-col-12 ui-message ui-messages-error ui-corner-all"
+            style="padding:0.4em !important; width: auto;" *ngIf="photovalid">
+            La fotografia es obligatoria.
+          </div>
+        </div>
+        <form class="form-signin ui-g form-group ui-g-12 ui-md-8 ui-lg-4" [(formGroup)]="DatosPesonalesForm"
+          (ngSubmit)="validarToNext()">
+          <div class="ui-g form-group-m">
+            <div class="ui-g-12 ui-md-12">
+              <span class="md-inputfield">
+                <input [(ngModel)]="Persona.DocumentoIdentidad" type="number"
+                  style="width:100% !important;text-transform:uppercase" (focusout)="validate('DocumentoIdentidad')"
+                  pInputText formControlName="DocumentoIdentidad">
+                <label>Documento de Identidad:</label>
+              </span>
+            </div>
+            <div class=" ui-grid-col-12 ui-message ui-messages-error ui-corner-all"
+              style="padding:0.4em !important; width: auto;" *ngIf="CIvali">
+              Valor invalido en el Documento de Identidad.
+            </div>
+
+            <div class="ui-g-12 ui-md-12">
+              <span class="md-inputfield">
+                <input [(ngModel)]="Persona.Paterno" type="text" style="width:100% !important;text-transform:uppercase"
+                  (focusout)="validate('Paterno')" pInputText formControlName="Paterno">
+                <label>Paterno:</label>
+              </span>
+            </div>
+            <div class=" ui-grid-col-12 ui-message ui-messages-error ui-corner-all"
+              style="padding:0.4em !important; width: auto;" *ngIf="paternoVali">
+              Valor invalido en Apellido Paterno.
+            </div>
+            <div class="ui-g-12 ui-md-12">
+              <span class="md-inputfield">
+                <input [(ngModel)]="Persona.Materno" type="text" style="width:100% !important; text-transform:uppercase"
+                  (focusout)="validate('Materno')" pInputText formControlName="Materno">
+                <label>Materno:</label>
+              </span>
+            </div>
+            <div class=" ui-grid-col-12 ui-message ui-messages-error ui-corner-all"
+              style="padding:0.4em !important; width: auto;" *ngIf="maternoVali">
+              Valor invalido en Apellido Materno.
+            </div>
+            <div class="ui-g-12 ui-md-12">
+              <span class="md-inputfield">
+                <input [(ngModel)]="Persona.Nombres" type="text" style="width:100% !important; text-transform:uppercase"
+                  (focusout)="validate('Nombres')" pInputText formControlName="Nombres">
+                <label>Nombres:</label>
+              </span>
+            </div>
+            <div class=" ui-grid-col-12 ui-message ui-messages-error ui-corner-all"
+              style="padding:0.4em !important; width: auto;" *ngIf="nombreVali">
+              Valor invalido en el Nombre.
+            </div>
+            <div class="ui-g-12 ui-md-12">
+              <p-calendar [(ngModel)]="Persona.FechaNacimiento" id="showIcon" [showIcon]="true" [locale]="es"
+                [monthNavigator]="true" [yearNavigator]="true" yearRange="1970:2012" placeholder="Nacido el:"
+                formControlName="Nacido" dateFormat="dd/mm/yy" (focusout)="validate('Nacido')"></p-calendar>
+            </div>
+            <div class=" ui-grid-col-12 ui-message ui-messages-error ui-corner-all"
+              style="padding:0.4em !important; width: auto;" *ngIf="nacioVali">
+              Valor invalido en la Fecha de nacimiento.
+            </div>
+            <div class="ui-g-12 ui-md-12">
+              <span class="md-inputfield">
+                <input [(ngModel)]="Persona.Celular" type="text" style="width:100% !important; text-transform:uppercase"
+                  (focusout)="validate('Celular')" pInputText formControlName="Celular">
+                <label>Celular:</label>
+              </span>
+            </div>
+            <div class=" ui-grid-col-12 ui-message ui-messages-error ui-corner-all"
+              style="padding:0.4em !important; width: auto;" *ngIf="celuVali">
+              Valor invalido en el campo Celular.
+            </div>
+            <div class="ui-g-12 ui-md-12">
+              <p-dropdown (focusout)="validate('Rol')" [options]="roles_dd" [(ngModel)]="rol_dd"
+                [style]="{'width':'100%'}" placeholder="Rol" formControlName="Rol"></p-dropdown>
+            </div>
+            <div class=" ui-grid-col-12 ui-message ui-messages-error ui-corner-all"
+              style="padding:0.4em !important; width: auto;" *ngIf="nroRol">
+              Valor invalido en el campo Rol.
+            </div>
+
+            <div class="ui-g-12 ui-md-12">
+              <span class="md-inputfield">
+                <input [(ngModel)]="Persona.NroCamiseta" type="number"
+                  style="width:100% !important; text-transform:uppercase" (focusout)="validate('NroCamiseta')"
+                  pInputText formControlName="NroCamiseta">
+                <label>Nro. Camiseta:</label>
+              </span>
+            </div>
+            <div class=" ui-grid-col-12 ui-message ui-messages-error ui-corner-all"
+              style="padding:0.4em !important; width: auto;" *ngIf="nroVali">
+              Valor invalido en el campo Nro. Camiseta.
+            </div>
+            <div class="ui-g-12 ui-md-12">
+              <span class="md-inputfield">
+                <span><label class="lbl11">Jugador FBF o ADF</label></span>
+                <p-checkbox [(ngModel)]="Persona.Fbf" binary="true" formControlName="Fbf"></p-checkbox>
+              </span>
+            </div>
+
+            <div class="ui-dialog-buttonpane ui-helper-clearfix">
+              <button type="submit" pButton icon="fa-check" label="Guardar"></button>
+            </div>
+
+          </div>
+        </form>
+      </div>
+      <div class="ui-g-1 ui-md-2 ui-lg-4">
+      </div>
+    </div>
+  </div>
+  <p-growl [(value)]="msgs"></p-growl>

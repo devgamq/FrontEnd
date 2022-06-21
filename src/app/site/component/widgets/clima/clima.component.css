@@ -1,0 +1,37 @@
+.titulo{
+    
+    font-size: 3vw;
+    line-height: 0.1em;
+    text-align: right;
+   
+}
+.grados
+{
+    font-weight: bold;
+    font-size: 4vw;
+    color: dimgray;
+    position: relative;
+    left: 3vw;
+}
+.temp
+{
+    font-size: 2.5vh;
+    height: 13vw;
+   /* position: relative;
+    bottom: 3vw;*/
+    width: 25vw;
+}
+img
+{
+    height: 5vw;
+    float: right;
+    position: relative;
+    left: 8vw;
+    bottom: 1vh;
+}
+.localidad{
+    position: relative;
+    right: 4vh;
+    top: 1.2vh;
+    text-align: right;
+}

@@ -1,0 +1,15 @@
+<!--[style]="{'background': '#616158','background-image':'url(\'/assets/erpHammer/images/ZenBG-1.png\'), url(\'/assets/erpHammer/images/ZenBG-2.png\')','background-repeat':'repeat-x, repeat'}"  styleClass="fondoCelda"-->
+<p-toolbar [style]="{'background-color':'#8a8a8a'}" *ngIf="hideSearch">
+  <div class="ui-toolbar-group-right">
+    <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+    <input #gb type="text" pInputText style='width:100%' placeholder="Buscar">
+  </div>
+</p-toolbar>
+<p-dataTable [value]="clasificatorias" [responsive]="true" [globalFilter]="gb" [tableStyle]="{'background-image':'url(\'/assets/erpHammer/images/ZenBG-1.png\')'}">
+  <p-column field="Nombre" header="Jugador/Hoyo" ></p-column>
+  <p-column field="Handicap" header="HCP"></p-column>
+  <p-column field="1 Vuelta" header="I" styleClass="totales"></p-column>
+  <p-column field="2 Vuelta" header="II" styleClass="totales"></p-column>
+  <p-column field="Total" header="Total"></p-column>
+  <p-column field="TotalNeto" header="Total Neto"></p-column>
+</p-dataTable>

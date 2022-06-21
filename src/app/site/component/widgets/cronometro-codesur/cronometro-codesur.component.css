@@ -1,0 +1,58 @@
+@font-face {
+	font-family: 'Conv_Multicolore';
+	src: url('fonts/Multicolore.eot');
+	src: local('☺'), url('fonts/Multicolore.woff') format('woff'), url('fonts/Multicolore.ttf') format('truetype'), url('fonts/Multicolore.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.letra{
+	font-family:'Conv_Multicolore',Sans-Serif;
+	font-size: 14vw; 
+    text-align:center;
+	color:white;
+}
+.fondo{
+	background-image: url("../../../../../assets/codesur/fondomin.jpg");
+	background-size: 100% auto;
+	height: 62vh;
+	line-height: 3.5vw;
+}
+.letitulotra{
+	font-family:'Conv_Multicolore',Sans-Serif;
+	font-size: 3vw; 
+    text-align:center;
+	color:white;
+}
+.letra td{
+	width: 25%
+}
+.tabla
+{
+	border-style: solid;
+	border-color: white !important;
+	height: 13vw; 
+}
+.tablatitulo{
+	border-style: solid;
+	border-color: white !important;
+
+}
+.pie{
+	background-image: url("../../../../../assets/codesur/pictograma.png");
+	background-size: 100% auto;
+	background-repeat:no-repeat;
+	height: 6vh;
+	line-height: 3.5vw;
+}
+.logos{
+	background-image: url("../../../../../assets/codesur/logosfondo.png");
+
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    height: 80vh;
+    position: relative;
+    bottom: 80vh;
+    opacity: 0.2;
+    filter: alpha(opacity=50);
+}

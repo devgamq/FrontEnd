@@ -1,0 +1,78 @@
+.tituloGrupoRPE{
+    font-weight: bold;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.tituloFechaRPE{
+    font-weight: bold;
+    padding-top: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    padding-right: 220px;
+}
+.HoraRPE{
+    width: 6%;
+    text-align: center;
+    text-transform: uppercase;
+}
+.estadoRPE{
+    width: 6%;
+    text-align: center;
+    text-transform: uppercase;
+}
+.ancho{
+    width: 100%;
+}
+.panelRPE th{
+    background-color: #212121 !important;
+    color: white;
+
+}
+
+
+.panelRPE tr{
+ width:100%;
+
+}
+.panelRPE body{
+  width: 100%;
+
+}
+
+.panelRPE{
+ width:100%;
+
+}
+
+.categoriaRPE{
+    width: 10%;
+    text-align: center;
+}
+.equipoRPE{
+    width: 20%;
+}
+.equipoRPE span{
+ font-weight: bold;
+ text-transform: uppercase;
+ padding: 10px;
+ position: relative;
+ bottom: 4px;
+}
+@media only screen and (max-width: 500px) {
+    .equipoRPE span{
+        font-size: 10px
+    }
+}
+.imgRPE{
+    width: 20px
+}
+.puntajeRPE{
+    width: 5%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px
+}
+.right{
+    text-align: right;
+}

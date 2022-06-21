@@ -1,0 +1,15 @@
+
+<div class="ui-g visible-x" style="line-height: 0.5;cursor: pointer">
+        <div class="btnFutbol" (click)="mostrarMarcador()" [ngStyle]="color" >
+                <div class="ui-g-12">
+                        <div class="cabecera" >{{DatosParametros.Parametro}}</div>     
+                </div>
+        <div class="ui-g-6" style="text-align:right !important;padding-left:2vw;padding-top:0.5vw; ">
+                <img src="/assets/iconoscontrol/{{DatosParametros.ParametroSucesoId}}.png" width="35px" height="35px"/>
+        </div>
+        <div class="ui-g-6"  style="align-content: center;padding-right:2vw">
+                        
+                        <div class="cuerpo" >{{DatosParametros.Valor}}</div>
+                </div>
+        </div>
+</div>

@@ -1,0 +1,35 @@
+input.text{
+   border: 1px solid #393939;
+   border-radius: 5px 5px 5px 5px;
+   color: #393939;
+   font-size: 25px;
+   padding: 0px;
+   font-weight:bold;
+   text-align: center;
+}
+.modmarcador {
+    font-size: 2.5em;
+}
+.btnFutbol {
+    -moz-border-radius: 10% !important;
+    -webkit-border-radius: 10% !important;
+    border-radius: 10% !important;
+}
+.marcador{
+    font-size: 70px;
+    line-height: 36px;
+    color: #757575;
+}
+.btnGuardar {
+    height: 3em;
+}
+.jugador{
+    font-size: 18px;
+    line-height: 12px;
+    color: #757575;
+}
+
+.acroll {
+    width: 30vh;
+    height: 30vh;
+  }

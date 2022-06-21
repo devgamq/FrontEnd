@@ -1,0 +1,30 @@
+<div class="ui-g">
+    <div class="contenedorImagen ui-g-12 ui-md-12 ui-lg-4">
+           <div class="fotografiaAcreditacion shadow-box ui-shadow-4"><img class="fotografiaAcreditacion"  src="{{fotof}}"></div>
+           
+    </div>
+    <div class="ui-g-12 ui-md-12 ui-lg-8">
+      <p-dataList [value]="detalle">  
+        <ng-template let-detalle pTemplate="item">
+            <div class="ui-g">
+                <div class="ui-g-12 ui-md-6 Prompt">Documento de Identidad: </div>
+                <div class="ui-g-12 ui-md-6 Value">{{detalle.DocIdentidad}}</div>
+                <div class="ui-g-12 ui-md-6 Prompt">Ap. Paterno: </div>
+                <div class="ui-g-12 ui-md-6 Value">{{detalle.Paterno}}</div>
+                <div class="ui-g-12 ui-md-6 Prompt">Ap. Materno: </div>
+                <div class="ui-g-12 ui-md-6 Value">{{detalle.Materno}}</div>
+                <div class="ui-g-12 ui-md-6 Prompt">Nombres: </div>
+                <div class="ui-g-12 ui-md-6 Value">{{detalle.Nombres}}</div>
+                <div class="ui-g-12 ui-md-6 Prompt">Fecha Nacimiento: </div>
+                <div class="ui-g-12 ui-md-6 Value">{{detalle.FechaNacimiento}}</div>
+                <div class="ui-g-12 ui-md-6 Prompt">Sexo: </div>
+                <div class="ui-g-12 ui-md-6 Value">{{detalle.Sexo}}</div>
+                <div class="ui-g-12 ui-md-6 Prompt">Grupo: </div>
+                <div class="ui-g-12 ui-md-6 Value">{{detalle.Grupo}}</div>
+                <div class="ui-g-12 ui-md-6 Prompt">Rol: </div>
+                <div class="ui-g-12 ui-md-6 Value">{{detalle.Rol}}</div>
+            </div>
+        </ng-template>
+      </p-dataList>
+    </div>
+</div>

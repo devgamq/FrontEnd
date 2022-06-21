@@ -1,0 +1,59 @@
+<div class="ui-g">
+  <div class="ui-g-12">
+    <div class="card card-w-title">
+      <h1>Personas registradas [{{equipo}}]
+        <div class="row ui-toolbar-group-right">
+        <button pButton type="button" icon="ui-icon-print" class="green-btn" (click)="openPdf()"></button>
+      </div></h1>
+      
+      <div class="ui-widget-header"
+        style="padding:4px 8px;border-bottom: 0 none;text-align:right;background-color:#424242">
+        <div class="row ui-toolbar-group-left">
+          <button pButton type="button" icon="ui-icon-plus" class="green-btn" (click)="addDeportista()"></button>
+          <!-- <button pButton type="button" icon="ui-icon-delete" class="teal-btn" (click)="confirmDelete()"
+            *ngIf="hideElement"></button>
+          <button pButton type="button" icon="ui-icon-edit" class="teal-btn" (click)="showDialog(this.type.Actualizar)"
+            *ngIf="hideElement"></button> -->
+
+        </div>
+        <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+        <input #gb type="text" pInputText size="25" style="color:white" placeholder="Buscar">
+      </div>
+
+
+      <p-dataTable [value]="tabla" [responsive]="true" [rows]="20" [paginator]="true" selectionMode="single"  [globalFilter]="gb">
+        <p-column header="IdEquipo" [hidden]="true" field="EquipoId"></p-column>
+        <p-column header="Id" [hidden]="true" field="PersonaId"></p-column>
+        <p-column header="Nombre" field="Nombre"></p-column>
+        <p-column header="Documento Identidad" field="DocIdentidad" [style]="{'text-align':'right'}"></p-column>
+        <p-column header="Fecha de Nacimiento" field="FechaNacimiento" styleClass="columna_small" [style]="{'text-align':'right'}"></p-column>
+        <p-column header="Celular" field="Celular" styleClass="columna_small" [style]="{'text-align':'right'}"></p-column>
+        <p-column header="Nro. Camiseta" field="NroCamiseta" styleClass="columna_small" [style]="{'text-align':'right'}"></p-column>
+        <p-column header="Rol" field="Rol" styleClass="columna_small" [style]="{'text-align':'center'}"></p-column>
+        <p-column header="Es FBF o ADF" field="Fbf" styleClass="columna_small" [style]="{'text-align':'center'}">
+          <ng-template let-col let-Fbf="rowData" pTemplate="body">
+            {{Fbf[col.field] ? 'Si' : 'No'}}
+          </ng-template>
+        </p-column>
+      </p-dataTable>
+
+      <!-- <p-dataTable [value]="lista" [responsive]="true" selectionMode="single" [(selection)]="Usuario"
+        (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)"
+        (onRowDblclick)="handleRowDblclickUsuario($event)" [rows]="10" [paginator]="true" [globalFilter]="gb">
+
+
+        <p-column field="Usuario" header="Cuenta de ingreso" size="40"></p-column>
+        <p-column field="FechaRegistro" header="Fecha Registro" size="8">
+          <ng-template let-col let-fecha="rowData" pTemplate="body">
+            {{fecha[col.field] | date:'shortDate'}}
+          </ng-template>
+        </p-column>
+        <p-column field="IsActivo" header="Estado" size="1">
+          <ng-template let-col let-estado="rowData" pTemplate="body">
+            <div class="circulo" [style.background]="estado[col.field]===false?'Red':'Green'"></div>
+          </ng-template>
+        </p-column>
+      </p-dataTable> -->
+    </div>
+  </div>
+</div>

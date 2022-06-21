@@ -1,0 +1,51 @@
+<div class="body1">
+  <div class="ui-g headerCiclismo">
+    <div class="ui-g-4 backLogo">
+      <img src="assets/07/logos/logo.png" class="logo">
+    </div>
+    <div class="ui-g-8 padre">
+      <span class="hijo" style="text-align: center">
+        <label class="titulos">Ciclismo Ruta</label>
+        <br />
+        <!-- <label class="delegaciones">Circuito Bolivia - {{coordenadas.prueba.Prueba}} {{coordenadas.prueba.Rama}}</label> -->
+        <br />
+        <label class="delegaciones">11 de Agosto del 2018</label>
+      </span>
+    </div>
+  </div>
+  <div class="ui-g">
+    <div class="ui-g-12 ui-md-12 ui-lg-12 ui-xl-12">
+      <div #gmap class="maps"></div>
+    </div>
+    <!-- <div class="ui-g-12 ui-md-12 ui-lg-12 ui-xl-6">
+      <div class="ui-g-12">
+        <!-- <p-panel header="Competidores"> -->
+        <div class="ui-g {{i%2!=0?'':'backcolor1'}}" *ngFor="let item of data let i = index">
+          <div class="ui-g-1 padre {{i%2==0?'':'backcolor1'}}">
+            <span class="hijo nombres">
+              {{item.Posicion}}
+            </span>
+          </div>
+          <div class="ui-g-1 padre">
+            <span class="hijo">
+              <img src="{{item.UrlFotoAtleta}}" class="imagen">
+            </span>
+          </div>
+          <div class="ui-g-7 padre">
+            <span class="hijo">
+              <label class="nombres">{{item.Nombre}}</label>
+              <br />
+              <label class="delegaciones">{{item.Delegacion}}</label>
+            </span>
+          </div>
+          <div class="ui-g-2 padre">
+            <span class="hijo">
+              <img src="{{item.UrlBandera}}" class="bandera">
+            </span>
+          </div>
+        </div>
+        <!-- </p-panel>
+      </div>
+    </div> -->
+  </div>
+</div>

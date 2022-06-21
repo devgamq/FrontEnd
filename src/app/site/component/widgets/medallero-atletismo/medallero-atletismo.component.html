@@ -1,0 +1,61 @@
+<div class=" panel_a">
+  
+  <div class="titulo_medallero"  [ngStyle]="style_titulo">{{titulo}}</div>
+  <div #panel class="panel_tabla">
+  
+      <table class="tabla" [ngStyle]="style">
+        <tr>
+            <th class="equipo" >EQUIPO</th>
+            <th class="columna" colspan="2">VELOCIDAD VALLAS</th>
+            <th class="columna" colspan="2">RELEVOS VELOCIDAD</th>
+            <th class="columna" colspan="2">SALTO LARGO</th>
+            <th class="columna" colspan="2">SALTO TRIPLE</th>
+            <th class="columna" colspan="2">SENTADILLA H. ADELANTE</th>
+            <th class="columna" colspan="2">LANZAMIENTO BALÓN MED.</th>
+            <th class="columna" colspan="2">LANZAMIENTO VORTEX</th>
+            <th class="columna" colspan="2">LANZAMIENTO ROTACIONAL</th>
+            <th class="columna" colspan="2">RESIST. 5 MIN</th>
+            <th class="columna" colspan="2">RELEVO 5 X 80 NIÑOS</th>
+            <th class="columna" colspan="2">RELEVO 5 X 80 NIÑAS</th>
+            <th class="columna" >TOTAL</th>
+            <th class="puesto"  >PUESTO</th>
+           
+        </tr>
+       <tr  *ngFor="let parametro of datasource">
+         <td class="equipo marcar">{{parametro.Equipo}}</td>
+         <td class="columna marcar valores"><div *ngIf="parametro.Punto12!='0'">{{parametro.Valor12.replace('00000','')}}</div></td>
+         <td class="columna_small marcar puntos">{{parametro.Punto12}}</td>
+         <td class="columna marcar valores"><div *ngIf="parametro.Punto13!='0'">{{parametro.Valor13.replace('00000','')}}</div></td>
+         <td class="columna_small marcar puntos">{{parametro.Punto13}}</td>
+         <td class="columna_small marcar valores" ><div *ngIf="parametro.Punto14!='0'">{{parametro.Valor14}}</div></td>
+         <td class="columna_small marcar puntos">{{parametro.Punto14}}</td>
+         <td class="columna_small marcar valores"><div *ngIf="parametro.Punto15!='0'">{{parametro.Valor15}}</div></td>
+         <td class="columna_small marcar puntos">{{parametro.Punto15}}</td>
+         <td class="columna_small marcar valores"><div *ngIf="parametro.Punto16!='0'">{{parametro.Valor16}}</div></td>
+         <td class="columna_small marcar puntos">{{parametro.Punto16}}</td>
+         <td class="columna_small marcar valores"><div *ngIf="parametro.Punto17!='0'">{{parametro.Valor17}}</div></td>
+         <td class="columna_small marcar puntos">{{parametro.Punto17}}</td>
+         <td class="columna_small marcar valores"><div *ngIf="parametro.Punto18!='0'">{{parametro.Valor18}}</div></td>
+         <td class="columna_small marcar puntos">{{parametro.Punto18}}</td>
+         <td class="columna_small marcar valores"><div *ngIf="parametro.Punto19!='0'">{{parametro.Valor19}}</div></td>
+         <td class="columna_small marcar puntos">{{parametro.Punto19}}</td>
+         <td class="columna_small marcar valores"><div *ngIf="parametro.Punto20!='0'">{{parametro.Valor20}}</div></td>
+         <td class="columna_small marcar puntos">{{parametro.Punto20}}</td>
+         <td class="columna marcar valores"><div *ngIf="parametro.Punto21!='0'">{{parametro.Valor21.replace('00000','')}}</div></td>
+         <td class="columna_small marcar puntos">{{parametro.Punto21}}</td>
+         <td class="columna marcar valores"><div *ngIf="parametro.Punto22!='0'">{{parametro.Valor22.replace('00000','')}}</div></td>
+         <td class="columna_small marcar puntos">{{parametro.Punto22}}</td>
+        
+         <td class="columna marcar total"><span *ngIf="parametro.Activo==true">{{parametro.Total}}</span>
+           <div class="eliminado"  *ngIf="parametro.Activo==false">{{parametro.Total}}</div>
+         </td>
+         <td class="puesto marcar">
+           <img class="medallas" src="assets/logos/med{{parametro.posicion}}.png" *ngIf="parametro.posicion!=''">
+        </td>
+       </tr>
+      
+    </table><br>
+    
+    
+ </div>
+</div>
