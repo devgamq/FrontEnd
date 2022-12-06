@@ -21,6 +21,8 @@
         <div layout="row">
             <div layout="column">
                 <div flex style="min-height:750px">
+                    <p-growl [(value)]="msgs"></p-growl>
+                    <p-messages [(value)]="msgs"></p-messages>
                     <router-outlet></router-outlet>
                  </div>
                  <div flex>

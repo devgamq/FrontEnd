@@ -44,13 +44,14 @@
     "quill": "^1.1.8",
     "rxjs": "^5.2.0",
     "signalr": "^2.2.2",
+    "sweetalert": "^2.1.2",
     "zone.js": "^0.7.7"
   },
   "devDependencies": {
     "@angular/cli": "^1.6.0",
     "@angular/compiler-cli": "4.0.0-rc.3",
     "@types/jasmine": "2.5.38",
-    "@types/node": "~6.0.60",
+    "@types/node": "^6.0.118",
     "@types/socket.io-client": "^1.4.27",
     "codelyzer": "~2.0.0",
     "css-loader": "^0.28.11",

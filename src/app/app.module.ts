@@ -52,6 +52,7 @@ import { MegaMenuModule } from 'primeng/primeng';
 import { MenuModule } from 'primeng/primeng';
 import { MenubarModule } from 'primeng/primeng';
 import { MessagesModule } from 'primeng/primeng';
+import { MessageModule } from 'primeng/primeng';
 import { MultiSelectModule } from 'primeng/primeng';
 import { OrderListModule } from 'primeng/primeng';
 import { OverlayPanelModule } from 'primeng/primeng';
@@ -315,6 +316,7 @@ export function createConfig(): SignalRConfiguration {
     MenuModule,
     MenubarModule,
     MessagesModule,
+    MessageModule,
     MultiSelectModule,
     OrderListModule,
     OverlayPanelModule,

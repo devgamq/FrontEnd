@@ -6,6 +6,7 @@ export class DetallePersona {
   Nombres: string;
   FechaNacimiento: Date;
   Sexo: string;
+  FotoUrl:string;
 
   constructor(values: Object = {}) {
     Object.assign(this, values);

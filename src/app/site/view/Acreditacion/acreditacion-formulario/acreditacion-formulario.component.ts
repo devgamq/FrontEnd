@@ -19,7 +19,8 @@ import 'rxjs/Rx';
 import { Sexo } from 'app/site/domain/Acreditacion/sexo';
 import { Delegacion } from 'app/site/domain/Acreditacion/delegacion';
 import { THIS_EXPR } from '@angular/compiler/typings/src/output/output_ast';
-import { GrowlModule, Message } from 'primeng/primeng';
+import { GrowlModule, Message, Messages} from 'primeng/primeng';
+import swal from 'sweetalert';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -297,18 +298,23 @@ export class FormularioAcreditacionComponent implements OnInit, OnDestroy {
             "FotoUrl": this.DatosPesona.photo
         }
         console.log('este parametro se envio :',data);
-        this.AcrePerso.setAcrePersonaInscrita(data).subscribe(res => {
-        const resp = res.json();
-           console.log(res,'guardardo change boton ', resp);
-           
-           this.msg = [];
-           this.msg.push({severity:'info',summary:'Se guardo exitosamente..',detail:'Toda la informacion ...1'});
-           setTimeout(function(){
-            this.msg.push({severity:'info',summary:'Se guardo exitosamente..',detail:'Toda la informacion ...2'}); 
-           },500);
-           this.router.navigate(["/"]);
-           
-        });
+
+        var op=confirm("Desea Registrar Toda la Informacion?...")
+        if (op == true) {
+            this.AcrePerso.setAcrePersonaInscrita(data).subscribe(res => {
+                this.router.navigate(["/"]);
+                swal('Existosamente Guardado','Toda la Informacion se guardo...','success');
+                this.msg = [];
+                this.msg.push({severity:'info',summary:'Se guardo exitosamente..',detail:'Toda la informacion ...1'}); 
+             });    
+        }
+        
+        else
+        {
+            swal('No se guardo aun','Puede Cambiar algo','success');
+            this.msg = [];
+            this.msg.push({severity:'info',summary:'Se cancelo exitosamente..',detail:''});
+        }
        
     }
 

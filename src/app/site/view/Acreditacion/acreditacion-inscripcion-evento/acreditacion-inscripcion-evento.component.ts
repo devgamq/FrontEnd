@@ -62,6 +62,7 @@ export class AcreditacionInscripcionEventoComponent implements OnInit {
   }
 
   rowDoubleClick($event) {
+    console.log('ESteEvento:',this.eventoId, 'Estas persona: ',this.personaId.PersonaId);
     this.router.navigate([`/master/detalle-acreditacion/${this.eventoId}/${this.personaId.PersonaId}`]);
   }
 

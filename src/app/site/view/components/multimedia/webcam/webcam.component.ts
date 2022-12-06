@@ -21,6 +21,7 @@ export class WebcamComponent implements AfterViewInit, OnChanges {
   photoStade: any = false;
   _stream: any;
   existCam = true;
+  imagebase64: any;
 
   @Input() PrivilegiosIdsInput?: string[];
   @Input() bandera?: any;
@@ -75,15 +76,22 @@ export class WebcamComponent implements AfterViewInit, OnChanges {
     console.log(file);// aqui validar tamaño
     const img = new Image;
     img.onload = () => {
-      this.context.drawImage(img, 0, 0, 300, 240); // 320,240
+      this.context.drawImage(img, 0, 0, 210, 150); // 320,240
       this.photoStade = true;
       this.onValid();
     };
     img.src = URL.createObjectURL(file);
+    let archivo=file;
+    let reader= new FileReader;
+    reader.readAsDataURL(file);
+    reader.onloadend=()=>{
+      this.imagebase64= reader.result;   
+    };
+
   }
 
   onValid() {
-    this.imgString = this._canvas.toDataURL('image/png');
+    this.imgString = this.imagebase64;
     this.photoValid = (!this.photoStade);
     if (!this.photoValid) {
       this.base64.emit(this.imgString);

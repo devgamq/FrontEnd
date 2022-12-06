@@ -9,7 +9,7 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "upload.php"
+        "fotos"
       ],
       "index": "index.html",
       "main": "main.ts",

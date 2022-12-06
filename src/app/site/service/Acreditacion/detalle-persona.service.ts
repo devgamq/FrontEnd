@@ -34,9 +34,9 @@ export class DetallePersonaService {
       .then((r: Response) => r.json() as DetallePersona[]);
   }
 
-  getFoto(personaId: number,Sexo :string): Promise<string> {
+  getFoto(personaId: string): Promise<string> {
     return this.http
-      .get(`${urls.urlGeneric}/api/Generic/GetFotoPersona?personaId=${personaId}&sex=${Sexo}`)
+      .get(`${urls.urlGeneric}/api/Generic/GetFoto?personaId=${personaId}`)
       .toPromise()
       .then((r: Response) => r.json() as string)
       .catch(this.handleError);
